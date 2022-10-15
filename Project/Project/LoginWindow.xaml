@@ -5,18 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-        
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-     TextElement.FontWeight="Regular"
-     TextElement.FontSize="13"
-     TextOptions.TextFormattingMode="Ideal"
-     TextOptions.TextRenderingMode="Auto"
-     Background="{DynamicResource MaterialDesignPaper}"
-     FontFamily="{DynamicResource MaterialDesignFont}"
-        
-        Title="LoginWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+  
+        Title="LoginWindow" Height="550" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+
+    <Border CornerRadius="12">
+        <Border.Background>
+            <ImageBrush ImageSource="/Assets/logo.png" />
+        </Border.Background>
+    <Border CornerRadius="10"
+            BorderThickness="5"
+            Opacity="0.2">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#c6eb34" Offset="0" />
+                <GradientStop Color="#46eb34" Offset="0.5" />
+                <GradientStop Color="#34ebde" Offset="1" />
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                <GradientStop Color="#fcfafc" Offset="0" />
+                <GradientStop Color="#c8eefa" Offset="1" />
+
+            </LinearGradientBrush>
+        </Border.Background>
+    </Border>
+    </Border>
 </Window>

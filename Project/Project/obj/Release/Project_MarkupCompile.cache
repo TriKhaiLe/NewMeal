@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Release\
 Project
 none
 false
-DEBUG;TRACE
+TRACE
 D:\Môn học\LTTQ\NewMeal_Project\Project\Project\App.xaml
 3-813907071
 
@@ -16,5 +16,5 @@ D:\Môn học\LTTQ\NewMeal_Project\Project\Project\App.xaml
 151919640708
 LoginWindow.xaml;MainResources\MainResource.xaml;MainWindow.xaml;
 
-False
+True
 
