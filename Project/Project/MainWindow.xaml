@@ -3,8 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
+        xmlns:uc="clr-namespace:Project.UserControlXAML"
         
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -12,11 +14,79 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
+      
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-        
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        DataContext="{StaticResource MainVM}"
+        Title="MainWindow" Height="500" Width="800">
+    <Border CornerRadius="12,12,12,12">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" ></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="#FFFFEB84" Width="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Row="0 " >
+                    <Ellipse  Width="100" Height="100" >
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Assets/logo.png" Stretch="Fill"></ImageBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <TextBlock Text="Hello , User !" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="Black"
+                                 IsChecked="True"
+                                 Command="{Binding ShowHomeViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ChartDonut" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Bảng thống kê" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="Black"
+                                 IsChecked="True"
+                                 Command="{Binding ShowHomeViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FoodTakeoutBox" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Món ăn" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="Black"
+                                 Command="{Binding ShowHomeViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="History" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Lịch sử món ăn" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="Black"
+                                 Command="{Binding ShowHomeViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountCircle" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Tài khoản" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+                <Button
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                Grid.Row="2"
+                materialDesign:ShadowAssist.ShadowAnimationDuration="0:0:0.5"
+                Content="Đăng xuất">
+                </Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <uc:FoodPage></uc:FoodPage>
+            </Grid>
+        </Grid>
+    </Border>
+    
 </Window>
