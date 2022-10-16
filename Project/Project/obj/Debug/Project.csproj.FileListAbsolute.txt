@@ -1,0 +1,78 @@
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\bin\Debug\Project.exe.config
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\bin\Debug\Project.exe
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\bin\Debug\Project.pdb
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\bin\Debug\MaterialDesignColors.dll
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\bin\Debug\MaterialDesignColors.pdb
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project.csproj.AssemblyReference.cache
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\MainWindow.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\App.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project_MarkupCompile.cache
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project_MarkupCompile.lref
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\App.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\MainWindow.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project.g.resources
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project.Properties.Resources.resources
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project.csproj.CopyComplete
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project.exe
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\Project.pdb
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\Project\Project\obj\Debug\MainResources\MainResource.baml
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\bin\Debug\Project.exe.config
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\bin\Debug\Project.exe
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\bin\Debug\Project.pdb
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignColors.dll
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignColors.pdb
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.AssemblyReference.cache
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.g.cs
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\MainWindow.g.cs
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\App.g.cs
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project_MarkupCompile.cache
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project_MarkupCompile.lref
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\App.baml
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.baml
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\MainResources\MainResource.baml
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\MainWindow.baml
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project.g.resources
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project.Properties.Resources.resources
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.CopyComplete
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project.exe
+D:\Môn học\LTTQ\NewMeal_Project\Project\Project\obj\Debug\Project.pdb
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\bin\Debug\Project.exe.config
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\bin\Debug\Project.exe
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\bin\Debug\Project.pdb
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\bin\Debug\MaterialDesignColors.dll
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.dll
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\bin\Debug\MaterialDesignColors.pdb
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.xml
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.csproj.AssemblyReference.cache
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.csproj.SuggestedBindingRedirects.cache
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\LoginWindow.g.cs
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\MainWindow.g.cs
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\App.g.cs
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project_MarkupCompile.cache
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project_MarkupCompile.lref
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\App.baml
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\LoginWindow.baml
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\MainResources\MainResource.baml
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\MainWindow.baml
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.g.resources
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.Properties.Resources.resources
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.csproj.CopyComplete
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.exe
+F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.pdb
