@@ -5,8 +5,90 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Project.UserControlXAML"
              mc:Ignorable="d" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+      
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+             
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Button Content="Hello"></Button>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0">
+                <TextBlock Text="Hôm nay ăn gì ?" HorizontalAlignment="Left"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <ToggleButton
+                        Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignSwitchToggleButton}"
+                        ToolTip="MaterialDesignSwitchToggleButton"
+                        IsChecked="True"/>
+                    <TextBlock Text="Thịt" Margin="0 0 10 0"></TextBlock>
+                    <ToggleButton
+                        Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignSwitchToggleButton}"
+                        ToolTip="MaterialDesignSwitchToggleButton"
+                        IsChecked="True"/>
+                    <TextBlock Text="Rau củ" Margin="0 0 10 0"></TextBlock>
+                </StackPanel>
+            </DockPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="RadioButton">
+                        <Setter Property="Height" Value="100"/>
+                        <Setter Property="Width" Value="50"/>
+                        <Setter Property="Margin" Value="-5,0,0,5"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="RadioButton">
+                                    <Rectangle RadiusX="20" RadiusY="20" Height="90">
+                                            <Rectangle.Stroke>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="Black"/>
+                                                    <GradientStop Color="#FFA4A4A4" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Rectangle.Stroke>
+                                        </Rectangle>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Grid.Resources>
+                <RadioButton Grid.Column="0">
+                    <DockPanel>
+                        <TextBlock Text="Hello"></TextBlock>
+                    </DockPanel>
+                </RadioButton>
+                <RadioButton Grid.Column="1"></RadioButton>
+                <RadioButton Grid.Column="2"></RadioButton>
+                <RadioButton Grid.Column="3"></RadioButton>
+                <RadioButton Grid.Column="4"></RadioButton>
+                <RadioButton Grid.Column="5"></RadioButton>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>
