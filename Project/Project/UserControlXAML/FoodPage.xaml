@@ -28,21 +28,31 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <DockPanel Grid.Row="0">
-                <TextBlock Text="Hôm nay ăn gì ?" HorizontalAlignment="Left"></TextBlock>
+            <DockPanel Grid.Row="0" Margin="0 0 0 20">
+                <TextBlock
+                    Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                    Text="Hôm nay ăn gì ?" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <ToggleButton
                         Margin="0 0 10 0"
                         Style="{StaticResource MaterialDesignSwitchToggleButton}"
                         ToolTip="MaterialDesignSwitchToggleButton"
                         IsChecked="True"/>
-                    <TextBlock Text="Thịt" Margin="0 0 10 0"></TextBlock>
+                    <Rectangle Width="30" Height="30">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/Assets/meat.png"></ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
                     <ToggleButton
-                        Margin="0 0 10 0"
+                        Margin="20 0 10 0"
                         Style="{StaticResource MaterialDesignSwitchToggleButton}"
                         ToolTip="MaterialDesignSwitchToggleButton"
                         IsChecked="True"/>
-                    <TextBlock Text="Rau củ" Margin="0 0 10 0"></TextBlock>
+                    <Rectangle Width="30" Height="30">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/Assets/vegetable.png"></ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
                 </StackPanel>
             </DockPanel>
             <Grid Grid.Row="1">
@@ -56,17 +66,17 @@
                 </Grid.ColumnDefinitions>
                 <Grid.Resources>
                     <Style TargetType="RadioButton">
-                        <Setter Property="Height" Value="100"/>
-                        <Setter Property="Width" Value="50"/>
+                        <Setter Property="Height" Value="140"/>
+                        <Setter Property="Width" Value="80"/>
                         <Setter Property="Margin" Value="-5,0,0,5"/>
-                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Background" Value="GhostWhite"/>
                         <Setter Property="Foreground" Value="Black"/>
                         <Setter Property="BorderBrush" Value="Transparent"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="RadioButton" >
                                     <Grid>
-                                        <Rectangle RadiusX="20" RadiusY="20" Height="90">
+                                        <Rectangle RadiusX="20" RadiusY="20" Height="140" Fill="{TemplateBinding Background}">
                                             <Rectangle.Stroke>
                                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                     <GradientStop Color="Black"/>
@@ -78,24 +88,82 @@
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
+                        <Style.Triggers>
+                            <!--Button Style on hover-->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFFC200"/>
+                                <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
+                            </Trigger>
+                            <!--Activated button style-->
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#FFFFC200"/>
+                                <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
                     </Style>
                 </Grid.Resources>
                 <RadioButton Grid.Column="0">
-                    <StackPanel Width="50" HorizontalAlignment="Center">
-                        <Ellipse Width="30" Height="30" StrokeThickness="0.5" Stroke="Black">
+                    <StackPanel Width="80" HorizontalAlignment="Center">
+                        <Ellipse Width="50" Height="50" StrokeThickness="0.5" Stroke="Black">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="/Assets/logo.png"/>
+                                <ImageBrush ImageSource="/Assets/rice.png"/>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <TextBlock Margin="0 10 0 0" Text="Hello" HorizontalAlignment="Center"/>
+                        <TextBlock Margin="0 10 0 0" Text="Cơm" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </RadioButton>
-                <RadioButton Grid.Column="1"></RadioButton>
-                <RadioButton Grid.Column="2"></RadioButton>
-                <RadioButton Grid.Column="3"></RadioButton>
-                <RadioButton Grid.Column="4"></RadioButton>
-                <RadioButton Grid.Column="5"></RadioButton>
+                <RadioButton Grid.Column="1">
+                    <StackPanel Width="80" HorizontalAlignment="Center">
+                        <Ellipse Width="50" Height="50" StrokeThickness="0.5" Stroke="Black">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Assets/noodle.png" Stretch="Fill" TileMode="None"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Margin="0 10 0 0" Text="Món nước" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Grid.Column="2">
+                    <StackPanel Width="80" HorizontalAlignment="Center">
+                        <Ellipse Width="50" Height="50" StrokeThickness="0.5" Stroke="Black">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Assets/seafood.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Margin="0 10 0 0" Text="Đồ biển" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Grid.Column="3">
+                    <StackPanel Width="80" HorizontalAlignment="Center">
+                        <Ellipse Width="50" Height="50" StrokeThickness="0.5" Stroke="Black">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Assets/soup.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Margin="0 10 0 0" Text="Canh" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Grid.Column="4">
+                    <StackPanel Width="80" HorizontalAlignment="Center">
+                        <Ellipse Width="50" Height="50" StrokeThickness="0.5" Stroke="Black">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Assets/drink.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Margin="0 10 0 0" Text="Thức uống" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Grid.Column="5">
+                    <StackPanel Width="80" HorizontalAlignment="Center">
+                        <Ellipse Width="50" Height="50" StrokeThickness="0.5" Stroke="Black">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Assets/cake.jpg" Stretch="Fill" Viewport="0,0,1,1"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Margin="0 10 0 0" Text="Đồ ăn vặt" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
             </Grid>
+            
         </Grid>
     </Grid>
 </UserControl>
