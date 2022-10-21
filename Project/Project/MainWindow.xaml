@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
         xmlns:uc="clr-namespace:Project.UserControlXAML"
+        xmlns:viewmodels="clr-namespace:Project.ViewModel"
         
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -14,11 +15,26 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
-      
+      WindowStartupLocation="CenterScreen"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
-        Title="MainWindow" Height="500" Width="800">
+        
+        Title="MainWindow" Height="700" Width="1100">
+    <Window.Resources>
+        <DataTemplate x:Name="FoodPageTemplate" DataType="{x:Type viewmodels:FoodViewModel}">
+            <uc:FoodPage DataContext="{Binding}"></uc:FoodPage>
+        </DataTemplate>
+        <DataTemplate x:Name="HistoryPageTemplate" DataType="{x:Type viewmodels:HistoryViewModel}">
+            <uc:HistoryPage DataContext="{Binding}"></uc:HistoryPage>
+        </DataTemplate>
+        <DataTemplate x:Name="CaloriePageTemplate" DataType="{x:Type viewmodels:CalorieBurnViewModel}">
+            <uc:CalorieBurnPage DataContext="{Binding}"></uc:CalorieBurnPage>
+        </DataTemplate>
+        <DataTemplate x:Name="AccountPageTemplate" DataType="{x:Type viewmodels:AccountViewModel}">
+            <uc:AccountPage DataContext="{Binding}"></uc:AccountPage>
+        </DataTemplate>
+    </Window.Resources>
     <Border CornerRadius="12,12,12,12">
         <Grid >
             <Grid.ColumnDefinitions>
@@ -44,16 +60,16 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="Black"
                                  IsChecked="True"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Checked="CalorieBurn_Checked">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ChartDonut" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Bảng thống kê" Style="{StaticResource menuButtonText}"/>
+                            <materialDesign:PackIcon Kind="FireCircle" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Đốt cháy Calo" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="Black"
                                  IsChecked="True"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Checked="Food_Checked">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="FoodTakeoutBox" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Món ăn" Style="{StaticResource menuButtonText}"/>
@@ -61,7 +77,7 @@
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="Black"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Checked="History_Checked">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="History" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Lịch sử món ăn" Style="{StaticResource menuButtonText}"/>
@@ -69,7 +85,7 @@
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="Black"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Checked="Account_Checked">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="AccountCircle" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Tài khoản" Style="{StaticResource menuButtonText}"/>
@@ -83,9 +99,7 @@
                 Content="Đăng xuất">
                 </Button>
             </Grid>
-            <Grid Grid.Column="1">
-                <uc:FoodPage></uc:FoodPage>
-            </Grid>
+            <ContentControl Margin="10 0 0 0" Grid.Column="1" Content="{Binding}"></ContentControl>
         </Grid>
     </Border>
     

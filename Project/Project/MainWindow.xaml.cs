@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,26 @@ namespace Project
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void CalorieBurn_Checked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new CalorieBurnViewModel();
+        }
+
+        private void Food_Checked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new FoodViewModel();
+        }
+
+        private void History_Checked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new HistoryViewModel();
+        }
+
+        private void Account_Checked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new AccountViewModel();
         }
     }
 }
