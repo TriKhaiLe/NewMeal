@@ -76,3 +76,29 @@ F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj
 F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.csproj.CopyComplete
 F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.exe
 F:\HK1-Nam2\Lap trinh truc quan\NewMeal_Project-Tri-s-branch\Project\Project\obj\Debug\Project.pdb
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\bin\Debug\Project.exe.config
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\bin\Debug\Project.exe
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\bin\Debug\Project.pdb
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignColors.dll
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignColors.pdb
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.g.cs
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\MainWindow.g.cs
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\App.g.cs
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project_MarkupCompile.cache
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project_MarkupCompile.lref
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\App.baml
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.baml
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\MainResources\MainResource.baml
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\MainWindow.baml
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.g.resources
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.Properties.Resources.resources
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.exe
+C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.pdb
