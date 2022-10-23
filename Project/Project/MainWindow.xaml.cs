@@ -36,9 +36,9 @@ namespace Project
             DataContext = new FoodViewModel();
         }
 
-        private void History_Checked(object sender, RoutedEventArgs e)
+        private void Recommend_Checked(object sender, RoutedEventArgs e)
         {
-            DataContext = new HistoryViewModel();
+            DataContext = new RecommendViewModel();
         }
 
         private void Account_Checked(object sender, RoutedEventArgs e)

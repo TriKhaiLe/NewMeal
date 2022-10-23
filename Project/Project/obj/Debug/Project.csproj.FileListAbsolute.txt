@@ -54,9 +54,7 @@ C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Pr
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.CopyComplete
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage.g.cs
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\HistoryPage.g.cs
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\HistoryPage.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\CalorieBurnPage.g.cs
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\CalorieBurnPage.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.dll
@@ -65,3 +63,5 @@ C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Pr
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.xml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\RecommendPage.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\RecommendPage.baml

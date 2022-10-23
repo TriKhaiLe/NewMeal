@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Project.UserControlXAML
 {
     /// <summary>
-    /// Interaction logic for HistoryPage.xaml
+    /// Interaction logic for RecommendPage.xaml
     /// </summary>
-    public partial class HistoryPage : UserControl
+    public partial class RecommendPage : UserControl
     {
-        public HistoryPage()
+        public RecommendPage()
         {
             InitializeComponent();
         }

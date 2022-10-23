@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.ViewModel
 {
-    internal class HistoryViewModel
+    internal class RecommendViewModel
     {
     }
 }

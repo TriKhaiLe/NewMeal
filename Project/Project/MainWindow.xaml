@@ -25,8 +25,8 @@
         <DataTemplate x:Name="FoodPageTemplate" DataType="{x:Type viewmodels:FoodViewModel}">
             <uc:FoodPage DataContext="{Binding}"></uc:FoodPage>
         </DataTemplate>
-        <DataTemplate x:Name="HistoryPageTemplate" DataType="{x:Type viewmodels:HistoryViewModel}">
-            <uc:HistoryPage DataContext="{Binding}"></uc:HistoryPage>
+        <DataTemplate x:Name="RecommendPageTemplate" DataType="{x:Type viewmodels:RecommendViewModel}">
+            <uc:RecommendPage DataContext="{Binding}"></uc:RecommendPage>
         </DataTemplate>
         <DataTemplate x:Name="CaloriePageTemplate" DataType="{x:Type viewmodels:CalorieBurnViewModel}">
             <uc:CalorieBurnPage DataContext="{Binding}"></uc:CalorieBurnPage>
@@ -77,10 +77,10 @@
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="Black"
-                                 Checked="History_Checked">
+                                 Checked="Recommend_Checked">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="History" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Lịch sử món ăn" Style="{StaticResource menuButtonText}"/>
+                            <materialDesign:PackIcon Kind="ThumbUp" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Đề xuất món" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
