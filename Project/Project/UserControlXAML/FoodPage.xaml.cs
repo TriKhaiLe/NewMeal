@@ -44,17 +44,17 @@ namespace Project.UserControlXAML
             int time = Convert.ToInt32(DateTime.Now.Hour.ToString());
             if (time >= 4 && time < 11)
             {
-                HelloTime_tb.Text = "Xin chào buổi sáng !";
+                HelloTime_tb.Text = "Buổi sáng tốt lành !";
             }
             else if (time >= 11 && time <= 12)
             {
-                HelloTime_tb.Text = "Xin chào buổi trưa !";
+                HelloTime_tb.Text = "Buổi trưa vui vẻ !";
             }
             else if (time > 12 && time < 18)
             {
-                HelloTime_tb.Text = "Xin chào buổi chiều !";
+                HelloTime_tb.Text = "Buổi chiều thoải mái !";
             }
-            else HelloTime_tb.Text = "Xin chào buổi tối";
+            else HelloTime_tb.Text = "Buổi tối an lành !";
         }
         public class User
         {
