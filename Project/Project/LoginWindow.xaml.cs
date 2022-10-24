@@ -49,7 +49,7 @@ namespace Project
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Your mom just got fucked!!!!!");
+            MessageBox.Show("Xin chào");
         }
     }
 }
