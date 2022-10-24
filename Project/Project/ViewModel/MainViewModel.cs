@@ -12,8 +12,6 @@ namespace Project.ViewModel
     public class MainViewModel
     {
 
-        public MainViewModel()
-        {
-        }   
+
     }
 }
