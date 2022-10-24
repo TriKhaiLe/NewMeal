@@ -19,8 +19,8 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
-        
         Title="MainWindow" Height="700" Width="1100">
+
     <Window.Resources>
         <DataTemplate x:Name="FoodPageTemplate" DataType="{x:Type viewmodels:FoodViewModel}">
             <uc:FoodPage DataContext="{Binding}"></uc:FoodPage>
@@ -35,6 +35,7 @@
             <uc:AccountPage DataContext="{Binding}"></uc:AccountPage>
         </DataTemplate>
     </Window.Resources>
+    
     <Border CornerRadius="12,12,12,12">
         <Grid >
             <Grid.ColumnDefinitions>

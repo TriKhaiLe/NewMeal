@@ -65,3 +65,7 @@ C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Pr
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\RecommendPage.g.cs
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\RecommendPage.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\System.Windows.Interactivity.xml
