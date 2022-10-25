@@ -34,17 +34,25 @@ namespace Project
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+            if (WindowState != WindowState.Minimized)
+            {
+                WindowState = (WindowState.Minimized);
+            }
+            else {WindowState = WindowState.Normal; }
         }
 
         private void btnMaximize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Maximized;
+            if (WindowState != WindowState.Maximized)
+            {
+                WindowState = (WindowState.Maximized);
+            }
+            else { WindowState = WindowState.Normal; }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            LoginWindow.GetWindow(this).Close();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)

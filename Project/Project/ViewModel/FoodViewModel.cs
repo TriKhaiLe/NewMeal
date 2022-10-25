@@ -17,7 +17,7 @@ namespace Project.ViewModel
             LoadedCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
+                loginWindow.Show();
             });
         }
     }
