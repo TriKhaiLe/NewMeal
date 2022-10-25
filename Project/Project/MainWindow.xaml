@@ -19,7 +19,7 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
-        Title="MainWindow" Height="700" Width="1100">
+        Title="MainWindow" Height="700" Width="1300">
 
     <Window.Resources>
         <DataTemplate x:Name="FoodPageTemplate" DataType="{x:Type viewmodels:FoodViewModel}">
