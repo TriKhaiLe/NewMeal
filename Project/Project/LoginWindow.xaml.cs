@@ -48,6 +48,7 @@ namespace Project
             if (this.WindowState != WindowState.Maximized)
             {
                 this.WindowState = (WindowState.Maximized);
+                this.btnMaximize.Content = "🗗";
             }
             else { this.WindowState = WindowState.Normal; }
         }
