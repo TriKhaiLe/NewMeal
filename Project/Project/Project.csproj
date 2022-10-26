@@ -84,6 +84,15 @@
     <Compile Include="UserControlXAML\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlXAML\AcountPage\AP_Menu.xaml.cs">
+      <DependentUpon>AP_Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlXAML\AcountPage\AP_Password.xaml.cs">
+      <DependentUpon>AP_Password.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlXAML\AcountPage\AP_Profile.xaml.cs">
+      <DependentUpon>AP_Profile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlXAML\CalorieBurnPage.xaml.cs">
       <DependentUpon>CalorieBurnPage.xaml</DependentUpon>
     </Compile>
@@ -124,6 +133,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControlXAML\AccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlXAML\AcountPage\AP_Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlXAML\AcountPage\AP_Password.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlXAML\AcountPage\AP_Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

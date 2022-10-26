@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\
 Project
 none
 false
 DEBUG;TRACE
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\App.xaml
-8605007914
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\App.xaml
+11-1106699652
 
-161005291518
-17255520820
-LoginWindow.xaml;MainResources\ButtonMenuStyle.xaml;MainResources\MainResource.xaml;MainWindow.xaml;UserControlXAML\AccountPage.xaml;UserControlXAML\CalorieBurnPage.xaml;UserControlXAML\FoodPage.xaml;UserControlXAML\RecommendPage.xaml;
+19-620467300
+17-1795604620
+LoginWindow.xaml;MainResources\ButtonMenuStyle.xaml;MainResources\MainResource.xaml;MainWindow.xaml;UserControlXAML\AccountPage.xaml;UserControlXAML\AcountPage\AP_Menu.xaml;UserControlXAML\AcountPage\AP_Password.xaml;UserControlXAML\AcountPage\AP_Profile.xaml;UserControlXAML\CalorieBurnPage.xaml;UserControlXAML\FoodPage.xaml;UserControlXAML\RecommendPage.xaml;
 
 False
 

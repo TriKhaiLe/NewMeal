@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\App.xaml
-8605007914
+11-1106699652
 
-17-1076797100
+201592411378
 17-1795604620
-LoginWindow.xaml;MainResources\ButtonMenuStyle.xaml;MainResources\MainResource.xaml;MainWindow.xaml;UserControlXAML\AccountPage.xaml;UserControlXAML\CalorieBurnPage.xaml;UserControlXAML\FoodPage.xaml;UserControlXAML\RecommendPage.xaml;
+LoginWindow.xaml;MainResources\ButtonMenuStyle.xaml;MainResources\MainResource.xaml;MainWindow.xaml;UserControlXAML\AccountPage.xaml;UserControlXAML\AcountPage\AP_Menu.xaml;UserControlXAML\AcountPage\AP_Password.xaml;UserControlXAML\AcountPage\AP_Profile.xaml;UserControlXAML\CalorieBurnPage.xaml;UserControlXAML\FoodPage.xaml;UserControlXAML\RecommendPage.xaml;
 
 False
 

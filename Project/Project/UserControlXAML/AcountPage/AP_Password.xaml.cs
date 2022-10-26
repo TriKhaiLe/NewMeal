@@ -1,5 +1,4 @@
-﻿using Project.UserControlXAML.AcountPage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,24 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project.UserControlXAML
+namespace Project.UserControlXAML.AcountPage
 {
     /// <summary>
-    /// Interaction logic for AccountPage.xaml
+    /// Interaction logic for AP_Password.xaml
     /// </summary>
-    public partial class AccountPage : UserControl
+    public partial class AP_Password : UserControl
     {
-
-        public AccountPage()
+        public AP_Password()
         {
             InitializeComponent();
-            Screen.Content = new AP_Menu();
-            
-        }
-
-        public void SetContent()
-        {
-            Screen.Content = null;
         }
     }
 }
