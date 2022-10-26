@@ -230,6 +230,16 @@
                             MaxWidth="400"
                             Width="200"
                             />
+                        <Button
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Margin="5"
+                                Height="25"
+                                Width="100"
+                                materialDesign:ButtonAssist.CornerRadius="12"
+                                >
+                            <TextBlock Text="Thêm món">
+                            </TextBlock>
+                        </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right">
                         <Label Content="Sắp xếp theo :" VerticalAlignment="Center"></Label>
@@ -247,61 +257,55 @@
 
                 </DockPanel>
                 <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition  ></ColumnDefinition>
-                        <ColumnDefinition Width="auto" ></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0">
-                        <ListView   Name="lvDataBinding" SelectionChanged="lvDataBinding_SelectionChanged">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ListView  Name="lvDataBinding" SelectionChanged="lvDataBinding_SelectionChanged">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <materialDesign:Card
                                 materialDesign:ElevationAssist.Elevation="Dp2">
                                         <Border CornerRadius="12" Background="White"  >
-                                            <DockPanel Width="400">
-                                                <Rectangle Margin="0 0 10 10" Width="50" Height="50">
-                                                    <Rectangle.Fill>
-                                                        <ImageBrush ImageSource="/Assets/logo.png"></ImageBrush>
-                                                    </Rectangle.Fill>
-                                                </Rectangle>
-                                                <TextBlock Text="Name: " />
-                                                <TextBlock Text="{Binding Name}" FontWeight="Bold" />
-                                            </DockPanel>
+                                            <Grid Width="850">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                                    <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
+                                                        <Rectangle.Fill>
+                                                            <ImageBrush ImageSource="/Assets/logo.png"></ImageBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                    <TextBlock Text="Name: " />
+                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                                </StackPanel>
+                                                <StackPanel Margin="0 0 20 0" Grid.Column="1" Orientation="Horizontal">
+                                                    <Button
+                                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                    Margin="5"
+                                                    Height="50"
+                                                    Width="50"
+                                                    materialDesign:ButtonAssist.CornerRadius="50"
+                                                    >
+                                                        <materialDesign:PackIcon Kind="Pencil" />
+                                                    </Button>
+                                                    <Button
+                                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                    Margin="5"
+                                                    Height="50"
+                                                    Width="50"
+                                                    materialDesign:ButtonAssist.CornerRadius="50"
+                                                    >
+                                                        <materialDesign:PackIcon Kind="Delete" />
+                                                    </Button>
+                                                </StackPanel>
+
+                                            </Grid>
                                         </Border>
                                     </materialDesign:Card>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
                     </ScrollViewer>
-                    <StackPanel Grid.Column="1">
-                        <Button
-                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                Margin="5"
-                                Height="25"
-                                Width="100"
-                                materialDesign:ButtonAssist.CornerRadius="12"
-                                >
-                            <TextBlock Text="Thêm" />
-                        </Button>
-                        <Button
-                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                Margin="5"
-                                Height="25"
-                                Width="100"
-                                materialDesign:ButtonAssist.CornerRadius="12"
-                                >
-                            <TextBlock Text="Xóa" />
-                        </Button>
-                        <Button
-                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                Height="25"
-                                Margin="5"
-                                Width="100"
-                                materialDesign:ButtonAssist.CornerRadius="12"
-                                >
-                            <TextBlock Text="Sửa" />
-                        </Button>
-                    </StackPanel>
                 </Grid>
                 
             </Grid>

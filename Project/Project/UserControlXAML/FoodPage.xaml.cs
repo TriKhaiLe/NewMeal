@@ -23,6 +23,7 @@ namespace Project.UserControlXAML
         public FoodPage()
         {
             InitializeComponent();
+            this.DataContext = this;
             List<User> items = new List<User>();
             
             items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
