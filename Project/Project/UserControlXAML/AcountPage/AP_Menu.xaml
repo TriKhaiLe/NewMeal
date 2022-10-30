@@ -17,7 +17,7 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
             
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="684" d:DesignWidth="940">
     <Grid Margin="0 10 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"></RowDefinition>
@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Ellipse x:Name="avatar" VerticalAlignment="Bottom" Margin="0 0 0 5" Width="120" Height="120" Fill="LightGray"/>
+            <Ellipse x:Name="avatar" VerticalAlignment="Bottom" Margin="0 0 0 5" Width="200" Height="200" Fill="LightGray"/>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -48,7 +48,7 @@
 
                 <Grid Grid.Row="0">
                     
-                    <Image x:Name="button_profile" Margin="0 20 0 10" Source="/Assets/Account/profile.png" MouseEnter="profile_MouseEnter" MouseLeave="profile_MouseLeave" MouseLeftButtonDown="profile_LeftButtonDown"/>
+                    <Image x:Name="button_profile" Margin="0 20 0 10" Source="/Assets/Account/profile.png" MouseEnter="profile_MouseEnter" MouseLeave="profile_MouseLeave" MouseLeftButtonDown="profile_MouseLeftButtonDown"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
@@ -64,7 +64,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <Image x:Name="button_password" Margin="0 20 0 10" Source="/Assets/Account/password.png" MouseEnter="password_MouseEnter" MouseLeave="password_MouseLeave"/>
+                    <Image x:Name="button_password" Margin="0 20 0 10" Source="/Assets/Account/password.png" MouseEnter="password_MouseEnter" MouseLeave="password_MouseLeave" MouseLeftButtonDown="password_MouseLeftButtonDown"/>
                 </Grid>
 
                 <Grid Grid.Row="1">

@@ -55,7 +55,12 @@ namespace Project.UserControlXAML.AcountPage
             button_settings.Margin = new Thickness(0, 20, 0, 10);
         }
 
-        private void profile_LeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void password_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            (this.Parent as ContentControl).Content = new AP_Password();
+        }
+
+        private void profile_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             (this.Parent as ContentControl).Content = new AP_Profile();
         }
