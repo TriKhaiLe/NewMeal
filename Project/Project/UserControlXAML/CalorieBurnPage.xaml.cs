@@ -18,11 +18,60 @@ namespace Project.UserControlXAML
     /// <summary>
     /// Interaction logic for CalorieBurnPage.xaml
     /// </summary>
+    
     public partial class CalorieBurnPage : UserControl
     {
         public CalorieBurnPage()
         {
             InitializeComponent();
+
+            List<User> items = new List<User>();
+
+            items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
+            items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
+            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
+            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
+            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
+            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
+            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
+            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
+            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
+            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
+            lvCaloriesBurned.ItemsSource = items;
+        }
+
+        public class User
+        {
+            public string Name { get; set; }
+
+            public int Age { get; set; }
+
+            public string Mail { get; set; }
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            lvCaloriesBurned.ItemsSource = CalculateCalories(Convert.ToInt32(TextBox1.Text));
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private List<string> CalculateCalories(int calories)
+        {
+            return new List<string> { calories.ToString() };
+        }
+
+        private void lvCaloriesBurned_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
