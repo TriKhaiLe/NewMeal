@@ -20,7 +20,12 @@
      FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
         Title="MainWindow" Height="700" Width="1300">
-
+   
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Window.Resources>
         <DataTemplate x:Name="FoodPageTemplate" DataType="{x:Type viewmodels:FoodViewModel}">
             <uc:FoodPage DataContext="{Binding}"></uc:FoodPage>

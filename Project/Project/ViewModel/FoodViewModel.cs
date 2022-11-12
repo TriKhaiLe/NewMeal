@@ -14,10 +14,11 @@ namespace Project.ViewModel
         public ICommand LoadedCommand { get; set; }
         public FoodViewModel()
         {
-            LoadedCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            LoadedCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
+
             });
         }
     }
