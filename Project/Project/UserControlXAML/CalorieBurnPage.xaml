@@ -3,9 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:Project.UserControlXAML" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:local="clr-namespace:Project.UserControlXAML"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
+               xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+      Name="ap_profile"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"        
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -20,9 +30,24 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="1">
-                <materialDesign:PackIcon Kind="Fire" Width="50" Height="50" Margin="32,22,0,0" Grid.RowSpan="2" RenderTransformOrigin="0.568,-0.004"/>
-                <Button Content="Tính" HorizontalAlignment="Left" Margin="291,34,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-                <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="79,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" FontSize="20"/>
+                <materialDesign:PackIcon Kind="Fire" Width="50" Height="50" Margin="0,16,0,0" RenderTransformOrigin="0.568,-0.004"/>
+                <Button Content="Tính" HorizontalAlignment="Left" Margin="315,27,0,0" VerticalAlignment="Top" Width="75" Click="Calculate_click" RenderTransformOrigin="0.387,-0.375"/>
+                <TextBox
+                    x:Name="CaloBox"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    Margin="50,16,0,0"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    Width="250"
+                    Height="50"
+                    MaxWidth="400"
+                    MaxLength="5"
+                    materialDesign:HintAssist.Hint="Calo cần đốt"
+                    materialDesign:HintAssist.HelperText="Nhập số"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}" HorizontalAlignment="Left"
+                    >
+                </TextBox>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
@@ -38,20 +63,21 @@
 
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition Height="4*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock Margin="41,48,0,0" TextWrapping="Wrap" Text="Tìm bài tập:" VerticalAlignment="Top" RenderTransformOrigin="0.588,1.359" HorizontalAlignment="Left" Width="102" FontSize="16"/>
-                    <TextBox x:Name="TextBox1_Copy" HorizontalAlignment="Left" Margin="143,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" FontSize="20" RenderTransformOrigin="0.489,-0.494"/>
-                    <Button Content="🔍" HorizontalAlignment="Left" Margin="481,41,0,0" VerticalAlignment="Top" Width="52" Click="Button_Click" Height="29"/>
+                    <TextBlock Margin="41,30,0,0" TextWrapping="Wrap" Text="Tìm bài tập:" VerticalAlignment="Top" RenderTransformOrigin="0.588,1.359" HorizontalAlignment="Left" Width="102" FontSize="16"/>
+                    <TextBox x:Name="TextBox1_Copy" HorizontalAlignment="Left" Margin="143,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" FontSize="20" RenderTransformOrigin="0.489,-0.494"/>
+                    <Button Content="🔍" HorizontalAlignment="Left" Margin="481,20,0,0" Width="52" Click="Find_click" Height="29" VerticalAlignment="Top"/>
 
                 </Grid>
 
                 <Grid Grid.Row="1">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <ListView  Name="lvCaloriesBurned" SelectionChanged="lvCaloriesBurned_SelectionChanged" Height="340">
+                        <ListView  Name="lvCaloriesBurned" SelectionChanged="lvCaloriesBurned_SelectionChanged" >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <materialDesign:Card
@@ -102,18 +128,22 @@
                         </ListView>
                     </ScrollViewer>
                 </Grid>
-                
-                
+
+                <Grid Grid.Row="2">
+                    <Button Content="Thêm bài tập" Margin="227,2,223.8,0" VerticalAlignment="Top" Click="Add_click" RenderTransformOrigin="0.387,-0.375"/>
+                </Grid>
             </Grid>
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
                     <TextBlock Text="Thời gian còn  lại:" Margin="38,16,37,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center"/>
+                    <Button Content="▶️" HorizontalAlignment="Left" Margin="48,122,0,0" Width="52" Click="Find_click" Height="29" VerticalAlignment="Top"/>
+                    <Button Content="⏸" Margin="0,122,31.2,0" Click="Find_click" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="52"/>
 
                 </Grid>
 
@@ -126,9 +156,6 @@
                             <SolidColorBrush Color="#ff0303"/>
                         </lvc:Gauge.GaugeActiveFill>
                     </lvc:Gauge>
-                </Grid>
-
-                <Grid Grid.Row="1">
                     <TextBlock Margin="51,28,38,0" TextWrapping="Wrap" Text="Calories đã đốt:" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" FontSize="16"/>
                 </Grid>
                 <TextBlock Name="CountdownTimer" HorizontalAlignment="Center" Margin="10,43,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" Height="64" Width="180" FontSize="48" TextAlignment="Center" Background="#fa7070"/>
