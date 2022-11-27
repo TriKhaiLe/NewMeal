@@ -257,7 +257,7 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <materialDesign:Card
-                                materialDesign:ElevationAssist.Elevation="Dp2">
+                                        materialDesign:ElevationAssist.Elevation="Dp2">
                                         <Border CornerRadius="12" Background="White"  >
                                             <Grid Width="850">
                                                 <Grid.ColumnDefinitions>
@@ -361,7 +361,7 @@
                         Grid.Row="2"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         Margin="5"
-                        Height="25"
+                        Height="21"
                         Width="100"
                         materialDesign:ButtonAssist.CornerRadius="12"
                         >
