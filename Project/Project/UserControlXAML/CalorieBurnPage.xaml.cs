@@ -53,10 +53,10 @@ namespace Project.UserControlXAML
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Calculate(object sender, RoutedEventArgs e)
         {
             
-            lvCaloriesBurned.ItemsSource = CalculateCalories(Convert.ToInt32(TextBox1.Text));
+            lvCaloriesBurned.ItemsSource = CalculateCalories(Convert.ToInt32(CaloBox.Text));
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -70,6 +70,21 @@ namespace Project.UserControlXAML
         }
 
         private void lvCaloriesBurned_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Add_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Calculate_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Find_click(object sender, RoutedEventArgs e)
         {
 
         }
