@@ -36,9 +36,9 @@ namespace Project.UserControlXAML
             items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
             items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
             items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            lvBreakfastRecommendation.ItemsSource= items;
-            lvLunchRecommendation.ItemsSource= items;
-            lvDinnerRecommendation.ItemsSource= items;
+            lvBreakfastRecommendation.ItemsSource = items;
+            lvLunchRecommendation.ItemsSource = items;
+            lvDinnerRecommendation.ItemsSource = items;
         }
         public class User
         {
@@ -50,15 +50,57 @@ namespace Project.UserControlXAML
         }
         private void lvBreakfastRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            BitmapImage bitimg = new BitmapImage();
+            bitimg.BeginInit();
+            bitimg.UriSource = new Uri(@"\Assets\meat.png", UriKind.Relative);
+            bitimg.EndInit();
+            food_image.Source = bitimg;
+            food_review.Text = "This is a piece of meat!!!";
         }
         private void lvLunchRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            BitmapImage bitimg = new BitmapImage();
+            bitimg.BeginInit();
+            bitimg.UriSource = new Uri(@"\Assets\noodle.png", UriKind.Relative);
+            bitimg.EndInit();
+            food_image.Source = bitimg;
+            food_review.Text = "This is a piece of noodle!!!";
         }
-        private void lvDinnerRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e) 
+        private void lvDinnerRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            BitmapImage bitimg = new BitmapImage();
+            bitimg.BeginInit();
+            bitimg.UriSource = new Uri(@"\Assets\rice.png", UriKind.Relative);
+            bitimg.EndInit();
+            food_image.Source = bitimg;
+            food_review.Text = "This is a piece of rice!!!";
+        }
+
+        private void btn_them_Click(object sender, RoutedEventArgs e)
+        {
+            TabItem selected_tab = (TabItem)tab_control.SelectedItem;
+            switch (selected_tab.Name)
+            {
+                case "breakfast":
+                    {
+                        SelectedFood_lv.Items.Add(lvBreakfastRecommendation.SelectedItem);
+                        break;
+                    }
+                case "lunch":
+                    {
+                        SelectedFood_lv.Items.Add(lvLunchRecommendation.SelectedItem);
+                        break;
+                    }
+                case "dinner":
+                    {
+                        SelectedFood_lv.Items.Add(lvDinnerRecommendation.SelectedItem);
+                        break;
+                    }
+                default:
+                    {
+                        return;
+                    }
+            }
         }
     }
 }

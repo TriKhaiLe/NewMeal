@@ -101,10 +101,10 @@
                                     <TranslateTransform X="0"/>
                                 </TransformGroup>
                             </materialDesign:Card.RenderTransform>
-                            <TabControl
+                            <TabControl x:Name="tab_control"
                                 materialDesign:ColorZoneAssist.Mode="SecondaryMid"
                                 Style="{StaticResource MaterialDesignFilledTabControl}" Width="280">
-                                <TabItem Width="75">
+                                <TabItem x:Name="breakfast" Width="75">
                                     <TabItem.Header>
                                         <Image Source="\Assets\morning_logo.png"/>
                                     </TabItem.Header>
@@ -157,7 +157,7 @@
                                         </ListView>
                                     </ScrollViewer>
                                 </TabItem>
-                                <TabItem Width="75">
+                                <TabItem x:Name="lunch" Width="75">
                                     <TabItem.Header>
                                         <Image Source="\Assets\lunch_logo.png"/>
                                     </TabItem.Header>
@@ -210,7 +210,7 @@
                                         </ListView>
                                     </ScrollViewer>
                                 </TabItem>
-                                <TabItem Width="75">
+                                <TabItem x:Name="dinner" Width="75">
                                     <TabItem.Header>
                                         <Image Source="\Assets\night_icon.png"/>
                                     </TabItem.Header>
@@ -264,6 +264,105 @@
                                     </ScrollViewer>
                                 </TabItem>
                             </TabControl>
+                        </materialDesign:Card>
+                    </DockPanel>
+                    <DockPanel Grid.Column="1">
+                        <materialDesign:Card VerticalAlignment="Stretch"
+                                             HorizontalAlignment="Stretch">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="250" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Image x:Name="food_image" Height="auto"
+                                       Source="/Assets/logo.png"
+                                       Stretch="Uniform" />
+                                <Button Grid.Row="0"
+                                        Margin="0,0,16,-20"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Bottom"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                    <materialDesign:PackIcon Kind="ShareVariant" />
+                                </Button>
+                                <StackPanel Grid.Row="1"
+                                            Margin="8,24,8,4">
+                                    <TextBlock Margin="0"
+                                               Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                               Text="Đánh giá món ăn"
+                                               Foreground="Black"/>
+                                    <Viewbox Height="16"
+                                             Margin="0,4,0,8"
+                                             HorizontalAlignment="Left">
+                                        <materialDesign:RatingBar
+                                            Margin="0"
+                                            Foreground="Gold"
+                                            Orientation="Horizontal"
+                                            Value="3" />
+                                    </Viewbox>
+                                    <TextBlock x:Name="food_review" VerticalAlignment="Center"
+                                               Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                               TextWrapping="Wrap"
+                                               Foreground="Black"/>
+                                </StackPanel>
+                                <Separator Grid.Row="2"
+                                           Margin="8,0,8,0"
+                                           Style="{StaticResource MaterialDesignDarkSeparator}" />
+                                <TextBlock Grid.Row="3"
+                                           Margin="8,4,8,4"
+                                           Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="Bữa ăn"
+                                           Foreground="Black"/>
+                                <Grid Grid.Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Grid.Column="0"
+                                                             Margin="8,4,4,4"
+                                                             VerticalAlignment="Center"
+                                                             Kind="Clock" />
+                                    <ListBox Grid.Column="1"
+                                             Margin="4,8,8,4"
+                                             SelectedIndex="0"
+                                             Style="{StaticResource MaterialDesignToolToggleFlatListBox}">
+                                        <ListBox.Resources>
+                                            <Style TargetType="{x:Type ListBoxItem}"
+                                                   BasedOn="{StaticResource MaterialDesignToolToggleListBoxItem}">
+                                                <Setter Property="Padding" Value="4,6,4,6" />
+                                            </Style>
+                                        </ListBox.Resources>
+                                        <ListBox.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock Text="MaterialDesignFlatToggleListBox" 
+                                                           Foreground="Black"/>
+                                                <TextBlock Text="Exclusive selection"
+                                                           Foreground="Black"/>
+                                                <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour"
+                                                           Foreground="Black"/>
+                                            </StackPanel>
+                                        </ListBox.ToolTip>
+                                        <ListBoxItem>
+                                            <TextBlock Text="Bữa Sáng" />
+                                        </ListBoxItem>
+                                        <ListBoxItem>
+                                            <TextBlock Text="Bữa Trưa" />
+                                        </ListBoxItem>
+                                        <ListBoxItem>
+                                            <TextBlock Text="Bữa Tối" />
+                                        </ListBoxItem>
+                                    </ListBox>
+                                </Grid>
+                                <StackPanel Grid.Row="5">
+                                    <Button x:Name="btn_them" Margin="8,4,8,8"
+                                            HorizontalAlignment="Left"
+                                            Content="THÊM"
+                                            Style="{StaticResource MaterialDesignFlatButton}" Click="btn_them_Click" />            
+                                </StackPanel>
+                            </Grid>
                         </materialDesign:Card>
                     </DockPanel>
                 </Grid>
