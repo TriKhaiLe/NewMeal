@@ -48,7 +48,7 @@
                     Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                     ToolTip="Chỉnh sửa"
                     VerticalAlignment="Bottom"
-                    IsChecked="False" />
+                    IsChecked="False" PreviewMouseLeftButtonDown="edit_PreviewMouseLeftButtonDown" />
                     <Button
                         Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
                         ToolTip="Redo"
@@ -85,8 +85,8 @@
                     MaxWidth="400"
                     MaxLength="40"
                     materialDesign:HintAssist.Hint="Tên"
-                    materialDesign:HintAssist.HelperText="Nhập tên"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}"
+                    materialDesign:HintAssist.HelperText="{Binding Name_HelperText}"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}" TextChanged="Name_TextChanged" LostFocus="Name_LostFocus"
                     >
                 </TextBox>
             </StackPanel>
@@ -106,7 +106,7 @@
                     MaxWidth="400"
                     materialDesign:HintAssist.Hint="Chiều cao (cm)"
                     materialDesign:HintAssist.HelperText="Nhập số"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}" PreviewTextInput="height_PreviewTextInput" LostFocus="height_LostFocus"
                     >
                     </TextBox>
                 </StackPanel>
@@ -153,7 +153,7 @@
                     MaxWidth="400"
                     materialDesign:HintAssist.Hint="Cân nặng (kg)"
                     materialDesign:HintAssist.HelperText="Nhập số"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}" PreviewTextInput="weight_PreviewTextInput" LostFocus="weight_LostFocus"
                     >
                     </TextBox>
                 </StackPanel>
@@ -181,7 +181,7 @@
                     MaxWidth="400"
                     materialDesign:HintAssist.Hint="Tuổi"
                     materialDesign:HintAssist.HelperText="Nhập số"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}" PreviewTextInput="age_PreviewTextInput" LostFocus="age_LostFocus"
                     >
                 </TextBox>
             </StackPanel>
