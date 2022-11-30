@@ -1,4 +1,5 @@
 ﻿
+<<<<<<< Updated upstream
 FC:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\App.xaml;;
 FC:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\LoginWindow.xaml;;
 FC:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\MainResources\MainResource.xaml;;
@@ -7,4 +8,17 @@ FC:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\P
 FC:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\UserControlXAML\CalorieBurnPage.xaml;;
 FC:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\UserControlXAML\FoodPage.xaml;;
 FC:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\UserControlXAML\RecommendPage.xaml;;
+=======
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\App.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\LoginWindow.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\MainResources\MainResource.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\MainWindow.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\UserControlXAML\AccountPage.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\UserControlXAML\AcountPage\AP_Menu.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\UserControlXAML\AcountPage\AP_Password.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\UserControlXAML\AcountPage\AP_Profile.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\UserControlXAML\CalorieBurnPage.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\UserControlXAML\FoodPage.xaml;;
+FC:\Users\Admin\source\repos\NewMeal_Project\Project\Project\UserControlXAML\RecommendPage.xaml;;
+>>>>>>> Stashed changes
 
