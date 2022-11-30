@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.UserControlXAML.AcountPage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,17 @@ namespace Project.UserControlXAML
     /// </summary>
     public partial class AccountPage : UserControl
     {
+
         public AccountPage()
         {
             InitializeComponent();
+            Screen.Content = new AP_Menu();
+
+        }
+
+        public void SetContent()
+        {
+            Screen.Content = null;
         }
     }
 }

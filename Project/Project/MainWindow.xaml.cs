@@ -45,5 +45,34 @@ namespace Project
         {
             DataContext = new AccountViewModel();
         }
+        private void Minize_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState != WindowState.Minimized)
+            {
+                this.WindowState = (WindowState.Minimized);
+            }
+            else { this.WindowState = WindowState.Normal; }
+        }
+        private void Maximize_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState != WindowState.Maximized)
+            {
+                this.WindowState = (WindowState.Maximized);
+            }
+            else { this.WindowState = WindowState.Normal; }
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

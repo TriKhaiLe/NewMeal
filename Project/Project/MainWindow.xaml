@@ -19,8 +19,16 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
-        
-        Title="MainWindow" Height="700" Width="1100">
+        Title="MainWindow" Height="700" Width="1300"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseDown="window_MouseDown">
+   
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Window.Resources>
         <DataTemplate x:Name="FoodPageTemplate" DataType="{x:Type viewmodels:FoodViewModel}">
             <uc:FoodPage DataContext="{Binding}"></uc:FoodPage>
@@ -35,6 +43,7 @@
             <uc:AccountPage DataContext="{Binding}"></uc:AccountPage>
         </DataTemplate>
     </Window.Resources>
+    
     <Border CornerRadius="12,12,12,12">
         <Grid >
             <Grid.ColumnDefinitions>
@@ -47,13 +56,13 @@
                     <RowDefinition ></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Vertical" Grid.Row="0 " >
-                    <Ellipse  Width="100" Height="100" >
+                <StackPanel Orientation="Vertical" Grid.Row="0 " Margin="0 20 0 0" >
+                    <Ellipse  Width="100" Height="100" StrokeThickness="5" Stroke="#FFB2FF59">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="Assets/logo.png" Stretch="Fill"></ImageBrush>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <TextBlock Text="Hello , User !" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+                    <TextBlock Margin="0 20 0 0" Text="Hello , User !" HorizontalAlignment="Center" FontSize="20"></TextBlock>
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
@@ -99,7 +108,32 @@
                 Content="Đăng xuất">
                 </Button>
             </Grid>
-            <ContentControl Margin="10 0 0 0" Grid.Column="1" Content="{Binding}"></ContentControl>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"></Setter>
+                            <Setter Property="Margin" Value="5 0 0 0"></Setter>
+                            <Setter Property="Width" Value="40"></Setter>
+                            <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button Click="Minize_Click">
+                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="#FFFFDF35" />
+                    </Button>
+                    <Button Click="Maximize_Click">
+                        <materialDesign:PackIcon Kind="WindowMaximize" Foreground="#FFFFDF35"  />
+                    </Button>
+                    <Button Click="Close_Click" >
+                        <materialDesign:PackIcon Kind="CloseThick" Foreground="#FFFFDF35"/>
+                    </Button>
+                </StackPanel>
+                <ContentControl Margin="10 0 0 0" Grid.Row="1" Content="{Binding}"></ContentControl>
+            </Grid>
         </Grid>
     </Border>
     

@@ -23,6 +23,7 @@ namespace Project.UserControlXAML
         public FoodPage()
         {
             InitializeComponent();
+            this.DataContext = this;
             List<User> items = new List<User>();
             
             items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
@@ -44,17 +45,17 @@ namespace Project.UserControlXAML
             int time = Convert.ToInt32(DateTime.Now.Hour.ToString());
             if (time >= 4 && time < 11)
             {
-                HelloTime_tb.Text = "Buổi sáng tốt lành !";
+                HelloTime_tb.Text = "Chào buổi sáng !";
             }
             else if (time >= 11 && time <= 12)
             {
-                HelloTime_tb.Text = "Buổi trưa vui vẻ !";
+                HelloTime_tb.Text = "Chào buổi trưa !";
             }
             else if (time > 12 && time < 18)
             {
-                HelloTime_tb.Text = "Buổi chiều thoải mái !";
+                HelloTime_tb.Text = "Chào buổi chiều !";
             }
-            else HelloTime_tb.Text = "Buổi tối an lành !";
+            else HelloTime_tb.Text = "Chào buổi tối !";
         }
         public class User
         {

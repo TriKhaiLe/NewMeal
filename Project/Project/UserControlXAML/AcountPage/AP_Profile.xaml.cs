@@ -61,7 +61,7 @@ namespace Project.UserControlXAML.AcountPage
         {
             button_back.Width = 48;
             button_back.Height = 48;
-            button_back.Margin = new Thickness(0, 0, 0, 0);
+            button_back.Margin = new Thickness(10, 10, 0, 0);
         }
 
         private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

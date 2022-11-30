@@ -34,22 +34,34 @@ namespace Project
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+          
+            if (this.WindowState != WindowState.Minimized)
+            {
+                this.WindowState = (WindowState.Minimized);
+                this.btnMaximize.Content = "🗗";
+            }
+            else {this.WindowState = WindowState.Normal; }
         }
 
         private void btnMaximize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Maximized;
+           
+            if (this.WindowState != WindowState.Maximized)
+            {
+                this.WindowState = (WindowState.Maximized);
+                this.btnMaximize.Content = "🗗";
+            }
+            else { this.WindowState = WindowState.Normal; }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            this.Close();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Your mom just got fucked!!!!!");
+            MessageBox.Show("Xin chào");
         }
     }
 }
