@@ -13,19 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project.UserControlXAML
+namespace Project.Pages
 {
     /// <summary>
-    /// Interaction logic for FoodPage.xaml
+    /// Interaction logic for CalorieBurnPage.xaml
     /// </summary>
-    public partial class FoodPage : UserControl
+    public partial class CalorieBurnPage : Page
     {
-        public FoodPage()
+        public CalorieBurnPage()
         {
             InitializeComponent();
-            this.DataContext = this;
             List<User> items = new List<User>();
-            
+
             items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
             items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
             items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
@@ -36,26 +35,7 @@ namespace Project.UserControlXAML
             items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
             items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
             items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            lvDataBinding.ItemsSource = items;
-            textchangebytime();
-        }
-        public void textchangebytime()
-        {
-
-            int time = Convert.ToInt32(DateTime.Now.Hour.ToString());
-            if (time >= 4 && time < 11)
-            {
-                HelloTime_tb.Text = "Chào buổi sáng !";
-            }
-            else if (time >= 11 && time <= 12)
-            {
-                HelloTime_tb.Text = "Chào buổi trưa !";
-            }
-            else if (time > 12 && time < 18)
-            {
-                HelloTime_tb.Text = "Chào buổi chiều !";
-            }
-            else HelloTime_tb.Text = "Chào buổi tối !";
+            lvCaloriesBurned.ItemsSource = items;
         }
         public class User
         {
@@ -66,9 +46,17 @@ namespace Project.UserControlXAML
             public string Mail { get; set; }
         }
 
-        private void lvDataBinding_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void Calculate(object sender, RoutedEventArgs e)
         {
-            SelectedFood_lv.Items.Add(lvDataBinding.SelectedItem);
+
+            lvCaloriesBurned.ItemsSource = CalculateCalories(Convert.ToInt32(CaloBox.Text));
+        }
+
+
+        private List<string> CalculateCalories(int calories)
+        {
+            return new List<string> { calories.ToString() };
         }
     }
 }

@@ -14,21 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project.UserControlXAML
+namespace Project.Pages
 {
     /// <summary>
     /// Interaction logic for AccountPage.xaml
     /// </summary>
-    public partial class AccountPage : UserControl
+    public partial class AccountPage : Page
     {
-
         public AccountPage()
         {
             InitializeComponent();
             Screen.Content = new AP_Menu();
-
         }
-
         public void SetContent()
         {
             Screen.Content = null;

@@ -42,29 +42,21 @@ C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Pr
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignColors.pdb
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\FoodPage.g.cs
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\App.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\MainResources\MainResource.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\MainWindow.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\FoodPage.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.g.resources
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.Properties.Resources.resources
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.CopyComplete
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage.g.cs
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\CalorieBurnPage.g.cs
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\CalorieBurnPage.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.dll
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.Wpf.dll
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.pdb
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.xml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\LiveCharts.Wpf.xml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\RecommendPage.g.cs
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\RecommendPage.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\Microsoft.Expression.Interactions.dll
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\Microsoft.Expression.Interactions.xml
@@ -167,3 +159,17 @@ C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.CopyComplete
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.exe
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.pdb
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\CalorieBurnPage.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\FoodPage.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\RecommendPage.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Menu.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Password.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Profile.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\CalorieBurnPage.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\FoodPage.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\RecommendPage.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Menu.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Password.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Profile.baml

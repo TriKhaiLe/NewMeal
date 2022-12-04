@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project.UserControlXAML
+namespace Project.Pages
 {
     /// <summary>
     /// Interaction logic for RecommendPage.xaml
     /// </summary>
-    public partial class RecommendPage : UserControl
+    public partial class RecommendPage : Page
     {
         public RecommendPage()
         {

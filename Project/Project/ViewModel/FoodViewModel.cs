@@ -11,15 +11,10 @@ namespace Project.ViewModel
 {
     public class FoodViewModel:BaseViewModel
     {
-        public ICommand LoadedCommand { get; set; }
+        
         public FoodViewModel()
         {
-            LoadedCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
-
-            });
+            
         }
     }
 }

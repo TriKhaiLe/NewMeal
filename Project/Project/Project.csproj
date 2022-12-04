@@ -78,26 +78,26 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlXAML\AccountPage.xaml.cs">
+    <Compile Include="Pages\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlXAML\AccountPage\AP_Menu.xaml.cs">
-      <DependentUpon>AP_Menu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlXAML\AccountPage\AP_Password.xaml.cs">
-      <DependentUpon>AP_Password.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlXAML\AccountPage\AP_Profile.xaml.cs">
-      <DependentUpon>AP_Profile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlXAML\CalorieBurnPage.xaml.cs">
+    <Compile Include="Pages\CalorieBurnPage.xaml.cs">
       <DependentUpon>CalorieBurnPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlXAML\FoodPage.xaml.cs">
+    <Compile Include="Pages\FoodPage.xaml.cs">
       <DependentUpon>FoodPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlXAML\RecommendPage.xaml.cs">
+    <Compile Include="Pages\RecommendPage.xaml.cs">
       <DependentUpon>RecommendPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountPage\AP_Menu.xaml.cs">
+      <DependentUpon>AP_Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountPage\AP_Password.xaml.cs">
+      <DependentUpon>AP_Password.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountPage\AP_Profile.xaml.cs">
+      <DependentUpon>AP_Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -129,31 +129,31 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControlXAML\AccountPage.xaml">
+    <Page Include="Pages\AccountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlXAML\AccountPage\AP_Menu.xaml">
+    <Page Include="Pages\CalorieBurnPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlXAML\AccountPage\AP_Password.xaml">
+    <Page Include="Pages\FoodPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlXAML\AccountPage\AP_Profile.xaml">
+    <Page Include="Pages\RecommendPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlXAML\CalorieBurnPage.xaml">
+    <Page Include="Pages\AccountPage\AP_Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlXAML\FoodPage.xaml">
+    <Page Include="Pages\AccountPage\AP_Password.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlXAML\RecommendPage.xaml">
+    <Page Include="Pages\AccountPage\AP_Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

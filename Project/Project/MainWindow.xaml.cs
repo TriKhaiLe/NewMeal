@@ -1,4 +1,5 @@
-﻿using Project.ViewModel;
+﻿using Project.Pages;
+using Project.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,29 +22,36 @@ namespace Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        int ok = 0;
+        private FoodPage FoodPage = new FoodPage();
+        private AccountPage AccountPage = new AccountPage();
+        private RecommendPage RecommendPage = new RecommendPage();
+        private CalorieBurnPage CalorieBurnPage = new CalorieBurnPage();
         public MainWindow()
         {
             InitializeComponent();
+            Main.Content = FoodPage;
+            ok = 1;
         }
 
         private void CalorieBurn_Checked(object sender, RoutedEventArgs e)
         {
-            DataContext = new CalorieBurnViewModel();
+            Main.Content = CalorieBurnPage;
         }
 
         private void Food_Checked(object sender, RoutedEventArgs e)
         {
-            DataContext = new FoodViewModel();
+            if (ok == 1) Main.Content = FoodPage;
         }
 
         private void Recommend_Checked(object sender, RoutedEventArgs e)
         {
-            DataContext = new RecommendViewModel();
+            Main.Content = RecommendPage;
         }
 
         private void Account_Checked(object sender, RoutedEventArgs e)
         {
-            DataContext = new AccountViewModel();
+            Main.Content = AccountPage;
         }
         private void Minize_Click(object sender, RoutedEventArgs e)
         {
