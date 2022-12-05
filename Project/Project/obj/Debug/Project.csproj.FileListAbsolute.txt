@@ -42,10 +42,6 @@ C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Pr
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignColors.pdb
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\App.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\MainResources\MainResource.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\MainWindow.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.g.resources
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.Properties.Resources.resources
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
@@ -166,10 +162,3 @@ C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Pr
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Menu.g.cs
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Password.g.cs
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Profile.g.cs
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\CalorieBurnPage.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\FoodPage.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\RecommendPage.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Menu.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Password.baml
-C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Profile.baml
