@@ -107,7 +107,8 @@ insert into Exercise values('11','Nhảy dây','\Assets\Exercises\nhayday.jpg','
 insert into Exercise values('12','Plank','\Assets\Exercises\plank.jpg','0.58')
 insert into Exercise values('13','Squat','\Assets\Exercises\squat.jpg','0.1')
 insert into Exercise values('14','Tennis','\Assets\Exercises\tennis.jpg','0.2')
---Food
+
+-------------Food---------------
 
 insert into Food values 
 ('F301','Canh bắp cải','37','Nấu sôi nước\nCho rau đã cắt vào nồi\nChờ rau chín tắt bếp rồi nêm gia vị','Bắp cải','Một món canh đơn giản','\Assets\Food\F301.jpg'),
@@ -120,3 +121,15 @@ insert into Food values
 ('F308','Canh mướp','31', 'Nấu sôi nước\nCho rau đã cắt vào nồi\nChờ rau chín tắt bếp rồi nêm gia vị','Mướp','Một món canh đơn giản','\Assets\Food\F308.jpg'),
 ('F309','Canh rau dền','22','Nấu sôi nước\nCho rau đã cắt vào nồi\nChờ rau chín tắt bếp rồi nêm gia vị','Rau dền','Một món canh đơn giản','\Assets\Food\F309\.jpg'),
 ('F310','Canh rau ngót','29', 'Nấu sôi nước\nCho rau đã cắt vào nồi\nChờ rau chín tắt bếp rồi nêm gia vị','Rau ngót','Một món canh đơn giản','\Assets\Food\F310.jpg');
+
+insert into Food values 
+('F401','Bia','141','','','Thức uống có cồn','\Assets\Food\F401.jpg'),
+('F402','Cà phê sữa gói','85','','','Đồ uống pha sẵn','\Assets\Food\F402.jpg'),	
+('F403','Cocktail trái cây','158','','','Đồ uống có cồn','\Assets\Food\F403.jpg'),
+('F404','Nước cam vắt','226','','Cam','Nước trái cây','\Assets\Food\F404.jpg'),
+('F405','Nước chanh','149','','Chanh','Nước trái cây','\Assets\Food\F405.jpg'),
+('F406','Nước ép trái cây đóng hộp','74','','','Đồ uống sẵn','\Assets\Food\F406.jpg'),
+('F407','Nước mía','106','','','Nước giải khát','\Assets\Food\F407.jpg'),
+('F408','Nước ngọt có gas','146','','','Nước giải khát','\Assets\Food\F408.jpg'),
+('F409','Nước sâm','74','','','Nước giải khát','\Assets\Food\F409.jpg'),
+('F410','Sinh tố','277','','','Trái cây xay','\Assets\Food\F410.jpg');	
