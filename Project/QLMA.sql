@@ -24,7 +24,6 @@ FoodName nvarchar(100),
 Kcal int ,
 Recipe nvarchar(max),
 Ingredients nvarchar(1000),
-Last_eat smalldatetime,
 Descript nvarchar(500),
 Imgsrc varchar(100)
 )
@@ -42,7 +41,8 @@ create table UserFood
 (
 UserID varchar(10),
 FoodID varchar(10),
-Favorite int
+Favorite int,
+Last_eat smalldatetime,
 
 constraint pk_UserFood primary key(UserID , FoodID)
 )
