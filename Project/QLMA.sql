@@ -89,3 +89,4 @@ select * from Exercise
 
 ---------------------Insert--------------------
 set dateformat dmy
+
