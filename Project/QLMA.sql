@@ -111,8 +111,8 @@ insert into Exercise values('14','Tennis','\Assets\Exercises\tennis.jpg','0.2')
 -------------Food---------------
 
 insert into Food values 
-('F101','Hủ tíu bò kho','538','Sơ chế rau củ-Sơ chế thịt bò-Nấu nước dùng bò kho','Nạm bò, hủ tiếu, cà rốt, cây sả, giá sống, hành tây, ngò gai, húng quế, rau răm, gia vị bò kho, màu hạt điều, hành tím, tỏi băm','Món ăn nước phổ biến','\Assets\Food\F101.jpg'),
-('F102','Hủ tíu Nam vang','400','Nấu nước lèo-Làm nước sốt hủ tiếu-Xào thịt heo băm','Lòng heo, khô mực, trứng cút, thịt băm, thịt ba chỉ, xương ống heo, gan heo, hành tím, gừng, củ cải, cần tây, tỏi, nước mắm, gia vị','Món ăn nước phổ biến ở Nam Bộ','\Assets\Food\F102.jpg'),
+('F101','Hủ tiếu bò kho','538','Sơ chế rau củ-Sơ chế thịt bò-Nấu nước dùng bò kho','Nạm bò, hủ tiếu, cà rốt, cây sả, giá sống, hành tây, ngò gai, húng quế, rau răm, gia vị bò kho, màu hạt điều, hành tím, tỏi băm','Món ăn nước phổ biến','\Assets\Food\F101.jpg'),
+('F102','Hủ tiếu Nam vang','400','Nấu nước lèo-Làm nước sốt hủ tiếu-Xào thịt heo băm','Lòng heo, khô mực, trứng cút, thịt băm, thịt ba chỉ, xương ống heo, gan heo, hành tím, gừng, củ cải, cần tây, tỏi, nước mắm, gia vị','Món ăn nước phổ biến ở Nam Bộ','\Assets\Food\F102.jpg'),
 ('F103','Mì quảng','541','Sơ chế nguyên liệu-Nấu nước dùng và ướp gia vị-Làm nhân','Sợi mì Quảng, nhân tùy chọn (thịt, tôm, gà,...), rau sống, đậu phộng, bánh tráng','Đặc sản nổi tiếng miền Trung','\Assets\Food\F103.jpg'),
 ('F104','Mì thịt heo','415','Sơ chế nguyên liệu-Bắc nồi nước-Cho xương và thịt lợn cùng cần tây, gừng vào nồi, nêm gia vị rồi hầm khoảng 30p-Chần mì rồi cho vào tô-Chan nước dùng, xếp thịt heo lên trên','Xương heo, thịt heo, cần tây, gừng, hành khô, hành lá, mì tươi, giá đỗ','Món ăn nước','\Assets\Food\F104.jpg'),
 ('F105','Mì vịt tiềm','776','Sơ chế thịt vịt-Nấu nước dùng-Hầm thịt vịt trong nước dùng-Sơ chế mì','Mì vắt, đùi vịt, rượu trắng, gừng, tỏi băm, xì dầu, nước tương, tiêu, hoa hồi, thanh quế, trần bì, hành tím, táo tàu, bạch quả, củ sen, nấm hương, dầu mè, hạt nêm, đường phèn, muối','Món ăn ngon nổi tiếng của người Hoa','\Assets\Food\F105.jpg'),
