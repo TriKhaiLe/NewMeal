@@ -32,8 +32,6 @@ create table Exercise
 (
 ExID varchar(10) primary key,
 ExName nvarchar(100),
-ExTime int,
-Times int ,
 Kps int
 )
 
