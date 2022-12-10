@@ -21,10 +21,12 @@ create table Food
 (
 FoodID varchar(10) primary key,
 FoodName nvarchar(100),
+TypeID varchar(10),
 Kcal int ,
 Recipe nvarchar(max),
 Ingredients nvarchar(1000),
 Descript nvarchar(500),
+MealTime int,
 Imgsrc varchar(100)
 )
 
@@ -49,7 +51,7 @@ constraint pk_UserFood primary key(UserID , FoodID)
 create table UserExercise
 (
 UserID varchar(10),
-ExID varchar(10)
+ExID varchar(10),
 
 constraint pk_UserEx primary key(UserID , ExID)
 )
@@ -57,15 +59,14 @@ constraint pk_UserEx primary key(UserID , ExID)
 create table FoodType
 (
 TypeID varchar(10),
-FoodID varchar(10),
-MealTime int 
+TypeName nvarchar(50),
 
-constraint pk_FoodType primary key(TypeID , FoodID)
+constraint pk_FoodType primary key(TypeID)
 )
 
 --------Foreign Key----------
--------------FoodType--------------
-alter table FoodType add constraint fk_FT_Food foreign key (FoodID) references Food(FoodID)
+-------------Food--------------
+alter table Food add constraint fk_F_TypeId foreign key (TypeID) references FoodType(TypeID)
 --------------UserFood----------------
 alter table UserFood add constraint fk_UF_Food foreign key (FoodID) references Food(FoodID)
 alter table UserFood add constraint fk_UF_User foreign key (UserID) references FUser(UserID)
