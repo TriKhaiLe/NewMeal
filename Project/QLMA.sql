@@ -123,16 +123,16 @@ insert into Food values
 ('F110','Phở gà','483','Sơ chế nguyên liệu-Luộc gà và nấu nước dùng-Trụng phở','Phở, gà, giá đỗ, hành tây, sả, gừng, hành lá, ngò, ớt, chanh, gia vị','Món ăn nước phổ biến','\Assets\Food\F110.jpg');
 
 insert into Food values 
-('F301','Canh bắp cải','37','Nấu sôi nước\nCho rau đã cắt vào nồi\nChờ rau chín tắt bếp rồi nêm gia vị','Bắp cải','Một món canh đơn giản','\Assets\Food\F301.jpg'),
-('F302','Canh bầu','30', 'Nấu sôi nước\nCho bầu đã cắt lát vào nồi\nChờ bầu chín tắt bếp rồi nêm gia vị','Bầu','Một món canh đơn giản','\Assets\Food\F302.jpg'),
-('F303','Canh bí đao','29', 'Nấu sôi nước\nCho bí đao đã cắt lát vào nồi\nChờ bí đao chín tắt bếp rồi nêm gia vị','Bí đao','Một món canh đơn giản','\Food\F303.jpg'),
-('F304','Canh bí đỏ','42', 'Nấu sôi nước\nCho bí đao đã cắt lát vào nồi\nChờ bí đỏ chín tắt bếp rồi nêm gia vị','Bí đỏ','Một món canh đơn giản','\Assets\Food\F304.jpg'),
-('F305','Canh cải ngọt','30','Nấu sôi nước\nCho rau đã cắt vào nồi\nChờ rau chín tắt bếp rồi nêm gia vị','Cải ngọt','Một món canh đơn giản','\Assets\Food\F305.jpg'),
-('F306','Canh chua','29', 'Nấu sôi nước\nCho nguyên liệu đã sơ chế vào nồi\nChờ nguyên liệu chín tắt bếp rồi nêm gia vị','Cà chua, dứa, giá','Món ăn đơn giản cho người thích vị chua','\Assets\Food\F306.jpg'),
-('F307','Canh khoai mỡ','51','Cắt lát mỏng khoai mỡ\nPhi hành\nXào khoai mỡ\nCho nước vào nồi khoai\nChờ chín nêm gia vị và tắt bếp','Khoai mỡ, củ hành','Canh có vị béo của khoai, nước dùng ngọt, đẹp mắt, mùi thơm hấp dẫn','\Assets\Food\F307.jpg'),
-('F308','Canh mướp','31', 'Nấu sôi nước\nCho rau đã cắt vào nồi\nChờ rau chín tắt bếp rồi nêm gia vị','Mướp','Một món canh đơn giản','\Assets\Food\F308.jpg'),
-('F309','Canh rau dền','22','Nấu sôi nước\nCho rau đã cắt vào nồi\nChờ rau chín tắt bếp rồi nêm gia vị','Rau dền','Một món canh đơn giản','\Assets\Food\F309\.jpg'),
-('F310','Canh rau ngót','29', 'Nấu sôi nước\nCho rau đã cắt vào nồi\nChờ rau chín tắt bếp rồi nêm gia vị','Rau ngót','Một món canh đơn giản','\Assets\Food\F310.jpg');
+('F301','Canh bắp cải','37','Nấu sôi nước-Cho rau đã cắt vào nồi-Chờ rau chín tắt bếp rồi nêm gia vị','Bắp cải','Một món canh đơn giản','\Assets\Food\F301.jpg'),
+('F302','Canh bầu','30', 'Nấu sôi nước-Cho bầu đã cắt lát vào nồi-Chờ bầu chín tắt bếp rồi nêm gia vị','Bầu','Một món canh đơn giản','\Assets\Food\F302.jpg'),
+('F303','Canh bí đao','29', 'Nấu sôi nước-Cho bí đao đã cắt lát vào nồi-Chờ bí đao chín tắt bếp rồi nêm gia vị','Bí đao','Một món canh đơn giản','\Food\F303.jpg'),
+('F304','Canh bí đỏ','42', 'Nấu sôi nước-Cho bí đao đã cắt lát vào nồi-Chờ bí đỏ chín tắt bếp rồi nêm gia vị','Bí đỏ','Một món canh đơn giản','\Assets\Food\F304.jpg'),
+('F305','Canh cải ngọt','30','Nấu sôi nước-Cho rau đã cắt vào nồi-Chờ rau chín tắt bếp rồi nêm gia vị','Cải ngọt','Một món canh đơn giản','\Assets\Food\F305.jpg'),
+('F306','Canh chua','29', 'Nấu sôi nước-Cho nguyên liệu đã sơ chế vào nồi-Chờ nguyên liệu chín tắt bếp rồi nêm gia vị','Cà chua, dứa, giá','Món ăn đơn giản cho người thích vị chua','\Assets\Food\F306.jpg'),
+('F307','Canh khoai mỡ','51','Cắt lát mỏng khoai mỡ-Phi hành-Xào khoai mỡ-Cho nước vào nồi khoai-Chờ chín nêm gia vị và tắt bếp','Khoai mỡ, củ hành','Canh có vị béo của khoai, nước dùng ngọt, đẹp mắt, mùi thơm hấp dẫn','\Assets\Food\F307.jpg'),
+('F308','Canh mướp','31', 'Nấu sôi nước-Cho rau đã cắt vào nồi-Chờ rau chín tắt bếp rồi nêm gia vị','Mướp','Một món canh đơn giản','\Assets\Food\F308.jpg'),
+('F309','Canh rau dền','22','Nấu sôi nước-Cho rau đã cắt vào nồi-Chờ rau chín tắt bếp rồi nêm gia vị','Rau dền','Một món canh đơn giản','\Assets\Food\F309\.jpg'),
+('F310','Canh rau ngót','29', 'Nấu sôi nước-Cho rau đã cắt vào nồi-Chờ rau chín tắt bếp rồi nêm gia vị','Rau ngót','Một món canh đơn giản','\Assets\Food\F310.jpg');
 
 insert into Food values 
 ('F401','Bia','141','','','Thức uống có cồn','\Assets\Food\F401.jpg'),
@@ -144,4 +144,4 @@ insert into Food values
 ('F407','Nước mía','106','','','Nước giải khát','\Assets\Food\F407.jpg'),
 ('F408','Nước ngọt có gas','146','','','Nước giải khát','\Assets\Food\F408.jpg'),
 ('F409','Nước sâm','74','','','Nước giải khát','\Assets\Food\F409.jpg'),
-('F410','Sinh tố','277','','','Trái cây xay','\Assets\Food\F410.jpg');	
+('F410','Sinh tố','277','','','Trái cây xay','\Assets\Food\F410.jpg');		
