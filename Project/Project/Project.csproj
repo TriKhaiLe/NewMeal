@@ -186,6 +186,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\Exercise\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
