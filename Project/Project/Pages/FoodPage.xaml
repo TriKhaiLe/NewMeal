@@ -267,11 +267,11 @@
                                                 <StackPanel Grid.Column="0" Orientation="Horizontal">
                                                     <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
                                                         <Rectangle.Fill>
-                                                            <ImageBrush ImageSource="/Assets/logo.png"></ImageBrush>
+                                                            <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
                                                         </Rectangle.Fill>
                                                     </Rectangle>
                                                     <TextBlock Text="Name: " />
-                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                                    <TextBlock Text="{Binding FoodName}" FontWeight="Bold" />
                                                 </StackPanel>
                                                 <StackPanel Margin="0 0 20 0" Grid.Column="1" Orientation="Horizontal">
                                                     <Button

@@ -147,7 +147,7 @@ B2 : Cho bầu đã cắt lát vào nồi
 B3 : Chờ bầu chín tắt bếp rồi nêm gia vị',N'Bầu',N'Một món canh đơn giản','8','\Assets\Food\F302.jpg'),
 (N'Canh bí đao','Canh','29',N'B1 : Nấu sôi nước
 B2 : Cho bí đao đã cắt lát vào nồi
-B3 : Chờ bí đao chín tắt bếp rồi nêm gia vị',N'Bí đao',N'Một món canh đơn giản','8','\Food\F303.jpg'),
+B3 : Chờ bí đao chín tắt bếp rồi nêm gia vị',N'Bí đao',N'Một món canh đơn giản','8','\Assets\Food\F303.jpg'),
 (N'Canh bí đỏ','Canh','42', N'B1 : Nấu sôi nước
 B2 : Cho bí đao đã cắt lát vào nồi
 B3 : Chờ bí đỏ chín tắt bếp rồi nêm gia vị',N'Bí đỏ',N'Một món canh đơn giản','8','\Assets\Food\F304.jpg'),
@@ -166,7 +166,7 @@ B2 : Cho rau đã cắt vào nồi
 B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Mướp',N'Một món canh đơn giản','8','\Assets\Food\F308.jpg'),
 (N'Canh rau dền','Canh','22',N'B1 : Nấu sôi nước
 B2 : Cho rau đã cắt vào nồi
-B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Rau dền',N'Một món canh đơn giản','8','\Assets\Food\F309\.jpg'),
+B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Rau dền',N'Một món canh đơn giản','8','\Assets\Food\F309.jpg'),
 (N'Canh rau ngót','Canh','29', N'B1 : Nấu sôi nước
 B2 : Cho rau đã cắt vào nồi
 B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Rau ngót',N'Một món canh đơn giản','8','\Assets\Food\F310.jpg');
