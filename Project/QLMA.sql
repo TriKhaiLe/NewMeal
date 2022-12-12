@@ -106,7 +106,8 @@ B2 : Sơ chế thịt bò
 B3 : Nấu nước dùng bò kho',N'Nạm bò, hủ tiếu, cà rốt, cây sả, giá sống, hành tây, ngò gai, húng quế, rau răm, gia vị bò kho, màu hạt điều, hành tím, tỏi băm',N'Món ăn nước phổ biến','9','\Assets\Food\F101.jpg'),
 (N'Hủ tiếu Nam vang',N'Món nước','400',N'B1 : Sơ chế giò heo và tôm
 B2 : Sơ chế các nguyên liệu khác
-B3 : Làm sốt thịt-Nấu nước dùng',N'Giò heo, thịt bằm, tôm, trứng cút, hành lá, hành tím, bún khô, rau ăn kèm, dầu ăn, gia vị',N'Món ăn nước phổ biến ở Nam Bộ','9','\Assets\Food\F102.jpg'),
+B3 : Làm sốt thịt
+B4 : Nấu nước dùng',N'Giò heo, thịt bằm, tôm, trứng cút, hành lá, hành tím, bún khô, rau ăn kèm, dầu ăn, gia vị',N'Món ăn nước phổ biến ở Nam Bộ','9','\Assets\Food\F102.jpg'),
 (N'Mì quảng',N'Món nước','541',N'B1 : Sơ chế nguyên liệu
 B2 : Nấu nước dùng và ướp gia vị
 B3 : Làm nhân',N'Sợi mì Quảng, nhân tùy chọn (thịt, tôm, gà,...), rau sống, đậu phộng, bánh tráng',N'Đặc sản nổi tiếng miền Trung','9','\Assets\Food\F103.jpg'),
