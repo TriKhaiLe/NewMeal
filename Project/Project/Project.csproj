@@ -366,6 +366,7 @@
     <Resource Include="Assets\Food\F503.jpg" />
     <Resource Include="Assets\Food\F502.jpg" />
     <Resource Include="Assets\Food\F501.jpg" />
+    <Resource Include="Assets\Food\F508.jpg" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
