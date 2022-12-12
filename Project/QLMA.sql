@@ -82,21 +82,21 @@ select * from Exercise
 set dateformat dmy
 
 -------------Exercise---------------
-insert into Exercise values('0','Bơi','\Assets\Exercises\boi.jpg','0.07')
-insert into Exercise values('1','Cầu lông','\Assets\Exercises\caulong.jpg','0.05')
-insert into Exercise values('2','Chạy bộ','\Assets\Exercises\caulong.jpg','0.22')
-insert into Exercise values('3','Chạy trên máy','\Assets\Exercises\chaybotrenmay.jpg','0.09')
-insert into Exercise values('4','Đá bóng','\Assets\Exercises\dabong.jpg','0.14')
-insert into Exercise values('5','Đạp xe','\Assets\Exercises\dapxe.jpg','0.14')
-insert into Exercise values('6','Đi bộ','\Assets\Exercises\dibo.jpg','0.06')
-insert into Exercise values('7','Gập bụng','\Assets\Exercises\gapbung.jpg','0.17')
-insert into Exercise values('8','Hít đất','\Assets\Exercises\hitdat.jpg','0.12')
-insert into Exercise values('9','Lắc vòng','\Assets\Exercises\lacvong.jpg','0.12')
-insert into Exercise values('10','Nhảy aerobic','\Assets\Exercises\nhayaerobic.jpg','0.14')
-insert into Exercise values('11','Nhảy dây','\Assets\Exercises\nhayday.jpg','0.16')
-insert into Exercise values('12','Plank','\Assets\Exercises\plank.jpg','0.58')
-insert into Exercise values('13','Squat','\Assets\Exercises\squat.jpg','0.1')
-insert into Exercise values('14','Tennis','\Assets\Exercises\tennis.jpg','0.2')
+insert into Exercise values('Bơi','\Assets\Exercises\boi.jpg','0.07')
+insert into Exercise values('Cầu lông','\Assets\Exercises\caulong.jpg','0.05')
+insert into Exercise values('Chạy bộ','\Assets\Exercises\caulong.jpg','0.22')
+insert into Exercise values('Chạy trên máy','\Assets\Exercises\chaybotrenmay.jpg','0.09')
+insert into Exercise values('Đá bóng','\Assets\Exercises\dabong.jpg','0.14')
+insert into Exercise values('Đạp xe','\Assets\Exercises\dapxe.jpg','0.14')
+insert into Exercise values('Đi bộ','\Assets\Exercises\dibo.jpg','0.06')
+insert into Exercise values('Gập bụng','\Assets\Exercises\gapbung.jpg','0.17')
+insert into Exercise values('Hít đất','\Assets\Exercises\hitdat.jpg','0.12')
+insert into Exercise values('Lắc vòng','\Assets\Exercises\lacvong.jpg','0.12')
+insert into Exercise values('Nhảy aerobic','\Assets\Exercises\nhayaerobic.jpg','0.14')
+insert into Exercise values('Nhảy dây','\Assets\Exercises\nhayday.jpg','0.16')
+insert into Exercise values('Plank','\Assets\Exercises\plank.jpg','0.58')
+insert into Exercise values('Squat','\Assets\Exercises\squat.jpg','0.1')
+insert into Exercise values('Tennis','\Assets\Exercises\tennis.jpg','0.2')
 
 -------------Food---------------
 
