@@ -69,7 +69,6 @@ alter table UserExercise add constraint fk_UE_Exe foreign key (ExID) references 
 alter table FUser nocheck constraint all
 alter table Food nocheck constraint all
 alter table Exercise nocheck constraint all
-alter table FoodType nocheck constraint all
 alter table UserFood nocheck constraint all
 alter table UserExercise nocheck constraint all
 
@@ -77,7 +76,6 @@ select * from FUser
 select * from Food
 select * from UserFood
 select * from UserExercise
-select * from FoodType
 select * from Exercise
 
 ---------------------Insert--------------------
