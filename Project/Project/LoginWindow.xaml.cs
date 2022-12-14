@@ -60,6 +60,7 @@ namespace Project
             this.Close();
         }
         public bool IsLogin { get; set; }
+        
         public int UserID { get; set; }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
