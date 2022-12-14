@@ -17,9 +17,11 @@ namespace Project.Model
             set { _ins = value; }
         }
         public QLMAEntities DB { get; set; }
+        public int Current_UserID { get; set; }
         public DataProvider()
         {
             DB = new QLMAEntities();
+            Current_UserID = new int();
         }
     }
 }

@@ -22,13 +22,7 @@
         Title="MainWindow" Height="700" Width="1300"
         WindowStyle="None"
         ResizeMode="NoResize"
-        MouseDown="window_MouseDown">
-
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
+        MouseDown="window_MouseDown" Loaded="Window_Loaded">
 
     <Border CornerRadius="12,12,12,12">
         <Grid >
@@ -117,7 +111,7 @@
                         <materialDesign:PackIcon Kind="CloseThick" Foreground="#FFFFDF35"/>
                     </Button>
                 </StackPanel>
-                <Frame Margin="10 0 0 0" Grid.Row="1" x:Name="Main" NavigationUIVisibility="Hidden"></Frame>
+                <Frame  Margin="10 0 0 0" Grid.Row="1" x:Name="Main" NavigationUIVisibility="Hidden"></Frame>
             </Grid>
         </Grid>
     </Border>

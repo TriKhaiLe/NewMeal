@@ -99,7 +99,7 @@ insert into Exercise values('Squat','\Assets\Exercises\squat.jpg','0.1')
 insert into Exercise values('Tennis','\Assets\Exercises\tennis.jpg','0.2')
 
 -------------Food---------------
-
+----Mon nuoc---
 insert into Food values 
 (N'Hủ tiếu bò kho',N'Món nước','538',N'B1 : Sơ chế rau củ
 B2 : Sơ chế thịt bò
@@ -137,7 +137,7 @@ B5 : Trụng phở',N'Phở, xương bò, thịt bò, gân bò, nạm bò, gầu
 (N'Phở gà',N'Món nước','483',N'B1 : Sơ chế nguyên liệu
 B2 : Luộc gà và nấu nước dùng
 B3 : Trụng phở',N'Phở, gà, giá đỗ, hành tây, sả, gừng, hành lá, ngò, ớt, chanh, gia vị',N'Món ăn nước phổ biến','9','\Assets\Food\F110.jpg');
-
+----Canh----
 insert into Food values 
 (N'Canh bắp cải','Canh','37',N'B1 : Nấu sôi nước
 B2 : Cho rau đã cắt vào nồi
@@ -170,7 +170,7 @@ B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Rau dền',N'Một món 
 (N'Canh rau ngót','Canh','29', N'B1 : Nấu sôi nước
 B2 : Cho rau đã cắt vào nồi
 B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Rau ngót',N'Một món canh đơn giản','8','\Assets\Food\F310.jpg');
-
+---Thuc uong----
 insert into Food values 
 (N'Bia',N'Thức uống','141','','',N'Thức uống có cồn','8','\Assets\Food\F401.jpg'),
 (N'Cà phê sữa gói',N'Thức uống','85','','',N'Đồ uống pha sẵn','3','\Assets\Food\F402.jpg'),	
@@ -182,7 +182,7 @@ insert into Food values
 (N'Nước ngọt có gas',N'Thức uống','146','','',N'Nước giải khát','8','\Assets\Food\F408.jpg'),
 (N'Nước sâm',N'Thức uống','74','','',N'Nước giải khát','8','\Assets\Food\F409.jpg'),
 (N'Sinh tố',N'Thức uống','277','','',N'Trái cây xay','9','\Assets\Food\F410.jpg');		
-
+---Com----
 insert into Food values
 (N'Cơm rang thập cẩm',N'Cơm','800',N'B1 : Sơ chế rau củ, lạp xưởng
 B2 : Đánh trứng
@@ -222,7 +222,7 @@ B4 : Nắm cơm lại vừa ăn',N'Cá ngừ đóng hộp, đậu phụ, cà r�
 (N'Pizza cơm nguội',N'Cơm','370',N'B1 : Trộn trứng gà với cơm
 B2 : Dàn mỏng cơm và chiên vàng hai mặt
 B3 : Cho rau củ, phô mai lên trên cùng',N'Cơm nguội, trứng gà, bắp hạt, phô mai, ớt chuông, hành tây, giăm bông, nấm, sốt cà chua',N'Sự kết hợp giữa pizza phương Tây và cơm trắng của phương Đông sẽ là một món ăn thú vị đem lại cho bạn sự thích thú.','12','\Assets\Food\F010.jpg');
-
+------Do bien-----
 insert into Food values
 (N'Cá hồi sốt bơ tỏi chanh', N'Đồ biển', '208', N'B1 : Làm sạch cá, ướp đều gia vị
 B2 : Áp chảo với bơ
@@ -257,7 +257,7 @@ B5 : Trộn đều gỏi',N'Tôm, mực, hành tây, cà rốt, dưa chuột, gi
 (N'Cá trích kho dứa',N'Đồ biển','233',N'B1 : Sơ chế, làm sạch cá trích, dứa, rau củ
 B2 : Chiên cá trích chín đều
 B3 : Tiến hành kho cá trích với dứa, nêm nếm gia vị vừa ăn',N'Cá trích, dứa, tỏi, ớt hiểm, gia vị',N'Món cá trích kho tuy đơn giản nhưng mang lại cho bữa cơm gia định bạn nhiều hương vị đậm đà','9','\Assets\Food\F210.png');
-
+------An vat-----
 insert into Food values
 (N'Đậu phộng da cá',N'Ăn vặt','161',N'B1 : Ngâm đậu phộng, trộn đều với gia vị và bột
 B2 : Chiên đậu phộng đến khi vàng',N'Đậu phộng, bột mì, nước cốt dừa, gia vị',N'Đậu phộng da cá thơm lừng, giòn rụm, dễ làm','12','\Assets\Food\F501.jpg'),
@@ -291,3 +291,25 @@ B3 : Nhúng gan gà qua trứng và bột chiên xù rồi chiên giòn',N'Gan g
 B2 : Luộc trứng cút, bóc vỏ
 B3 : Lọc lấy nước me nêm nếm vừa ăn
 B4 : Phi thơm tỏi rồi dun sôi sốt me và cho trứng cút vào',N'Trứng cút, me chín, mỡ heo, dưa leo, ớt sừng, tỏi, gia vị',N'Có thể ăn kèm rau răm, dưa leo, trứng cút sốt me sẽ làm bạn nghiện đấy nhé.','12','\Assets\Food\F510.jpg');
+
+GO
+create trigger tgr_User_insert
+on FUser
+for insert
+as
+begin
+	declare @FoodID int;
+	declare @ExId int;
+	select @FoodID = Food.FoodID from Food
+	select @ExId = Exercise.ExID from Exercise
+	insert into UserFood(UserID,FoodID) select UserID, FoodID from Food , inserted
+	insert into UserExercise(UserID , ExID) select UserID , ExID from Exercise , inserted
+	update UserFood 
+	set Favorite = 0
+	update UserExercise
+	set Favourite = 0
+end
+select*from FUser
+insert into FUser values('Admin' , 60,160,19,1,0,'admin','admin')
+select*from UserExercise
+select * from UserFood

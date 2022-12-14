@@ -11,15 +11,9 @@ namespace Project.ViewModel
    
     public class MainViewModel
     {
-        public ICommand LoadedCommand { get; set; }
         public MainViewModel()
         {
-            LoadedCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
 
-            });
         } 
     }
 }

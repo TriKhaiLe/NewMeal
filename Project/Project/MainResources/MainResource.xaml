@@ -3,4 +3,5 @@
                     xmlns:mainvm="clr-namespace:Project.ViewModel"
                     >
     <mainvm:MainViewModel x:Key="MainVM"></mainvm:MainViewModel>
+    
 </ResourceDictionary>

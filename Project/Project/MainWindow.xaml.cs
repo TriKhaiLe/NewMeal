@@ -1,4 +1,5 @@
-﻿using Project.Pages;
+﻿using Project.Model;
+using Project.Pages;
 using Project.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace Project
         private AccountPage AccountPage = new AccountPage();
         private RecommendPage RecommendPage = new RecommendPage();
         private CalorieBurnPage CalorieBurnPage = new CalorieBurnPage();
+        public int UserID { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -80,6 +82,17 @@ namespace Project
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.ShowDialog();
+            if(loginWindow.IsLogin)
+            {
+                this.Show();
             }
         }
     }

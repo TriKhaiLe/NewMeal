@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,10 +59,24 @@ namespace Project
         {
             this.Close();
         }
-
+        public bool IsLogin { get; set; }
+        public int UserID { get; set; }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Xin chào");
+            int count = DataProvider.Ins.DB.FUser.Where(p => (p.Username == txtUser.Text && p.Passwrd == txtPassword.Password)).Count();
+            if(count > 0)
+            {
+                IsLogin = true;
+                DataProvider.Ins.Current_UserID = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.Username == txtUser.Text).UserID;
+                this.Close();
+            }
+            else
+            {
+                IsLogin = false;
+                txtUser.Text = null;
+                txtPassword.Password = null;
+                MessageBox.Show("Tài khoản hoặc mật khẩu bị sai");
+            }
         }
     }
 }
