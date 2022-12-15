@@ -241,10 +241,11 @@
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right">
                         <Label Content="Sắp xếp theo :" VerticalAlignment="Center"></Label>
                         <ComboBox
+                            x:Name="ComboBox_sort"
                             Margin="5"
                         BorderBrush="Black"
                         Width="100"
-                        Height="30">
+                        Height="30" SelectionChanged="ComboBox_SelectionChanged">
                             <ComboBoxItem
                             Content="Calorie" />
                             <ComboBoxItem
@@ -253,29 +254,38 @@
                     </StackPanel>
 
                 </DockPanel>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" x:Name="Grid_lv">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <ListView   Name="lvDataBinding" SelectionChanged="lvDataBinding_SelectionChanged">
-                            <ListView.ItemTemplate>
+                            <ListView.ItemTemplate >
                                 <DataTemplate>
                                     <materialDesign:Card
                                         materialDesign:ElevationAssist.Elevation="Dp2">
-                                        <Border CornerRadius="12" Background="White"  >
-                                            <Grid Width="850">
+                                        <Border CornerRadius="12" Background="White" >
+                                            <Grid Margin="0 0 -30 0" Width="{Binding ElementName=Grid_lv , Path=ActualWidth}">
                                                 <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>
                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <StackPanel Grid.Column="0" Orientation="Horizontal">
-                                                    <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
+                                                <Grid Grid.Column="0">
+                                                    <Rectangle Margin="0 0 10 0" Width="70" Height="70" >
                                                         <Rectangle.Fill>
                                                             <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
                                                         </Rectangle.Fill>
                                                     </Rectangle>
-                                                    <TextBlock Text="Name: " />
-                                                    <TextBlock Text="{Binding FoodName}" FontWeight="Bold" />
+                                                </Grid>
+                                                <StackPanel Orientation="Vertical" Margin="0 10 0 0" Grid.Column="1">
+                                                    <TextBlock>
+                                                        <Run Text="{Binding FoodName}" FontSize="15" FontWeight="Bold"></Run>
+                                                        <LineBreak></LineBreak>
+                                                        <Run Text="Calorie : "></Run>
+                                                        <Run Text="{Binding Kcal}" FontWeight="Bold" FontSize="13"></Run>
+                                                        <LineBreak></LineBreak>
+                                                        <Run Text="{Binding Descript}" FontStyle="Italic" FontSize="13"></Run>
+                                                    </TextBlock>
                                                 </StackPanel>
-                                                <StackPanel Margin="0 0 20 0" Grid.Column="1" Orientation="Horizontal">
+                                                <StackPanel Margin="0 0 30 0" Grid.Column="2" Orientation="Horizontal">
                                                     <Button
                                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                     Margin="5"
@@ -374,9 +384,9 @@
             <StackPanel Grid.Row="2" Margin="10 10 10 20">
                 <TextBlock Text="Lượng Calo hằng ngày" HorizontalAlignment="Center" FontSize="16"></TextBlock>
                 <lvc:Gauge Grid.Row="0" Grid.Column="0" Margin="5"
-                   Uses360Mode="True"
-                           
-                   From="0" To="100" Value="50"
+                           Uses360Mode="True"
+                           x:Name="Gauge_Kcal"
+                           From="0" Value="0"
                            Height="100" GaugeActiveFill="#FFFFC200">
 
                 </lvc:Gauge>
