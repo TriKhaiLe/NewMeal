@@ -126,13 +126,6 @@ C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\MainResources\ButtonMenuStyle.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\MainWindow.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage\AP_Menu.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage\AP_Password.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage\AP_Profile.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\CalorieBurnPage.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\FoodPage.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\RecommendPage.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\App.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project_MarkupCompile.cache
@@ -141,13 +134,6 @@ C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\App.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\MainResources\MainResource.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\MainWindow.baml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage.baml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage\AP_Menu.baml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage\AP_Password.baml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\AccountPage\AP_Profile.baml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\CalorieBurnPage.baml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\FoodPage.baml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\UserControlXAML\RecommendPage.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.g.resources
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.Properties.Resources.resources
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
@@ -178,3 +164,24 @@ C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Pr
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.xml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project_Content.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\CalorieBurnPage.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\FoodPage.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\RecommendPage.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Menu.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Password.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Profile.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project_Content.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.dll
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.xml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\CalorieBurnPage.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\FoodPage.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\RecommendPage.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Menu.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Password.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Profile.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Delete.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Delete.baml

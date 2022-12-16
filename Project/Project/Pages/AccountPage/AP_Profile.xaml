@@ -53,7 +53,7 @@
                         Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
                         ToolTip="Redo"
                         Margin="10 0 0 0"
-                        IsEnabled="{Binding Path=IsChecked, ElementName=edit}">
+                        IsEnabled="{Binding Path=IsChecked, ElementName=edit}" Click="redo_Click">
                         <materialDesign:PackIcon
                             Kind="RedoVariant" Foreground="#FF512DA8" Height="21" Width="21"/>
                     </Button>
@@ -131,8 +131,8 @@
                 Margin="0 1 40 1"
                 materialDesign:HintAssist.Hint="Giới tính"
                 Width="250">
-                    <ComboBoxItem Content="Nam" />
                     <ComboBoxItem Content="Nữ" />
+                    <ComboBoxItem Content="Nam" />
                     <ComboBoxItem IsSelected="True" Content="Khác" />
                 </ComboBox>
 

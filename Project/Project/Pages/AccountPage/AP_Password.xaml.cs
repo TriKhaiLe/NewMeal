@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Project.Pages;
+using Project.Model;
 
 namespace Project.UserControlXAML.AcountPage
 {
@@ -20,10 +22,101 @@ namespace Project.UserControlXAML.AcountPage
     /// </summary>
     public partial class AP_Password : UserControl
     {
+        public string Username
+        {
+            get
+            {
+                if (AccountPage.CurrentUser == null)
+                {
+                    return "User";
+                }
+                else
+                {
+                    return AccountPage.CurrentUser.UName;
+                }
+            }
+        }
+
         public AP_Password()
         {
             InitializeComponent();
+            DataContext = this;
         }
+
+        #region Checking
+
+        private bool test_empty()
+        {
+            if (old_password.Password == "" || new_password1.Password == "" || new_password2.Password == "")
+            {
+                MessageBox.Show("Vui lòng không để trống các ô thông tin","Thông báo");
+                return false;
+            }
+            return true;
+        }
+
+        private bool test_old_password()
+        {
+            if (old_password.Password != AccountPage.CurrentUser.Passwrd)
+            {
+                MessageBox.Show("Mật khẩu cũ không đúng", "Thông báo");
+                return false;
+            }
+            return true;
+        }
+
+        private bool test_new_password()
+        {
+            if (new_password1.Password != new_password2.Password)
+            {
+                MessageBox.Show("Nhập lại mật khẩu mới không trùng khớp", "Thông báo");
+                return false;
+            }
+            return true;
+        }
+
+        private bool test_old_new_password()
+        {
+            if (old_password.Password == new_password1.Password)
+            {
+                MessageBox.Show("Bạn đang nhập lại mật khẩu hiện tại.\nVui lòng nhập mật khẩu mới.", "Thông báo");
+                return false;
+            }
+            return true;
+        }
+
+        private bool test_length()
+        {
+            if (new_password1.Password.Length < 8)
+            {
+                MessageBox.Show("Mật khẩu phải từ 8 kí tự trở lên", "Thông báo");
+                return false;
+            }
+            return true;
+        }
+
+        private void close_tag()
+        {
+            (this.Parent as ContentControl).Content = new AP_Menu();
+        }
+
+        private void change_password()
+        {
+            AccountPage.CurrentUser.Passwrd = new_password1.Password;
+            DataProvider.Ins.DB.SaveChanges();
+            MessageBox.Show("Bạn đã đổi mật khẩu thành công!", "Thông báo");
+            close_tag();
+        }
+
+        private void empty_Textbox()
+        {
+            old_password.Clear();
+            new_password1.Clear();
+            new_password2.Clear();
+        }
+        #endregion
+
+        #region Event
 
         private void Back_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -39,11 +132,24 @@ namespace Project.UserControlXAML.AcountPage
             button_back.Margin = new Thickness(10, 10, 0, 0);
         }
 
-
-
         private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            (this.Parent as ContentControl).Content = new AP_Menu();
+            close_tag();
         }
+
+        private void changePass_Click(object sender, RoutedEventArgs e)
+        {
+            if (test_empty() && test_old_password() && test_new_password() && test_length() && test_old_new_password())
+            {
+                change_password();
+            }
+            else
+            {
+                empty_Textbox();
+            }
+        }
+        #endregion
+
+
     }
 }

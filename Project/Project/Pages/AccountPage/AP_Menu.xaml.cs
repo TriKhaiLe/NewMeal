@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Project.Pages;
 
 namespace Project.UserControlXAML.AcountPage
 {
@@ -20,9 +21,25 @@ namespace Project.UserControlXAML.AcountPage
     /// </summary>
     public partial class AP_Menu : UserControl
     {
+        public string Username 
+        {
+            get
+            {
+                if (AccountPage.CurrentUser == null)
+                {
+                    return "User";
+                }
+                else
+                {
+                    return AccountPage.CurrentUser.UName;
+                }
+            }
+        }
+
         public AP_Menu()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void profile_MouseEnter(object sender, MouseEventArgs e)
@@ -45,14 +62,14 @@ namespace Project.UserControlXAML.AcountPage
             button_password.Margin = new Thickness(0, 20, 0, 10);
         }
 
-        private void settings_MouseEnter(object sender, MouseEventArgs e)
+        private void delete_MouseEnter(object sender, MouseEventArgs e)
         {
-            button_settings.Margin = new Thickness(0, 15, 0, 5);
+            button_delete.Margin = new Thickness(0, 15, 0, 5);
         }
 
-        private void settings_MouseLeave(object sender, MouseEventArgs e)
+        private void delete_MouseLeave(object sender, MouseEventArgs e)
         {
-            button_settings.Margin = new Thickness(0, 20, 0, 10);
+            button_delete.Margin = new Thickness(0, 20, 0, 10);
         }
 
         private void password_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -63,6 +80,11 @@ namespace Project.UserControlXAML.AcountPage
         private void profile_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             (this.Parent as ContentControl).Content = new AP_Profile();
+        }
+
+        private void delete_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            (this.Parent as ContentControl).Content = new AP_Delete();
         }
     }
 }

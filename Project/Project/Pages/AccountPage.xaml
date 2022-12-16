@@ -17,7 +17,7 @@
      Name="accountpage"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-     d:DesignHeight="684" d:DesignWidth="940">
+     d:DesignHeight="684" d:DesignWidth="940" Loaded="page_Load">
     <Grid>
         <ContentControl x:Name="Screen" Margin="0 0 0 0"></ContentControl>
     </Grid>
