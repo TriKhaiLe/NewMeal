@@ -1,6 +1,8 @@
 ﻿using Project.Model;
+using Project.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,27 +25,18 @@ namespace Project.Pages
     {
         public List<Exercise> ExerciseList { get; set; }
         public List<UserExercise> ExerciseUser { get; set; }
+        CollectionView view;
 
         public CalorieBurnPage()
         {
-            ExerciseUser = new List<UserExercise>();
-            ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
-            //lvCaloriesBurned.ItemsSource = ExerciseList;
-
             InitializeComponent();
-            List<User> items = new List<User>();
+            this.DataContext = this;
 
-            items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
-            items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            lvCaloriesBurned.ItemsSource = items;
+            ExerciseUser = new List<UserExercise>();
+
+            ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
+            lvCaloriesBurned.ItemsSource = ExerciseList;
+            view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
         }
         public class User
         {
