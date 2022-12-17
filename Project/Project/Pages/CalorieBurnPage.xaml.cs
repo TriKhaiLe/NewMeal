@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,15 @@ namespace Project.Pages
     /// </summary>
     public partial class CalorieBurnPage : Page
     {
+        public List<Exercise> ExerciseList { get; set; }
+        public List<UserExercise> ExerciseUser { get; set; }
+
         public CalorieBurnPage()
         {
+            ExerciseUser = new List<UserExercise>();
+            ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
+            //lvCaloriesBurned.ItemsSource = ExerciseList;
+
             InitializeComponent();
             List<User> items = new List<User>();
 
