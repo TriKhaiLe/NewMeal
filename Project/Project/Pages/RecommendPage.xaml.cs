@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,60 +21,137 @@ namespace Project.Pages
     /// </summary>
     public partial class RecommendPage : Page
     {
+        public List<UserFood> FoodUser { get; set; }
+        public List<Food> Breakfast_food { get; set; }
+        public List<Food> Lunch_food { get; set; }
+        public List<Food> Dinner_food { get; set; }
+        public List<Food> foodList { get; set; }
+        CollectionView view;
         public RecommendPage()
         {
-            InitializeComponent();
             this.DataContext = this;
-            List<User> items = new List<User>();
-
-            items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
-            items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });
-            lvBreakfastRecommendation.ItemsSource = items;
-            lvLunchRecommendation.ItemsSource = items;
-            lvDinnerRecommendation.ItemsSource = items;
+            foodList = new List<Food>();
+            Breakfast_food = new List<Food>();
+            Lunch_food = new List<Food>();
+            Dinner_food = new List<Food>();
+            foodList = DataProvider.Ins.DB.Food.ToList();
+            InitializeComponent();
+            view = (CollectionView)CollectionViewSource.GetDefaultView(lvBreakfastRecommendation.ItemsSource);
         }
-        public class User
+
+        private void recommend_page_Loaded(object sender, RoutedEventArgs e)
         {
-            public string Name { get; set; }
-
-            public int Age { get; set; }
-
-            public string Mail { get; set; }
+            FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
+            foreach (Food food in foodList)
+            {
+                switch (food.MealTime)
+                {
+                    case 3:
+                        {
+                            Breakfast_food.Add(food);
+                        }
+                        break;
+                    case 4:
+                        {
+                            Lunch_food.Add(food);
+                        }
+                        break;
+                    case 5:
+                        {
+                            Dinner_food.Add(food);
+                        }
+                        break;
+                    case 7:
+                        {
+                            Breakfast_food.Add(food);
+                            Lunch_food.Add(food);
+                        }
+                        break;
+                    case 8:
+                        {
+                            Breakfast_food.Add(food);
+                            Dinner_food.Add(food);
+                        }
+                        break;
+                    case 9:
+                        {
+                            Lunch_food.Add(food);
+                            Dinner_food.Add(food);
+                        }
+                        break;
+                    case 12:
+                        {
+                            Breakfast_food.Add(food);
+                            Lunch_food.Add(food);
+                            Dinner_food.Add(food);
+                        }
+                        break;
+                }
+                lvBreakfastRecommendation.ItemsSource = Breakfast_food;
+                lvLunchRecommendation.ItemsSource = Lunch_food;
+                lvDinnerRecommendation.ItemsSource = Dinner_food;
+            }
         }
+
         private void lvBreakfastRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BitmapImage bitimg = new BitmapImage();
+            Food food = lvBreakfastRecommendation.SelectedItem as Food;
             bitimg.BeginInit();
-            bitimg.UriSource = new Uri(@"\Assets\meat.png", UriKind.Relative);
+            bitimg.UriSource = new Uri(food.Imgsrc, UriKind.Relative);
             bitimg.EndInit();
             food_image.Source = bitimg;
-            food_review.Text = "This is a piece of meat!!!";
+            food_review.Text = food.Descript;
+            try
+            {
+                UserFood uf = FoodUser.Where(p => p.FoodID == food.FoodID).First();
+                tb_last_eat.Text = uf.Last_eat.Value.ToShortDateString();
+            }
+            catch
+            {
+                tb_last_eat.Text = "Bạn chưa bao giờ thử món này!";
+            }
+            tb_calo.Text = food.Kcal.Value.ToString();
         }
         private void lvLunchRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BitmapImage bitimg = new BitmapImage();
+            Food food = lvLunchRecommendation.SelectedItem as Food;
             bitimg.BeginInit();
-            bitimg.UriSource = new Uri(@"\Assets\noodle.png", UriKind.Relative);
+            bitimg.UriSource = new Uri(food.Imgsrc, UriKind.Relative);
             bitimg.EndInit();
             food_image.Source = bitimg;
-            food_review.Text = "This is a piece of noodle!!!";
+            food_review.Text = food.Descript;
+            try
+            {
+                UserFood uf = FoodUser.Where(p => p.FoodID == food.FoodID).First();
+                tb_last_eat.Text = uf.Last_eat.Value.ToShortDateString();
+            }
+            catch
+            {
+                tb_last_eat.Text = "Bạn chưa bao giờ thử món này!";
+            }
+            tb_calo.Text = food.Kcal.Value.ToString();
         }
         private void lvDinnerRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BitmapImage bitimg = new BitmapImage();
+            Food food = lvDinnerRecommendation.SelectedItem as Food;
             bitimg.BeginInit();
-            bitimg.UriSource = new Uri(@"\Assets\rice.png", UriKind.Relative);
+            bitimg.UriSource = new Uri(food.Imgsrc, UriKind.Relative);
             bitimg.EndInit();
             food_image.Source = bitimg;
-            food_review.Text = "This is a piece of rice!!!";
+            food_review.Text = food.Descript;
+            try
+            {
+                UserFood uf = FoodUser.Where(p => p.FoodID == food.FoodID).First();
+                tb_last_eat.Text = uf.Last_eat.Value.ToShortDateString();
+            }
+            catch
+            {
+                tb_last_eat.Text = "Bạn chưa bao giờ thử món này!";
+            }
+            tb_calo.Text = food.Kcal.Value.ToString();
         }
 
         private void btn_them_Click(object sender, RoutedEventArgs e)
@@ -101,6 +179,19 @@ namespace Project.Pages
                         return;
                     }
             }
+        }
+
+        private void favorite_button_Checked(object sender, RoutedEventArgs e)
+        {
+            if (tab_control.SelectedIndex == 1)
+            {
+                MessageBox.Show("1");
+            }
+        }
+
+        private void favorite_button_Unchecked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

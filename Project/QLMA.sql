@@ -309,7 +309,7 @@ begin
 	update UserExercise
 	set Favourite = 0
 end
-select*from FUser
+select * from FUser
 insert into FUser values('Admin' , 60,160,19,1,0,'admin','admin')
-select*from UserExercise
+select * from UserExercise
 select * from UserFood

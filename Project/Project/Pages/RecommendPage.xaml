@@ -10,7 +10,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             d:DesignHeight="450" d:DesignWidth="801.915" Foreground="White">
+             d:DesignHeight="450" d:DesignWidth="801.915" Foreground="White" Loaded="recommend_page_Loaded">
     <Page.Resources>
         <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
             <Setter Property="OverridesDefaultStyle" Value="true"/>
@@ -117,41 +117,21 @@
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <materialDesign:Card
-                                                                materialDesign:ElevationAssist.Elevation="Dp2">
+                                                        materialDesign:ElevationAssist.Elevation="Dp2">
                                                         <Border CornerRadius="12" Background="White"  >
-                                                            <Grid Width="850">
+                                                            <Grid Width="270">
                                                                 <Grid.ColumnDefinitions>
-                                                                    <ColumnDefinition/>
+                                                                    <ColumnDefinition></ColumnDefinition>
                                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                                 </Grid.ColumnDefinitions>
                                                                 <StackPanel Grid.Column="0" Orientation="Horizontal">
                                                                     <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
                                                                         <Rectangle.Fill>
-                                                                            <ImageBrush ImageSource="/Assets/logo.png"></ImageBrush>
+                                                                            <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
                                                                         </Rectangle.Fill>
                                                                     </Rectangle>
                                                                     <TextBlock Text="Name: " />
-                                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                                                                </StackPanel>
-                                                                <StackPanel Margin="0 0 20 0" Grid.Column="1" Orientation="Horizontal">
-                                                                    <Button
-                                                                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                                                            Margin="5"
-                                                                            Height="50"
-                                                                            Width="50"
-                                                                            materialDesign:ButtonAssist.CornerRadius="50"
-                                                                            >
-                                                                        <materialDesign:PackIcon Kind="Pencil" />
-                                                                    </Button>
-                                                                    <Button
-                                                                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                                                            Margin="5"
-                                                                            Height="50"
-                                                                            Width="50"
-                                                                            materialDesign:ButtonAssist.CornerRadius="50"
-                                                                            >
-                                                                        <materialDesign:PackIcon Kind="Delete" />
-                                                                    </Button>
+                                                                    <TextBlock Text="{Binding FoodName}" FontWeight="Bold" />
                                                                 </StackPanel>
                                                             </Grid>
                                                         </Border>
@@ -174,41 +154,21 @@
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <materialDesign:Card
-                                                                materialDesign:ElevationAssist.Elevation="Dp2">
+                                                        materialDesign:ElevationAssist.Elevation="Dp2">
                                                         <Border CornerRadius="12" Background="White"  >
-                                                            <Grid Width="850">
+                                                            <Grid Width="270">
                                                                 <Grid.ColumnDefinitions>
-                                                                    <ColumnDefinition/>
+                                                                    <ColumnDefinition></ColumnDefinition>
                                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                                 </Grid.ColumnDefinitions>
                                                                 <StackPanel Grid.Column="0" Orientation="Horizontal">
                                                                     <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
                                                                         <Rectangle.Fill>
-                                                                            <ImageBrush ImageSource="/Assets/logo.png"></ImageBrush>
+                                                                            <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
                                                                         </Rectangle.Fill>
                                                                     </Rectangle>
                                                                     <TextBlock Text="Name: " />
-                                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                                                                </StackPanel>
-                                                                <StackPanel Margin="0 0 20 0" Grid.Column="1" Orientation="Horizontal">
-                                                                    <Button
-                                                                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                                                            Margin="5"
-                                                                            Height="50"
-                                                                            Width="50"
-                                                                            materialDesign:ButtonAssist.CornerRadius="50"
-                                                                            >
-                                                                        <materialDesign:PackIcon Kind="Pencil" />
-                                                                    </Button>
-                                                                    <Button
-                                                                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                                                            Margin="5"
-                                                                            Height="50"
-                                                                            Width="50"
-                                                                            materialDesign:ButtonAssist.CornerRadius="50"
-                                                                            >
-                                                                        <materialDesign:PackIcon Kind="Delete" />
-                                                                    </Button>
+                                                                    <TextBlock Text="{Binding FoodName}" FontWeight="Bold" />
                                                                 </StackPanel>
                                                             </Grid>
                                                         </Border>
@@ -231,41 +191,21 @@
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <materialDesign:Card
-                                                                materialDesign:ElevationAssist.Elevation="Dp2">
+                                                        materialDesign:ElevationAssist.Elevation="Dp2">
                                                         <Border CornerRadius="12" Background="White"  >
-                                                            <Grid Width="850">
+                                                            <Grid Width="270">
                                                                 <Grid.ColumnDefinitions>
-                                                                    <ColumnDefinition/>
+                                                                    <ColumnDefinition></ColumnDefinition>
                                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                                 </Grid.ColumnDefinitions>
                                                                 <StackPanel Grid.Column="0" Orientation="Horizontal">
                                                                     <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
                                                                         <Rectangle.Fill>
-                                                                            <ImageBrush ImageSource="/Assets/logo.png"></ImageBrush>
+                                                                            <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
                                                                         </Rectangle.Fill>
                                                                     </Rectangle>
                                                                     <TextBlock Text="Name: " />
-                                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                                                                </StackPanel>
-                                                                <StackPanel Margin="0 0 20 0" Grid.Column="1" Orientation="Horizontal">
-                                                                    <Button
-                                                                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                                                            Margin="5"
-                                                                            Height="50"
-                                                                            Width="50"
-                                                                            materialDesign:ButtonAssist.CornerRadius="50"
-                                                                            >
-                                                                        <materialDesign:PackIcon Kind="Pencil" />
-                                                                    </Button>
-                                                                    <Button
-                                                                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                                                            Margin="5"
-                                                                            Height="50"
-                                                                            Width="50"
-                                                                            materialDesign:ButtonAssist.CornerRadius="50"
-                                                                            >
-                                                                        <materialDesign:PackIcon Kind="Delete" />
-                                                                    </Button>
+                                                                    <TextBlock Text="{Binding FoodName}" FontWeight="Bold" />
                                                                 </StackPanel>
                                                             </Grid>
                                                         </Border>
@@ -290,90 +230,70 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                <Image x:Name="food_image" Height="auto"
-                                       Source="/Assets/logo.png"
-                                       Stretch="Uniform" />
-                                <Button Grid.Row="0"
-                                        Margin="0,0,16,-20"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Bottom"
-                                        Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
-                                    <materialDesign:PackIcon Kind="ShareVariant" />
-                                </Button>
-                                <StackPanel Grid.Row="1"
+                                <materialDesign:Card
+                                     materialDesign:ElevationAssist.Elevation="Dp2">
+                                    <Image x:Name="food_image" Height="auto"
+                                       Stretch="Uniform"
+                                       />
+                                </materialDesign:Card>
+                                <ToggleButton 
+                                    x:Name="favorite_button"
+                                    Grid.Row="0"
+                                    Margin="0,0,16,-20"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=Heart}"
+                                    Content="{materialDesign:PackIcon Kind=CardsHeartOutline}"
+                                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                                    ToolTip="MaterialDesignActionLightToggleButton" Checked="favorite_button_Checked" Unchecked="favorite_button_Unchecked"/>
+                                <Grid Grid.Row="1"
                                             Margin="8,24,8,4">
-                                    <TextBlock Margin="0"
-                                               Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
-                                               Text="Đánh giá món ăn"
-                                               Foreground="Black"/>
-                                    <Viewbox Height="16"
-                                             Margin="0,4,0,8"
-                                             HorizontalAlignment="Left">
-                                        <materialDesign:RatingBar
-                                            Margin="0"
-                                            Foreground="Gold"
-                                            Orientation="Horizontal"
-                                            Value="3" />
-                                    </Viewbox>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
                                     <TextBlock x:Name="food_review" VerticalAlignment="Center"
                                                Style="{StaticResource MaterialDesignBody1TextBlock}"
                                                TextWrapping="Wrap"
                                                Foreground="Black"/>
-                                </StackPanel>
+                                    <GroupBox 
+                                        Grid.Row="1"
+                                        materialDesign:ColorZoneAssist.Mode="SecondaryMid"
+                                        Header="Calo"
+                                        Style="{StaticResource MaterialDesignGroupBox}">
+                                        <TextBlock
+                                               x:Name="tb_calo"
+                                               VerticalAlignment="Center"
+                                               Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                               TextWrapping="Wrap"
+                                               Foreground="Black"
+                                               Text ="123"/>
+                                    </GroupBox>
+                                    <GroupBox
+                                        Grid.Row="2"
+                                        Margin="0"
+                                        materialDesign:ColorZoneAssist.Mode="SecondaryMid"
+                                        Header="Lần cuối ăn: "
+                                        Style="{StaticResource MaterialDesignGroupBox}">
+                                        <TextBlock
+                                               x:Name="tb_last_eat"
+                                               VerticalAlignment="Center"
+                                               Style="{StaticResource MaterialDesignBody1TextBlock}"
+                                               TextWrapping="Wrap"
+                                               Foreground="Black"/>
+                                    </GroupBox>
+                                </Grid>
                                 <Separator Grid.Row="2"
                                            Margin="8,0,8,0"
                                            Style="{StaticResource MaterialDesignDarkSeparator}" />
-                                <TextBlock Grid.Row="3"
-                                           Margin="8,4,8,4"
-                                           Style="{StaticResource MaterialDesignBody2TextBlock}"
-                                           Text="Bữa ăn"
-                                           Foreground="Black"/>
-                                <Grid Grid.Row="4">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <materialDesign:PackIcon Grid.Column="0"
-                                                             Margin="8,4,4,4"
-                                                             VerticalAlignment="Center"
-                                                             Kind="Clock" />
-                                    <ListBox Grid.Column="1"
-                                             Margin="4,8,8,4"
-                                             SelectedIndex="0"
-                                             Style="{StaticResource MaterialDesignToolToggleFlatListBox}">
-                                        <ListBox.Resources>
-                                            <Style TargetType="{x:Type ListBoxItem}"
-                                                   BasedOn="{StaticResource MaterialDesignToolToggleListBoxItem}">
-                                                <Setter Property="Padding" Value="4,6,4,6" />
-                                            </Style>
-                                        </ListBox.Resources>
-                                        <ListBox.ToolTip>
-                                            <StackPanel>
-                                                <TextBlock Text="MaterialDesignFlatToggleListBox" 
-                                                           Foreground="Black"/>
-                                                <TextBlock Text="Exclusive selection"
-                                                           Foreground="Black"/>
-                                                <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour"
-                                                           Foreground="Black"/>
-                                            </StackPanel>
-                                        </ListBox.ToolTip>
-                                        <ListBoxItem>
-                                            <TextBlock Text="Bữa Sáng" />
-                                        </ListBoxItem>
-                                        <ListBoxItem>
-                                            <TextBlock Text="Bữa Trưa" />
-                                        </ListBoxItem>
-                                        <ListBoxItem>
-                                            <TextBlock Text="Bữa Tối" />
-                                        </ListBoxItem>
-                                    </ListBox>
-                                </Grid>
-                                <StackPanel Grid.Row="5">
+                                <DockPanel Grid.Row="5"
+                                           HorizontalAlignment="Right">
                                     <Button x:Name="btn_them" Margin="8,4,8,8"
                                             HorizontalAlignment="Left"
                                             Content="THÊM"
                                             Style="{StaticResource MaterialDesignFlatButton}" Click="btn_them_Click" />
-                                </StackPanel>
+                                </DockPanel>
                             </Grid>
                         </materialDesign:Card>
                     </DockPanel>
@@ -421,11 +341,11 @@
                                         <DockPanel Width="400">
                                             <Rectangle Margin="0 0 10 10" Width="50" Height="50">
                                                 <Rectangle.Fill>
-                                                    <ImageBrush ImageSource="/Assets/logo.png"></ImageBrush>
+                                                    <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
                                             <TextBlock Text="Name: " />
-                                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                            <TextBlock Text="{Binding FoodName}" FontWeight="Bold" />
                                         </DockPanel>
                                     </Border>
                                 </materialDesign:Card>
