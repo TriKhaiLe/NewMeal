@@ -35,7 +35,6 @@ create table Exercise
 ExID int identity(1,1) primary key,
 ExName nvarchar(100),
 ImgLink nvarchar(100),
-Kps numeric(7,3),
 Kph int
 )
 
@@ -83,21 +82,21 @@ select * from Exercise
 set dateformat dmy
 
 -------------Exercise---------------
-insert into Exercise values(N'Bơi','\Assets\Exercises\boi.jpg','0.07',252)
-insert into Exercise values(N'Cầu lông','\Assets\Exercises\caulong.jpg','0.05',180)
-insert into Exercise values(N'Chạy bộ','\Assets\Exercises\caulong.jpg','0.22',792)
-insert into Exercise values(N'Chạy trên máy','\Assets\Exercises\chaybotrenmay.jpg','0.09',324)
-insert into Exercise values(N'Đá bóng','\Assets\Exercises\dabong.jpg','0.14',504)
-insert into Exercise values(N'Đạp xe','\Assets\Exercises\dapxe.jpg','0.14',504)
-insert into Exercise values(N'Đi bộ','\Assets\Exercises\dibo.jpg','0.06',216)
-insert into Exercise values(N'Gập bụng','\Assets\Exercises\gapbung.jpg','0.17',612)
-insert into Exercise values(N'Hít đất','\Assets\Exercises\hitdat.jpg','0.12',432)
-insert into Exercise values(N'Lắc vòng','\Assets\Exercises\lacvong.jpg','0.12',432)
-insert into Exercise values(N'Nhảy aerobic','\Assets\Exercises\nhayaerobic.jpg','0.14',504)
-insert into Exercise values(N'Nhảy dây','\Assets\Exercises\nhayday.jpg','0.16',576)
-insert into Exercise values('Plank','\Assets\Exercises\plank.jpg','0.58',2088)
-insert into Exercise values('Squat','\Assets\Exercises\squat.jpg','0.1',360)
-insert into Exercise values('Tennis','\Assets\Exercises\tennis.jpg','0.2',720)
+insert into Exercise values(N'Bơi','\Assets\Exercises\boi.jpg',252)
+insert into Exercise values(N'Cầu lông','\Assets\Exercises\caulong.jpg',180)
+insert into Exercise values(N'Chạy bộ','\Assets\Exercises\caulong.jpg',792)
+insert into Exercise values(N'Chạy trên máy','\Assets\Exercises\chaybotrenmay.jpg',324)
+insert into Exercise values(N'Đá bóng','\Assets\Exercises\dabong.jpg',504)
+insert into Exercise values(N'Đạp xe','\Assets\Exercises\dapxe.jpg',504)
+insert into Exercise values(N'Đi bộ','\Assets\Exercises\dibo.jpg',216)
+insert into Exercise values(N'Gập bụng','\Assets\Exercises\gapbung.jpg',612)
+insert into Exercise values(N'Hít đất','\Assets\Exercises\hitdat.jpg',432)
+insert into Exercise values(N'Lắc vòng','\Assets\Exercises\lacvong.jpg',432)
+insert into Exercise values(N'Nhảy aerobic','\Assets\Exercises\nhayaerobic.jpg',504)
+insert into Exercise values(N'Nhảy dây','\Assets\Exercises\nhayday.jpg',576)
+insert into Exercise values('Plank','\Assets\Exercises\plank.jpg',2088)
+insert into Exercise values('Squat','\Assets\Exercises\squat.jpg',360)
+insert into Exercise values('Tennis','\Assets\Exercises\tennis.jpg',720)
 
 -------------Food---------------
 ----Mon nuoc---
@@ -314,3 +313,4 @@ select*from FUser
 insert into FUser values('Admin' , 60,160,19,1,0,'admin','admin')
 select*from UserExercise
 select * from UserFood
+select * from Exercise
