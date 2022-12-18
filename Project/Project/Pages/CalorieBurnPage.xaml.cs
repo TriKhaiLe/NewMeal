@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Project.Pages
 {
@@ -25,18 +26,24 @@ namespace Project.Pages
     {
         public List<Exercise> ExerciseList { get; set; }
         public List<UserExercise> ExerciseUser { get; set; }
-        CollectionView view;
+
+        private CollectionView _view;
+        private DispatcherTimer _timer = new DispatcherTimer();
+        private int _remainingTime = 20;
 
         public CalorieBurnPage()
         {
             InitializeComponent();
-            this.DataContext = this;
 
-            ExerciseUser = new List<UserExercise>();
+            _timer.Interval = TimeSpan.FromSeconds(1);
 
-            ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
-            lvCaloriesBurned.ItemsSource = ExerciseList;
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
+            //this.DataContext = this;
+
+            //ExerciseUser = new List<UserExercise>();
+
+            //ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
+            //lvCaloriesBurned.ItemsSource = ExerciseList;
+            //_view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
         }
         public class User
         {
@@ -60,27 +67,46 @@ namespace Project.Pages
             return new List<string> { calories.ToString() };
         }
 
-        private void Play_btn_Click(object sender, RoutedEventArgs e)
-        {
-            Countdown(15, TimeSpan.FromSeconds(1), cur => CountdownTimer.Text = TimeSpan.FromSeconds(cur).ToString());
-        }
 
-        void Countdown(int count, TimeSpan interval, Action<int> ts)
+
+        void Countdown(TimeSpan interval, Action<int> ts)
         {
-            // stick timer to the clock
-            var dt = new System.Windows.Threading.DispatcherTimer();
-            dt.Interval = interval;
-            dt.Tick += (_, a) =>
+            _timer.Interval = interval;
+            _timer.Tick += (_, a) =>
             {
-                if (count-- == 0)
-                    dt.Stop();
+                if (_remainingTime-- == 0)
+                    _timer.Stop();
                 else
                     // show time string
-                    ts(count);
+                    ts(_remainingTime);
             };
 
-            ts(count);
-            dt.Start();
+            ts(_remainingTime);
+            _timer.Start();
+        }
+
+        private void Count_Tick(object sender, EventArgs e)
+        {
+            if (_remainingTime-- <= 0)
+                _timer.Stop();
+            else
+                // show time string
+                CountdownTimer.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
+        }
+        private void Play_btn_Click(object sender, RoutedEventArgs e)
+        {
+            _timer.Tick += Count_Tick;
+            _timer.Start();
+            (sender as Button).IsEnabled = false;
+            Pause_btn.IsEnabled = true;
+        }
+
+        private void Pause_btn_Click(object sender, RoutedEventArgs e)
+        {
+            _timer.Stop();
+            _timer.Tick -= Count_Tick;
+            (sender as Button).IsEnabled = false;
+            Play_btn.IsEnabled = true;
         }
     }
 
