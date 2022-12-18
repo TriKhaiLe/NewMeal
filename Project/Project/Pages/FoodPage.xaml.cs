@@ -2,6 +2,7 @@
 using Project.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,10 +46,10 @@ namespace Project.Pages
             FoodUser = new List<UserFood>();
             foodList = DataProvider.Ins.DB.Food.ToList();
             lvDataBinding.ItemsSource = foodList;
-
+           
             view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
             view.Filter = UserFilter;
-
+            Gauge_Kcal.To = 2800;
             textchangebytime();
         }
 
@@ -81,12 +82,19 @@ namespace Project.Pages
 
         private void lvDataBinding_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SelectedFood_lv.Items.Add(lvDataBinding.SelectedItem);
+
+            Food food = (Food)lvDataBinding.SelectedItem;
+            if(food != null)
+            {
+                Gauge_Kcal.Value +=(double) food.Kcal;
+                SelectedFood_lv.Items.Add(food);
+            }
+            
         }
 
         private void ComButton_Checked(object sender, RoutedEventArgs e)
         {
-            
+            ComboBox_sort.Text = null;
             lvDataBinding.ItemsSource = Com;
             view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
             view.Filter = UserFilter;
@@ -96,7 +104,7 @@ namespace Project.Pages
             
             Food food = new Food();
             FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
-            
+            //MessageBox.Show(FoodUser.Count().ToString());
             foreach (UserFood user in FoodUser)
             {
                 
@@ -129,7 +137,7 @@ namespace Project.Pages
 
         private void MNButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            ComboBox_sort.Text = null;
             lvDataBinding.ItemsSource = MonNuoc;
             view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
             view.Filter = UserFilter;
@@ -137,7 +145,7 @@ namespace Project.Pages
 
         private void DBButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            ComboBox_sort.Text = null;
             lvDataBinding.ItemsSource = DoBien;
             view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
             view.Filter = UserFilter;
@@ -145,6 +153,7 @@ namespace Project.Pages
 
         private void CanhButton_Checked(object sender, RoutedEventArgs e)
         {
+            ComboBox_sort.Text = null;
             lvDataBinding.ItemsSource = Canh;
             view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
             view.Filter = UserFilter;
@@ -152,6 +161,7 @@ namespace Project.Pages
 
         private void TUButton_Checked(object sender, RoutedEventArgs e)
         {
+            ComboBox_sort.Text = null;
             lvDataBinding.ItemsSource = ThucUong;
             view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
             view.Filter = UserFilter;
@@ -159,6 +169,7 @@ namespace Project.Pages
 
         private void AVButton_Checked(object sender, RoutedEventArgs e)
         {
+            ComboBox_sort.Text = null;
             lvDataBinding.ItemsSource = AnVat;
             view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
             view.Filter = UserFilter;
@@ -167,6 +178,31 @@ namespace Project.Pages
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource).Refresh();
+        }
+
+        private void ComboBox_Selected(object sender, RoutedEventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+            MessageBox.Show(comboBox.SelectedValue.ToString());
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
+            if (cb.SelectedIndex == 0)
+            {
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription("Kcal", ListSortDirection.Ascending));
+                
+            }
+            else if (cb.SelectedIndex == 1)
+            {
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription("FoodName", ListSortDirection.Ascending));
+                
+            }
+            
         }
     }
 }

@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Project.Pages;
+using Project.Model;
 
 namespace Project.UserControlXAML.AcountPage
 {
@@ -33,12 +35,12 @@ namespace Project.UserControlXAML.AcountPage
             }
         }
 
-
         public AP_Profile()
         {
             InitializeComponent();
             this.DataContext = this;
             Name_HelperText = "Nhập tên";
+            Load_UserData();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -49,6 +51,8 @@ namespace Project.UserControlXAML.AcountPage
                 PropertyChanged(this, new PropertyChangedEventArgs(newName));
             }
         }
+
+        #region Event
 
         private void Back_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -86,12 +90,12 @@ namespace Project.UserControlXAML.AcountPage
 
         private void height_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !number_checking(height.Text.Insert(height.CaretIndex, e.Text));
+            e.Handled = !number_int_checking(height.Text.Insert(height.CaretIndex, e.Text));
         }
 
         private void weight_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !number_checking(weight.Text.Insert(weight.CaretIndex, e.Text));
+            e.Handled = !number_int_checking(weight.Text.Insert(weight.CaretIndex, e.Text));
         }
 
         private void age_LostFocus(object sender, RoutedEventArgs e)
@@ -118,6 +122,26 @@ namespace Project.UserControlXAML.AcountPage
             }
         }
 
+        private void edit_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if ((bool)(edit.IsChecked) && !profile_name_checking())
+            {
+                e.Handled = true;
+            }
+            else if ((bool)edit.IsChecked)
+            {
+                Edit_UserData();
+            }
+        }
+
+        private void redo_Click(object sender, RoutedEventArgs e)
+        {
+            Load_UserData();
+        }
+
+        #endregion
+
+
         #region Checking
         private bool profile_name_checking()
         {
@@ -135,18 +159,18 @@ namespace Project.UserControlXAML.AcountPage
             return true;
         }
 
-        private bool number_checking(string text)
-        {
-            try
-            {
-                Convert.ToDouble(text);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
+        //private bool number_checking(string text)
+        //{
+        //    try
+        //    {
+        //        Convert.ToDouble(text);
+        //        return true;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return false;
+        //    }
+        //}
 
         private bool number_int_checking(string text)
         {
@@ -162,12 +186,45 @@ namespace Project.UserControlXAML.AcountPage
         }
         #endregion
 
-        private void edit_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        #region Other Methods
+
+        void Load_UserData()
         {
-            if ((bool)(edit.IsChecked) && !profile_name_checking())
+            Fullname.Text = AccountPage.CurrentUser.UName;
+            age.Text = AccountPage.CurrentUser.Age.ToString();
+            switch (AccountPage.CurrentUser.Sex)
             {
-                e.Handled = true;
+                case 0: // Female
+                    {
+                        Gender.SelectedItem = Gender.Items[0];
+                        break;
+                    }
+                case 1: // Male
+                    {
+                        Gender.SelectedItem = Gender.Items[1];
+                        break;
+                    }
+                case 2: // Other
+                    {
+                        Gender.SelectedItem = Gender.Items[2];
+                        break;
+                    }
             }
+            weight.Text = AccountPage.CurrentUser.UWeight.ToString();
+            height.Text = AccountPage.CurrentUser.UHeight.ToString();
         }
+
+        void Edit_UserData()
+        {
+            AccountPage.CurrentUser.UName = Fullname.Text;
+            AccountPage.CurrentUser.Age = Convert.ToInt32(age.Text);
+            AccountPage.CurrentUser.Sex = Gender.SelectedIndex;
+            AccountPage.CurrentUser.UWeight = Convert.ToInt32(weight.Text);
+            AccountPage.CurrentUser.UHeight = Convert.ToInt32(height.Text);
+            DataProvider.Ins.DB.SaveChanges();
+        }
+        #endregion
+
+
     }
 }

@@ -125,6 +125,9 @@
     <Compile Include="Pages\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AccountPage\AP_Delete.xaml.cs">
+      <DependentUpon>AP_Delete.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CalorieBurnPage.xaml.cs">
       <DependentUpon>CalorieBurnPage.xaml</DependentUpon>
     </Compile>
@@ -176,6 +179,10 @@
     <Page Include="Pages\AccountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AccountPage\AP_Delete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\CalorieBurnPage.xaml">
       <SubType>Designer</SubType>
@@ -286,7 +293,6 @@
     <Resource Include="Assets\Account\cancel.png" />
     <Resource Include="Assets\Account\password.png" />
     <Resource Include="Assets\Account\profile.png" />
-    <Resource Include="Assets\Account\settings.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Food\F101.jpg" />
@@ -368,6 +374,7 @@
     <Resource Include="Assets\Food\F502.jpg" />
     <Resource Include="Assets\Food\F501.jpg" />
     <Resource Include="Assets\Food\F508.jpg" />
+    <Resource Include="Assets\Account\delete.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

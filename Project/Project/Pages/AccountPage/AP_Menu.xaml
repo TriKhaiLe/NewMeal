@@ -30,7 +30,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <Label x:Name="username" Content="User" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label x:Name="username" Content="{Binding Username}" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         </Grid>
 
         <Grid Grid.Row="2" x:Name="AccountMenu">
@@ -81,11 +81,11 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <Image x:Name="button_settings" Margin="0 20 0 10" Source="/Assets/Account/settings.png" MouseEnter="settings_MouseEnter" MouseLeave="settings_MouseLeave"/>
+                    <Image x:Name="button_delete" Margin="0 20 0 10" Source="/Assets/Account/delete.png" MouseEnter="delete_MouseEnter" MouseLeave="delete_MouseLeave" MouseLeftButtonDown="delete_MouseLeftButtonDown"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <Label Content="Cài đặt" FontSize="20" HorizontalAlignment="Center"/>
+                    <Label Content="Xóa tài khoản" FontSize="20" HorizontalAlignment="Center"/>
                 </Grid>
             </Grid>
         </Grid>

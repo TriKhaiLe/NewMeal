@@ -90,7 +90,7 @@ namespace Project
             //this.Hide();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.ShowDialog();
-            /*if(loginWindow.IsLogin)
+            /*if (loginWindow.IsLogin)
             {
                 this.Show();
             }*/
