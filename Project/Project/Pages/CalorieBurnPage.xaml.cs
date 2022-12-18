@@ -59,5 +59,30 @@ namespace Project.Pages
         {
             return new List<string> { calories.ToString() };
         }
+
+        private void Play_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Countdown(15, TimeSpan.FromSeconds(1), cur => CountdownTimer.Text = TimeSpan.FromSeconds(cur).ToString());
+        }
+
+        void Countdown(int count, TimeSpan interval, Action<int> ts)
+        {
+            // stick timer to the clock
+            var dt = new System.Windows.Threading.DispatcherTimer();
+            dt.Interval = interval;
+            dt.Tick += (_, a) =>
+            {
+                if (count-- == 0)
+                    dt.Stop();
+                else
+                    // show time string
+                    ts(count);
+            };
+
+            ts(count);
+            dt.Start();
+        }
     }
+
 }
+

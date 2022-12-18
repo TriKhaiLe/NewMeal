@@ -155,8 +155,8 @@
 
                 <Grid Grid.Row="0">
                     <TextBlock Text="Thời gian còn  lại:" Margin="38,16,37,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center"/>
-                    <Button Content="▶️" HorizontalAlignment="Left" Margin="48,122,0,0" Width="52" Height="29" VerticalAlignment="Top"/>
-                    <Button Content="⏸" Margin="0,122,31.2,0"  Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="52"/>
+                    <Button Name="Play_btn" Content="▶️" HorizontalAlignment="Left" Margin="48,122,0,0" Width="52" Height="29" VerticalAlignment="Top" Click="Play_btn_Click"/>
+                    <Button Name="Pause_btn" Content="⏸" Margin="0,122,31.2,0"  Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="52"/>
 
                 </Grid>
 
