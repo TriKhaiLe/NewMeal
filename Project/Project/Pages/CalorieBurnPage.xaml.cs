@@ -29,7 +29,10 @@ namespace Project.Pages
 
         private CollectionView _view;
         private DispatcherTimer _timer = new DispatcherTimer();
-        private int _remainingTime = 20;
+
+        private int _remainingTime = 300;
+        private int _totalCalo = 0;
+        private double _burnedCalo = 0;
 
         public CalorieBurnPage()
         {
@@ -55,43 +58,20 @@ namespace Project.Pages
         }
 
 
-        private void Calculate(object sender, RoutedEventArgs e)
-        {
-
-            lvCaloriesBurned.ItemsSource = CalculateCalories(Convert.ToInt32(CaloBox.Text));
-        }
-
-
-        private List<string> CalculateCalories(int calories)
-        {
-            return new List<string> { calories.ToString() };
-        }
-
-
-
-        void Countdown(TimeSpan interval, Action<int> ts)
-        {
-            _timer.Interval = interval;
-            _timer.Tick += (_, a) =>
-            {
-                if (_remainingTime-- == 0)
-                    _timer.Stop();
-                else
-                    // show time string
-                    ts(_remainingTime);
-            };
-
-            ts(_remainingTime);
-            _timer.Start();
-        }
 
         private void Count_Tick(object sender, EventArgs e)
         {
             if (_remainingTime-- <= 0)
                 _timer.Stop();
             else
-                // show time string
+            {
+                // test
+                _burnedCalo += 1.27;
+                Gauge_Kcal.Value = (int)_burnedCalo;
                 CountdownTimer.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
+
+            }
+            // show time string
         }
         private void Play_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -107,6 +87,15 @@ namespace Project.Pages
             _timer.Tick -= Count_Tick;
             (sender as Button).IsEnabled = false;
             Play_btn.IsEnabled = true;
+        }
+
+        private void Calculate_btn_Click(object sender, RoutedEventArgs e)
+        {
+            // noi dung trong textbox khong hop le
+            if (!int.TryParse(CaloBox.Text, out _totalCalo))
+                return;
+
+            Gauge_Kcal.To = _totalCalo;
         }
     }
 
