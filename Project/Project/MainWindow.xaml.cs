@@ -28,12 +28,14 @@ namespace Project
         private AccountPage AccountPage = new AccountPage();
         private RecommendPage RecommendPage = new RecommendPage();
         private CalorieBurnPage CalorieBurnPage = new CalorieBurnPage();
-        public int UserID { get; set; }
+        public FUser User { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            User = new FUser();
             Main.Content = FoodPage;
             ok = 1;
+            
         }
 
         private void CalorieBurn_Checked(object sender, RoutedEventArgs e)
@@ -92,8 +94,31 @@ namespace Project
             loginWindow.ShowDialog();
             /*if (loginWindow.IsLogin)
             {
+                LoadUser();
                 this.Show();
             }*/
+        }
+        public void LoadUser()
+        {
+            int id = DataProvider.Ins.Current_UserID;
+            User = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == id);
+            Username_tb.Text = User.UName;
+        }
+        private void LogOutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            LoginWindow logWindow = new LoginWindow();
+            logWindow.ShowDialog();
+            if(logWindow.IsLogin)
+            {
+                LoadUser();
+                FoodPage = new FoodPage();
+                AccountPage = new AccountPage();
+                RecommendPage = new RecommendPage();
+                CalorieBurnPage = new CalorieBurnPage();
+                Main.Content = FoodPage;
+                this.Show();
+            }
         }
     }
 }

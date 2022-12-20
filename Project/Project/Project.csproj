@@ -87,6 +87,7 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainResources\NotEmptyValidationRule.cs" />
     <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\Exercise.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -141,6 +142,12 @@
     </Compile>
     <Compile Include="Pages\AccountPage\AP_Profile.xaml.cs">
       <DependentUpon>AP_Profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SubFoodPage\InsertFoodWindow.xaml.cs">
+      <DependentUpon>InsertFoodWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SubFoodPage\RecipeWindow.xaml.cs">
+      <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -197,6 +204,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AccountPage\AP_Profile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SubFoodPage\InsertFoodWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SubFoodPage\RecipeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -367,6 +382,7 @@
     <Resource Include="Assets\Food\F502.jpg" />
     <Resource Include="Assets\Food\F501.jpg" />
     <Resource Include="Assets\Food\F508.jpg" />
+    <Resource Include="Assets\food_default.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

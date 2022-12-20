@@ -298,18 +298,23 @@ on FUser
 for insert
 as
 begin
-	declare @FoodID int;
-	declare @ExId int;
-	select @FoodID = Food.FoodID from Food
-	select @ExId = Exercise.ExID from Exercise
-	insert into UserFood(UserID,FoodID) select UserID, FoodID from Food , inserted
-	insert into UserExercise(UserID , ExID) select UserID , ExID from Exercise , inserted
+	insert into UserFood(UserID,FoodID) select top 60 UserID, FoodID from Food , inserted order by FoodID asc
+	insert into UserExercise(UserID , ExID) select top 15 UserID , ExID from Exercise , inserted order by ExID asc
 	update UserFood 
 	set Favorite = 0
 	update UserExercise
 	set Favourite = 0
 end
+
+
 select*from FUser
+select*from Food
 insert into FUser values('Admin' , 60,160,19,1,0,'admin','admin')
+insert into FUser values('User' , 60,160,19,1,0,'user' , 'user')
+delete from Exercise where ExName = 'Agaga'
+delete from FUser
+delete from UserExercise
+delete from UserFood
 select*from UserExercise
 select * from UserFood
+select * from Exercise

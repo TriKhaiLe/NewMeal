@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Pages.SubFoodPage;
 using Project.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,11 @@ namespace Project.Pages
         public List<Food> Canh { get; set; }
         public List<Food> ThucUong { get; set; }
         public List<Food> AnVat { get; set; }
-        public List<Food> foodList { get; set; }
+        public List<Food> foodList 
+        {
+            get; set; 
+        }
+        
         CollectionView view;
         public FoodPage()
         {
@@ -44,13 +49,13 @@ namespace Project.Pages
             AnVat = new List<Food>();
             foodList = new List<Food>();
             FoodUser = new List<UserFood>();
-            foodList = DataProvider.Ins.DB.Food.ToList();
-            lvDataBinding.ItemsSource = foodList;
-           
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
-            view.Filter = UserFilter;
+
+
             Gauge_Kcal.To = 2800;
+           
             textchangebytime();
+            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
+            view.Filter = UserFilter;
         }
 
         private bool UserFilter(object item)
@@ -88,16 +93,27 @@ namespace Project.Pages
             {
                 Gauge_Kcal.Value +=(double) food.Kcal;
                 SelectedFood_lv.Items.Add(food);
+                if (Gauge_Kcal.Value > Gauge_Kcal.To)
+                {
+                    kcal_txt.Visibility = Visibility.Visible;
+                }
             }
             
         }
 
         private void ComButton_Checked(object sender, RoutedEventArgs e)
         {
+            lvDataBinding.Items.Clear();
             ComboBox_sort.Text = null;
-            lvDataBinding.ItemsSource = Com;
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
-            view.Filter = UserFilter;
+            
+            foodList = Com;
+            foreach(Food fo in foodList)
+            {
+                lvDataBinding.Items.Add(fo);
+            }
+
+            //lvDataBinding.ItemsSource = foodList;
+
         }
         private void foodpage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -105,79 +121,119 @@ namespace Project.Pages
             Food food = new Food();
             FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
             //MessageBox.Show(FoodUser.Count().ToString());
+            
             foreach (UserFood user in FoodUser)
             {
-                
-                food = DataProvider.Ins.DB.Food.SingleOrDefault(p => p.FoodID == user.FoodID); 
-                switch(food.Type)
+                food = DataProvider.Ins.DB.Food.SingleOrDefault(p => p.FoodID == user.FoodID);
+                switch (food.Type)
                 {
                     case "Cơm":
                         Com.Add(food);
+                        
                         break;
                     case "Món nước":
                         MonNuoc.Add(food);
+                        
                         break;
                     case "Canh":
                         Canh.Add(food);
+                        
                         break;
                     case "Thức uống":
                         ThucUong.Add(food);
+                        
                         break;
                     case "Đồ biển":
                         DoBien.Add(food);
+                        
                         break;
                     default:
                         AnVat.Add(food);
+                        
                         break;
-                }    
+                }
+
             }
+            ComRadioBtn.IsChecked = true;
             
             
         }
 
         private void MNButton_Checked(object sender, RoutedEventArgs e)
         {
+            lvDataBinding.Items.Clear();
             ComboBox_sort.Text = null;
-            lvDataBinding.ItemsSource = MonNuoc;
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
-            view.Filter = UserFilter;
+            foodList = MonNuoc;
+            
+            foreach (Food fo in foodList)
+            {
+                lvDataBinding.Items.Add(fo);
+            }
+            //lvDataBinding.ItemsSource = foodList;
+            
         }
 
         private void DBButton_Checked(object sender, RoutedEventArgs e)
         {
+            lvDataBinding.Items.Clear();
             ComboBox_sort.Text = null;
-            lvDataBinding.ItemsSource = DoBien;
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
-            view.Filter = UserFilter;
+            foodList = DoBien;
+            
+            foreach (Food fo in foodList)
+            {
+                lvDataBinding.Items.Add(fo);
+            }
+            //lvDataBinding.ItemsSource = foodList;
+           /* view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
+            view.Filter = UserFilter;*/
         }
 
         private void CanhButton_Checked(object sender, RoutedEventArgs e)
         {
+            lvDataBinding.Items.Clear();
             ComboBox_sort.Text = null;
-            lvDataBinding.ItemsSource = Canh;
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
-            view.Filter = UserFilter;
+            foodList = Canh;
+            
+            foreach (Food fo in foodList)
+            {
+                lvDataBinding.Items.Add(fo);
+            }
+            //lvDataBinding.ItemsSource = foodList;
+            /*view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
+            view.Filter = UserFilter;*/
         }
 
         private void TUButton_Checked(object sender, RoutedEventArgs e)
         {
+            lvDataBinding.Items.Clear();
             ComboBox_sort.Text = null;
-            lvDataBinding.ItemsSource = ThucUong;
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
-            view.Filter = UserFilter;
+            foodList = ThucUong;
+            foreach (Food fo in foodList)
+            {
+                lvDataBinding.Items.Add(fo);
+            }
+            //lvDataBinding.ItemsSource = foodList;
+            /*view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
+            view.Filter = UserFilter;*/
         }
 
         private void AVButton_Checked(object sender, RoutedEventArgs e)
         {
+            lvDataBinding.Items.Clear();
             ComboBox_sort.Text = null;
-            lvDataBinding.ItemsSource = AnVat;
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
-            view.Filter = UserFilter;
+            foodList = AnVat;
+            foreach (Food fo in foodList)
+            {
+                lvDataBinding.Items.Add(fo);
+            }
+            //lvDataBinding.ItemsSource = foodList;
+            /*view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
+            view.Filter = UserFilter;*/
         }
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource).Refresh();
+            lvDataBinding.Items.Filter = UserFilter;
         }
 
         private void ComboBox_Selected(object sender, RoutedEventArgs e)
@@ -189,7 +245,9 @@ namespace Project.Pages
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cb = sender as ComboBox;
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
+            
+            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
+            
             if (cb.SelectedIndex == 0)
             {
                 view.SortDescriptions.Clear();
@@ -203,6 +261,54 @@ namespace Project.Pages
                 
             }
             
+        }
+
+        private void InsertButton_Click(object sender, RoutedEventArgs e)
+        {
+            InsertFoodWindow insertFoodWindow = new InsertFoodWindow();
+            insertFoodWindow.Owner = Window.GetWindow(this);
+            insertFoodWindow.ShowDialog();
+            
+        }
+
+        private void ReviewRecipeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if(SelectedFood_lv.Items.Count == 0)
+            {
+                MessageBox.Show("Hiện tại món đã chọn đang trống !");
+            }
+            else
+            {
+                RecipeWindow recipeWindow = new RecipeWindow();
+                recipeWindow.recipe_lv.ItemsSource = SelectedFood_lv.Items;
+                recipeWindow.Owner = Window.GetWindow(this);
+                recipeWindow.ShowDialog();
+            }    
+            
+        }
+
+        private void DelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Food food = button.DataContext as Food;
+            DataProvider.Ins.DB.UserFood.Remove(DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.FoodID == food.FoodID && p.UserID == DataProvider.Ins.Current_UserID));
+            DataProvider.Ins.DB.SaveChanges();
+            lvDataBinding.Items.Remove(food);
+
+        }
+
+
+        private void DelSelected_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Food food = button.DataContext as Food;
+            Gauge_Kcal.Value -= (double) food.Kcal;
+            SelectedFood_lv.Items.Remove(food);
+            if (Gauge_Kcal.Value <= Gauge_Kcal.To)
+            {
+                kcal_txt.Visibility = Visibility.Hidden;
+            }
         }
     }
 }
