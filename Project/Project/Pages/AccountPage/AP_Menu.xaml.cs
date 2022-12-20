@@ -84,7 +84,7 @@ namespace Project.UserControlXAML.AcountPage
 
         private void delete_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            (this.Parent as ContentControl).Content = new AP_Delete();
+            //(this.Parent as ContentControl).Content = new AP_Delete();
         }
     }
 }
