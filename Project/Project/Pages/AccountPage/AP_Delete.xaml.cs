@@ -20,7 +20,7 @@ namespace Project.UserControlXAML.AcountPage
     /// <summary>
     /// Interaction logic for AP_Password.xaml
     /// </summary>
-    public partial class AP_Password : UserControl
+    public partial class AP_Delete : UserControl
     {
         public string Username
         {
@@ -37,7 +37,7 @@ namespace Project.UserControlXAML.AcountPage
             }
         }
 
-        public AP_Password()
+        public AP_Delete()
         {
             InitializeComponent();
             DataContext = this;
@@ -47,7 +47,7 @@ namespace Project.UserControlXAML.AcountPage
 
         private bool test_empty()
         {
-            if (old_password.Password == "" || new_password1.Password == "" || new_password2.Password == "")
+            if (password1.Password == "" || password2.Password == "")
             {
                 MessageBox.Show("Vui lòng không để trống các ô thông tin","Thông báo");
                 return false;
@@ -55,64 +55,46 @@ namespace Project.UserControlXAML.AcountPage
             return true;
         }
 
-        private bool test_old_password()
+        private bool test_password()
         {
-            if (old_password.Password != AccountPage.CurrentUser.Passwrd)
+            if (password1.Password != AccountPage.CurrentUser.Passwrd)
             {
-                MessageBox.Show("Mật khẩu cũ không đúng", "Thông báo");
+                MessageBox.Show("Mật khẩu không đúng", "Thông báo");
                 return false;
             }
             return true;
         }
 
-        private bool test_new_password()
+        private bool test_retype_password()
         {
-            if (new_password1.Password != new_password2.Password)
+            if (password1.Password != password2.Password)
             {
-                MessageBox.Show("Nhập lại mật khẩu mới không trùng khớp", "Thông báo");
+                MessageBox.Show("Nhập lại mật khẩu không trùng khớp", "Thông báo");
                 return false;
             }
             return true;
         }
 
-        private bool test_old_new_password()
-        {
-            if (old_password.Password == new_password1.Password)
-            {
-                MessageBox.Show("Bạn đang nhập lại mật khẩu hiện tại.\nVui lòng nhập mật khẩu mới.", "Thông báo");
-                return false;
-            }
-            return true;
-        }
-
-        private bool test_length()
-        {
-            if (new_password1.Password.Length < 8)
-            {
-                MessageBox.Show("Mật khẩu phải từ 8 kí tự trở lên", "Thông báo");
-                return false;
-            }
-            return true;
-        }
 
         private void close_tag()
         {
             (this.Parent as ContentControl).Content = new AP_Menu();
         }
 
-        private void change_password()
+        private void delete_account()
         {
-            AccountPage.CurrentUser.Passwrd = new_password1.Password;
+            // Delete Account
+            
+
             DataProvider.Ins.DB.SaveChanges();
-            MessageBox.Show("Bạn đã đổi mật khẩu thành công!", "Thông báo");
+            MessageBox.Show("Bạn đã xóa tài khoản thành công!", "Thông báo");
             close_tag();
         }
 
         private void empty_Textbox()
         {
-            old_password.Clear();
-            new_password1.Clear();
-            new_password2.Clear();
+            password1.Clear();
+            password2.Clear();
         }
         #endregion
 
@@ -139,9 +121,9 @@ namespace Project.UserControlXAML.AcountPage
 
         private void changePass_Click(object sender, RoutedEventArgs e)
         {
-            if (test_empty() && test_old_password() && test_new_password() && test_length() && test_old_new_password())
+            if (test_empty() && test_retype_password() && test_password())
             {
-                change_password();
+                delete_account();
             }
             else
             {
