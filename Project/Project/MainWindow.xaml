@@ -18,8 +18,8 @@
       WindowStartupLocation="CenterScreen"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-        DataContext="{StaticResource MainVM}"
-        Title="MainWindow" Height="700" Width="1300"
+        
+        Title="MainWindow" Height="750" Width="1400"
         WindowStyle="None"
         ResizeMode="NoResize"
         MouseDown="window_MouseDown" Loaded="Window_Loaded">
@@ -36,13 +36,13 @@
                     <RowDefinition ></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Vertical" Grid.Row="0 " Margin="0 20 0 0" >
+                <StackPanel Orientation="Vertical" Grid.Row="0 " Margin="0 20 0 0"  >
                     <Ellipse  Width="100" Height="100" StrokeThickness="5" Stroke="#FFB2FF59">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="Assets/logo.png" Stretch="Fill"></ImageBrush>
+                            <ImageBrush x:Name="Avatar" ImageSource="Assets/logo.png" Stretch="Fill"></ImageBrush>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <TextBlock Margin="0 20 0 0" Text="Hello , User !" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+                    <TextBlock x:Name="Username_tb" Margin="5 10 5 0" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="20"></TextBlock>
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
@@ -81,6 +81,7 @@
                     </RadioButton>
                 </StackPanel>
                 <Button
+                    Click="LogOutBtn_Click"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Grid.Row="2"
                 materialDesign:ShadowAssist.ShadowAnimationDuration="0:0:0.5"
