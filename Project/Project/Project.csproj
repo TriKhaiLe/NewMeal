@@ -300,7 +300,6 @@
     <Resource Include="Assets\Account\cancel.png" />
     <Resource Include="Assets\Account\password.png" />
     <Resource Include="Assets\Account\profile.png" />
-    <Resource Include="Assets\Account\settings.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Food\F101.jpg" />
