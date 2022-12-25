@@ -17,8 +17,12 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"      
              d:DesignHeight="684" d:DesignWidth="940">
-    <Grid Margin="20 10 10 10">
+    <UserControl.Resources>
+        <BitmapSource x:Key="avatar">/Assets/Account/user.png</BitmapSource>
+    </UserControl.Resources>
 
+
+    <Grid Margin="20 10 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
@@ -37,7 +41,14 @@
 
             <Grid Grid.Column="1">
                 <Label Content="HỒ SƠ" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <Ellipse x:Name="avatar"  Width="150" Height="150" Fill="LightGray"/>
+                <Ellipse x:Name="avatar"  Width="150" Height="150">
+                    <Ellipse.Fill>
+                        <ImageBrush
+                        ImageSource="{StaticResource avatar}"
+                        Stretch="Fill" TileMode="None" ViewboxUnits="RelativeToBoundingBox"
+                        AlignmentX="Left"/>
+                        </Ellipse.Fill>
+                </Ellipse>
             </Grid>
 
             <Grid Grid.Column="2">
