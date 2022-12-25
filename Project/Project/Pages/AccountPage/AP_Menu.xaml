@@ -37,7 +37,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
@@ -72,21 +71,6 @@
                 </Grid>
 
 
-            </Grid>
-
-            <Grid Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="4*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0">
-                    <Image x:Name="button_delete" Margin="0 20 0 10" Source="/Assets/Account/delete.png" MouseEnter="delete_MouseEnter" MouseLeave="delete_MouseLeave" MouseLeftButtonDown="delete_MouseLeftButtonDown"/>
-                </Grid>
-
-                <Grid Grid.Row="1">
-                    <Label Content="Xóa tài khoản" FontSize="20" HorizontalAlignment="Center"/>
-                </Grid>
             </Grid>
         </Grid>
     </Grid>

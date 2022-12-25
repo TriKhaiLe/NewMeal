@@ -62,16 +62,6 @@ namespace Project.UserControlXAML.AcountPage
             button_password.Margin = new Thickness(0, 20, 0, 10);
         }
 
-        private void delete_MouseEnter(object sender, MouseEventArgs e)
-        {
-            button_delete.Margin = new Thickness(0, 15, 0, 5);
-        }
-
-        private void delete_MouseLeave(object sender, MouseEventArgs e)
-        {
-            button_delete.Margin = new Thickness(0, 20, 0, 10);
-        }
-
         private void password_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             (this.Parent as ContentControl).Content = new AP_Password();
@@ -80,11 +70,6 @@ namespace Project.UserControlXAML.AcountPage
         private void profile_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             (this.Parent as ContentControl).Content = new AP_Profile();
-        }
-
-        private void delete_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            (this.Parent as ContentControl).Content = new AP_Delete();
         }
     }
 }

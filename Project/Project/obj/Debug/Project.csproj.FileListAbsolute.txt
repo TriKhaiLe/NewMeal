@@ -164,6 +164,14 @@ C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Pr
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.xml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Project_Content.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\SubFoodPage\InsertFoodWindow.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\SubFoodPage\InsertFoodWindow.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\SubFoodPage\RecipeWindow.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\SubFoodPage\RecipeWindow.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.dll
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.xml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\CalorieBurnPage.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\FoodPage.g.cs
@@ -171,11 +179,9 @@ C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\Reco
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Menu.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Password.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Profile.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\SubFoodPage\InsertFoodWindow.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\SubFoodPage\RecipeWindow.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project_Content.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.dll
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.xml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\CalorieBurnPage.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\FoodPage.baml
@@ -183,5 +189,5 @@ C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\Reco
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Menu.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Password.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Profile.baml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Delete.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage\AP_Delete.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\SubFoodPage\InsertFoodWindow.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\SubFoodPage\RecipeWindow.baml
