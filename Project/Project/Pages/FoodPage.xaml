@@ -235,7 +235,7 @@
                 </DockPanel>
                 <Grid Grid.Row="1" x:Name="Grid_lv">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <ListView  Name="lvDataBinding" SelectionChanged="lvDataBinding_SelectionChanged">
+                        <ListView ItemsSource="{Binding foodList , UpdateSourceTrigger=PropertyChanged}"  Name="lvDataBinding" SelectionChanged="lvDataBinding_SelectionChanged">
                             
                             <ListView.ItemTemplate >
                                 <DataTemplate>
@@ -251,22 +251,27 @@
                                                 <Grid Grid.Column="0">
                                                     <Rectangle Margin="0 0 10 0" Width="70" Height="70" >
                                                         <Rectangle.Fill>
-                                                            <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
+                                                            <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
                                                         </Rectangle.Fill>
                                                     </Rectangle>
                                                 </Grid>
                                                 <StackPanel Orientation="Vertical" Margin="0 10 0 0" Grid.Column="1">
-                                                    <TextBlock>
-                                                        <Run Text="{Binding FoodName}" FontSize="15" FontWeight="Bold"></Run>
+                                                    <TextBlock TextWrapping="Wrap" Margin="4">
+                                                        <Run Text="{Binding Food.FoodName}" FontSize="15" FontWeight="Bold"></Run>
                                                         <LineBreak></LineBreak>
                                                         <Run Text="Calorie : "></Run>
-                                                        <Run Text="{Binding Kcal}" FontWeight="Bold" FontSize="13"></Run>
+                                                        <Run Text="{Binding Food.Kcal}" FontWeight="Bold" FontSize="13"></Run>
                                                         <LineBreak></LineBreak>
-                                                        <Run Text="{Binding Descript}" FontStyle="Italic" FontSize="13"></Run>
+                                                        <Run Text="{Binding Food.Descript}" FontStyle="Italic" FontSize="13"></Run>
 
                                                     </TextBlock>
                                                 </StackPanel>
                                                 <StackPanel Margin="0 0 30 0" Grid.Column="2" Orientation="Horizontal">
+                                                    <TextBlock FontWeight="Bold" Language="vi" FontStyle="Italic" Margin="0 0 5 2" VerticalAlignment="Bottom">
+                                                        <Run Text="Ngày ăn: "></Run>
+                                                        <Run Text="{Binding Date , StringFormat={}{0:D}}"></Run>
+                                                    </TextBlock>
+                                                    
                                                     <Button
                                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                     Margin="5"
@@ -335,10 +340,10 @@
                                             <StackPanel Grid.Column="0" Orientation="Horizontal">
                                                 <Rectangle Margin="0 0 10 0" Width="50" Height="50">
                                                     <Rectangle.Fill>
-                                                        <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
+                                                        <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
                                                     </Rectangle.Fill>
                                                 </Rectangle>
-                                                <TextBlock VerticalAlignment="Center" Width="140" Text="{Binding FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
+                                                <TextBlock VerticalAlignment="Center" Width="140" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
                                             </StackPanel>
                                             <Button Grid.Column="1"
                                                     Margin="-10 0 0 0"

@@ -14,6 +14,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -31,6 +32,7 @@ namespace Project.Pages.SubFoodPage
             InitializeComponent();
             this.DataContext = this;
             Text1 = null;
+            
             Types = new List<string>() { "Cơm", "Món nước", "Đồ biển", "Canh", "Thức uống", "Đồ ăn vặt" };
         }
 
@@ -114,9 +116,13 @@ namespace Project.Pages.SubFoodPage
                     userFood.Favorite =(int) FoodRatingBar.Value;
                     DataProvider.Ins.DB.UserFood.Add(userFood);
                     DataProvider.Ins.DB.SaveChanges();
+                    MainWindow mainWindow = this.Owner as MainWindow;
+                    mainWindow.Main.Refresh();
+                    //FoodPage foodPage = this.Parent as FoodPage;
+                   
                     
                 }
-
+                MessageBox.Show("Món ăn của bạn đã được thêm vào !");
             }
             else
             {

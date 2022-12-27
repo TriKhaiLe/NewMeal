@@ -96,12 +96,12 @@
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Margin="10" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
                                         <Border BorderBrush="GreenYellow" BorderThickness="2">
-                                            <Image Source="{Binding Imgsrc}"
+                                            <Image Source="{Binding Food.Imgsrc}"
                                        Height="140"
                                        Width="196"
                                        Stretch="UniformToFill" />
                                         </Border>
-                                        <TextBlock Text="{Binding FoodName}" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold" ></TextBlock>
+                                        <TextBlock Text="{Binding Food.FoodName}" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold" ></TextBlock>
                                     </StackPanel>
                                     <StackPanel
                                     Margin="20"
@@ -113,7 +113,7 @@
                                         Margin="0 5 0 0"
                                         TextWrapping="Wrap"
                                         FontSize="15"
-                                        Text="{Binding Recipe}" />
+                                        Text="{Binding Food.Recipe}" />
                                     </StackPanel>
                                 </Grid>
                             </materialDesign:Card>
