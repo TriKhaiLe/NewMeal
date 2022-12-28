@@ -307,12 +307,15 @@ namespace Project.Pages
 
         private void DelButton_Click(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
-            FoodDays food = button.DataContext as FoodDays;
-            DataProvider.Ins.DB.UserFood.Remove(DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.FoodID == food.Food.FoodID && p.UserID == DataProvider.Ins.Current_UserID));
-            /*DataProvider.Ins.DB.SaveChanges();
-            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
-            mainWindow.Main.Refresh();*/
+            if(MessageBox.Show("Bạn có chắc chắn xóa món ăn này không ?") == MessageBoxResult.OK)
+            {
+                Button button = (Button)sender;
+                FoodDays food = button.DataContext as FoodDays;
+                DataProvider.Ins.DB.UserFood.Remove(DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.FoodID == food.Food.FoodID && p.UserID == DataProvider.Ins.Current_UserID));
+                DataProvider.Ins.DB.SaveChanges();
+                foodList.Remove(food);
+                lvDataBinding.Items.Refresh();
+            }    
         }
 
 
@@ -326,6 +329,11 @@ namespace Project.Pages
             {
                 kcal_txt.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void CustomRatingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            MessageBox.Show(e.NewValue.ToString());
         }
     }
 }

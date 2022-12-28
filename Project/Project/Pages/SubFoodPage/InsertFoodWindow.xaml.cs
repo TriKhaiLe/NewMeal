@@ -113,11 +113,13 @@ namespace Project.Pages.SubFoodPage
                     UserFood userFood = new UserFood();
                     userFood.UserID = DataProvider.Ins.Current_UserID;
                     userFood.FoodID = food.FoodID;
-                    userFood.Favorite =(int) FoodRatingBar.Value;
+                    userFood.Favorite =(int) 0;
                     DataProvider.Ins.DB.UserFood.Add(userFood);
                     DataProvider.Ins.DB.SaveChanges();
                     MainWindow mainWindow = this.Owner as MainWindow;
-                    mainWindow.Main.Refresh();
+                    FoodPage foodPage = mainWindow.Main.Content as FoodPage;
+                    foodPage.foodList.Add(new FoodDays(food, userFood.Last_eat));
+                    foodPage.lvDataBinding.Items.Refresh();
                     //FoodPage foodPage = this.Parent as FoodPage;
                    
                     

@@ -235,7 +235,7 @@
                 </DockPanel>
                 <Grid Grid.Row="1" x:Name="Grid_lv">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <ListView ItemsSource="{Binding foodList , UpdateSourceTrigger=PropertyChanged}"  Name="lvDataBinding" SelectionChanged="lvDataBinding_SelectionChanged">
+                        <ListView ItemsSource="{Binding foodList}"  Name="lvDataBinding" SelectionChanged="lvDataBinding_SelectionChanged">
                             
                             <ListView.ItemTemplate >
                                 <DataTemplate>
@@ -267,10 +267,35 @@
                                                     </TextBlock>
                                                 </StackPanel>
                                                 <StackPanel Margin="0 0 30 0" Grid.Column="2" Orientation="Horizontal">
-                                                    <TextBlock FontWeight="Bold" Language="vi" FontStyle="Italic" Margin="0 0 5 2" VerticalAlignment="Bottom">
+                                                    <DockPanel>
+                                                        <materialDesign:RatingBar
+                                                            x:Name="CustomRatingBar"
+                                                            Max="1"
+                                                            Value="0" ValueChanged="CustomRatingBar_ValueChanged">
+                                                            <materialDesign:RatingBar.ValueItemTemplate>
+                                                                <DataTemplate
+                                                                    DataType="system:Int32">
+                                                                    <Grid>
+                                                                        <materialDesign:PackIcon
+                                                                            Kind="Heart"
+                                                                            Height="24"
+                                                                            Width="24" />
+                                                                        <TextBlock
+                                                                            Text="{Binding}"
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            FontSize="8"
+                                                                            Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                                                    </Grid>
+                                                                </DataTemplate>
+                                                            </materialDesign:RatingBar.ValueItemTemplate>
+                                                        </materialDesign:RatingBar>
+                                                        <TextBlock FontWeight="Bold" Language="vi" FontStyle="Italic" Margin="0 0 5 2" VerticalAlignment="Bottom">
                                                         <Run Text="Ngày ăn: "></Run>
                                                         <Run Text="{Binding Date , StringFormat={}{0:D}}"></Run>
-                                                    </TextBlock>
+                                                        </TextBlock>
+                                                    </DockPanel>
+                                                    
                                                     
                                                     <Button
                                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"

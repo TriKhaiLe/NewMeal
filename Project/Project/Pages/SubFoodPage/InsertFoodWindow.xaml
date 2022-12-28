@@ -22,15 +22,15 @@
     <Border BorderThickness="4">
         <Border.BorderBrush>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.75">
-                <GradientStop Color="#FF2A2B29"/>
+                <GradientStop Color="#FFFE6A6B"/>
                 <GradientStop Color="#FF75F733" Offset="0.75"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
         <Grid>
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
-                    <GradientStop Color="#FFE63070" Offset="1" />
-                    <GradientStop Color="#FFFE8704" Offset="0" />
+                    <GradientStop Color="#FF916CF7" Offset="1" />
+                    <GradientStop Color="#FFEEA657" Offset="0" />
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
@@ -39,31 +39,9 @@
             </Grid.ColumnDefinitions>
             <Border Height="470" Grid.Column="1" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="White">
             </Border>
-            <Border BorderThickness="0 0 4 0" BorderBrush="#FFE61C1C" >
-                <StackPanel Grid.Column="0" Orientation="Vertical" >
-                    <materialDesign:RatingBar x:Name="FoodRatingBar"
-                                                      Max="1"
-                                                      Value="0"
-                                                      Orientation="Vertical" Margin="10 0 0 -50" Panel.ZIndex="1"  >
-                        <materialDesign:RatingBar.ValueItemTemplate>
-                            <DataTemplate DataType="system:Int32">
-                                <Grid>
-                                    <materialDesign:PackIcon
-                                                Kind="Heart"
-                                                Height="50"
-                                                Width="50" />
-                                    <TextBlock
-                                                Text="Yêu thích"
-                                                HorizontalAlignment="Left"
-                                                VerticalAlignment="Top"
-                                                FontSize="8"
-                                                Foreground="#DDFF0B0B"
-                                                FontWeight="Bold" Margin="8,17,0,0" />
-                                </Grid>
-                            </DataTemplate>
-                        </materialDesign:RatingBar.ValueItemTemplate>
-                    </materialDesign:RatingBar>
-                    <Rectangle Margin="10 10 10 20" Width="200" Height="200" StrokeThickness="5" Stroke="Black">
+            <Border>
+                <StackPanel Background="#FFFFD54F" Grid.Column="0" Orientation="Vertical" >
+                    <Rectangle Margin="10 10 10 20" Width="200" Height="200" StrokeThickness="5" Stroke="#FF4FFFA2">
                         <Rectangle.Fill>
                             <ImageBrush x:Name="FoodImage" ImageSource="/Assets/food_default.png"></ImageBrush>
                         </Rectangle.Fill>
@@ -80,13 +58,7 @@
                          Width="200"
                          TextWrapping="Wrap"
                          VerticalScrollBarVisibility="Auto"
-                         materialDesign:HintAssist.Hint="Hãy mô tả món ăn của bạn !" BorderBrush="Black" >
-                            <TextBox.Background>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.3,0.2">
-                                    <GradientStop Color="#FF3BF731"/>
-                                    <GradientStop Color="#FF5FDCF1" Offset="1"/>
-                                </LinearGradientBrush>
-                            </TextBox.Background>
+                         materialDesign:HintAssist.Hint="Hãy mô tả món ăn của bạn !" BorderBrush="Black" Background="#FFFFFDC0" >
                         </TextBox>
                     </StackPanel>
                 </StackPanel>
@@ -132,7 +104,7 @@
                             Style="{StaticResource MaterialDesignFilledTextBox}"
                             VerticalAlignment="Top"
                             Width="200"
-                            materialDesign:HintAssist.Hint="Tên món ăn">
+                            materialDesign:HintAssist.Hint="Tên món ăn" Background="#FFFFFDC0">
                                 <TextBox.Text>
                                     <Binding
                             Path="Text1"
@@ -143,18 +115,12 @@
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </TextBox.Text>
-                                <TextBox.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.3,0.2">
-                                        <GradientStop Color="#FF3BF731"/>
-                                        <GradientStop Color="#FF5FDCF1" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </TextBox.Background>
                             </TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0 30 0 30">
                             <TextBlock Text="Lượng Kcal" VerticalAlignment="Center" Margin="10 0 10 -10"></TextBlock>
-                            <TextBox
+                            <TextBox Background="#FFFFFDC0"
                                 x:Name="Kcal_txt"
                     Style="{StaticResource MaterialDesignFilledTextBox}"
                     VerticalAlignment="Top"
@@ -170,29 +136,20 @@
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </TextBox.Text>
-                                <TextBox.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.3,0.2">
-                                        <GradientStop Color="#FF3BF731"/>
-                                        <GradientStop Color="#FF5FDCF1" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </TextBox.Background>
+                                
                             </TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0 30 0 30">
                             <TextBlock Text="Nguyên liệu" VerticalAlignment="Top" Margin="10"></TextBlock>
                             <TextBox
+                                Background="#FFFFFDC0"
                                 x:Name="Ingredients_txt"
                     Style="{StaticResource MaterialDesignFilledTextBox}"
                     VerticalAlignment="Top"
                         Width="202"
                     materialDesign:HintAssist.Hint="Nguyên liệu" Height="95">
-                                <TextBox.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.3,0.2">
-                                        <GradientStop Color="#FF3BF731"/>
-                                        <GradientStop Color="#FF5FDCF1" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </TextBox.Background>
+                                
                             </TextBox>
                         </StackPanel>
                     </StackPanel>
@@ -201,6 +158,7 @@
                         <DockPanel Margin="0 30 0 30">
                             <TextBlock Text="Loại" VerticalAlignment="Center" Margin="10 0 10 -10"></TextBlock>
                             <ComboBox
+                                Background="#FFFFFDC0"
                                 x:Name="Type_cb"
                         Style="{StaticResource MaterialDesignFilledComboBox}"
                         materialDesign:TextFieldAssist.HasClearButton="True"
@@ -217,18 +175,13 @@
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </ComboBox.SelectedItem>
-                                <ComboBox.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.3,0.2">
-                                        <GradientStop Color="#FF3BF731"/>
-                                        <GradientStop Color="#FF5FDCF1" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </ComboBox.Background>
+
                             </ComboBox>
                         </DockPanel>
 
                         <DockPanel  Margin="0 30 0 30" >
                             <TextBlock Text="Buổi ăn" VerticalAlignment="Center" Margin="10 0 0 0" ></TextBlock>
-                            <StackPanel Width="200" Margin="-20 0 0 0">
+                            <StackPanel Width="200" Margin="-20 0 0 0" Background="#FFFFFDC0">
                                 <ListBox 
                                 x:Name="Mealtime_lv"
                         Width="200"
@@ -252,31 +205,19 @@
                                     </ListBox.SelectedItem>
 
                                 </ListBox>
-                                <StackPanel.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.3,0.2">
-                                        <GradientStop Color="#FF3BF731"/>
-                                        <GradientStop Color="#FF5FDCF1" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </StackPanel.Background>
                             </StackPanel>
 
                         </DockPanel>
 
                         <DockPanel Margin="0 30 0 30">
                             <TextBlock Text="Công thức" VerticalAlignment="Top" Margin="10"></TextBlock>
-                            <TextBox
+                            <TextBox Background="#FFFFFDC0"
                                 x:Name="Recipe_txt"
                         Margin="0 0 50 0"
                     Style="{StaticResource MaterialDesignFilledTextBox}"
                     VerticalAlignment="Top"
                         Width="202"
                     materialDesign:HintAssist.Hint="Công thức" Height="95">
-                                <TextBox.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.3,0.2">
-                                        <GradientStop Color="#FF3BF731"/>
-                                        <GradientStop Color="#FF5FDCF1" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </TextBox.Background>
                             </TextBox>
                         </DockPanel>
                         <Button Click="InsertButton_Click" Width="100" Content="Thêm" HorizontalAlignment="Right" Margin="0 30 60 30"></Button>
