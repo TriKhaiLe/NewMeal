@@ -59,6 +59,42 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="Height" Value="140"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Margin" Value="-5,0,0,5"/>
+            <Setter Property="Background" Value="GhostWhite"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton" >
+                        <Grid>
+                            <Rectangle RadiusX="20" RadiusY="20" Fill="{TemplateBinding Background}">
+                                <Rectangle.Stroke>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Stroke>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!--Button Style on hover-->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFFFC200"/>
+                    <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
+                </Trigger>
+                <!--Activated button style-->
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="#FFFFC200"/>
+                    <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Page.Resources>
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -85,44 +121,6 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid.Resources>
-                    <Style TargetType="RadioButton">
-                        <Setter Property="Height" Value="140"/>
-                        <Setter Property="Width" Value="80"/>
-                        <Setter Property="Margin" Value="-5,0,0,5"/>
-                        <Setter Property="Background" Value="GhostWhite"/>
-                        <Setter Property="Foreground" Value="Black"/>
-                        <Setter Property="BorderBrush" Value="Transparent"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="RadioButton" >
-                                    <Grid>
-                                        <Rectangle RadiusX="20" RadiusY="20" Height="140" Fill="{TemplateBinding Background}">
-                                            <Rectangle.Stroke>
-                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                    <GradientStop Color="Black"/>
-                                                </LinearGradientBrush>
-                                            </Rectangle.Stroke>
-                                        </Rectangle>
-                                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                    </Grid>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <!--Button Style on hover-->
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFFFC200"/>
-                                <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
-                            </Trigger>
-                            <!--Activated button style-->
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter Property="Background" Value="#FFFFC200"/>
-                                <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Grid.Resources>
                 <RadioButton x:Name="ComRadioBtn" Grid.Column="0" Checked="ComButton_Checked">
                     <StackPanel Width="80" HorizontalAlignment="Center">
                         <Ellipse Width="50" Height="50" StrokeThickness="0.5" Stroke="Black">
@@ -185,9 +183,6 @@
                 </RadioButton>
             </Grid>
             <Grid Grid.Row="2">
-                <Grid.Resources>
-
-                </Grid.Resources>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -243,9 +238,47 @@
                                         materialDesign:ElevationAssist.Elevation="Dp2">
                                         <Border CornerRadius="12" Background="White" >
                                             <Grid Margin="0 0 -30 0" Width="{Binding ElementName=Grid_lv , Path=ActualWidth}">
+                                                <Grid.Resources>
+                                                    <Style TargetType="CheckBox">
+                                                        <Setter Property="Height" Value="30"/>
+                                                        <Setter Property="Width" Value="30"/>
+                                                        <Setter Property="Margin" Value="0,0,0,5"/>
+                                                        <Setter Property="Background" Value="GhostWhite"/>
+                                                        <Setter Property="Foreground" Value="Black"/>
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="CheckBox" >
+                                                                    <Grid>
+                                                                        <Rectangle RadiusX="50" RadiusY="50" Fill="{TemplateBinding Background}">
+                                                                            <Rectangle.Stroke>
+                                                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                                                    <GradientStop Color="Black"/>
+                                                                                </LinearGradientBrush>
+                                                                            </Rectangle.Stroke>
+                                                                        </Rectangle>
+                                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                    </Grid>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsChecked" Value="True">
+                                                                <Setter Property="Background" Value="Yellow"/>
+                                                                <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
+                                                            </Trigger>
+                                                            <Trigger Property="IsChecked" Value="False">
+                                                                <Setter Property="Background" Value="Transparent"/>
+                                                                <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Grid.Resources>
+                                                
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0">
@@ -263,40 +296,18 @@
                                                         <Run Text="{Binding Food.Kcal}" FontWeight="Bold" FontSize="13"></Run>
                                                         <LineBreak></LineBreak>
                                                         <Run Text="{Binding Food.Descript}" FontStyle="Italic" FontSize="13"></Run>
-
                                                     </TextBlock>
                                                 </StackPanel>
-                                                <StackPanel Margin="0 0 30 0" Grid.Column="2" Orientation="Horizontal">
-                                                    <DockPanel>
-                                                        <materialDesign:RatingBar
-                                                            x:Name="CustomRatingBar"
-                                                            Max="1"
-                                                            Value="0" ValueChanged="CustomRatingBar_ValueChanged">
-                                                            <materialDesign:RatingBar.ValueItemTemplate>
-                                                                <DataTemplate
-                                                                    DataType="system:Int32">
-                                                                    <Grid>
-                                                                        <materialDesign:PackIcon
-                                                                            Kind="Heart"
-                                                                            Height="24"
-                                                                            Width="24" />
-                                                                        <TextBlock
-                                                                            Text="{Binding}"
-                                                                            HorizontalAlignment="Center"
-                                                                            VerticalAlignment="Center"
-                                                                            FontSize="8"
-                                                                            Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
-                                                                    </Grid>
-                                                                </DataTemplate>
-                                                            </materialDesign:RatingBar.ValueItemTemplate>
-                                                        </materialDesign:RatingBar>
-                                                        <TextBlock FontWeight="Bold" Language="vi" FontStyle="Italic" Margin="0 0 5 2" VerticalAlignment="Bottom">
+                                                <CheckBox IsChecked="{Binding Favourite}" Click="CheckBox_Click"  Margin="0 0 20 0" Grid.Column="2" HorizontalAlignment="Left">
+                                                    <materialDesign:PackIcon Kind="Heart" Width="20" Height="20" Foreground="Red"/>
+                                                </CheckBox>
+
+                                                <StackPanel Margin="0 0 30 0" Grid.Column="3" Orientation="Horizontal">
+
+                                                    <TextBlock FontWeight="Bold" Language="vi" FontStyle="Italic" Margin="0 0 5 2" VerticalAlignment="Bottom">
                                                         <Run Text="Ngày ăn: "></Run>
                                                         <Run Text="{Binding Date , StringFormat={}{0:D}}"></Run>
-                                                        </TextBlock>
-                                                    </DockPanel>
-                                                    
-                                                    
+                                                    </TextBlock>
                                                     <Button
                                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                     Margin="5"

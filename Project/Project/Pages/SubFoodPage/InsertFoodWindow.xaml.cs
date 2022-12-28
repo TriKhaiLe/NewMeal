@@ -118,7 +118,7 @@ namespace Project.Pages.SubFoodPage
                     DataProvider.Ins.DB.SaveChanges();
                     MainWindow mainWindow = this.Owner as MainWindow;
                     FoodPage foodPage = mainWindow.Main.Content as FoodPage;
-                    foodPage.foodList.Add(new FoodDays(food, userFood.Last_eat));
+                    foodPage.foodList.Add(new FoodDays(food, userFood.Last_eat,0));
                     foodPage.lvDataBinding.Items.Refresh();
                     //FoodPage foodPage = this.Parent as FoodPage;
                    

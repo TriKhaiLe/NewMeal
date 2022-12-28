@@ -1,4 +1,5 @@
-﻿using Project.Model;
+﻿using MaterialDesignThemes.Wpf;
+using Project.Model;
 using Project.Pages.SubFoodPage;
 using Project.ViewModel;
 using System;
@@ -143,27 +144,27 @@ namespace Project.Pages
                 switch (food.Type)
                 {
                     case "Cơm":
-                        Com.Add(new FoodDays(food , user.Last_eat));
+                        Com.Add(new FoodDays(food , user.Last_eat , user.Favorite));
                         
                         break;
                     case "Món nước":
-                        MonNuoc.Add(new FoodDays(food, user.Last_eat));
+                        MonNuoc.Add(new FoodDays(food, user.Last_eat, user.Favorite));
                         
                         break;
                     case "Canh":
-                        Canh.Add(new FoodDays(food, user.Last_eat));
+                        Canh.Add(new FoodDays(food, user.Last_eat, user.Favorite));
                         
                         break;
                     case "Thức uống":
-                        ThucUong.Add(new FoodDays(food, user.Last_eat));
+                        ThucUong.Add(new FoodDays(food, user.Last_eat, user.Favorite));
                         
                         break;
                     case "Đồ biển":
-                        DoBien.Add(new FoodDays(food, user.Last_eat));
+                        DoBien.Add(new FoodDays(food, user.Last_eat, user.Favorite));
                         
                         break;
                     default:
-                        AnVat.Add(new FoodDays(food, user.Last_eat));
+                        AnVat.Add(new FoodDays(food, user.Last_eat, user.Favorite));
                         
                         break;
                 }
@@ -331,9 +332,14 @@ namespace Project.Pages
             }
         }
 
-        private void CustomRatingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(e.NewValue.ToString());
+            CheckBox checkBox = sender as CheckBox;
+            FoodDays foodDays = checkBox.DataContext as FoodDays;
+            //foodDays.Favourite = Convert.ToInt16(checkBox.IsChecked);
+            UserFood userFood = DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID && p.FoodID == foodDays.Food.FoodID);
+            userFood.Favorite = Convert.ToInt16(checkBox.IsChecked);
+            DataProvider.Ins.DB.SaveChanges();
         }
     }
 }
