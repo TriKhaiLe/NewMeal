@@ -358,9 +358,6 @@ namespace Project.Pages
             DataProvider.Ins.DB.SaveChanges();
         }
 
-        private void DateTxt_Loaded(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(DateTime.MinValue.ToString());
-        }
+        
     }
 }
