@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -299,8 +300,22 @@ namespace Project.Pages
             {
                 RecipeWindow recipeWindow = new RecipeWindow();
                 recipeWindow.recipe_lv.ItemsSource = SelectedFood_lv.Items;
+                foreach(FoodDays foodDays in SelectedFood_lv.Items)
+                {
+                    foreach(FoodDays food in foodList)
+                    {
+                        if(food.Food.FoodID == foodDays.Food.FoodID)
+                        {
+                            food.Date = DateTime.Now;
+                        }
+                    }    
+                    UserFood user = DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID && p.FoodID == foodDays.Food.FoodID);
+                    user.Last_eat = DateTime.Now;
+                    
+                }
+                lvDataBinding.Items.Refresh();
+                DataProvider.Ins.DB.SaveChanges();
                 recipeWindow.Owner = Window.GetWindow(this);
-                
                 recipeWindow.ShowDialog();
             }    
             
@@ -332,14 +347,19 @@ namespace Project.Pages
             }
         }
 
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        private void favorite_button_Click(object sender, RoutedEventArgs e)
         {
-            CheckBox checkBox = sender as CheckBox;
-            FoodDays foodDays = checkBox.DataContext as FoodDays;
+            ToggleButton toggleButton = sender as ToggleButton;
+            FoodDays foodDays = toggleButton.DataContext as FoodDays;
             //foodDays.Favourite = Convert.ToInt16(checkBox.IsChecked);
             UserFood userFood = DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID && p.FoodID == foodDays.Food.FoodID);
-            userFood.Favorite = Convert.ToInt16(checkBox.IsChecked);
+            userFood.Favorite = Convert.ToInt16(toggleButton.IsChecked);
             DataProvider.Ins.DB.SaveChanges();
+        }
+
+        private void DateTxt_Loaded(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(DateTime.MinValue.ToString());
         }
     }
 }

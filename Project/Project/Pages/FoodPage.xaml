@@ -231,56 +231,28 @@
                 <Grid Grid.Row="1" x:Name="Grid_lv">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <ListView ItemsSource="{Binding foodList}"  Name="lvDataBinding" SelectionChanged="lvDataBinding_SelectionChanged">
-                            
+
                             <ListView.ItemTemplate >
                                 <DataTemplate>
                                     <materialDesign:Card
                                         materialDesign:ElevationAssist.Elevation="Dp2">
                                         <Border CornerRadius="12" Background="White" >
                                             <Grid Margin="0 0 -30 0" Width="{Binding ElementName=Grid_lv , Path=ActualWidth}">
-                                                <Grid.Resources>
-                                                    <Style TargetType="CheckBox">
-                                                        <Setter Property="Height" Value="30"/>
-                                                        <Setter Property="Width" Value="30"/>
-                                                        <Setter Property="Margin" Value="0,0,0,5"/>
-                                                        <Setter Property="Background" Value="GhostWhite"/>
-                                                        <Setter Property="Foreground" Value="Black"/>
-                                                        <Setter Property="BorderBrush" Value="Transparent"/>
-                                                        <Setter Property="Template">
-                                                            <Setter.Value>
-                                                                <ControlTemplate TargetType="CheckBox" >
-                                                                    <Grid>
-                                                                        <Rectangle RadiusX="50" RadiusY="50" Fill="{TemplateBinding Background}">
-                                                                            <Rectangle.Stroke>
-                                                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                                                    <GradientStop Color="Black"/>
-                                                                                </LinearGradientBrush>
-                                                                            </Rectangle.Stroke>
-                                                                        </Rectangle>
-                                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                                    </Grid>
-                                                                </ControlTemplate>
-                                                            </Setter.Value>
-                                                        </Setter>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsChecked" Value="True">
-                                                                <Setter Property="Background" Value="Yellow"/>
-                                                                <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
-                                                            </Trigger>
-                                                            <Trigger Property="IsChecked" Value="False">
-                                                                <Setter Property="Background" Value="Transparent"/>
-                                                                <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Grid.Resources>
-                                                
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>
                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
+                                                <Grid.Resources>
+                                                    <Style TargetType="ToggleButton" BasedOn="{StaticResource MaterialDesignActionToggleButton}">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsChecked" Value="True">
+                                                                <Setter Property="Foreground" Value="#DC3535"/>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Grid.Resources>
                                                 <Grid Grid.Column="0">
                                                     <Rectangle Margin="0 0 10 0" Width="70" Height="70" >
                                                         <Rectangle.Fill>
@@ -298,15 +270,21 @@
                                                         <Run Text="{Binding Food.Descript}" FontStyle="Italic" FontSize="13"></Run>
                                                     </TextBlock>
                                                 </StackPanel>
-                                                <CheckBox IsChecked="{Binding Favourite}" Click="CheckBox_Click"  Margin="0 0 20 0" Grid.Column="2" HorizontalAlignment="Left">
-                                                    <materialDesign:PackIcon Kind="Heart" Width="20" Height="20" Foreground="Red"/>
-                                                </CheckBox>
+                                                <ToggleButton
+                                                              IsChecked="{Binding Favourite}"
+                                                        
+                                                        Click="favorite_button_Click"
+                                                        Grid.Column="2"
+                                                        HorizontalAlignment="Right"
+                                                        materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=Heart}"
+                                                        Content="{materialDesign:PackIcon Kind=CardsHeartOutline}"
+                                                        Background="#FFFAF599"/>
 
                                                 <StackPanel Margin="0 0 30 0" Grid.Column="3" Orientation="Horizontal">
 
-                                                    <TextBlock FontWeight="Bold" Language="vi" FontStyle="Italic" Margin="0 0 5 2" VerticalAlignment="Bottom">
-                                                        <Run Text="Ngày ăn: "></Run>
-                                                        <Run Text="{Binding Date , StringFormat={}{0:D}}"></Run>
+                                                    <TextBlock FontWeight="Bold" FontStyle="Italic" Margin="5 0 5 5" Padding="30 0 30 0" VerticalAlignment="Bottom">
+                                                        <Run Text="Lần ăn trước : "></Run>
+                                                        <Run Text="{Binding _Date}"></Run>
                                                     </TextBlock>
                                                     <Button
                                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
