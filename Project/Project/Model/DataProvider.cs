@@ -18,10 +18,12 @@ namespace Project.Model
         }
         public QLMAEntities DB { get; set; }
         public int Current_UserID { get; set; }
+        public double Kcal_UserID { get; set; }
         public DataProvider()
         {
             DB = new QLMAEntities();
             Current_UserID = new int();
+            Kcal_UserID = new double();    
         }
     }
 }

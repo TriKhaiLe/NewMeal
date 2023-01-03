@@ -70,8 +70,8 @@ namespace Project.Pages
             FoodUser = new List<UserFood>();
 
 
-            Gauge_Kcal.To = 2800;
-           
+            
+            
             textchangebytime();
             
         }
@@ -172,6 +172,7 @@ namespace Project.Pages
 
             }
             ComRadioBtn.IsChecked = true;
+            Gauge_Kcal.To = DataProvider.Ins.Kcal_UserID;
             view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
             view.Filter = UserFilter;
 
