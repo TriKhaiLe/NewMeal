@@ -68,7 +68,22 @@ namespace Project
             if(count > 0)
             {
                 IsLogin = true;
-                DataProvider.Ins.Current_UserID = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.Username == txtUser.Text).UserID;
+                FUser user = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.Username == txtUser.Text);
+                DataProvider.Ins.Current_UserID = user.UserID;
+                double kcal = 0;
+                if(user.Sex == 1)// nam
+                {
+                    kcal = (double)(6.25 * user.UHeight + 10 * user.UWeight - 5 * user.Age + 5);
+                }
+                else // nu
+                {
+                    kcal = (double)(6.25 * user.UHeight + 10 * user.UWeight - 5 * user.Age - 161);
+                }
+                if (user.UStatus == 1) // giam can
+                {
+                    kcal -= 500;
+                }
+                DataProvider.Ins.Kcal_UserID = kcal;
                 this.Close();
             }
             else

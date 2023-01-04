@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +13,18 @@ namespace Project.Model
     {
         public Food Food { get; set; }
         public DateTime Date { get; set; }
+        public string _Date
+        {
+            get
+            {
+                if(Date == DateTime.MinValue) return null;
+                return Date.ToString();
+            }
+            set
+            {
+                _Date = value;
+            }
+        }
         public int Favourite { get; set; }
         public FoodDays()
         {
