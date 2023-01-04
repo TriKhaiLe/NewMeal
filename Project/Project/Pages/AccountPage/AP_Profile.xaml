@@ -208,7 +208,6 @@
                         Height="50"
                         Margin="0 1 40 1"
                         materialDesign:HintAssist.Hint="Chế độ ăn"
-                        materialDesign:HintAssist.Background="Transparent"
                         Width="250">
                         <ComboBoxItem IsSelected="True" Content="Cân bằng" />
                         <ComboBoxItem Content="Giảm cân" />
