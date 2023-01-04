@@ -35,7 +35,7 @@ create table Exercise
 ExID int identity(1,1) primary key,
 ExName nvarchar(100),
 ImgLink nvarchar(100),
-Kph int
+Kps int
 )
 
 create table UserFood
