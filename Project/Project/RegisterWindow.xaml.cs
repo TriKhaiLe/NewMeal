@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Project.RegisterPage;
 
 namespace Project
 {
@@ -22,9 +23,12 @@ namespace Project
     /// </summary>
     public partial class RegisterWindow : Window
     {
+        public bool IsRegister { get; set; }
+
         public RegisterWindow()
         {
             InitializeComponent();
+            Screen.Content = new Re_Account(this);
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -61,76 +65,25 @@ namespace Project
         {
             this.Close();
         }
-        public bool IsRegister { get; set; }
-        
-        public int UserID { get; set; }
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
+
+        public void next_step(FUser newUser)
         {
-            int count = DataProvider.Ins.DB.FUser.Where(p => (p.Username == txtUser.Text)).Count();
-            if(count > 0)
+            Re_Account page = ((Re_Account)Screen.Content);
+            if (page.IsRegister)
             {
-                IsRegister = false;
-                txtUser.Text = "";
-                txtPassword.Password = "";
-                txtrePassword.Password = "";
-                MessageBox.Show("Username đã tồn tại");
+                Screen.Content = new Re_Info(this, newUser);
             }
-            else if (test_empty() && test_password() && test_length())
+        }
+
+        public void finish_register(FUser newUser)
+        {
+            Re_Info page = ((Re_Info)Screen.Content);
+            if (page.IsRegister)
             {
-                IsRegister = false;
-                txtUser.Text = "";
-                txtPassword.Password = "";
-                txtrePassword.Password = "";
-            }
-            else
-            {
-                FUser newUser = new FUser();
-                newUser.Username = txtUser.Text;
-                newUser.Passwrd = txtPassword.Password;
-                newUser.UHeight = 150;
-                newUser.UWeight = 60;
-                newUser.UStatus = 0;
-                newUser.Sex = 2;
-                newUser.Age = 18;
                 DataProvider.Ins.DB.FUser.Add(newUser);
                 DataProvider.Ins.DB.SaveChanges();
                 IsRegister = true;
-                this.Close();
             }
         }
-
-        #region Validating
-
-        private bool test_empty()
-        {
-            if (txtUser.Text == "" || txtPassword.Password == "" || txtrePassword.Password == "")
-            {
-                MessageBox.Show("Vui lòng không để trống các ô thông tin", "Thông báo");
-                return false;
-            }
-            return true;
-        }
-
-        private bool test_password()
-        {
-            if (txtPassword.Password != txtrePassword.Password)
-            {
-                MessageBox.Show("Nhập lại mật khẩu không trùng khớp", "Thông báo");
-                return false;
-            }
-            return true;
-        }
-
-        private bool test_length()
-        {
-            if (txtPassword.Password.Length < 8)
-            {
-                MessageBox.Show("Mật khẩu phải từ 8 kí tự trở lên", "Thông báo");
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
     }
 }

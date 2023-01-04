@@ -100,7 +100,7 @@ namespace Project.UserControlXAML.AcountPage
 
         private void age_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (age.Text == "")
+            if (age.Text == "" || age.Text == "0")
             {
                 age.Text = "1";
             }
@@ -108,7 +108,7 @@ namespace Project.UserControlXAML.AcountPage
 
         private void height_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (height.Text == "")
+            if (height.Text == "" || height.Text == "0")
             {
                 height.Text = "1";
             }
@@ -116,7 +116,7 @@ namespace Project.UserControlXAML.AcountPage
 
         private void weight_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (weight.Text == "")
+            if (weight.Text == "" || weight.Text == "0" )
             {
                 weight.Text = "1";
             }
@@ -192,26 +192,10 @@ namespace Project.UserControlXAML.AcountPage
         {
             Fullname.Text = AccountPage.CurrentUser.UName;
             age.Text = AccountPage.CurrentUser.Age.ToString();
-            switch (AccountPage.CurrentUser.Sex)
-            {
-                case 0: // Female
-                    {
-                        Gender.SelectedItem = Gender.Items[0];
-                        break;
-                    }
-                case 1: // Male
-                    {
-                        Gender.SelectedItem = Gender.Items[1];
-                        break;
-                    }
-                case 2: // Other
-                    {
-                        Gender.SelectedItem = Gender.Items[2];
-                        break;
-                    }
-            }
+            Gender.SelectedItem = Gender.Items[(int)AccountPage.CurrentUser.Sex];
             weight.Text = AccountPage.CurrentUser.UWeight.ToString();
             height.Text = AccountPage.CurrentUser.UHeight.ToString();
+            Mode.SelectedItem = Gender.Items[(int)AccountPage.CurrentUser.UStatus];
         }
 
         void Edit_UserData()
@@ -221,6 +205,7 @@ namespace Project.UserControlXAML.AcountPage
             AccountPage.CurrentUser.Sex = Gender.SelectedIndex;
             AccountPage.CurrentUser.UWeight = Convert.ToInt32(weight.Text);
             AccountPage.CurrentUser.UHeight = Convert.ToInt32(height.Text);
+            AccountPage.CurrentUser.UStatus = Mode.SelectedIndex;
             DataProvider.Ins.DB.SaveChanges();
         }
         #endregion
