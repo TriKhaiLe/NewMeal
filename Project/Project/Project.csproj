@@ -85,6 +85,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\FoodDays.cs" />
+    <Compile Include="Pages\SubCalorieBurnPage\InsertExerciseWindow.xaml.cs">
+      <DependentUpon>InsertExerciseWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegisterPage\Re_Info.xaml.cs">
       <DependentUpon>Re_Info.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
     <Compile Include="ViewModel\FoodViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RecommendViewModel.cs" />
+    <Page Include="Pages\SubCalorieBurnPage\InsertExerciseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegisterPage\Re_Info.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -405,6 +412,7 @@
     <Resource Include="Assets\Food\F501.jpg" />
     <Resource Include="Assets\Food\F508.jpg" />
     <Resource Include="Assets\food_default.png" />
+    <Resource Include="Assets\Exercises\thumbImg.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

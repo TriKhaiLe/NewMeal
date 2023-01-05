@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Project.Pages;
+using Project.Pages.SubCalorieBurnPage;
 
 namespace Project.Pages
 {
@@ -41,14 +42,27 @@ namespace Project.Pages
 
             _timer.Interval = TimeSpan.FromSeconds(1);
 
-            //this.DataContext = this;
+            this.DataContext = this;
 
-            //ExerciseUser = new List<UserExercise>();
+            ExerciseUser = new List<UserExercise>();
 
-            //ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
-            //lvCaloriesBurned.ItemsSource = ExerciseList;
-            //_view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
+            ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
+            lvCaloriesBurned.ItemsSource = ExerciseList;
+            _view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
         }
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lvCaloriesBurned.Items.Filter = ExerciseFilter;
+        }
+
+        private bool ExerciseFilter(object item)
+        {
+            if (String.IsNullOrEmpty(txtFilter.Text))
+                return true;
+            else
+                return ((item as Exercise).ExName.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
         public class User
         {
             public string Name { get; set; }
@@ -97,6 +111,15 @@ namespace Project.Pages
                 return;
 
             Gauge_Kcal.To = _totalCalo;
+        }
+
+        private void Add_btn_Click(object sender, RoutedEventArgs e)
+        {
+            InsertExerciseWindow insertExerciseWindow = new InsertExerciseWindow();
+            insertExerciseWindow.Owner = Window.GetWindow(this);
+
+            insertExerciseWindow.ShowDialog();
+
         }
     }
 
