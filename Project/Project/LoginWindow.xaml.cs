@@ -94,5 +94,11 @@ namespace Project
                 MessageBox.Show("Tài khoản hoặc mật khẩu bị sai");
             }
         }
+
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+        }
     }
 }

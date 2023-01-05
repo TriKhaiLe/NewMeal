@@ -39,23 +39,16 @@ namespace Project.Pages
         public CalorieBurnPage()
         {
             InitializeComponent();
-
             _timer.Interval = TimeSpan.FromSeconds(1);
-
             this.DataContext = this;
-
             ExerciseUser = new List<UserExercise>();
-
-            ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
-            lvCaloriesBurned.ItemsSource = ExerciseList;
-            _view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
         }
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lvCaloriesBurned.Items.Filter = ExerciseFilter;
+            lvCaloriesBurned.Items.Filter = UserFilter;
         }
 
-        private bool ExerciseFilter(object item)
+        private bool UserFilter(object item)
         {
             if (String.IsNullOrEmpty(txtFilter.Text))
                 return true;
@@ -117,9 +110,32 @@ namespace Project.Pages
         {
             InsertExerciseWindow insertExerciseWindow = new InsertExerciseWindow();
             insertExerciseWindow.Owner = Window.GetWindow(this);
-
             insertExerciseWindow.ShowDialog();
+            lvCaloriesBurned.Items.Refresh();
+        }
 
+        private void DelButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Bạn chắc chắn muốn xóa bài tập này không ?") == MessageBoxResult.OK)
+            {
+                Button button = (Button)sender;
+                Exercise exercise = button.DataContext as Exercise;
+                DataProvider.Ins.DB.UserExercise.Remove(DataProvider.Ins.DB.UserExercise.SingleOrDefault(p => p.ExID == exercise.ExID && p.UserID == DataProvider.Ins.Current_UserID));
+                DataProvider.Ins.DB.SaveChanges();
+                ExerciseList.Remove(exercise);
+                lvCaloriesBurned.Items.Refresh();
+            }
+        }
+
+        private void CaloBurnPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
+            lvCaloriesBurned.ItemsSource = ExerciseList;
+            _view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
+            //ExerciseUser = DataProvider.Ins.DB.UserExercise.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
+            //lvCaloriesBurned.ItemsSource = ExerciseList;
+            //_view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
+            _view.Filter = UserFilter;
         }
     }
 

@@ -308,7 +308,7 @@
                                HorizontalAlignment="Left"
                                VerticalAlignment="Bottom"
                                Margin="10, 10, 0, 0"
-                               Cursor="Hand"/>
+                               Cursor="Hand" MouseDown="TextBlock_MouseDown"/>
                     </StackPanel>
                     
 

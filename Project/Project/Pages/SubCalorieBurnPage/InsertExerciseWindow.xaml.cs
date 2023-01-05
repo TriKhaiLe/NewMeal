@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Project.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,46 @@ namespace Project.Pages.SubCalorieBurnPage
             {
                 ExerciseImg.ImageSource = new BitmapImage(new Uri(image.FileName));
             }
+        }
+
+        private void AddExercise_btn_Click(object sender, RoutedEventArgs e)
+        {
+            // check empty textbox
+            if (ExName_tb.Text == null || CaloPerH_tb.Text == null)
+            {
+                MessageBox.Show("Nhập thiếu thông tin bắt buộc !");
+                return;
+            }
+
+            // check calo textbox validation
+            if (!int.TryParse(CaloPerH_tb.Text, out int calo))
+            {
+                MessageBox.Show("Lượng calo chỉ được nhập số");
+                return;
+            }
+
+            // all is ok
+            Exercise exercise = new Exercise();
+            exercise.ExName = ExName_tb.Text;
+            exercise.Kps = Convert.ToDecimal(CaloPerH_tb.Text);
+            exercise.ImgLink = ExerciseImg.ImageSource.ToString();
+
+            DataProvider.Ins.DB.Exercise.Add(exercise);
+            DataProvider.Ins.DB.SaveChanges();
+
+            UserExercise userExercise = new UserExercise();
+            userExercise.UserID = DataProvider.Ins.Current_UserID;
+            userExercise.ExID = exercise.ExID;
+            DataProvider.Ins.DB.UserExercise.Add(userExercise);
+            DataProvider.Ins.DB.SaveChanges();
+
+            MainWindow mainWindow = this.Owner as MainWindow;
+            CalorieBurnPage calorieBurnPage = mainWindow.Main.Content as CalorieBurnPage;
+            calorieBurnPage.ExerciseList.Add(exercise);
+            calorieBurnPage.lvCaloriesBurned.Items.Refresh();
+
+            MessageBox.Show("Bài tập mới đã được thêm vào !");
+            this.Close();
         }
     }
 }
