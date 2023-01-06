@@ -53,21 +53,24 @@ namespace Project.Pages.SubCalorieBurnPage
                 return;
             }
 
-            // all is ok
+            // thoa tat ca dieu kien
             Exercise exercise = new Exercise();
             exercise.ExName = ExName_tb.Text;
             exercise.Kps = Convert.ToDecimal(CaloPerH_tb.Text);
             exercise.ImgLink = ExerciseImg.ImageSource.ToString();
 
+            // them bt moi vao DB Exercise
             DataProvider.Ins.DB.Exercise.Add(exercise);
             DataProvider.Ins.DB.SaveChanges();
 
+            // them userExercise moi vao DB UserExercise
             UserExercise userExercise = new UserExercise();
             userExercise.UserID = DataProvider.Ins.Current_UserID;
             userExercise.ExID = exercise.ExID;
             DataProvider.Ins.DB.UserExercise.Add(userExercise);
             DataProvider.Ins.DB.SaveChanges();
 
+            // them exercise vao list
             MainWindow mainWindow = this.Owner as MainWindow;
             CalorieBurnPage calorieBurnPage = mainWindow.Main.Content as CalorieBurnPage;
             calorieBurnPage.ExerciseList.Add(exercise);

@@ -129,8 +129,16 @@ namespace Project.Pages
             {
                 Button button = (Button)sender;
                 Exercise exercise = button.DataContext as Exercise;
+
+                // xoa userEx khoi DB
                 DataProvider.Ins.DB.UserExercise.Remove(DataProvider.Ins.DB.UserExercise.SingleOrDefault(p => p.ExID == exercise.ExID && p.UserID == DataProvider.Ins.Current_UserID));
+                //DataProvider.Ins.DB.SaveChanges();
+
+                //test
+                DataProvider.Ins.DB.Exercise.Remove(exercise);
                 DataProvider.Ins.DB.SaveChanges();
+
+
                 ExerciseList.Remove(exercise);
                 lvCaloriesBurned.Items.Refresh();
             }
