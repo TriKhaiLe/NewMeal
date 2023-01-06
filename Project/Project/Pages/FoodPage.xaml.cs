@@ -55,22 +55,16 @@ namespace Project.Pages
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
+        private int IsLoadFood;
         CollectionView view;
         public FoodPage()
         {
             InitializeComponent();
             this.DataContext = this;
-            Com = new List<FoodDays>();
-            MonNuoc = new List<FoodDays>();
-            Canh = new List<FoodDays>();
-            DoBien = new List<FoodDays>();
-            ThucUong = new List<FoodDays>();
-            AnVat = new List<FoodDays>();
-            FoodUser = new List<UserFood>();
-
-            textchangebytime();
             
+            FoodUser = new List<UserFood>();
+            textchangebytime();
+            IsLoadFood = 1;
             if(lvDataBinding.Items.Count > 0)
             {
                 lvDataBinding.Items.Filter = UserFilter;
@@ -120,27 +114,19 @@ namespace Project.Pages
             
         }
 
-        private void ComButton_Checked(object sender, RoutedEventArgs e)
-        {
-            
-            ComboBox_sort.Text = null;
-            foodList = Com;
-
-            /*foreach(Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-
-            //lvDataBinding.ItemsSource = foodList;
-
-        }
+        
         private void foodpage_Loaded(object sender, RoutedEventArgs e)
         {
             
             Food food = new Food();
             FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
             //MessageBox.Show(FoodUser.Count().ToString());
-            
+            Com = new List<FoodDays>();
+            MonNuoc = new List<FoodDays>();
+            Canh = new List<FoodDays>();
+            DoBien = new List<FoodDays>();
+            ThucUong = new List<FoodDays>();
+            AnVat = new List<FoodDays>();
             foreach (UserFood user in FoodUser)
             {
                 food = DataProvider.Ins.DB.Food.SingleOrDefault(p => p.FoodID == user.FoodID);
@@ -173,17 +159,33 @@ namespace Project.Pages
                 }
 
             }
-            ComRadioBtn.IsChecked = true;
+            if(IsLoadFood-- == 1)
+            {
+                ComRadioBtn.IsChecked = true;
+            }
             Gauge_Kcal.To = DataProvider.Ins.Kcal_UserID;
             
 
         }
+        private void ComButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ComboBox_sort.Text = null;
+            foodList = Com;
+            
 
+            /*foreach(Food fo in foodList)
+            {
+                lvDataBinding.Items.Add(fo);
+            }*/
+
+            //lvDataBinding.ItemsSource = foodList;
+
+        }
         private void MNButton_Checked(object sender, RoutedEventArgs e)
         {
-            //lvDataBinding.Items.Clear();
             ComboBox_sort.Text = null;
             foodList = MonNuoc;
+            
             
             /*foreach (Food fo in foodList)
             {
@@ -195,9 +197,11 @@ namespace Project.Pages
 
         private void DBButton_Checked(object sender, RoutedEventArgs e)
         {
-            //lvDataBinding.Items.Clear();
+            
             ComboBox_sort.Text = null;
             foodList = DoBien;
+            
+            
             
             /*foreach (Food fo in foodList)
             {
@@ -210,9 +214,11 @@ namespace Project.Pages
 
         private void CanhButton_Checked(object sender, RoutedEventArgs e)
         {
-            //lvDataBinding.Items.Clear();
+            
             ComboBox_sort.Text = null;
             foodList = Canh;
+            
+            
             
             /*foreach (Food fo in foodList)
             {
@@ -225,9 +231,11 @@ namespace Project.Pages
 
         private void TUButton_Checked(object sender, RoutedEventArgs e)
         {
-            //lvDataBinding.Items.Clear();
+            
             ComboBox_sort.Text = null;
             foodList = ThucUong;
+            
+            
            /* foreach (Food fo in foodList)
             {
                 lvDataBinding.Items.Add(fo);
@@ -239,9 +247,11 @@ namespace Project.Pages
 
         private void AVButton_Checked(object sender, RoutedEventArgs e)
         {
-            //lvDataBinding.Items.Clear();
+            
             ComboBox_sort.Text = null;
             foodList = AnVat;
+            
+            
             /*foreach (Food fo in foodList)
             {
                 lvDataBinding.Items.Add(fo);
@@ -326,15 +336,17 @@ namespace Project.Pages
 
         private void DelButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Bạn có chắc chắn xóa món ăn này không ?") == MessageBoxResult.OK)
+            //MessageBox.Show(lvDataBinding.Items.Count.ToString());
+            if (MessageBox.Show("Bạn có chắc chắn xóa món ăn này không ?","Xóa món ăn",MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 Button button = (Button)sender;
                 FoodDays food = button.DataContext as FoodDays;
                 DataProvider.Ins.DB.UserFood.Remove(DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.FoodID == food.Food.FoodID && p.UserID == DataProvider.Ins.Current_UserID));
-                //DataProvider.Ins.DB.SaveChanges();
+                DataProvider.Ins.DB.SaveChanges();
                 foodList.Remove(food);
                 lvDataBinding.Items.Refresh();
             }
+            
         }
 
 

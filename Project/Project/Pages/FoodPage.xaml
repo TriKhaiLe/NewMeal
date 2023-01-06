@@ -245,10 +245,11 @@
                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <Grid.Resources>
-                                                    <Style TargetType="ToggleButton" BasedOn="{StaticResource MaterialDesignActionToggleButton}">
+                                                    <Style TargetType="ToggleButton" BasedOn="{StaticResource MaterialDesignFlatPrimaryToggleButton}">
                                                         <Style.Triggers>
                                                             <Trigger Property="IsChecked" Value="True">
                                                                 <Setter Property="Foreground" Value="#DC3535"/>
+                                                                <Setter Property="FontWeight" Value="Bold"></Setter>
                                                             </Trigger>
                                                         </Style.Triggers>
                                                     </Style>
