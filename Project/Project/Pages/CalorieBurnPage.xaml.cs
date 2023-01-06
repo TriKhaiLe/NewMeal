@@ -32,8 +32,9 @@ namespace Project.Pages
         private CollectionView _view;
         private DispatcherTimer _timer = new DispatcherTimer();
 
-        private int _remainingTime = 300;
+        private int _remainingTime = 0;
         private int _totalCalo = 0;
+        private double _caloBurnedPerSec = 0;
         private double _burnedCalo = 0;
 
         public CalorieBurnPage()
@@ -42,6 +43,9 @@ namespace Project.Pages
             _timer.Interval = TimeSpan.FromSeconds(1);
             this.DataContext = this;
             ExerciseUser = new List<UserExercise>();
+
+            Play_btn.IsEnabled = false;
+            Pause_btn.IsEnabled = false;
         }
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -56,30 +60,24 @@ namespace Project.Pages
                 return ((item as Exercise).ExName.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
-        public class User
-        {
-            public string Name { get; set; }
-
-            public int Age { get; set; }
-
-            public string Mail { get; set; }
-        }
-
-
 
         private void Count_Tick(object sender, EventArgs e)
         {
             if (_remainingTime-- <= 0)
-                _timer.Stop();
-            else
             {
-                // test
-                _burnedCalo += 1.27;
-                Gauge_Kcal.Value = (int)_burnedCalo;
-                CountdownTimer.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
-
+                _timer.Stop();
+                Pause_btn.IsEnabled = false;
+                MessageBox.Show("Chúc mừng bạn đã hoàn thành buổi tập!\nMời bạn tính lại lượng calo");
+                return;
             }
-            // show time string
+
+            // tang so calo dot moi giay
+            _burnedCalo += _caloBurnedPerSec;
+            Gauge_Kcal.Value = (int)_burnedCalo;
+
+            // giam tong so calo can tinh
+            _totalCalo -= (int)Gauge_Kcal.Value;
+            CountdownTimer.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
         }
         private void Play_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -101,9 +99,20 @@ namespace Project.Pages
         {
             // noi dung trong textbox khong hop le
             if (!int.TryParse(CaloBox.Text, out _totalCalo))
+            {
+                MessageBox.Show("Số calo nhập vào chưa hợp lệ!");
                 return;
+            }
 
+            // reset dong ho
+            MessageBox.Show("Đã tính xong, mời bạn chọn bài tập");
+            _timer.Stop();
+            CountdownTimer.Text = TimeSpan.FromSeconds(0).ToString();
+
+            // reset dong ho calo
             Gauge_Kcal.To = _totalCalo;
+            Gauge_Kcal.Value = 0;
+
         }
 
         private void Add_btn_Click(object sender, RoutedEventArgs e)
@@ -136,6 +145,31 @@ namespace Project.Pages
             //lvCaloriesBurned.ItemsSource = ExerciseList;
             //_view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
             _view.Filter = UserFilter;
+        }
+
+        private void lvCaloriesBurned_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_totalCalo <= 0)
+                return;
+
+            _timer.Stop();
+            if (MessageBox.Show("Bạn muốn chọn bài tập này?", "Thông báo", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                // kich hoat nut play
+                Play_btn.IsEnabled = true;
+
+                Exercise exercise = (Exercise)lvCaloriesBurned.SelectedItem;
+
+                // tinh tong thoi gian va calo dot moi giay
+                _remainingTime = _totalCalo * 3600 / (int)exercise.Kps;
+                _caloBurnedPerSec = (double)exercise.Kps / 3600;
+
+                // hien thi thoi gian
+                CountdownTimer.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
+            }
+            else
+                _timer.Start();
+
         }
     }
 

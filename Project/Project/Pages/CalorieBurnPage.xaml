@@ -85,7 +85,7 @@
                 <Grid Grid.Row="1">
                     <Border BorderBrush="#FFFFC200" BorderThickness="2">
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
-                            <ListView  Name="lvCaloriesBurned"  BorderBrush="#FFFFC200" BorderThickness="2">
+                            <ListView  Name="lvCaloriesBurned"  BorderBrush="#FFFFC200" BorderThickness="2" SelectionChanged="lvCaloriesBurned_SelectionChanged">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <materialDesign:Card
