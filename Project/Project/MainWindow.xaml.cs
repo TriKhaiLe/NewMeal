@@ -89,14 +89,14 @@ namespace Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //this.Hide();
+            this.Hide();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.ShowDialog();
-            /*if (loginWindow.IsLogin)
+            if (loginWindow.IsLogin)
             {
                 LoadUser();
                 this.Show();
-            }*/
+            }
         }
         public void LoadUser()
         {

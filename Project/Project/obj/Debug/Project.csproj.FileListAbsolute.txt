@@ -196,3 +196,9 @@ C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.exe
 C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Project.pdb
 C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Pages\SubCalorieBurnPage\InsertExerciseWindow.g.cs
 C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\obj\Debug\Pages\SubCalorieBurnPage\InsertExerciseWindow.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\SubCalorieBurnPage\InsertExerciseWindow.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Re_Info.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Re_Account.g.cs
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\SubCalorieBurnPage\InsertExerciseWindow.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Re_Info.baml
+C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Re_Account.baml

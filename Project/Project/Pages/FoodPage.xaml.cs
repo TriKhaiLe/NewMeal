@@ -69,11 +69,12 @@ namespace Project.Pages
             AnVat = new List<FoodDays>();
             FoodUser = new List<UserFood>();
 
-
-            
-            
             textchangebytime();
             
+            if(lvDataBinding.Items.Count > 0)
+            {
+                lvDataBinding.Items.Filter = UserFilter;
+            }
         }
 
         private bool UserFilter(object item)
@@ -124,6 +125,7 @@ namespace Project.Pages
             
             ComboBox_sort.Text = null;
             foodList = Com;
+
             /*foreach(Food fo in foodList)
             {
                 lvDataBinding.Items.Add(fo);
@@ -173,8 +175,7 @@ namespace Project.Pages
             }
             ComRadioBtn.IsChecked = true;
             Gauge_Kcal.To = DataProvider.Ins.Kcal_UserID;
-            view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.ItemsSource);
-            view.Filter = UserFilter;
+            
 
         }
 
@@ -318,6 +319,7 @@ namespace Project.Pages
                 DataProvider.Ins.DB.SaveChanges();
                 recipeWindow.Owner = Window.GetWindow(this);
                 recipeWindow.ShowDialog();
+                SelectedFood_lv.Items.Clear();
             }    
             
         }
@@ -329,10 +331,10 @@ namespace Project.Pages
                 Button button = (Button)sender;
                 FoodDays food = button.DataContext as FoodDays;
                 DataProvider.Ins.DB.UserFood.Remove(DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.FoodID == food.Food.FoodID && p.UserID == DataProvider.Ins.Current_UserID));
-                DataProvider.Ins.DB.SaveChanges();
+                //DataProvider.Ins.DB.SaveChanges();
                 foodList.Remove(food);
                 lvDataBinding.Items.Refresh();
-            }    
+            }
         }
 
 
