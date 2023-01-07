@@ -65,7 +65,6 @@ C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Project.csproj.SuggestedBindingRedirects.cache
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\MainResources\ButtonMenuStyle.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Re_Account.g.cs
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\RegisterWindow.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\MainWindow.g.cs
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\AccountPage.g.cs
@@ -110,7 +109,6 @@ C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\RegisterPa
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\App.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Re_Info.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Re_Account.baml
-C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\RegisterWindow.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\LoginWindow.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\MainResources\MainResource.baml
 C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\MainWindow.baml
@@ -202,3 +200,7 @@ C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Pr
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\Pages\SubCalorieBurnPage\InsertExerciseWindow.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Re_Info.baml
 C:\Users\84386\Downloads\Compressed\Nam 2\Lap trinh truc quan\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Re_Account.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\SubCalorieBurnPage\InsertExerciseWindow.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Log_MainPage.g.cs
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\Pages\SubCalorieBurnPage\InsertExerciseWindow.baml
+C:\Users\Admin\source\repos\NewMeal_Project\Project\Project\obj\Debug\RegisterPage\Log_MainPage.baml

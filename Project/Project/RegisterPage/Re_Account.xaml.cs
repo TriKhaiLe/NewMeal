@@ -22,7 +22,7 @@ namespace Project.RegisterPage
     /// </summary>
     public partial class Re_Account : Page
     {
-        public Re_Account(RegisterWindow main)
+        public Re_Account(LoginWindow main)
         {
             InitializeComponent();
             MainWindow = main;
@@ -30,8 +30,12 @@ namespace Project.RegisterPage
 
         public bool IsRegister { get; set; }
 
-        public RegisterWindow MainWindow { get; set; }
+        public LoginWindow MainWindow { get; set; }
 
+        private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.turn_back();
+        }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +48,7 @@ namespace Project.RegisterPage
                 txtrePassword.Password = "";
                 MessageBox.Show("Username đã tồn tại");
             }
-            else if (test_empty() && test_password() && test_length())
+            else if (!test_empty() || !test_password() || !test_length())
             {
                 IsRegister = false;
                 txtUser.Text = "";
@@ -56,7 +60,8 @@ namespace Project.RegisterPage
                 FUser newUser = new FUser();
                 newUser.Username = txtUser.Text;
                 newUser.Passwrd = txtPassword.Password;
-                newUser.UHeight = 150;
+                newUser.UName = "User";
+                newUser.UHeight = 160;
                 newUser.UWeight = 60;
                 newUser.UStatus = 0;
                 newUser.Sex = 2;

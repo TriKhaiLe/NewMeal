@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Project.RegisterPage;
 
 namespace Project
 {
@@ -23,11 +24,14 @@ namespace Project
         public LoginWindow()
         {
             InitializeComponent();
+            Screen.Content = new Log_MainPage(this);
         }
+
+        #region Window
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
             }
@@ -35,18 +39,18 @@ namespace Project
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
-          
+
             if (this.WindowState != WindowState.Minimized)
             {
                 this.WindowState = (WindowState.Minimized);
                 this.btnMaximize.Content = "🗗";
             }
-            else {this.WindowState = WindowState.Normal; }
+            else { this.WindowState = WindowState.Normal; }
         }
 
         private void btnMaximize_Click(object sender, RoutedEventArgs e)
         {
-           
+
             if (this.WindowState != WindowState.Maximized)
             {
                 this.WindowState = (WindowState.Maximized);
@@ -59,40 +63,44 @@ namespace Project
         {
             this.Close();
         }
+
         public bool IsLogin { get; set; }
-        
+
         public int UserID { get; set; }
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+
+        #endregion
+
+        #region Register
+
+        public bool IsRegister { get; set; }
+
+        public void next_step(FUser newUser)
         {
-            int count = DataProvider.Ins.DB.FUser.Where(p => (p.Username == txtUser.Text && p.Passwrd == txtPassword.Password)).Count();
-            if(count > 0)
+            Screen.Content = new Re_Info(this, newUser);
+        }
+
+        public void finish_register(FUser newUser)
+        {
+            Re_Info page = ((Re_Info)Screen.Content);
+            if (page.IsRegister)
             {
-                IsLogin = true;
-                FUser user = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.Username == txtUser.Text);
-                DataProvider.Ins.Current_UserID = user.UserID;
-                double kcal = 0;
-                if(user.Sex == 1)// nam
-                {
-                    kcal = (double)(6.25 * user.UHeight + 10 * user.UWeight - 5 * user.Age + 5);
-                }
-                else // nu
-                {
-                    kcal = (double)(6.25 * user.UHeight + 10 * user.UWeight - 5 * user.Age - 161);
-                }
-                if (user.UStatus == 1) // giam can
-                {
-                    kcal -= 500;
-                }
-                DataProvider.Ins.Kcal_UserID = kcal;
-                this.Close();
-            }
-            else
-            {
-                IsLogin = false;
-                txtUser.Text = null;
-                txtPassword.Password = null;
-                MessageBox.Show("Tài khoản hoặc mật khẩu bị sai");
+                DataProvider.Ins.DB.FUser.Add(newUser);
+                DataProvider.Ins.DB.SaveChanges();
+                IsRegister = true;
+                Screen.Content = new Log_MainPage(this);
+                MessageBox.Show("Đăng kí thành công","Thông báo");
             }
         }
+
+        public void turn_back()
+        {
+            Screen.Content = new Log_MainPage(this);
+        }
+
+        public void enter_Register()
+        {
+            Screen.Content = new Re_Account(this);
+        }
+        #endregion
     }
 }
