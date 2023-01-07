@@ -29,7 +29,7 @@ namespace Project.Model
         public string Descript { get; set; }
         public Nullable<int> MealTime { get; set; }
         public string Imgsrc { get; set; }
-        
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserFood> UserFood { get; set; }
     }

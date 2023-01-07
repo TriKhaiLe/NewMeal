@@ -37,11 +37,18 @@ namespace Project.RegisterPage
 
         private FUser user;
 
-        public Re_Info(RegisterWindow main, FUser user)
+        public Re_Info(LoginWindow main, FUser user)
         {
             InitializeComponent();
             MainWindow = main;
             this.user = user;
+
+            //Fullname.Text = user.UName;
+            //age.Text = user.Age.ToString();
+            //Gender.SelectedItem = Gender.Items[(int)user.Sex];
+            //weight.Text = user.UWeight.ToString();
+            //height.Text = user.UHeight.ToString();
+            //Mode.SelectedItem = Gender.Items[(int)user.UStatus];
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -55,7 +62,7 @@ namespace Project.RegisterPage
 
         public bool IsRegister { get; set; }
 
-        public RegisterWindow MainWindow { get; set; }
+        public LoginWindow MainWindow { get; set; }
 
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
@@ -82,7 +89,7 @@ namespace Project.RegisterPage
 
         private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            (this.Parent as ContentControl).Content = new AP_Menu();
+            MainWindow.turn_back();
         }
 
         private void Name_TextChanged(object sender, TextChangedEventArgs e)
