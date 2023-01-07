@@ -155,7 +155,7 @@
           <Property Name="ExID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ExName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ImgLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Kps" Type="Decimal" Precision="7" Scale="3" />
+          <Property Name="Kps" Type="Int32" />
           <NavigationProperty Name="UserExercise" Relationship="Self.fk_UE_Exe" FromRole="Exercise" ToRole="UserExercise" />
         </EntityType>
         <EntityType Name="Food">

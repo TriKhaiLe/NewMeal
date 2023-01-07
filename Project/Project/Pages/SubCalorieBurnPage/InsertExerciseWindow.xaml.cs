@@ -56,7 +56,7 @@ namespace Project.Pages.SubCalorieBurnPage
             // thoa tat ca dieu kien
             Exercise exercise = new Exercise();
             exercise.ExName = ExName_tb.Text;
-            exercise.Kps = Convert.ToDecimal(CaloPerH_tb.Text);
+            exercise.Kps = calo;
             exercise.ImgLink = ExerciseImg.ImageSource.ToString();
 
             // them bt moi vao DB Exercise
