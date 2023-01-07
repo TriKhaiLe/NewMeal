@@ -85,13 +85,13 @@
                 <Grid Grid.Row="1">
                     <Border BorderBrush="#FFFFC200" BorderThickness="2">
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
-                            <ListView  Name="lvCaloriesBurned"  BorderBrush="#FFFFC200" BorderThickness="2" SelectionChanged="lvCaloriesBurned_SelectionChanged">
+                            <ListView  Name="lvCaloriesBurned"  BorderBrush="#FFFFC200" BorderThickness="2" SelectionChanged="lvCaloriesBurned_SelectionChanged" HorizontalContentAlignment="Center">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <materialDesign:Card
                                 materialDesign:ElevationAssist.Elevation="Dp2">
-                                            <Border CornerRadius="12" Background="White"  >
-                                                <Grid Width="850">
+                                            <Border CornerRadius="12" Background="White">
+                                                <Grid Width="850" Margin="15 0 15 0">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition Width="auto"></ColumnDefinition>

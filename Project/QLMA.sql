@@ -14,7 +14,7 @@ Age int,
 Sex int,
 UStatus int,
 Passwrd varchar(20),
-Username varchar(20)
+Username varchar(20) unique
 )
 
 create table Food
