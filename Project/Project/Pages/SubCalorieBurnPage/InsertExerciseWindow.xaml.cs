@@ -74,7 +74,6 @@ namespace Project.Pages.SubCalorieBurnPage
             MainWindow mainWindow = this.Owner as MainWindow;
             CalorieBurnPage calorieBurnPage = mainWindow.Main.Content as CalorieBurnPage;
             calorieBurnPage.ExerciseList.Add(exercise);
-            calorieBurnPage.lvCaloriesBurned.Items.Refresh();
 
             MessageBox.Show("Bài tập mới đã được thêm vào !");
             this.Close();

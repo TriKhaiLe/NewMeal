@@ -43,10 +43,30 @@ namespace Project.Pages
             _timer.Interval = TimeSpan.FromSeconds(1);
             this.DataContext = this;
             ExerciseUser = new List<UserExercise>();
+            ExerciseList = new List<Exercise>();
 
             Play_btn.IsEnabled = false;
             Pause_btn.IsEnabled = false;
         }
+
+        private void CaloBurnPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            ExerciseUser = DataProvider.Ins.DB.UserExercise.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
+            Exercise exercise = new Exercise();
+            ExerciseList = new List<Exercise>();
+
+            foreach (UserExercise user in ExerciseUser)
+            {
+                exercise = DataProvider.Ins.DB.Exercise.SingleOrDefault(p => p.ExID == user.ExID);
+                ExerciseList.Add(exercise);
+            }
+
+            lvCaloriesBurned.ItemsSource = ExerciseList;
+            _view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
+            _view.Filter = UserFilter;
+        }
+
+
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
             lvCaloriesBurned.Items.Filter = UserFilter;
@@ -120,7 +140,7 @@ namespace Project.Pages
             InsertExerciseWindow insertExerciseWindow = new InsertExerciseWindow();
             insertExerciseWindow.Owner = Window.GetWindow(this);
             insertExerciseWindow.ShowDialog();
-            lvCaloriesBurned.Items.Refresh();
+            _view.Refresh();
         }
 
         private void DelButton_Click(object sender, RoutedEventArgs e)
@@ -132,28 +152,18 @@ namespace Project.Pages
 
                 // xoa userEx khoi DB
                 DataProvider.Ins.DB.UserExercise.Remove(DataProvider.Ins.DB.UserExercise.SingleOrDefault(p => p.ExID == exercise.ExID && p.UserID == DataProvider.Ins.Current_UserID));
-                //DataProvider.Ins.DB.SaveChanges();
 
-                //test
-                DataProvider.Ins.DB.Exercise.Remove(exercise);
+                // khong xoa nhung bai tap mac dinh
+                if (exercise.ExID > 15)
+                    DataProvider.Ins.DB.Exercise.Remove(exercise);
+
                 DataProvider.Ins.DB.SaveChanges();
 
-
                 ExerciseList.Remove(exercise);
-                lvCaloriesBurned.Items.Refresh();
+                _view.Refresh();
             }
         }
 
-        private void CaloBurnPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            ExerciseList = DataProvider.Ins.DB.Exercise.ToList();
-            lvCaloriesBurned.ItemsSource = ExerciseList;
-            _view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
-            //ExerciseUser = DataProvider.Ins.DB.UserExercise.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
-            //lvCaloriesBurned.ItemsSource = ExerciseList;
-            //_view = (CollectionView)CollectionViewSource.GetDefaultView(lvCaloriesBurned.ItemsSource);
-            _view.Filter = UserFilter;
-        }
 
         private void lvCaloriesBurned_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

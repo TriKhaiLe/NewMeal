@@ -35,7 +35,7 @@ create table Exercise
 ExID int identity(1,1) primary key,
 ExName nvarchar(100),
 ImgLink nvarchar(100),
-Kps int
+Kps decimal(5,1)
 )
 
 create table UserFood
@@ -311,6 +311,7 @@ select*from FUser
 select*from Food
 insert into FUser values('Admin' , 60,160,19,1,0,'admin','admin')
 insert into FUser values('User' , 60,160,19,1,0,'user' , 'user')
+insert into FUser values('A' , 60,160,19,1,0,'a' , 'a')
 delete from Exercise where ExName = 'Agaga'
 delete from FUser
 delete from UserExercise
