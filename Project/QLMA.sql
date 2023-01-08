@@ -307,15 +307,8 @@ begin
 end
 
 
-select*from FUser
-select*from Food
-insert into FUser values('Admin' , 60,160,19,1,0,'admin','admin')
-insert into FUser values('User' , 60,160,19,1,0,'user' , 'user')
-insert into FUser values('A' , 60,160,19,1,0,'a' , 'a')
-delete from Exercise where ExName = 'Agaga'
-delete from FUser
-delete from UserExercise
-delete from UserFood
-select*from UserExercise
+select* from FUser
+insert into FUser
+values('Admin' , 60,160,19,1,0,'admin','admin')
 select * from UserFood
-select * from Exercise
+select * from Food
