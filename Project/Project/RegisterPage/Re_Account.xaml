@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-        Height="550" Width="800"
+        d:DesignHeight="550" d:DesignWidth="800"
         Background="Transparent"
         Title="Re_Account">
 

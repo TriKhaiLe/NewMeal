@@ -33,11 +33,11 @@ namespace Project.RegisterPage
         public int UserID { get; set; }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello1");
+
             int count = DataProvider.Ins.DB.FUser.Where(p => (p.Username == txtUser.Text && p.Passwrd == txtPassword.Password)).Count();
             if (count > 0)
             {
-                MessageBox.Show("Hello2");
+
                 MainWindow.IsLogin = true;
                 FUser user = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.Username == txtUser.Text);
                 DataProvider.Ins.Current_UserID = user.UserID;
