@@ -89,6 +89,9 @@
     <Compile Include="Pages\SubCalorieBurnPage\InsertExerciseWindow.xaml.cs">
       <DependentUpon>InsertExerciseWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RegisterPage\ForgetPassPage.xaml.cs">
+      <DependentUpon>ForgetPassPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegisterPage\Log_MainPage.xaml.cs">
       <DependentUpon>Log_MainPage.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RecommendViewModel.cs" />
     <Page Include="Pages\SubCalorieBurnPage\InsertExerciseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegisterPage\ForgetPassPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

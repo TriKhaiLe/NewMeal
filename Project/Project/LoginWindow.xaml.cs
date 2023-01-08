@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Project.RegisterPage;
+using System.Security.RightsManagement;
 
 namespace Project
 {
@@ -99,6 +100,10 @@ namespace Project
         public void enter_Register()
         {
             Screen.Content = new Re_Account(this);
+        }
+        public void enter_Forget()
+        {
+            Screen.Content = new ForgetPassPage(this);
         }
         #endregion
     }

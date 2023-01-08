@@ -113,14 +113,14 @@
                 </Button.Template>
             </Button>
 
-            <TextBlock Text="Quên mật khẩu?"
+            <TextBlock Text="Quên mật khẩu?" x:Name="ForgetPass_tb"
                                Foreground="#1a85f0"
                                FontSize="15"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center"
                                Margin="32,15,32.6,0"
-                               Cursor="Hand"/>
+                               Cursor="Hand" MouseDown="ForgetPass_tb_MouseDown"/>
 
             <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
