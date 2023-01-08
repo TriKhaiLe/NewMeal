@@ -316,5 +316,8 @@ delete from FUser
 delete from UserExercise
 delete from UserFood
 select*from UserExercise
+select* from FUser
+insert into FUser
+values('Admin' , 60,160,19,1,0,'admin','admin')
 select * from UserFood
-select * from Exercise
+select * from Food
