@@ -42,7 +42,7 @@ namespace Project.RegisterPage
             InitializeComponent();
             MainWindow = main;
             this.user = user;
-
+            IsRegister = false;
             //Fullname.Text = user.UName;
             //age.Text = user.Age.ToString();
             //Gender.SelectedItem = Gender.Items[(int)user.Sex];

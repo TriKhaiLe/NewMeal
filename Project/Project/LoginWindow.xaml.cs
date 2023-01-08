@@ -25,8 +25,11 @@ namespace Project
         {
             InitializeComponent();
             Screen.Content = new Log_MainPage(this);
+            
         }
+        public bool IsLogin { get; set; }
 
+        public int UserID { get; set; }
         #region Window
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -64,15 +67,12 @@ namespace Project
             this.Close();
         }
 
-        public bool IsLogin { get; set; }
-
-        public int UserID { get; set; }
+        
 
         #endregion
 
         #region Register
 
-        public bool IsRegister { get; set; }
 
         public void next_step(FUser newUser)
         {
@@ -86,7 +86,6 @@ namespace Project
             {
                 DataProvider.Ins.DB.FUser.Add(newUser);
                 DataProvider.Ins.DB.SaveChanges();
-                IsRegister = true;
                 Screen.Content = new Log_MainPage(this);
                 MessageBox.Show("Đăng kí thành công","Thông báo");
             }

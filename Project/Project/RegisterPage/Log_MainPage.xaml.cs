@@ -33,10 +33,12 @@ namespace Project.RegisterPage
         public int UserID { get; set; }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+
             int count = DataProvider.Ins.DB.FUser.Where(p => (p.Username == txtUser.Text && p.Passwrd == txtPassword.Password)).Count();
             if (count > 0)
             {
-                IsLogin = true;
+
+                MainWindow.IsLogin = true;
                 FUser user = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.Username == txtUser.Text);
                 DataProvider.Ins.Current_UserID = user.UserID;
                 double kcal = 0;
@@ -53,11 +55,11 @@ namespace Project.RegisterPage
                     kcal -= 500;
                 }
                 DataProvider.Ins.Kcal_UserID = kcal;
-                //this.Close();
+                MainWindow.Close();
             }
             else
             {
-                IsLogin = false;
+                MainWindow.IsLogin = false;
                 txtUser.Text = null;
                 txtPassword.Password = null;
                 MessageBox.Show("Tài khoản hoặc mật khẩu bị sai");

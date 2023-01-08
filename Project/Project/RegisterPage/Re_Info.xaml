@@ -8,14 +8,16 @@
         mc:Ignorable="d" 
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Height="550" Width="800"
+        d:DesignHeight="550" d:DesignWidth="800"
         Background="Transparent"
         Title="Re_Account">
 
     <Grid>
-            <StackPanel Width="250"
-            Orientation="Vertical"
-            Margin="272,10,243.6,0" Grid.RowSpan="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>    
+        <StackPanel Width="250" Orientation="Vertical" Grid.Row="0">
                     <Image Source="/Assets/logo.png"
                            Width="200"
                            Height="200"/>
@@ -24,24 +26,19 @@
                                FontSize="25"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
-                               HorizontalAlignment="Center"
-                               Margin="32,-40,32.6,0"/>
+                               HorizontalAlignment="Center" Margin="0 -10 0 10"/>
         </StackPanel>
 
-        <Rectangle Fill="White" RadiusX="10" RadiusY="10" Stroke="DarkBlue" Margin="30 202 30 70" StrokeThickness="3"/>
-
-        <Grid Margin="10 10 10 10">
+        <!--<Rectangle Fill="White" RadiusX="10" RadiusY="10" Stroke="DarkBlue" Margin="30 202 30 70" StrokeThickness="3"/>-->
+        <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="210"></RowDefinition>
+
                 <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
             </Grid.RowDefinitions>
-
-
-
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -49,11 +46,11 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                    <materialDesign:PackIcon Kind="AccountCircle" Margin="0 20 10 0" Foreground="#DD6B6A6A"/>
+                    <materialDesign:PackIcon Kind="AccountCircle" Margin="0 20 10 0" Foreground="Black"/>
                     <TextBox
                     x:Name="Fullname"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     Margin="0 1 40 1"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     VerticalAlignment="Top"
                     AcceptsReturn="True"
                     TextWrapping="Wrap"
@@ -63,14 +60,16 @@
                     MaxLength="40"
                     materialDesign:HintAssist.Hint="Tên"
                     materialDesign:HintAssist.HelperText="{Binding Name_HelperText}"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}" TextChanged="Name_TextChanged" LostFocus="Name_LostFocus"
+                    materialDesign:HintAssist.FloatingScale="0.9"
+                    
+                    TextChanged="Name_TextChanged" LostFocus="Name_LostFocus"
                     >
                     </TextBox>
                 </StackPanel>
 
                 <Grid Grid.Column="2">
                     <StackPanel Orientation="Horizontal" >
-                        <materialDesign:PackIcon Kind="HumanMaleHeight" Margin="10 20 10 0" Foreground="#DD6B6A6A"/>
+                        <materialDesign:PackIcon Kind="HumanMaleHeight" Margin="10 20 10 0" Foreground="Black"/>
                         <TextBox
                     x:Name="height"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -83,7 +82,56 @@
                     MaxWidth="400"
                     materialDesign:HintAssist.Hint="Chiều cao (cm)"
                     materialDesign:HintAssist.HelperText="Nhập số"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}" PreviewTextInput="height_PreviewTextInput" LostFocus="height_LostFocus"
+                    materialDesign:HintAssist.FloatingScale="0.9"
+                    PreviewTextInput="height_PreviewTextInput" LostFocus="height_LostFocus"
+                    >
+                        </TextBox>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <materialDesign:PackIcon Kind="GenderMaleFemale" Margin="0 20 10 0" Foreground="Black"/>
+                    <ComboBox
+                x:Name="Gender"
+                Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                VerticalAlignment="Top"
+                Height="50"
+                Margin="0 1 40 1"
+                materialDesign:HintAssist.Hint="Giới tính"
+                materialDesign:HintAssist.FloatingScale="0.9"
+                Width="250">
+                        <ComboBoxItem Content="Nữ" />
+                        <ComboBoxItem Content="Nam" />
+                        <ComboBoxItem IsSelected="True" Content="Khác" />
+                    </ComboBox>
+
+                </StackPanel>
+
+                <Grid Grid.Column="2">
+                    <StackPanel Orientation="Horizontal" >
+                        <materialDesign:PackIcon Kind="Weight" Margin="10 20 10 0" Foreground="Black"/>
+                        <TextBox
+                    x:Name="weight"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    Margin="0 1 1 1"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    Width="250"
+                    Height="50"
+                    MaxWidth="400"
+                    materialDesign:HintAssist.Hint="Cân nặng (kg)"
+                    materialDesign:HintAssist.HelperText="Nhập số"
+                    materialDesign:HintAssist.FloatingScale="0.9"
+                    PreviewTextInput="weight_PreviewTextInput" LostFocus="weight_LostFocus"
                     >
                         </TextBox>
                     </StackPanel>
@@ -97,55 +145,8 @@
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <materialDesign:PackIcon Kind="GenderMaleFemale" Margin="0 20 10 0" Foreground="#DD6B6A6A"/>
-                    <ComboBox
-                x:Name="Gender"
-                Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                VerticalAlignment="Top"
-                IsEnabled="{Binding Path=IsChecked, ElementName=edit}"
-                Height="50"
-                Margin="0 1 40 1"
-                materialDesign:HintAssist.Hint="Giới tính"
-                Width="250">
-                        <ComboBoxItem Content="Nữ" />
-                        <ComboBoxItem Content="Nam" />
-                        <ComboBoxItem IsSelected="True" Content="Khác" />
-                    </ComboBox>
-
-                </StackPanel>
-
-                <Grid Grid.Column="2">
-                    <StackPanel Orientation="Horizontal" >
-                        <materialDesign:PackIcon Kind="Weight" Margin="10 20 10 0" Foreground="#DD6B6A6A"/>
-                        <TextBox
-                    x:Name="weight"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                    Margin="0 1 1 1"
-                    VerticalAlignment="Top"
-                    AcceptsReturn="True"
-                    TextWrapping="Wrap"
-                    Width="250"
-                    Height="50"
-                    MaxWidth="400"
-                    materialDesign:HintAssist.Hint="Cân nặng (kg)"
-                    materialDesign:HintAssist.HelperText="Nhập số"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}" PreviewTextInput="weight_PreviewTextInput" LostFocus="weight_LostFocus"
-                    >
-                        </TextBox>
-                    </StackPanel>
-                </Grid>
-            </Grid>
-
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="5*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                    <materialDesign:PackIcon Kind="Numeric0BoxMultipleOutline" Margin="10 20 10 0" Foreground="#DD6B6A6A"/>
+                    <materialDesign:PackIcon Kind="Numeric0BoxMultipleOutline" Margin="10 20 10 0" Foreground="Black"/>
                     <TextBox
                     x:Name="age"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -158,22 +159,23 @@
                     MaxWidth="400"
                     materialDesign:HintAssist.Hint="Tuổi"
                     materialDesign:HintAssist.HelperText="Nhập số"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=edit}" PreviewTextInput="age_PreviewTextInput" LostFocus="age_LostFocus"
+                    materialDesign:HintAssist.FloatingScale="0.9"
+                    PreviewTextInput="age_PreviewTextInput" LostFocus="age_LostFocus"
                     >
                     </TextBox>
                 </StackPanel>
 
                 <Grid Grid.Column="2">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <materialDesign:PackIcon Kind="WeightLifter" Margin="10 20 10 0" Foreground="#DD6B6A6A"/>
+                        <materialDesign:PackIcon Kind="WeightLifter" Margin="10 20 10 0" Foreground="Black"/>
                         <ComboBox
                         x:Name="Mode"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                         VerticalAlignment="Top"
-                        IsEnabled="{Binding Path=IsChecked, ElementName=edit}"
                         Height="50"
                         Margin="0 1 40 1"
                         materialDesign:HintAssist.Hint="Chế độ ăn"
+                        materialDesign:HintAssist.FloatingScale="0.9"
                         Width="250">
                             <ComboBoxItem IsSelected="True" Content="Cân bằng" />
                             <ComboBoxItem Content="Giảm cân" />
@@ -184,7 +186,7 @@
                 </Grid>
             </Grid>
 
-            <Grid Grid.Row="4">
+            <Grid Grid.Row="3">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="btnRegister"
                             BorderThickness="0"
