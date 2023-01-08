@@ -33,7 +33,7 @@ namespace Project.Pages
         private DispatcherTimer _timer = new DispatcherTimer();
 
         private int _remainingTime = 0;
-        private int _totalCalo = 0;
+        private double _totalCalo = 0;
         private double _caloBurnedPerSec = 0;
         private double _burnedCalo = 0;
 
@@ -85,8 +85,17 @@ namespace Project.Pages
         {
             if (_remainingTime-- <= 0)
             {
+                // dung dong ho, vo hieu nut pause, lam day vong tron
                 _timer.Stop();
                 Pause_btn.IsEnabled = false;
+                Gauge_Kcal.Value = Convert.ToInt32(CaloBox.Text);
+
+                // reset cac bien
+                _remainingTime = 0;
+                _totalCalo = 0;
+                _caloBurnedPerSec = 0;
+                _burnedCalo = 0;
+
                 MessageBox.Show("Chúc mừng bạn đã hoàn thành buổi tập!\nMời bạn tính lại lượng calo");
                 return;
             }
@@ -96,7 +105,7 @@ namespace Project.Pages
             Gauge_Kcal.Value = (int)_burnedCalo;
 
             // giam tong so calo can tinh
-            _totalCalo -= (int)Gauge_Kcal.Value;
+            _totalCalo -= _caloBurnedPerSec;
             CountdownTimer.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
         }
         private void Play_btn_Click(object sender, RoutedEventArgs e)
@@ -118,7 +127,7 @@ namespace Project.Pages
         private void Calculate_btn_Click(object sender, RoutedEventArgs e)
         {
             // nhan so calo moi, kiem tra hop le
-            if (!int.TryParse(CaloBox.Text, out _totalCalo))
+            if (!double.TryParse(CaloBox.Text, out _totalCalo))
             {
                 MessageBox.Show("Số calo nhập vào chưa hợp lệ!");
                 return;
@@ -134,7 +143,7 @@ namespace Project.Pages
             CountdownTimer.Text = TimeSpan.FromSeconds(0).ToString();
 
             // reset dong ho calo
-            Gauge_Kcal.To = _totalCalo;
+            Gauge_Kcal.To = (int)_totalCalo;
             Gauge_Kcal.Value = 0;
 
         }
@@ -175,16 +184,18 @@ namespace Project.Pages
                 return;
 
             _timer.Stop();
-            _timer.Tick -= Count_Tick;
             if (MessageBox.Show("Bạn muốn chọn bài tập này?", "Thông báo", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+                // xoa event tick cu de khong bi nap chong len nhau
+                _timer.Tick -= Count_Tick;
+
                 // kich hoat nut play
                 Play_btn.IsEnabled = true;
 
                 Exercise exercise = (Exercise)lvCaloriesBurned.SelectedItem;
 
                 // tinh tong thoi gian va calo dot moi giay
-                _remainingTime = _totalCalo * 3600 / (int)exercise.Kps;
+                _remainingTime = (int)_totalCalo * 3600 / (int)exercise.Kps;
                 _caloBurnedPerSec = (double)exercise.Kps / 3600;
 
                 // hien thi thoi gian
