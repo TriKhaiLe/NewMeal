@@ -117,16 +117,20 @@ namespace Project.Pages
 
         private void Calculate_btn_Click(object sender, RoutedEventArgs e)
         {
-            // noi dung trong textbox khong hop le
+            // nhan so calo moi, kiem tra hop le
             if (!int.TryParse(CaloBox.Text, out _totalCalo))
             {
                 MessageBox.Show("Số calo nhập vào chưa hợp lệ!");
                 return;
             }
+            // reset calo da dot, item da chon
+            _burnedCalo = 0;
+            lvCaloriesBurned.SelectedIndex = -1;
 
             // reset dong ho
             MessageBox.Show("Đã tính xong, mời bạn chọn bài tập");
             _timer.Stop();
+            _timer.Tick -= Count_Tick;
             CountdownTimer.Text = TimeSpan.FromSeconds(0).ToString();
 
             // reset dong ho calo
@@ -167,10 +171,11 @@ namespace Project.Pages
 
         private void lvCaloriesBurned_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (_totalCalo <= 0)
+            if (_totalCalo <= 0 || lvCaloriesBurned.SelectedIndex == -1)
                 return;
 
             _timer.Stop();
+            _timer.Tick -= Count_Tick;
             if (MessageBox.Show("Bạn muốn chọn bài tập này?", "Thông báo", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 // kich hoat nut play
