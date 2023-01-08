@@ -79,6 +79,6 @@
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center"
                                Margin="32,15,32.6,0"
-                               Cursor="Hand" MouseDown="TextBlock_MouseDown"/>
+                               Cursor="Hand" MouseDown="TextBlock_MouseDown" TextDecorations="Underline"/>
     </StackPanel>
 </Page>
