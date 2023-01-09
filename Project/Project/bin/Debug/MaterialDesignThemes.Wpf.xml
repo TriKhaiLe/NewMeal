@@ -914,6 +914,16 @@
             Provides full information about a palette.
             </summary>
         </member>
+        <member name="M:MaterialDesignThemes.Wpf.PasswordBoxAssist.HandlePasswordChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles changes to the 'Password' attached property.
+            </summary>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.PasswordBoxAssist.PasswordBoxPasswordChanged(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handle the 'PasswordChanged'-event on the PasswordBox
+            </summary>
+        </member>
         <member name="T:MaterialDesignThemes.Wpf.Plane3D">
             <summary>
             View a control on a 3D plane.    

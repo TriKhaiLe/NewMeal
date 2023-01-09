@@ -91,7 +91,25 @@
                         <ColumnDefinition Width="280"/>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <DockPanel Grid.Column="0">
+                    <StackPanel Grid.Column="0">
+                        <DockPanel>
+                            <Label Content="Đề xuất theo :" VerticalAlignment="Center"></Label>
+                            <ComboBox
+                                x:Name="ComboBox_sort"
+                                Margin="5"
+                                BorderBrush="Black"
+                                Width="100"
+                                Height="30" SelectionChanged="ComboBox_SelectionChanged">
+                                <ComboBoxItem
+                                    Content="Calorie" />
+                                <ComboBoxItem
+                                    Content="Tên" />
+                                <ComboBoxItem
+                                    Content="Các món chưa ăn"/>
+                                <ComboBoxItem
+                                    Content="a"/>
+                            </ComboBox>
+                        </DockPanel>
                         <materialDesign:Card VerticalAlignment="Stretch">
                             <materialDesign:Card.RenderTransform>
                                 <TransformGroup>
@@ -103,43 +121,17 @@
                             </materialDesign:Card.RenderTransform>
                             <TabControl x:Name="tab_control"
                                 materialDesign:ColorZoneAssist.Mode="SecondaryMid"
-                                Style="{StaticResource MaterialDesignFilledTabControl}" Width="280">
+                                Style="{StaticResource MaterialDesignFilledTabControl}" Width="280" SelectionChanged="tab_control_SelectionChanged">
                                 <TabItem x:Name="breakfast" Width="75"
                                          Padding="0, 0, 0, 0">
+
                                     <TabItem.Header>
                                         <TextBlock Text="Bữa Sáng"
                                                    Foreground="Black"
                                                    FontWeight="Bold"
                                                    FontSize="14"/>
                                     </TabItem.Header>
-                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                        <ListView  Name="lvBreakfastRecommendation" SelectionChanged="lvBreakfastRecommendation_SelectionChanged" IsSynchronizedWithCurrentItem="True">
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <materialDesign:Card
-                                                        materialDesign:ElevationAssist.Elevation="Dp2">
-                                                        <Border CornerRadius="12" Background="White"  >
-                                                            <Grid Width="270">
-                                                                <Grid.ColumnDefinitions>
-                                                                    <ColumnDefinition></ColumnDefinition>
-                                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                                                                </Grid.ColumnDefinitions>
-                                                                <StackPanel Grid.Column="0" Orientation="Horizontal">
-                                                                    <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
-                                                                        <Rectangle.Fill>
-                                                                            <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
-                                                                        </Rectangle.Fill>
-                                                                    </Rectangle>
-                                                                    <TextBlock Text="Name: " />
-                                                                    <TextBlock Text="{Binding FoodName}" FontWeight="Bold" />
-                                                                </StackPanel>
-                                                            </Grid>
-                                                        </Border>
-                                                    </materialDesign:Card>
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>
-                                    </ScrollViewer>
+
                                 </TabItem>
                                 <TabItem x:Name="lunch" Width="75"
                                          Padding="0, 0, 0, 0">
@@ -149,34 +141,6 @@
                                                    FontWeight="Bold"
                                                    FontSize="14"/>
                                     </TabItem.Header>
-                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                        <ListView  Name="lvLunchRecommendation" SelectionChanged="lvLunchRecommendation_SelectionChanged" IsSynchronizedWithCurrentItem="True">
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <materialDesign:Card
-                                                        materialDesign:ElevationAssist.Elevation="Dp2">
-                                                        <Border CornerRadius="12" Background="White"  >
-                                                            <Grid Width="270">
-                                                                <Grid.ColumnDefinitions>
-                                                                    <ColumnDefinition></ColumnDefinition>
-                                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                                                                </Grid.ColumnDefinitions>
-                                                                <StackPanel Grid.Column="0" Orientation="Horizontal">
-                                                                    <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
-                                                                        <Rectangle.Fill>
-                                                                            <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
-                                                                        </Rectangle.Fill>
-                                                                    </Rectangle>
-                                                                    <TextBlock Text="Name: " />
-                                                                    <TextBlock Text="{Binding FoodName}" FontWeight="Bold" />
-                                                                </StackPanel>
-                                                            </Grid>
-                                                        </Border>
-                                                    </materialDesign:Card>
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>
-                                    </ScrollViewer>
                                 </TabItem>
                                 <TabItem x:Name="dinner" Width="75"
                                          Padding="0, 0, 0, 0">
@@ -186,38 +150,43 @@
                                                    FontWeight="Bold"
                                                    FontSize="14"/>
                                     </TabItem.Header>
-                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                        <ListView  Name="lvDinnerRecommendation" SelectionChanged="lvDinnerRecommendation_SelectionChanged" IsSynchronizedWithCurrentItem="True">
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <materialDesign:Card
-                                                        materialDesign:ElevationAssist.Elevation="Dp2">
-                                                        <Border CornerRadius="12" Background="White"  >
-                                                            <Grid Width="270">
-                                                                <Grid.ColumnDefinitions>
-                                                                    <ColumnDefinition></ColumnDefinition>
-                                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                                                                </Grid.ColumnDefinitions>
-                                                                <StackPanel Grid.Column="0" Orientation="Horizontal">
-                                                                    <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
-                                                                        <Rectangle.Fill>
-                                                                            <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
-                                                                        </Rectangle.Fill>
-                                                                    </Rectangle>
-                                                                    <TextBlock Text="Name: " />
-                                                                    <TextBlock Text="{Binding FoodName}" FontWeight="Bold" />
-                                                                </StackPanel>
-                                                            </Grid>
-                                                        </Border>
-                                                    </materialDesign:Card>
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>
-                                    </ScrollViewer>
                                 </TabItem>
                             </TabControl>
                         </materialDesign:Card>
-                    </DockPanel>
+                        <ScrollViewer 
+                            Height="550"
+                            VerticalScrollBarVisibility="Visible"
+                            HorizontalScrollBarVisibility="Hidden">
+                            <ListView  Name="lvRecommendation" 
+                                                   SelectionChanged="lvRecommendation_SelectionChanged" 
+                                                   IsSynchronizedWithCurrentItem="True"
+                                                   ItemsSource="{Binding foodList}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <materialDesign:Card
+                                                        materialDesign:ElevationAssist.Elevation="Dp2">
+                                            <Border CornerRadius="12" Background="White"  >
+                                                <Grid Width="270">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                                        <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
+                                                            <Rectangle.Fill>
+                                                                <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
+                                                        <TextBlock Text="{Binding Food.FoodName}" FontWeight="Bold" />
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Border>
+                                        </materialDesign:Card>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollViewer>
+                    </StackPanel>
                     <DockPanel Grid.Column="1">
                         <materialDesign:Card VerticalAlignment="Stretch"
                                              HorizontalAlignment="Stretch">
@@ -267,8 +236,7 @@
                                                VerticalAlignment="Center"
                                                Style="{StaticResource MaterialDesignBody1TextBlock}"
                                                TextWrapping="Wrap"
-                                               Foreground="Black"
-                                               Text ="123"/>
+                                               Foreground="Black"/>
                                     </GroupBox>
                                     <GroupBox
                                         Grid.Row="2"
