@@ -422,6 +422,7 @@
     <Resource Include="Assets\food_default.png" />
     <Resource Include="Assets\Exercises\thumbImg.png" />
     <Resource Include="Assets\background.png" />
+    <Content Include="Assets\Exercises\complete_sound.wav" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

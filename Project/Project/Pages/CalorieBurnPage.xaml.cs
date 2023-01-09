@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Project.Pages;
 using Project.Pages.SubCalorieBurnPage;
+using System.Media;
 
 namespace Project.Pages
 {
@@ -30,8 +31,11 @@ namespace Project.Pages
         public List<UserExercise> ExerciseUser { get; set; }
 
         private CollectionView _view;
-        private DispatcherTimer _timer = new DispatcherTimer();
+        private DispatcherTimer _countdownTimer = new DispatcherTimer();
+        private DispatcherTimer _toggleTimer = new DispatcherTimer();
+        
 
+        private int _borderFlag = 0;
         private int _remainingTime = 0;
         private double _totalCalo = 0;
         private double _caloBurnedPerSec = 0;
@@ -40,13 +44,88 @@ namespace Project.Pages
         public CalorieBurnPage()
         {
             InitializeComponent();
-            _timer.Interval = TimeSpan.FromSeconds(1);
             this.DataContext = this;
+
+            _countdownTimer.Interval = TimeSpan.FromSeconds(1);
+
+            _toggleTimer.Interval = TimeSpan.FromSeconds(0.5);
+            _toggleTimer.Tick += Flicker_Tick;
+            _toggleTimer.Start();
+
+
             ExerciseUser = new List<UserExercise>();
             ExerciseList = new List<Exercise>();
 
             Play_btn.IsEnabled = false;
             Pause_btn.IsEnabled = false;
+        }
+
+        private void Flicker_Tick(object sender, EventArgs e)
+        {
+            switch (_borderFlag)
+            {
+                case 0:
+                    {
+                        CaloBox.BorderThickness = new Thickness(2);
+                        CaloBox.BorderBrush = Brushes.Yellow;
+                        _borderFlag = 1;
+                    }
+                    break;
+                case 1:
+                    {
+                        CaloBox.BorderThickness = new Thickness(1);
+                        CaloBox.BorderBrush = Brushes.Black;
+                        _borderFlag = 0;
+                    }
+                    break;
+                case 2:
+                    {
+                        CaloBox.BorderThickness = new Thickness(1);
+                        CaloBox.BorderBrush = Brushes.Black;
+                        _toggleTimer.Stop();
+                    }
+                    break;
+
+            }
+        }
+
+        private void Count_Tick(object sender, EventArgs e)
+        {
+            if (_remainingTime-- <= 0)
+            {
+                // dung dong ho, vo hieu nut pause, lam day vong tron
+                _countdownTimer.Stop();
+                Pause_btn.IsEnabled = false;
+                Gauge_Kcal.Value = Convert.ToInt32(CaloBox.Text);
+
+                // reset cac bien
+                _remainingTime = 0;
+                _totalCalo = 0;
+                _caloBurnedPerSec = 0;
+                _burnedCalo = 0;
+
+                // phat nhac
+                //string path = Environment.
+                SoundPlayer soundPlayer = new SoundPlayer(@"C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\Assets\Exercises\complete_sound.wav");
+                //soundPlayer.Load();
+                soundPlayer.Play();
+
+                _borderFlag = 0;
+                _toggleTimer.Start();
+
+                CaloBox.Text = "";
+
+                MessageBox.Show("Chúc mừng bạn đã hoàn thành buổi tập!\nMời bạn tính lại lượng calo");
+                return;
+            }
+
+            // tang so calo dot moi giay
+            _burnedCalo += _caloBurnedPerSec;
+            Gauge_Kcal.Value = (int)_burnedCalo;
+
+            // giam tong so calo can tinh
+            _totalCalo -= _caloBurnedPerSec;
+            Clock_block.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
         }
 
         private void CaloBurnPage_Loaded(object sender, RoutedEventArgs e)
@@ -81,45 +160,18 @@ namespace Project.Pages
         }
 
 
-        private void Count_Tick(object sender, EventArgs e)
-        {
-            if (_remainingTime-- <= 0)
-            {
-                // dung dong ho, vo hieu nut pause, lam day vong tron
-                _timer.Stop();
-                Pause_btn.IsEnabled = false;
-                Gauge_Kcal.Value = Convert.ToInt32(CaloBox.Text);
-
-                // reset cac bien
-                _remainingTime = 0;
-                _totalCalo = 0;
-                _caloBurnedPerSec = 0;
-                _burnedCalo = 0;
-
-                MessageBox.Show("Chúc mừng bạn đã hoàn thành buổi tập!\nMời bạn tính lại lượng calo");
-                return;
-            }
-
-            // tang so calo dot moi giay
-            _burnedCalo += _caloBurnedPerSec;
-            Gauge_Kcal.Value = (int)_burnedCalo;
-
-            // giam tong so calo can tinh
-            _totalCalo -= _caloBurnedPerSec;
-            CountdownTimer.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
-        }
         private void Play_btn_Click(object sender, RoutedEventArgs e)
         {
-            _timer.Tick += Count_Tick;
-            _timer.Start();
+            _countdownTimer.Tick += Count_Tick;
+            _countdownTimer.Start();
             (sender as Button).IsEnabled = false;
             Pause_btn.IsEnabled = true;
         }
 
         private void Pause_btn_Click(object sender, RoutedEventArgs e)
         {
-            _timer.Stop();
-            _timer.Tick -= Count_Tick;
+            _countdownTimer.Stop();
+            _countdownTimer.Tick -= Count_Tick;
             (sender as Button).IsEnabled = false;
             Play_btn.IsEnabled = true;
         }
@@ -132,15 +184,16 @@ namespace Project.Pages
                 MessageBox.Show("Số calo nhập vào chưa hợp lệ!");
                 return;
             }
-            // reset calo da dot, item da chon
+            // reset calo da dot, item da chon, tat nhap nhay caloBox
             _burnedCalo = 0;
             lvCaloriesBurned.SelectedIndex = -1;
+            _borderFlag = 2;
 
             // reset dong ho
             MessageBox.Show("Đã tính xong, mời bạn chọn bài tập");
-            _timer.Stop();
-            _timer.Tick -= Count_Tick;
-            CountdownTimer.Text = TimeSpan.FromSeconds(0).ToString();
+            _countdownTimer.Stop();
+            _countdownTimer.Tick -= Count_Tick;
+            Clock_block.Text = TimeSpan.FromSeconds(0).ToString();
 
             // reset dong ho calo
             Gauge_Kcal.To = (int)_totalCalo;
@@ -183,11 +236,11 @@ namespace Project.Pages
             if (_totalCalo <= 0 || lvCaloriesBurned.SelectedIndex == -1)
                 return;
 
-            _timer.Stop();
+            _countdownTimer.Stop();
             if (MessageBox.Show("Bạn muốn chọn bài tập này?", "Thông báo", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 // xoa event tick cu de khong bi nap chong len nhau
-                _timer.Tick -= Count_Tick;
+                _countdownTimer.Tick -= Count_Tick;
 
                 // kich hoat nut play
                 Play_btn.IsEnabled = true;
@@ -199,10 +252,10 @@ namespace Project.Pages
                 _caloBurnedPerSec = (double)exercise.Kps / 3600;
 
                 // hien thi thoi gian
-                CountdownTimer.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
+                Clock_block.Text = TimeSpan.FromSeconds(_remainingTime).ToString();
             }
             else
-                _timer.Start();
+                _countdownTimer.Start();
 
         }
     }
