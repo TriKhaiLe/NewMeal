@@ -121,10 +121,10 @@ namespace Project.Pages.SubFoodPage
                     foodPage.foodList.Add(new FoodDays(food, userFood.Last_eat,0));
                     foodPage.lvDataBinding.Items.Refresh();
                     //FoodPage foodPage = this.Parent as FoodPage;
-                   
-                    
+                    MessageBox.Show("Món ăn của bạn đã được thêm vào !");
+
                 }
-                MessageBox.Show("Món ăn của bạn đã được thêm vào !");
+                
             }
             else
             {

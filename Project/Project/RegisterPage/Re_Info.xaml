@@ -19,8 +19,8 @@
         </Grid.RowDefinitions>    
         <StackPanel Width="250" Orientation="Vertical" Grid.Row="0">
                     <Image Source="/Assets/logo.png"
-                           Width="200"
-                           Height="200"/>
+                           Width="150"
+                           Height="150"/>
             <TextBlock Text="Đăng kí"
                                Foreground="DarkSlateGray"
                                FontSize="25"
@@ -60,7 +60,10 @@
                     MaxLength="40"
                     materialDesign:HintAssist.Hint="Tên"
                     materialDesign:HintAssist.HelperText="{Binding Name_HelperText}"
-                    materialDesign:HintAssist.FloatingScale="0.9"
+                    FontSize="15" Padding="10 20 10 10"
+                    materialDesign:HintAssist.FloatingScale="0.8"
+                    materialDesign:HintAssist.FloatingOffset="-5,-15"
+                    materialDesign:HintAssist.Background="Transparent"
                     
                     TextChanged="Name_TextChanged" LostFocus="Name_LostFocus"
                     >
@@ -82,7 +85,10 @@
                     MaxWidth="400"
                     materialDesign:HintAssist.Hint="Chiều cao (cm)"
                     materialDesign:HintAssist.HelperText="Nhập số"
-                    materialDesign:HintAssist.FloatingScale="0.9"
+                    FontSize="15" Padding="10 20 10 10"
+                    materialDesign:HintAssist.FloatingScale="0.8"
+                    materialDesign:HintAssist.FloatingOffset="-5,-15"
+                    materialDesign:HintAssist.Background="Transparent"
                     PreviewTextInput="height_PreviewTextInput" LostFocus="height_LostFocus"
                     >
                         </TextBox>
@@ -106,7 +112,10 @@
                 Height="50"
                 Margin="0 1 40 1"
                 materialDesign:HintAssist.Hint="Giới tính"
-                materialDesign:HintAssist.FloatingScale="0.9"
+                FontSize="15" Padding="10 20 10 10"
+                    materialDesign:HintAssist.FloatingScale="0.8"
+                    materialDesign:HintAssist.FloatingOffset="-5,-15"
+                    materialDesign:HintAssist.Background="Transparent"
                 Width="250">
                         <ComboBoxItem Content="Nữ" />
                         <ComboBoxItem Content="Nam" />
@@ -130,7 +139,10 @@
                     MaxWidth="400"
                     materialDesign:HintAssist.Hint="Cân nặng (kg)"
                     materialDesign:HintAssist.HelperText="Nhập số"
-                    materialDesign:HintAssist.FloatingScale="0.9"
+                    FontSize="15" Padding="10 20 10 10"
+                    materialDesign:HintAssist.FloatingScale="0.8"
+                    materialDesign:HintAssist.FloatingOffset="-5,-15"
+                    materialDesign:HintAssist.Background="Transparent"
                     PreviewTextInput="weight_PreviewTextInput" LostFocus="weight_LostFocus"
                     >
                         </TextBox>
@@ -159,7 +171,10 @@
                     MaxWidth="400"
                     materialDesign:HintAssist.Hint="Tuổi"
                     materialDesign:HintAssist.HelperText="Nhập số"
-                    materialDesign:HintAssist.FloatingScale="0.9"
+                    FontSize="15" Padding="10 20 10 10"
+                    materialDesign:HintAssist.FloatingScale="0.8"
+                    materialDesign:HintAssist.FloatingOffset="-5,-15"
+                    materialDesign:HintAssist.Background="Transparent"
                     PreviewTextInput="age_PreviewTextInput" LostFocus="age_LostFocus"
                     >
                     </TextBox>
@@ -175,7 +190,10 @@
                         Height="50"
                         Margin="0 1 40 1"
                         materialDesign:HintAssist.Hint="Chế độ ăn"
-                        materialDesign:HintAssist.FloatingScale="0.9"
+                        FontSize="15" Padding="10 20 10 0"
+                    materialDesign:HintAssist.FloatingScale="0.8"
+                    materialDesign:HintAssist.FloatingOffset="-5,-15"
+                    materialDesign:HintAssist.Background="Transparent"
                         Width="250">
                             <ComboBoxItem IsSelected="True" Content="Cân bằng" />
                             <ComboBoxItem Content="Giảm cân" />
