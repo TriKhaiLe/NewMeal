@@ -14,8 +14,8 @@
             Orientation="Vertical"
             Margin="272,10,243.6,0" Grid.RowSpan="2">
                     <Image Source="/Assets/logo.png"
-                           Width="200"
-                           Height="200"/>
+                           Width="150"
+                           Height="150"/>
                     <TextBlock Text="Đăng kí"
                                Foreground="DarkSlateGray"
                                FontSize="25"

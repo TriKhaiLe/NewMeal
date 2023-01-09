@@ -70,5 +70,10 @@ namespace Project.RegisterPage
         {
             MainWindow.enter_Register();
         }
+
+        private void ForgetPass_tb_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.enter_Forget();
+        }
     }
 }

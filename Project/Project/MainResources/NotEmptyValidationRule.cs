@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Forms.VisualStyles;
 
 namespace Project.MainResources
 {
@@ -14,7 +16,7 @@ namespace Project.MainResources
         {
             return string.IsNullOrWhiteSpace((value ?? "").ToString())
                 ? new ValidationResult(false, "Bắt buộc (*)")
-                : ValidationResult.ValidResult;
+                : (ValidationResult.ValidResult);
         }
     }
 }

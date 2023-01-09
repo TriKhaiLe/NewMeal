@@ -27,26 +27,26 @@
             </LinearGradientBrush>
         </Border.BorderBrush>
         <Grid>
-            <Grid.Background>
+            <!--<Grid.Background>
                 <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
                     <GradientStop Color="#FF916CF7" Offset="1" />
                     <GradientStop Color="#FFEEA657" Offset="0" />
                 </LinearGradientBrush>
-            </Grid.Background>
+            </Grid.Background>-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Border Height="470" Grid.Column="1" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="White">
-            </Border>
+            <!--<Border Height="470" Grid.Column="1" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="White">
+            </Border>-->
             <Border>
-                <StackPanel Background="#FFFFD54F" Grid.Column="0" Orientation="Vertical" >
-                    <Rectangle Margin="10 10 10 20" Width="200" Height="200" StrokeThickness="5" Stroke="#FF4FFFA2">
+                <StackPanel Background="#FFD9FF8D" Grid.Column="0" Orientation="Vertical" >
+                    <Rectangle Margin="10 10 10 20" Width="200" Height="200" StrokeThickness="5" Stroke="#FFDDC630">
                         <Rectangle.Fill>
                             <ImageBrush x:Name="FoodImage" ImageSource="/Assets/food_default.png"></ImageBrush>
                         </Rectangle.Fill>
                     </Rectangle>
-                    <Button Content="Thêm ảnh" Margin="10 10 10 30" Click="AddImgButton_Click" />
+                    <Button Content="Thêm ảnh" Margin="10 10 10 30" Click="AddImgButton_Click" Background="#FF2BFAEB" BorderBrush="White" Foreground="#DD000000" />
                     <StackPanel>
                         <TextBlock Text="Mô tả món ăn :" FontWeight="Bold" FontSize="20" Margin="10 0 0 10"></TextBlock>
                         <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -64,6 +64,9 @@
                 </StackPanel>
             </Border>
             <Grid Grid.Column="1" >
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/background.png"  Stretch="Fill" TileMode="None"></ImageBrush>
+                </Grid.Background>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -100,6 +103,7 @@
                         <StackPanel Orientation="Horizontal" Margin="0 30 0 30">
                             <TextBlock Text="Tên món ăn" VerticalAlignment="Center" Margin="10 0 10 -10"></TextBlock>
                             <TextBox
+                                materialDesign:ValidationAssist.Background="Transparent"
                                 x:Name="FoodName_txt"
                             Style="{StaticResource MaterialDesignFilledTextBox}"
                             VerticalAlignment="Top"
@@ -121,6 +125,7 @@
                         <StackPanel Orientation="Horizontal" Margin="0 30 0 30">
                             <TextBlock Text="Lượng Kcal" VerticalAlignment="Center" Margin="10 0 10 -10"></TextBlock>
                             <TextBox Background="#FFFFFDC0"
+                                     materialDesign:ValidationAssist.Background="Transparent"
                                 x:Name="Kcal_txt"
                     Style="{StaticResource MaterialDesignFilledTextBox}"
                     VerticalAlignment="Top"
@@ -136,7 +141,7 @@
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </TextBox.Text>
-                                
+
                             </TextBox>
                         </StackPanel>
 
@@ -149,7 +154,7 @@
                     VerticalAlignment="Top"
                         Width="202"
                     materialDesign:HintAssist.Hint="Nguyên liệu" Height="95">
-                                
+
                             </TextBox>
                         </StackPanel>
                     </StackPanel>
@@ -158,6 +163,7 @@
                         <DockPanel Margin="0 30 0 30">
                             <TextBlock Text="Loại" VerticalAlignment="Center" Margin="10 0 10 -10"></TextBlock>
                             <ComboBox
+                                materialDesign:ValidationAssist.Background="Transparent"
                                 Background="#FFFFFDC0"
                                 x:Name="Type_cb"
                         Style="{StaticResource MaterialDesignFilledComboBox}"
