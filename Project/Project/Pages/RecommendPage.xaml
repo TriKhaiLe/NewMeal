@@ -98,16 +98,18 @@
                                 x:Name="ComboBox_sort"
                                 Margin="5"
                                 BorderBrush="Black"
+                                Foreground="Black"
                                 Width="100"
-                                Height="30" SelectionChanged="ComboBox_SelectionChanged">
+                                Height="30" 
+                                SelectionChanged="ComboBox_SelectionChanged">
                                 <ComboBoxItem
                                     Content="Calorie" />
                                 <ComboBoxItem
                                     Content="Tên" />
                                 <ComboBoxItem
-                                    Content="Các món chưa ăn"/>
+                                    Content="Món chưa thử"/>
                                 <ComboBoxItem
-                                    Content="a"/>
+                                    Content="Yêu thích"/>
                             </ComboBox>
                         </DockPanel>
                         <materialDesign:Card VerticalAlignment="Stretch">
@@ -157,10 +159,11 @@
                             Height="550"
                             VerticalScrollBarVisibility="Visible"
                             HorizontalScrollBarVisibility="Hidden">
-                            <ListView  Name="lvRecommendation" 
-                                                   SelectionChanged="lvRecommendation_SelectionChanged" 
-                                                   IsSynchronizedWithCurrentItem="True"
-                                                   ItemsSource="{Binding foodList}">
+                            <ListView  
+                                Name="lvRecommendation" 
+                                SelectionChanged="lvRecommendation_SelectionChanged" 
+                                IsSynchronizedWithCurrentItem="True"
+                                ItemsSource="{Binding foodList}" Width="280">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <materialDesign:Card
@@ -201,6 +204,13 @@
                                 </Grid.RowDefinitions>
                                 <materialDesign:Card
                                      materialDesign:ElevationAssist.Elevation="Dp2">
+                                    <materialDesign:Card.Background>
+                                        <RadialGradientBrush Opacity="0.67">
+                                            <GradientStop Color="#FFC100" Offset="1"/>
+                                            <GradientStop Color="#F4D576" Offset="0.573"/>
+                                            <GradientStop Color="#FFEBAB" Offset="0"/>
+                                        </RadialGradientBrush>
+                                    </materialDesign:Card.Background>
                                     <Image x:Name="food_image" Height="auto"
                                        Stretch="Uniform"
                                        />
@@ -298,46 +308,194 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Món ăn đã chọn" Foreground="Black" FontSize="20" HorizontalAlignment="Center" Margin="10"></TextBlock>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
-                    <ListBox x:Name="SelectedFood_lv" BorderThickness="2" BorderBrush="#FFFFC200" >
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <materialDesign:Card
-                                materialDesign:ElevationAssist.Elevation="Dp2">
-                                    <Border CornerRadius="12" Background="White"  >
-                                        <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-                                            <StackPanel Grid.Column="0" Orientation="Horizontal">
-                                                <Rectangle Margin="0 0 10 0" Width="50" Height="50">
-                                                    <Rectangle.Fill>
-                                                        <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
-                                                    </Rectangle.Fill>
-                                                </Rectangle>
-                                                <TextBlock VerticalAlignment="Center" Width="140" Text="{Binding FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
-                                            </StackPanel>
-                                            <Button Grid.Column="1"
-                                                    Margin="-10 0 0 0"
+                <Separator Margin="8,0,8,0"
+                           Style="{StaticResource MaterialDesignDarkSeparator}" />
+                <StackPanel>
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        IsExpanded="True">
+                        <Expander.Header>
+                            <DockPanel Width="158">
+                                <ToggleButton
+                                    x:Name="Bf_re_tbtn"
+                                Content=""
+                                IsChecked="False"
+                                Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                ToolTip="MaterialDesignActionLightToggleButton" Checked="Bf_re_tbtn_Checked" />
+                                <TextBlock Text="Bữa Sáng"
+                                           Width="126"
+                                           Foreground="Black"
+                                           FontWeight="Bold"
+                                           FontSize="14"
+                                           Padding="0, 0, 0, 0"
+                                           Margin="0, 0, 0, 0"
+                                           VerticalAlignment="Center"/>
+                            </DockPanel>
+                        </Expander.Header>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+                            <ListBox x:Name="Breakfast_RecommendFood_lv" BorderThickness="2" BorderBrush="#FFFFC200" >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <materialDesign:Card
+                                            materialDesign:ElevationAssist.Elevation="Dp2">
+                                            <Border CornerRadius="12" Background="White"  >
+                                                <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                                        <Rectangle Margin="0 0 10 0" Width="50" Height="50">
+                                                            <Rectangle.Fill>
+                                                                <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
+                                                        <TextBlock VerticalAlignment="Center" Width="100" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
+                                                    </StackPanel>
+                                                    <Button Grid.Column="1"
+                                                    Margin="-25 0 0 0"
                                                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                     Height="30"
                                                     Padding="-10"
                                                     Width="30"
                                                     materialDesign:ButtonAssist.CornerRadius="50"
-                                                    Click="DelSelected_Click"
+                                                    Click="Bf_DelSelected_Click"
                                                     >
-                                                <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" Width="15" Height="15"/>
-                                            </Button>
+                                                        <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" Width="15" Height="15"/>
+                                                    </Button>
 
-                                        </Grid>
-                                    </Border>
-                                </materialDesign:Card>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </ScrollViewer>
+                                                </Grid>
+                                            </Border>
+                                        </materialDesign:Card>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </Expander>
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        IsExpanded="True">
+                        <Expander.Header>
+                            <DockPanel Width="158">
+                                <ToggleButton
+                                    x:Name="Lun_re_tbtn"
+                                Content=""
+                                IsChecked="False"
+                                Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                ToolTip="MaterialDesignActionLightToggleButton" Checked="Lun_re_tbtn_Checked" />
+                                <TextBlock Text="Bữa Trưa"
+                                           Width="126"
+                                           Foreground="Black"
+                                           FontWeight="Bold"
+                                           FontSize="14"
+                                           Padding="0, 0, 0, 0"
+                                           Margin="0, 0, 0, 0"
+                                           VerticalAlignment="Center"/>
+                            </DockPanel>
+                        </Expander.Header>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+                            <ListBox x:Name="Lunch_RecommendFood_lv" BorderThickness="2" BorderBrush="#FFFFC200" >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <materialDesign:Card
+                                materialDesign:ElevationAssist.Elevation="Dp2">
+                                            <Border CornerRadius="12" Background="White"  >
+                                                <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                                        <Rectangle Margin="0 0 10 0" Width="50" Height="50">
+                                                            <Rectangle.Fill>
+                                                                <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
+                                                        <TextBlock VerticalAlignment="Center" Width="100" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
+                                                    </StackPanel>
+                                                    <Button Grid.Column="1"
+                                                    Margin="-25 0 0 0"
+                                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                    Height="30"
+                                                    Padding="-10"
+                                                    Width="30"
+                                                    materialDesign:ButtonAssist.CornerRadius="50"
+                                                    Click="Lun_DelSelected_Click"
+                                                    >
+                                                        <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" Width="15" Height="15"/>
+                                                    </Button>
+
+                                                </Grid>
+                                            </Border>
+                                        </materialDesign:Card>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </Expander>
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        IsExpanded="True">
+                        <Expander.Header>
+                            <DockPanel Width="158">
+                                <ToggleButton
+                                    x:Name="Din_re_tbtn"
+                                Content=""
+                                IsChecked="False"
+                                Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                ToolTip="MaterialDesignActionLightToggleButton" Checked="Din_re_tbtn_Checked" />
+                                <TextBlock Text="Bữa Tối"
+                                           Width="126"
+                                           Foreground="Black"
+                                           FontWeight="Bold"
+                                           FontSize="14"
+                                           Padding="0, 0, 0, 0"
+                                           Margin="0, 0, 0, 0"
+                                           VerticalAlignment="Center"/>
+                            </DockPanel>
+                        </Expander.Header>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+                            <ListBox x:Name="Dinner_RecommendFood_lv" BorderThickness="2" BorderBrush="#FFFFC200" >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <materialDesign:Card
+                                materialDesign:ElevationAssist.Elevation="Dp2">
+                                            <Border CornerRadius="12" Background="White"  >
+                                                <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                                        <Rectangle Margin="0 0 10 0" Width="50" Height="50">
+                                                            <Rectangle.Fill>
+                                                                <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
+                                                        <TextBlock VerticalAlignment="Center" Width="100" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
+                                                    </StackPanel>
+                                                    <Button Grid.Column="1"
+                                                    Margin="-25 0 0 0"
+                                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                    Height="30"
+                                                    Padding="-10"
+                                                    Width="30"
+                                                    materialDesign:ButtonAssist.CornerRadius="50"
+                                                    Click="Din_DelSelected_Click"
+                                                    >
+                                                        <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" Width="15" Height="15"/>
+                                                    </Button>
+
+                                                </Grid>
+                                            </Border>
+                                        </materialDesign:Card>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </Expander>
+                </StackPanel>
+
                 <Button
                         Grid.Row="2"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"

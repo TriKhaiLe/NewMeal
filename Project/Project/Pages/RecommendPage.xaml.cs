@@ -124,24 +124,63 @@ namespace Project.Pages
         private void btn_them_Click(object sender, RoutedEventArgs e)
         {
             TabItem selected_tab = (TabItem)tab_control.SelectedItem;
-            Food food = new Food();
-            food = (Food)lvRecommendation.SelectedItem;
+            FoodDays food = new FoodDays();
+            food = (FoodDays)lvRecommendation.SelectedItem;
             if (food != null)
             {
-                Gauge_Kcal.Value += (double)food.Kcal;
-                SelectedFood_lv.Items.Add(food);
+                if (Bf_re_tbtn.IsChecked == true)
+                {
+                    Breakfast_RecommendFood_lv.Items.Add(food);
+                    Gauge_Kcal.Value += (double)food.Food.Kcal;
+
+                }
+                else if (Lun_re_tbtn.IsChecked == true)
+                {
+                    Lunch_RecommendFood_lv.Items.Add(food);
+                    Gauge_Kcal.Value += (double)food.Food.Kcal;
+
+
+                }
+                else if (Din_re_tbtn.IsChecked == true)
+                {
+                    Dinner_RecommendFood_lv.Items.Add(food);
+                    Gauge_Kcal.Value += (double)food.Food.Kcal;
+
+                }
                 if (Gauge_Kcal.Value > Gauge_Kcal.To)
                 {
                     kcal_txt.Visibility = Visibility.Visible;
                 }
             }
         }
-        private void DelSelected_Click(object sender, RoutedEventArgs e)
+        private void Bf_DelSelected_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             FoodDays food = button.DataContext as FoodDays;
             Gauge_Kcal.Value -= (double)food.Food.Kcal;
-            SelectedFood_lv.Items.Remove(food);
+            Breakfast_RecommendFood_lv.Items.Remove(food);
+            if (Gauge_Kcal.Value <= Gauge_Kcal.To)
+            {
+                kcal_txt.Visibility = Visibility.Hidden;
+            }
+        }
+        private void Lun_DelSelected_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            FoodDays food = button.DataContext as FoodDays;
+            Gauge_Kcal.Value -= (double)food.Food.Kcal;
+            Lunch_RecommendFood_lv.Items.Remove(food);
+            if (Gauge_Kcal.Value <= Gauge_Kcal.To)
+            {
+                kcal_txt.Visibility = Visibility.Hidden;
+            }
+        }
+        private void Din_DelSelected_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            FoodDays food = button.DataContext as FoodDays;
+            Gauge_Kcal.Value -= (double)food.Food.Kcal;
+            Dinner_RecommendFood_lv.Items.Remove(food);
             if (Gauge_Kcal.Value <= Gauge_Kcal.To)
             {
                 kcal_txt.Visibility = Visibility.Hidden;
@@ -150,9 +189,9 @@ namespace Project.Pages
 
         private void favorite_button_Click(object sender, RoutedEventArgs e)
         {
-            Food food = new Food();
-            food = lvRecommendation.SelectedItem as Food;
-            UserFood userFood = DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID && p.FoodID == food.FoodID);
+            FoodDays food = new FoodDays();
+            food = lvRecommendation.SelectedItem as FoodDays;
+            UserFood userFood = DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID && p.FoodID == food.Food.FoodID);
             userFood.Favorite = Convert.ToInt16(favorite_button.IsChecked);
             DataProvider.Ins.DB.SaveChanges();
         }
@@ -161,19 +200,27 @@ namespace Project.Pages
         {
             ComboBox cb = sender as ComboBox;
 
-            view = (CollectionView)CollectionViewSource.GetDefaultView(SelectedFood_lv.Items);
+            view = (CollectionView)CollectionViewSource.GetDefaultView(lvRecommendation.Items);
 
             if (cb.SelectedIndex == 0)
             {
-
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription("Food.Kcal", ListSortDirection.Ascending));
             }
             else if (cb.SelectedIndex == 1)
             {
-
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription("Food.FoodName", ListSortDirection.Ascending));
             }
             else if (cb.SelectedIndex == 2)
             {
-
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription("Date", ListSortDirection.Ascending));
+            }
+            else if (cb.SelectedIndex == 3)
+            {
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription("Favourite", ListSortDirection.Descending));
             }
         }
 
@@ -191,6 +238,7 @@ namespace Project.Pages
             {
                 foodList = Dinner_food;
             }
+            ComboBox_sort.Text = null;
         }
 
         private void lvRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -239,6 +287,28 @@ namespace Project.Pages
                     tb_last_eat.Text = uf.Last_eat.Value.ToShortDateString();
                 }
             }
+        }
+        private void RecommendAlgorithm()
+        {
+
+        }
+
+        private void Bf_re_tbtn_Checked(object sender, RoutedEventArgs e)
+        {
+            Lun_re_tbtn.IsChecked = false;
+            Din_re_tbtn.IsChecked=false;
+        }
+
+        private void Lun_re_tbtn_Checked(object sender, RoutedEventArgs e)
+        {
+            Bf_re_tbtn.IsChecked = false;
+            Din_re_tbtn.IsChecked = false;
+        }
+
+        private void Din_re_tbtn_Checked(object sender, RoutedEventArgs e)
+        {
+            Bf_re_tbtn.IsChecked = false;
+            Lun_re_tbtn.IsChecked = false;
         }
     }
 }
