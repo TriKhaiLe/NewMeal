@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace Project.Pages
     /// <summary>
     /// Interaction logic for RecommendPage.xaml
     /// </summary>
-    public partial class RecommendPage : Page , INotifyPropertyChanged
+    public partial class RecommendPage : Page, INotifyPropertyChanged
     {
         public List<UserFood> FoodUser { get; set; }
         public List<FoodDays> Breakfast_food { get; set; }
@@ -118,6 +119,7 @@ namespace Project.Pages
                 tab_control.SelectedIndex = 0;
             }
             Gauge_Kcal.To = DataProvider.Ins.Kcal_UserID;
+            RecommendAlgorithm();
         }
 
 
@@ -243,7 +245,15 @@ namespace Project.Pages
 
         private void lvRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            FoodDays food = ((ListView)sender).SelectedItem as FoodDays;
+            FoodDays food = new FoodDays();
+            try
+            {
+                food = ((ListView)sender).SelectedItem as FoodDays;
+            }
+            catch
+            {
+                food = ((ListBox)sender).SelectedItem as FoodDays;
+            }
             if (food == null)
             {
                 food = foodList.First<FoodDays>();
@@ -290,13 +300,221 @@ namespace Project.Pages
         }
         private void RecommendAlgorithm()
         {
+            Random rd = new Random();
+            int rdom = rd.Next(2);
+            int i = 1;
+            List<FoodDays> havent_eaten_food = new List<FoodDays>();
+            havent_eaten_food = Breakfast_food.FindAll(p => p.Date == new DateTime()).ToList();
+            //breakfast recommend
+            //Thuc uong
+            FoodDays adding_food = getRecommendFood("Thức uống", havent_eaten_food, Breakfast_food);
+            Breakfast_RecommendFood_lv.Items.Add(adding_food);
+            gaugeRevaluate(adding_food);
+            //Mon chinh
+            if (rdom == 1)
+            {
+                adding_food = getRecommendFood("Món nước", havent_eaten_food, Breakfast_food);
+            }
+            else
+            {
+                adding_food = getRecommendFood("Cơm", havent_eaten_food, Breakfast_food);
+            }
+            Breakfast_RecommendFood_lv.Items.Add(adding_food);
+            gaugeRevaluate(adding_food);
 
+            //lunch recommend
+            rdom = rd.Next(3);
+            if (rdom == 1)
+            {
+                //Mon nuoc
+                adding_food = getRecommendFood("Món nước", havent_eaten_food, Lunch_food);
+                if (isIncluded(adding_food))
+                {
+                    adding_food = regettingRecommend("Món nước", Lunch_food, 1);
+                }
+                Lunch_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+            }
+            else if (rdom == 2)
+            {
+                //Do bien + canh
+                adding_food = getRecommendFood("Đồ biển", havent_eaten_food, Lunch_food);
+                Lunch_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+                adding_food = getRecommendFood("Canh", havent_eaten_food, Lunch_food);
+                Lunch_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+            }
+            else
+            {
+                //Com + canh
+                adding_food = getRecommendFood("Cơm", havent_eaten_food, Lunch_food);
+                if (isIncluded(adding_food))
+                {
+                    adding_food = regettingRecommend("Cơm", Lunch_food, 1);
+                }
+                Lunch_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+                adding_food = getRecommendFood("Canh", havent_eaten_food, Lunch_food);
+                Lunch_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+            }
+            //Dinner recommend
+            rdom = rd.Next(3);
+            if (rdom == 1)
+            {
+                //Mon nuoc
+                adding_food = getRecommendFood("Món nước", havent_eaten_food, Dinner_food);
+                i = 1;
+                while (isIncluded(adding_food))
+                {
+                    adding_food = regettingRecommend("Món nước", Dinner_food, i);
+                    i++;
+                }
+                Dinner_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+            }
+            else if (rdom == 2)
+            {
+                //Do bien + canh
+                adding_food = getRecommendFood("Đồ biển", havent_eaten_food, Dinner_food);
+                if (isIncluded(adding_food))
+                {
+                    adding_food = regettingRecommend("Đồ biển", Dinner_food, 1);
+                }
+                Dinner_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+                adding_food = getRecommendFood("Canh", havent_eaten_food, Dinner_food);
+                if (isIncluded(adding_food))
+                {
+                    adding_food = regettingRecommend("Canh", Dinner_food, 1);
+                }
+                Dinner_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+            }
+            else
+            {
+                //Com + canh
+                adding_food = getRecommendFood("Cơm", havent_eaten_food, Dinner_food);
+                i = 1;
+                while (isIncluded(adding_food))
+                {
+                    adding_food = regettingRecommend("Cơm", Dinner_food, i);
+                    i++;
+                }
+                Dinner_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+                adding_food = getRecommendFood("Canh", havent_eaten_food, Dinner_food);
+                if (isIncluded(adding_food))
+                {
+                    adding_food = regettingRecommend("Canh", Dinner_food, 1);
+                }
+                Dinner_RecommendFood_lv.Items.Add(adding_food);
+                gaugeRevaluate(adding_food);
+            }
+            //Optional 
+            //Thuc uong
+            //Lunch
+            i = 1;
+            adding_food = getRecommendFood("Thức uống", havent_eaten_food, Lunch_food);
+            while (isIncluded(adding_food))
+            {
+                adding_food = regettingRecommend("Thức uống", Lunch_food, i);
+                i++;
+            }
+            if (Gauge_Kcal.Value + (double)adding_food.Food.Kcal < Gauge_Kcal.To)
+            {
+                Lunch_RecommendFood_lv.Items.Add(adding_food);
+                Gauge_Kcal.Value += (double)adding_food.Food.Kcal;
+            }
+            //Dinner
+            adding_food = getRecommendFood("Thức uống", havent_eaten_food, Dinner_food);
+            i = 1;
+            while (isIncluded(adding_food))
+            {
+                adding_food = regettingRecommend("Thức uống", Dinner_food, i);
+                i++;
+            }
+            if (Gauge_Kcal.Value + (double)adding_food.Food.Kcal < Gauge_Kcal.To)
+            {
+                Dinner_RecommendFood_lv.Items.Add(adding_food);
+                Gauge_Kcal.Value += (double)adding_food.Food.Kcal;
+            }
+            //An vat
+            //Lunch
+            adding_food = getRecommendFood("Ăn vặt", havent_eaten_food, Lunch_food);
+            i = 1;
+            while (isIncluded(adding_food))
+            {
+                adding_food = regettingRecommend("Ăn vặt", Lunch_food, i);
+                i++;
+            }
+            if (Gauge_Kcal.Value + (double)adding_food.Food.Kcal < Gauge_Kcal.To)
+            {
+                Lunch_RecommendFood_lv.Items.Add(adding_food);
+                Gauge_Kcal.Value += (double)adding_food.Food.Kcal;
+            }
+            //Dinner
+            adding_food = getRecommendFood("Ăn vặt", havent_eaten_food, Dinner_food);
+            i = 1;
+            while (isIncluded(adding_food))
+            {
+                adding_food = regettingRecommend("Ăn vặt", Dinner_food, i);
+                i++;
+            }
+            if (Gauge_Kcal.Value + (double)adding_food.Food.Kcal < Gauge_Kcal.To)
+            {
+                Dinner_RecommendFood_lv.Items.Add(adding_food);
+                Gauge_Kcal.Value += (double)adding_food.Food.Kcal;
+            }
         }
-
+        private FoodDays getRecommendFood(string type, List<FoodDays> havent_eaten_food, List<FoodDays> MealTimeFoods)
+        {
+            Random rd = new Random();
+            FoodDays adding_food;
+            List<FoodDays> foods = havent_eaten_food.FindAll(p => p.Food.Type == type).ToList();
+            if (foods.Count != 0)
+            {
+                adding_food = foods[rd.Next(foods.Count())];
+            }
+            else
+            {
+                foods = MealTimeFoods.FindAll(p => p.Food.Type == type).ToList();
+                adding_food = foods.OrderBy(p => p.Date).ToList().Last();
+            }
+            return adding_food;
+        }
+        private bool isIncluded(FoodDays adding_food)
+        {
+            if (Breakfast_RecommendFood_lv.Items.Contains(adding_food))
+            {
+                return true;
+            }
+            if (Lunch_RecommendFood_lv.Items.Contains(adding_food))
+            {
+                return true;
+            }
+            return false;
+        }
+        private FoodDays regettingRecommend(string type, List<FoodDays> MealTimeFoods, int index)
+        {
+            FoodDays adding_food;
+            List<FoodDays> foods = MealTimeFoods.FindAll(p => p.Food.Type == type).ToList();
+            adding_food = foods.OrderBy(p => p.Date).ToList()[foods.Count() - (index + 1)];
+            return adding_food;
+        }
+        private void gaugeRevaluate(FoodDays adding_food)
+        {
+            Gauge_Kcal.Value += (double)adding_food.Food.Kcal;
+            if (Gauge_Kcal.Value > Gauge_Kcal.To)
+            {
+                kcal_txt.Visibility = Visibility.Visible;
+            }
+        }
         private void Bf_re_tbtn_Checked(object sender, RoutedEventArgs e)
         {
             Lun_re_tbtn.IsChecked = false;
-            Din_re_tbtn.IsChecked=false;
+            Din_re_tbtn.IsChecked = false;
         }
 
         private void Lun_re_tbtn_Checked(object sender, RoutedEventArgs e)
