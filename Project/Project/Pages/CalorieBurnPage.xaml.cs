@@ -19,6 +19,7 @@ using System.Windows.Threading;
 using Project.Pages;
 using Project.Pages.SubCalorieBurnPage;
 using System.Media;
+using System.IO;
 
 namespace Project.Pages
 {
@@ -105,9 +106,12 @@ namespace Project.Pages
                 _burnedCalo = 0;
 
                 // phat nhac
-                //string path = Environment.
-                SoundPlayer soundPlayer = new SoundPlayer(@"C:\Users\ADMIN\Desktop\NewMeal_Project\Project\Project\Assets\Exercises\complete_sound.wav");
-                //soundPlayer.Load();
+                string workingDirectory = Environment.CurrentDirectory;
+                string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+                string path = projectDirectory + "\\Project\\Assets\\Exercises\\complete_sound.wav";
+
+                SoundPlayer soundPlayer = new SoundPlayer(path);
+                soundPlayer.Load();
                 soundPlayer.Play();
 
                 _borderFlag = 0;
@@ -115,7 +119,10 @@ namespace Project.Pages
 
                 CaloBox.Text = "";
 
-                MessageBox.Show("Chúc mừng bạn đã hoàn thành buổi tập!\nMời bạn tính lại lượng calo");
+                CongratsWindow congratsWindow = new CongratsWindow();
+                congratsWindow.Owner = Window.GetWindow(this);
+                congratsWindow.ShowDialog();
+
                 return;
             }
 
@@ -211,7 +218,13 @@ namespace Project.Pages
 
         private void DelButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Bạn chắc chắn muốn xóa bài tập này không ?") == MessageBoxResult.OK)
+            if (MessageBox.Show
+                ("Bạn chắc chắn muốn xóa bài tập này không ?", 
+                "Thông báo", 
+                MessageBoxButton.YesNoCancel, 
+                MessageBoxImage.Question, 
+                MessageBoxResult.Cancel) 
+                == MessageBoxResult.OK)
             {
                 Button button = (Button)sender;
                 Exercise exercise = button.DataContext as Exercise;
