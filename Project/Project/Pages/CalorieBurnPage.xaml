@@ -53,6 +53,8 @@
                     materialDesign:HintAssist.Hint="Calo cần đốt"
                     materialDesign:HintAssist.HelperText="Nhập số"
                     IsEnabled="{Binding Path=IsChecked, ElementName=edit}" HorizontalAlignment="Left"
+                    BorderThickness="1"
+                    BorderBrush="Black"
                     >
                 </TextBox>
                 <Grid.RowDefinitions>
@@ -147,7 +149,7 @@
 
                 <Grid Grid.Row="0">
                     <TextBlock Text="Thời gian còn  lại:" Margin="38,16,37,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center"/>
-                    <TextBlock Name="CountdownTimer" HorizontalAlignment="Center" Margin="10,53,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Height="40" Width="180" FontSize="38" TextAlignment="Center" Background="#FFEAFA70"/>
+                    <TextBlock Name="Clock_block" HorizontalAlignment="Center" Margin="10,53,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Height="40" Width="180" FontSize="38" TextAlignment="Center" Background="#FFEAFA70"/>
                     <Button Name="Play_btn" Content="▶️" HorizontalAlignment="Left" Margin="48,122,0,0" Width="52" Height="29" VerticalAlignment="Top" Click="Play_btn_Click"/>
                     <Button Name="Pause_btn" Content="⏸" Margin="0,122,31.2,0"  Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="52" Click="Pause_btn_Click"/>
 

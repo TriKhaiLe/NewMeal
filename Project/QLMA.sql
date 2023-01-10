@@ -84,7 +84,7 @@ set dateformat dmy
 -------------Exercise---------------
 insert into Exercise values(N'Bơi','\Assets\Exercises\boi.jpg',252)
 insert into Exercise values(N'Cầu lông','\Assets\Exercises\caulong.jpg',180)
-insert into Exercise values(N'Chạy bộ','\Assets\Exercises\caulong.jpg',792)
+insert into Exercise values(N'Chạy bộ','\Assets\Exercises\chaybo.jpg',792)
 insert into Exercise values(N'Chạy trên máy','\Assets\Exercises\chaybotrenmay.jpg',324)
 insert into Exercise values(N'Đá bóng','\Assets\Exercises\dabong.jpg',504)
 insert into Exercise values(N'Đạp xe','\Assets\Exercises\dapxe.jpg',504)
