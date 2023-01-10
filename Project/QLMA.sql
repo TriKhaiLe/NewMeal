@@ -103,85 +103,85 @@ insert into Exercise values('Tennis','\Assets\Exercises\tennis.jpg',720)
 insert into Food values 
 (N'Hủ tiếu bò kho',N'Món nước','538',N'B1 : Sơ chế rau củ
 B2 : Sơ chế thịt bò
-B3 : Nấu nước dùng bò kho',N'Nạm bò, hủ tiếu, cà rốt, cây sả, giá sống, hành tây, ngò gai, húng quế, rau răm, gia vị bò kho, màu hạt điều, hành tím, tỏi băm',N'Món ăn nước phổ biến','9','\Assets\Food\F101.jpg'),
+B3 : Nấu nước dùng bò kho',N'Nạm bò, hủ tiếu, cà rốt, cây sả, giá sống, hành tây, ngò gai, húng quế, rau răm, gia vị bò kho, màu hạt điều, hành tím, tỏi băm',N'Món ăn nước phổ biến','12','\Assets\Food\F101.jpg'),
 (N'Hủ tiếu Nam vang',N'Món nước','400',N'B1 : Sơ chế giò heo và tôm
 B2 : Sơ chế các nguyên liệu khác
 B3 : Làm sốt thịt
-B4 : Nấu nước dùng',N'Giò heo, thịt bằm, tôm, trứng cút, hành lá, hành tím, bún khô, rau ăn kèm, dầu ăn, gia vị',N'Món ăn nước phổ biến ở Nam Bộ','9','\Assets\Food\F102.jpg'),
+B4 : Nấu nước dùng',N'Giò heo, thịt bằm, tôm, trứng cút, hành lá, hành tím, bún khô, rau ăn kèm, dầu ăn, gia vị',N'Món ăn nước phổ biến ở Nam Bộ','12','\Assets\Food\F102.jpg'),
 (N'Mì quảng',N'Món nước','541',N'B1 : Sơ chế nguyên liệu
 B2 : Nấu nước dùng và ướp gia vị
-B3 : Làm nhân',N'Sợi mì Quảng, nhân tùy chọn (thịt, tôm, gà,...), rau sống, đậu phộng, bánh tráng',N'Đặc sản nổi tiếng miền Trung','9','\Assets\Food\F103.jpg'),
+B3 : Làm nhân',N'Sợi mì Quảng, nhân tùy chọn (thịt, tôm, gà,...), rau sống, đậu phộng, bánh tráng',N'Đặc sản nổi tiếng miền Trung','12','\Assets\Food\F103.jpg'),
 (N'Mì thịt heo',N'Món nước','415',N'B1 : Sơ chế nguyên liệu
 B2 : Bắc nồi nước
 B3 : Cho xương và thịt lợn cùng cần tây, gừng vào nồi, nêm gia vị rồi hầm khoảng 30p
 B4 : Chần mì rồi cho vào tô
-B5 : Chan nước dùng, xếp thịt heo lên trên',N'Xương heo, thịt heo, cần tây, gừng, hành khô, hành lá, mì tươi, giá đỗ',N'Món ăn nước phổ biến','9','\Assets\Food\F104.jpg'),
+B5 : Chan nước dùng, xếp thịt heo lên trên',N'Xương heo, thịt heo, cần tây, gừng, hành khô, hành lá, mì tươi, giá đỗ',N'Món ăn nước phổ biến','12','\Assets\Food\F104.jpg'),
 (N'Mì vịt tiềm',N'Món nước','776',N'B1 : Sơ chế thịt vịt
 B2 : Nấu nước dùng
 B3 : Hầm thịt vịt trong nước dùng
-B4 : Sơ chế mì',N'Mì vắt, đùi vịt, rượu trắng, gừng, tỏi băm, xì dầu, nước tương, tiêu, hoa hồi, thanh quế, trần bì, hành tím, táo tàu, bạch quả, củ sen, nấm hương, dầu mè, hạt nêm, đường phèn, muối',N'Món ăn ngon nổi tiếng của người Hoa','9','\Assets\Food\F105.jpg'),
+B4 : Sơ chế mì',N'Mì vắt, đùi vịt, rượu trắng, gừng, tỏi băm, xì dầu, nước tương, tiêu, hoa hồi, thanh quế, trần bì, hành tím, táo tàu, bạch quả, củ sen, nấm hương, dầu mè, hạt nêm, đường phèn, muối',N'Món ăn ngon nổi tiếng của người Hoa','12','\Assets\Food\F105.jpg'),
 (N'Miến gà',N'Món nước','635',N'B1 : Sơ chế nguyên liệu
 B2 : Ướp thịt gà
-B3 : Nấu nước dùng',N'Gà, lòng gà, miến, hành tây, nấm mèo, hành lá, ngò rí, rau răm, hành tím, gia vị',N'Món ăn nước phổ biến','9','\Assets\Food\F106.jpg'),
+B3 : Nấu nước dùng',N'Gà, lòng gà, miến, hành tây, nấm mèo, hành lá, ngò rí, rau răm, hành tím, gia vị',N'Món ăn nước phổ biến','12','\Assets\Food\F106.jpg'),
 (N'Phở bò chín',N'Món nước','456',N'B1 : Sơ chế nguyên liệu
-B2 : Làm nước dùng',N'Phở, thịt bò, gầu bò, xương ống bò, củ cải trắng, hành tây, hành tím, gừng, trái thảo quả, thanh quế nhỏ, hoa hồi, hành lá, giá đỗ, rau thơm, gia vị',N'Món ăn nước phổ biến','9','\Assets\Food\F107.jpg'),
+B2 : Làm nước dùng',N'Phở, thịt bò, gầu bò, xương ống bò, củ cải trắng, hành tây, hành tím, gừng, trái thảo quả, thanh quế nhỏ, hoa hồi, hành lá, giá đỗ, rau thơm, gia vị',N'Món ăn nước phổ biến','12','\Assets\Food\F107.jpg'),
 (N'Phở bò tái',N'Món nước','431',N'B1 : Sơ chế nguyên liệu
 B2 : Làm nước dùng
 B3 : Trụng phở và trần sơ thịt bò rồi vớt ra tô
-B4 : Chan nước dùng',N'Phở, thịt bò, xương bò, hành tây, hành tím, gừng, hành hoa, rau mùi, gói gia vị nấu phở bò, gia vị khác',N'Món ăn nước phổ biến','9','\Assets\Food\F108.jpg'),
+B4 : Chan nước dùng',N'Phở, thịt bò, xương bò, hành tây, hành tím, gừng, hành hoa, rau mùi, gói gia vị nấu phở bò, gia vị khác',N'Món ăn nước phổ biến','12','\Assets\Food\F108.jpg'),
 (N'Phở bò viên',N'Món nước','431',N'B1 : Sơ chế bò
 B2 : Sơ chế nguyên liệu
 B3 : Ninh nước dùng
 B4 : Cắt thịt bò
-B5 : Trụng phở',N'Phở, xương bò, thịt bò, gân bò, nạm bò, gầu bò, bò viên, hoa hồi, thảo quả, quế, gừng, hành tây, hành tím, rau ăn kèm, gia vị',N'Món ăn nước phổ biến','9','\Assets\Food\F109.jpg'),
+B5 : Trụng phở',N'Phở, xương bò, thịt bò, gân bò, nạm bò, gầu bò, bò viên, hoa hồi, thảo quả, quế, gừng, hành tây, hành tím, rau ăn kèm, gia vị',N'Món ăn nước phổ biến','12','\Assets\Food\F109.jpg'),
 (N'Phở gà',N'Món nước','483',N'B1 : Sơ chế nguyên liệu
 B2 : Luộc gà và nấu nước dùng
-B3 : Trụng phở',N'Phở, gà, giá đỗ, hành tây, sả, gừng, hành lá, ngò, ớt, chanh, gia vị',N'Món ăn nước phổ biến','9','\Assets\Food\F110.jpg');
+B3 : Trụng phở',N'Phở, gà, giá đỗ, hành tây, sả, gừng, hành lá, ngò, ớt, chanh, gia vị',N'Món ăn nước phổ biến','12','\Assets\Food\F110.jpg');
 ----Canh----
 insert into Food values 
 (N'Canh bắp cải','Canh','37',N'B1 : Nấu sôi nước
 B2 : Cho rau đã cắt vào nồi
-B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Bắp cải',N'Một món canh đơn giản','8','\Assets\Food\F301.jpg'),
+B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Bắp cải',N'Một món canh đơn giản','9','\Assets\Food\F301.jpg'),
 (N'Canh bầu','Canh','30', N'B1 : Nấu sôi nước
 B2 : Cho bầu đã cắt lát vào nồi
-B3 : Chờ bầu chín tắt bếp rồi nêm gia vị',N'Bầu',N'Một món canh đơn giản','8','\Assets\Food\F302.jpg'),
+B3 : Chờ bầu chín tắt bếp rồi nêm gia vị',N'Bầu',N'Một món canh đơn giản','9','\Assets\Food\F302.jpg'),
 (N'Canh bí đao','Canh','29',N'B1 : Nấu sôi nước
 B2 : Cho bí đao đã cắt lát vào nồi
-B3 : Chờ bí đao chín tắt bếp rồi nêm gia vị',N'Bí đao',N'Một món canh đơn giản','8','\Assets\Food\F303.jpg'),
+B3 : Chờ bí đao chín tắt bếp rồi nêm gia vị',N'Bí đao',N'Một món canh đơn giản','9','\Assets\Food\F303.jpg'),
 (N'Canh bí đỏ','Canh','42', N'B1 : Nấu sôi nước
 B2 : Cho bí đao đã cắt lát vào nồi
-B3 : Chờ bí đỏ chín tắt bếp rồi nêm gia vị',N'Bí đỏ',N'Một món canh đơn giản','8','\Assets\Food\F304.jpg'),
+B3 : Chờ bí đỏ chín tắt bếp rồi nêm gia vị',N'Bí đỏ',N'Một món canh đơn giản','9','\Assets\Food\F304.jpg'),
 (N'Canh cải ngọt','Canh','30',N'B1 : Nấu sôi nước
 B2 : Cho rau đã cắt vào nồi
-B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Cải ngọt',N'Một món canh đơn giản','8','\Assets\Food\F305.jpg'),
+B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Cải ngọt',N'Một món canh đơn giản','9','\Assets\Food\F305.jpg'),
 (N'Canh chua','Canh','29', N'B1 : Nấu sôi nước
 B2 : Cho nguyên liệu đã sơ chế vào nồi
-B3 : Chờ nguyên liệu chín tắt bếp rồi nêm gia vị',N'Cà chua, dứa, giá',N'Món ăn đơn giản cho người thích vị chua','8','\Assets\Food\F306.jpg'),
+B3 : Chờ nguyên liệu chín tắt bếp rồi nêm gia vị',N'Cà chua, dứa, giá',N'Món ăn đơn giản cho người thích vị chua','9','\Assets\Food\F306.jpg'),
 (N'Canh khoai mỡ','Canh','51',N'B1 : Cắt lát mỏng khoai mỡ
 B2 : Phi hành-Xào khoai mỡ
 B3 : Cho nước vào nồi khoai
-B4 : Chờ chín nêm gia vị và tắt bếp',N'Khoai mỡ, củ hành',N'Canh có vị béo của khoai, nước dùng ngọt, đẹp mắt, mùi thơm hấp dẫn','8','\Assets\Food\F307.jpg'),
+B4 : Chờ chín nêm gia vị và tắt bếp',N'Khoai mỡ, củ hành',N'Canh có vị béo của khoai, nước dùng ngọt, đẹp mắt, mùi thơm hấp dẫn','9','\Assets\Food\F307.jpg'),
 (N'Canh mướp','Canh','31', N'B1 : Nấu sôi nước
 B2 : Cho rau đã cắt vào nồi
-B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Mướp',N'Một món canh đơn giản','8','\Assets\Food\F308.jpg'),
+B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Mướp',N'Một món canh đơn giản','9','\Assets\Food\F308.jpg'),
 (N'Canh rau dền','Canh','22',N'B1 : Nấu sôi nước
 B2 : Cho rau đã cắt vào nồi
-B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Rau dền',N'Một món canh đơn giản','8','\Assets\Food\F309.jpg'),
+B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Rau dền',N'Một món canh đơn giản','9','\Assets\Food\F309.jpg'),
 (N'Canh rau ngót','Canh','29', N'B1 : Nấu sôi nước
 B2 : Cho rau đã cắt vào nồi
-B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Rau ngót',N'Một món canh đơn giản','8','\Assets\Food\F310.jpg');
+B3 : Chờ rau chín tắt bếp rồi nêm gia vị',N'Rau ngót',N'Một món canh đơn giản','9','\Assets\Food\F310.jpg');
 ---Thuc uong----
 insert into Food values 
-(N'Bia',N'Thức uống','141','','',N'Thức uống có cồn','8','\Assets\Food\F401.jpg'),
+(N'Bia',N'Thức uống','141','','',N'Thức uống có cồn','9','\Assets\Food\F401.jpg'),
 (N'Cà phê sữa gói',N'Thức uống','85','','',N'Đồ uống pha sẵn','3','\Assets\Food\F402.jpg'),	
-(N'Cocktail trái cây',N'Thức uống','158','','',N'Đồ uống có cồn','8','\Assets\Food\F403.jpg'),
-(N'Nước cam vắt',N'Thức uống','226','','Cam',N'Nước trái cây','9','\Assets\Food\F404.jpg'),
-(N'Nước chanh',N'Thức uống','149','','Chanh',N'Nước trái cây','9','\Assets\Food\F405.jpg'),
-(N'Nước ép trái cây đóng hộp',N'Thức uống','74','','',N'Đồ uống sẵn','9','\Assets\Food\F406.jpg'),
-(N'Nước mía',N'Thức uống','106','','',N'Nước giải khát','8','\Assets\Food\F407.jpg'),
-(N'Nước ngọt có gas',N'Thức uống','146','','',N'Nước giải khát','8','\Assets\Food\F408.jpg'),
-(N'Nước sâm',N'Thức uống','74','','',N'Nước giải khát','8','\Assets\Food\F409.jpg'),
-(N'Sinh tố',N'Thức uống','277','','',N'Trái cây xay','9','\Assets\Food\F410.jpg');		
+(N'Cocktail trái cây',N'Thức uống','158','','',N'Đồ uống có cồn','9','\Assets\Food\F403.jpg'),
+(N'Nước cam vắt',N'Thức uống','226','','Cam',N'Nước trái cây','12','\Assets\Food\F404.jpg'),
+(N'Nước chanh',N'Thức uống','149','','Chanh',N'Nước trái cây','12','\Assets\Food\F405.jpg'),
+(N'Nước ép trái cây đóng hộp',N'Thức uống','74','','',N'Đồ uống sẵn','12','\Assets\Food\F406.jpg'),
+(N'Nước mía',N'Thức uống','106','','',N'Nước giải khát','9','\Assets\Food\F407.jpg'),
+(N'Nước ngọt có gas',N'Thức uống','146','','',N'Nước giải khát','9','\Assets\Food\F408.jpg'),
+(N'Nước sâm',N'Thức uống','74','','',N'Nước giải khát','9','\Assets\Food\F409.jpg'),
+(N'Sinh tố',N'Thức uống','277','','',N'Trái cây xay','12','\Assets\Food\F410.jpg');		
 ---Com----
 insert into Food values
 (N'Cơm rang thập cẩm',N'Cơm','800',N'B1 : Sơ chế rau củ, lạp xưởng
