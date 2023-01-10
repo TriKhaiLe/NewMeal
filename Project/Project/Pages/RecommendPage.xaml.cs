@@ -25,6 +25,7 @@ namespace Project.Pages
     /// </summary>
     public partial class RecommendPage : Page, INotifyPropertyChanged
     {
+        public List<FoodDays> meal { get; set; }
         public List<UserFood> FoodUser { get; set; }
         public List<FoodDays> Breakfast_food { get; set; }
         public List<FoodDays> Lunch_food { get; set; }
@@ -57,6 +58,7 @@ namespace Project.Pages
             Breakfast_food = new List<FoodDays>();
             Lunch_food = new List<FoodDays>();
             Dinner_food = new List<FoodDays>();
+            meal = new List<FoodDays>();
             IsLoadFood = 1;
             InitializeComponent();
         }
@@ -119,7 +121,10 @@ namespace Project.Pages
                 tab_control.SelectedIndex = 0;
             }
             Gauge_Kcal.To = DataProvider.Ins.Kcal_UserID;
-            RecommendAlgorithm();
+            if (Breakfast_RecommendFood_lv.Items.IsEmpty == true)
+            {
+                RecommendAlgorithm();
+            }
         }
 
 
@@ -128,9 +133,18 @@ namespace Project.Pages
             TabItem selected_tab = (TabItem)tab_control.SelectedItem;
             FoodDays food = new FoodDays();
             food = (FoodDays)lvRecommendation.SelectedItem;
+            if (food == null)
+            {
+                MessageBox.Show("Vui lòng chọn món ăn bạn nhé!");
+            }
             if (food != null)
             {
-                if (Bf_re_tbtn.IsChecked == true)
+                if (Bf_re_tbtn.IsChecked == false && Lun_re_tbtn.IsChecked == false && Din_re_tbtn.IsChecked == false)
+                {
+                    MessageBox.Show("Vui lòng tick vào ô bữa ăn bạn muốn thêm vào nhé!");
+                    return;
+                }
+                else if (Bf_re_tbtn.IsChecked == true)
                 {
                     Breakfast_RecommendFood_lv.Items.Add(food);
                     Gauge_Kcal.Value += (double)food.Food.Kcal;
@@ -301,11 +315,11 @@ namespace Project.Pages
         private void RecommendAlgorithm()
         {
             Random rd = new Random();
-            int rdom = rd.Next(2);
+            int rdom = rd.Next(3);
             int i = 1;
             List<FoodDays> havent_eaten_food = new List<FoodDays>();
-            havent_eaten_food = Breakfast_food.FindAll(p => p.Date == new DateTime()).ToList();
             //breakfast recommend
+            havent_eaten_food = Breakfast_food.FindAll(p => p.Date == new DateTime()).ToList();
             //Thuc uong
             FoodDays adding_food = getRecommendFood("Thức uống", havent_eaten_food, Breakfast_food);
             Breakfast_RecommendFood_lv.Items.Add(adding_food);
@@ -323,14 +337,15 @@ namespace Project.Pages
             gaugeRevaluate(adding_food);
 
             //lunch recommend
-            rdom = rd.Next(3);
+            havent_eaten_food = Lunch_food.FindAll(p => p.Date == new DateTime()).ToList();
+            rdom = rd.Next(4);
             if (rdom == 1)
             {
                 //Mon nuoc
                 adding_food = getRecommendFood("Món nước", havent_eaten_food, Lunch_food);
                 if (isIncluded(adding_food))
                 {
-                    adding_food = regettingRecommend("Món nước", Lunch_food, 1);
+                    adding_food = regettingRecommend("Món nước", Lunch_food, havent_eaten_food, 1);
                 }
                 Lunch_RecommendFood_lv.Items.Add(adding_food);
                 gaugeRevaluate(adding_food);
@@ -351,7 +366,7 @@ namespace Project.Pages
                 adding_food = getRecommendFood("Cơm", havent_eaten_food, Lunch_food);
                 if (isIncluded(adding_food))
                 {
-                    adding_food = regettingRecommend("Cơm", Lunch_food, 1);
+                    adding_food = regettingRecommend("Cơm", Lunch_food, havent_eaten_food, 1);
                 }
                 Lunch_RecommendFood_lv.Items.Add(adding_food);
                 gaugeRevaluate(adding_food);
@@ -360,7 +375,8 @@ namespace Project.Pages
                 gaugeRevaluate(adding_food);
             }
             //Dinner recommend
-            rdom = rd.Next(3);
+            havent_eaten_food = Dinner_food.FindAll(p => p.Date == new DateTime()).ToList();
+            rdom = rd.Next(4);
             if (rdom == 1)
             {
                 //Mon nuoc
@@ -368,7 +384,7 @@ namespace Project.Pages
                 i = 1;
                 while (isIncluded(adding_food))
                 {
-                    adding_food = regettingRecommend("Món nước", Dinner_food, i);
+                    adding_food = regettingRecommend("Món nước", Dinner_food, havent_eaten_food, i);
                     i++;
                 }
                 Dinner_RecommendFood_lv.Items.Add(adding_food);
@@ -378,16 +394,20 @@ namespace Project.Pages
             {
                 //Do bien + canh
                 adding_food = getRecommendFood("Đồ biển", havent_eaten_food, Dinner_food);
-                if (isIncluded(adding_food))
+                i = 1;
+                while (isIncluded(adding_food))
                 {
-                    adding_food = regettingRecommend("Đồ biển", Dinner_food, 1);
+                    adding_food = regettingRecommend("Đồ biển", Dinner_food, havent_eaten_food, i);
+                    i++;
                 }
                 Dinner_RecommendFood_lv.Items.Add(adding_food);
                 gaugeRevaluate(adding_food);
                 adding_food = getRecommendFood("Canh", havent_eaten_food, Dinner_food);
-                if (isIncluded(adding_food))
+                i = 1;
+                while (isIncluded(adding_food))
                 {
-                    adding_food = regettingRecommend("Canh", Dinner_food, 1);
+                    adding_food = regettingRecommend("Canh", Dinner_food, havent_eaten_food, i);
+                    i++;
                 }
                 Dinner_RecommendFood_lv.Items.Add(adding_food);
                 gaugeRevaluate(adding_food);
@@ -399,15 +419,17 @@ namespace Project.Pages
                 i = 1;
                 while (isIncluded(adding_food))
                 {
-                    adding_food = regettingRecommend("Cơm", Dinner_food, i);
+                    adding_food = regettingRecommend("Cơm", Dinner_food, havent_eaten_food, i);
                     i++;
                 }
                 Dinner_RecommendFood_lv.Items.Add(adding_food);
                 gaugeRevaluate(adding_food);
                 adding_food = getRecommendFood("Canh", havent_eaten_food, Dinner_food);
-                if (isIncluded(adding_food))
+                i = 1;
+                while (isIncluded(adding_food))
                 {
-                    adding_food = regettingRecommend("Canh", Dinner_food, 1);
+                    adding_food = regettingRecommend("Canh", Dinner_food, havent_eaten_food, i);
+                    i++;
                 }
                 Dinner_RecommendFood_lv.Items.Add(adding_food);
                 gaugeRevaluate(adding_food);
@@ -415,11 +437,12 @@ namespace Project.Pages
             //Optional 
             //Thuc uong
             //Lunch
+            havent_eaten_food = Lunch_food.FindAll(p => p.Date == new DateTime()).ToList();
             i = 1;
             adding_food = getRecommendFood("Thức uống", havent_eaten_food, Lunch_food);
             while (isIncluded(adding_food))
             {
-                adding_food = regettingRecommend("Thức uống", Lunch_food, i);
+                adding_food = regettingRecommend("Thức uống", Lunch_food, havent_eaten_food, i);
                 i++;
             }
             if (Gauge_Kcal.Value + (double)adding_food.Food.Kcal < Gauge_Kcal.To)
@@ -428,11 +451,12 @@ namespace Project.Pages
                 Gauge_Kcal.Value += (double)adding_food.Food.Kcal;
             }
             //Dinner
+            havent_eaten_food = Dinner_food.FindAll(p => p.Date == new DateTime()).ToList();
             adding_food = getRecommendFood("Thức uống", havent_eaten_food, Dinner_food);
             i = 1;
             while (isIncluded(adding_food))
             {
-                adding_food = regettingRecommend("Thức uống", Dinner_food, i);
+                adding_food = regettingRecommend("Thức uống", Dinner_food, havent_eaten_food, i);
                 i++;
             }
             if (Gauge_Kcal.Value + (double)adding_food.Food.Kcal < Gauge_Kcal.To)
@@ -442,11 +466,12 @@ namespace Project.Pages
             }
             //An vat
             //Lunch
+            havent_eaten_food = Lunch_food.FindAll(p => p.Date == new DateTime()).ToList();
             adding_food = getRecommendFood("Ăn vặt", havent_eaten_food, Lunch_food);
             i = 1;
             while (isIncluded(adding_food))
             {
-                adding_food = regettingRecommend("Ăn vặt", Lunch_food, i);
+                adding_food = regettingRecommend("Ăn vặt", Lunch_food, havent_eaten_food, i);
                 i++;
             }
             if (Gauge_Kcal.Value + (double)adding_food.Food.Kcal < Gauge_Kcal.To)
@@ -455,11 +480,12 @@ namespace Project.Pages
                 Gauge_Kcal.Value += (double)adding_food.Food.Kcal;
             }
             //Dinner
+            havent_eaten_food = Dinner_food.FindAll(p => p.Date == new DateTime()).ToList();
             adding_food = getRecommendFood("Ăn vặt", havent_eaten_food, Dinner_food);
             i = 1;
             while (isIncluded(adding_food))
             {
-                adding_food = regettingRecommend("Ăn vặt", Dinner_food, i);
+                adding_food = regettingRecommend("Ăn vặt", Dinner_food, havent_eaten_food, i);
                 i++;
             }
             if (Gauge_Kcal.Value + (double)adding_food.Food.Kcal < Gauge_Kcal.To)
@@ -496,13 +522,24 @@ namespace Project.Pages
             }
             return false;
         }
-        private FoodDays regettingRecommend(string type, List<FoodDays> MealTimeFoods, int index)
+        private FoodDays regettingRecommend(string type, List<FoodDays> MealTimeFoods, List<FoodDays> havent_eaten_food, int index)
         {
             FoodDays adding_food;
-            List<FoodDays> foods = MealTimeFoods.FindAll(p => p.Food.Type == type).ToList();
-            adding_food = foods.OrderBy(p => p.Date).ToList()[foods.Count() - (index + 1)];
-            return adding_food;
+            Random rd = new Random();
+            List<FoodDays> foods = havent_eaten_food.FindAll(p => p.Food.Type == type).ToList();
+            if (foods != null)
+            {
+                adding_food = foods[rd.Next(foods.Count())];
+                return adding_food;
+            }
+            else
+            {
+                foods = MealTimeFoods.FindAll(p => p.Food.Type == type).ToList();
+                adding_food = foods.OrderBy(p => p.Date).ToList()[foods.Count() - (index + 1)];
+                return adding_food;
+            }
         }
+
         private void gaugeRevaluate(FoodDays adding_food)
         {
             Gauge_Kcal.Value += (double)adding_food.Food.Kcal;
@@ -527,6 +564,37 @@ namespace Project.Pages
         {
             Bf_re_tbtn.IsChecked = false;
             Lun_re_tbtn.IsChecked = false;
+        }
+
+        private void btn_accept_Click(object sender, RoutedEventArgs e)
+        {
+            if (Bf_re_tbtn.IsChecked == false && Lun_re_tbtn.IsChecked == false && Din_re_tbtn.IsChecked == false)
+            {
+                MessageBox.Show("Vui lòng tick vào ô bữa ăn bạn muốn chấp nhận nhé!");
+                return;
+            }
+            else if (Bf_re_tbtn.IsChecked == true)
+            {
+                foreach( FoodDays fd in Breakfast_RecommendFood_lv.Items)
+                {
+                    meal.Add(fd);
+                }
+            }
+            else if (Lun_re_tbtn.IsChecked == true)
+            {
+                foreach (FoodDays fd in Lunch_RecommendFood_lv.Items)
+                {
+                    meal.Add(fd);
+                }
+            }
+            else if (Din_re_tbtn.IsChecked == true)
+            {
+                foreach (FoodDays fd in Dinner_RecommendFood_lv.Items)
+                {
+                    meal.Add(fd);
+                }
+            }
+            MessageBox.Show("Xong rùi! Bạn vào trang món ăn để xem công thức nhé!!!");
         }
     }
 }
