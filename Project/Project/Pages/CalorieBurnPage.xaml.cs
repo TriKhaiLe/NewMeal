@@ -110,9 +110,9 @@ namespace Project.Pages
                 string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
                 string path = projectDirectory + "\\Project\\Assets\\Exercises\\complete_sound.wav";
 
-                SoundPlayer soundPlayer = new SoundPlayer(path);
-                soundPlayer.Load();
-                soundPlayer.Play();
+                MediaPlayer mediaPlayer = new MediaPlayer();
+                mediaPlayer.Open(new Uri(path));
+                mediaPlayer.Play();
 
                 _borderFlag = 0;
                 _toggleTimer.Start();
