@@ -312,6 +312,8 @@ namespace Project.Pages
                 }
             }
         }
+
+        
         private void RecommendAlgorithm()
         {
             Random rd = new Random();

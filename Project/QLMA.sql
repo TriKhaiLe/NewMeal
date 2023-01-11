@@ -14,7 +14,9 @@ Age int,
 Sex int,
 UStatus int,
 Passwrd varchar(20),
-Username varchar(20) unique
+Username varchar(20) unique,
+Avatar varchar(50),
+ComsumedCalo int
 )
 
 create table Food
@@ -27,7 +29,13 @@ Recipe nvarchar(max),
 Ingredients nvarchar(1000),
 Descript nvarchar(500),
 MealTime int,
-Imgsrc varchar(100)
+Imgsrc varchar(100),
+DonVi varchar(50),
+Fat int,
+Carbs int,
+Protein int,
+Sat_Fat int,
+Other_Fat int
 )
 
 create table Exercise
@@ -35,7 +43,7 @@ create table Exercise
 ExID int identity(1,1) primary key,
 ExName nvarchar(100),
 ImgLink nvarchar(100),
-Kps int
+Kph int
 )
 
 create table UserFood
@@ -55,6 +63,8 @@ ExID int,
 Favourite int
 constraint pk_UserEx primary key(UserID , ExID)
 )
+
+
 
 --------Foreign Key----------
 
