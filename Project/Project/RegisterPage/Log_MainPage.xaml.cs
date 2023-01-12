@@ -54,7 +54,7 @@ namespace Project.RegisterPage
                 {
                     kcal -= 500;
                 }
-                DataProvider.Ins.Kcal_UserID = kcal;
+                DataProvider.Ins.Kcal_UserID = kcal*1.3;
                 MainWindow.Close();
             }
             else

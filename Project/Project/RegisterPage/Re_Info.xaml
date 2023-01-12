@@ -197,7 +197,6 @@
                         Width="250">
                             <ComboBoxItem IsSelected="True" Content="Cân bằng" />
                             <ComboBoxItem Content="Giảm cân" />
-                            <ComboBoxItem Content="Tăng cân" />
                         </ComboBox>
 
                     </StackPanel>

@@ -79,6 +79,7 @@ namespace Project.RegisterPage
                 user.UWeight = Convert.ToInt32(weight.Text);
                 user.UHeight = Convert.ToInt32(height.Text);
                 user.UStatus = Mode.SelectedIndex;
+                user.ComsumedCalo = 0;
                 IsRegister = true;
                 MainWindow.finish_register(user);
             }

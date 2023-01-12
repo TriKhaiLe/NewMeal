@@ -322,6 +322,24 @@ namespace Project.Pages
                         }
                     }    
                     UserFood user = DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID && p.FoodID == foodDays.Food.FoodID);
+                    UserHistory history = new UserHistory();
+                    history.UserID = user.UserID;
+                    history.FoodID = user.FoodID;
+                    history.eatDate = DateTime.Now;
+                    int time = Convert.ToInt32(DateTime.Now.Hour.ToString());
+                    if (time >= 4 && time < 11) // Sang
+                    {
+                        history.Meal = 1;
+                    }
+                    else if (time >= 11 && time <= 12) // trua
+                    {
+                        history.Meal = 2;
+                    }
+                    else // chieu - Toi
+                    {
+                        history.Meal = 3;   
+                    }
+                    DataProvider.Ins.DB.UserHistory.Add(history);
                     user.Last_eat = DateTime.Now;
                     
                 }
