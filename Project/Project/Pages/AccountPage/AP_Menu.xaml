@@ -49,6 +49,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
@@ -80,6 +81,23 @@
 
                 <Grid Grid.Row="1">
                     <Label Content="Đổi mật khẩu" FontSize="20" HorizontalAlignment="Center"/>
+                </Grid>
+
+
+            </Grid>
+
+            <Grid Grid.Column="2" MouseEnter="response_MouseEnter" MouseLeave="response_MouseLeave" MouseLeftButtonDown="response_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Image x:Name="button_response" Margin="0 20 0 10" Source="/Assets/Account/response.png" MouseEnter="password_MouseEnter" MouseLeave="password_MouseLeave" MouseLeftButtonDown="password_MouseLeftButtonDown"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Label Content="Gửi phản hồi" FontSize="20" HorizontalAlignment="Center"/>
                 </Grid>
 
 
