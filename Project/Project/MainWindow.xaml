@@ -56,6 +56,7 @@
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="Black"
+                                 x:Name="Food_rdbtn"
                                  IsChecked="True"
                                  Checked="Food_Checked">
                         <StackPanel Orientation="Horizontal">
@@ -69,6 +70,14 @@
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ThumbUp" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Đề xuất món" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="Black"
+                                 Checked="History_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="History" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Thống kê" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"

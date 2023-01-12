@@ -28,6 +28,7 @@ namespace Project
         private AccountPage AccountPage = new AccountPage();
         private RecommendPage RecommendPage = new RecommendPage();
         private CalorieBurnPage CalorieBurnPage = new CalorieBurnPage();
+        private HistoryPage HistoryPage = new HistoryPage();
         public FUser User { get; set; }
         public MainWindow()
         {
@@ -47,7 +48,10 @@ namespace Project
         {
             if (ok == 1) Main.Content = FoodPage;
         }
-
+        private void History_Checked(object sender, RoutedEventArgs e)
+        {
+            Main.Content = HistoryPage;
+        }
         private void Recommend_Checked(object sender, RoutedEventArgs e)
         {
             Main.Content = RecommendPage;
@@ -92,6 +96,7 @@ namespace Project
             //this.Hide();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.ShowDialog();
+            Food_rdbtn.IsChecked = true;
             /*if (loginWindow.IsLogin)
             {
                 LoadUser();
@@ -120,5 +125,7 @@ namespace Project
                 this.Show();
             }
         }
+
+        
     }
 }
