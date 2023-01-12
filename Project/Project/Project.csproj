@@ -430,6 +430,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Account\response.png" />
+    <Resource Include="Assets\History\bar-chart.png" />
+    <Resource Include="Assets\History\history.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
