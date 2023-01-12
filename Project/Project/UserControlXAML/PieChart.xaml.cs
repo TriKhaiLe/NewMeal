@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.ComponentModel;
+using System.Data;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -14,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Project.Model;
+using LiveCharts.Defaults;
 
 namespace Project.UserControlXAML
 {
@@ -22,12 +26,17 @@ namespace Project.UserControlXAML
     /// </summary>
     public partial class PieChart : UserControl
     {
-        public double Fat { get; set; }
-        public double Carbs { get; set; }
-        public double Protein { get; set; }
+        
+        private FUser user;
+        public int Fat { get; set; }
+        public int Carbs { get; set; }
+        public int Protein { get; set; }
         public PieChart()
         {
             InitializeComponent();
+            Fat = new int();
+            Protein = new int();
+            Carbs = new int();
             
             PointLabel = chartPoint =>
                 string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
@@ -46,6 +55,17 @@ namespace Project.UserControlXAML
 
             var selectedSeries = (PieSeries)chartpoint.SeriesView;
             selectedSeries.PushOut = 8;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            user = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID);
+            Fat = (int)(user.UWeight * 1.5);
+            Protein = (int)(user.UWeight * 1.5);
+            Carbs = (int)(user.UWeight * 6.5);
+            seriProtein.Values = new ChartValues<ObservableValue> { new ObservableValue(Protein) };
+            seriFat.Values = new ChartValues<ObservableValue> { new ObservableValue(Fat) };
+            seriCarbs.Values = new ChartValues<ObservableValue> { new ObservableValue(Carbs) };
         }
     }
 }

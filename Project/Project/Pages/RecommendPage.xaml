@@ -177,13 +177,18 @@
                             </ListView>
                         </ScrollViewer>
                     </StackPanel>
-                    <DockPanel Grid.Column="1">
-                        <usercontrol:PieChart Width="200" ></usercontrol:PieChart>
-                    </DockPanel>
+                    
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <usercontrol:PieChart Grid.Row="0" Margin="0 0 0 10"></usercontrol:PieChart>
+                        <usercontrol:PieChartMeal x:Name="uc_MealChart" Grid.Row="1"></usercontrol:PieChartMeal>
+                    </Grid>
                 </Grid>
             </DockPanel>
         </Grid>
-
         <Grid Margin="15 0 0 0" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
