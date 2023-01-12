@@ -199,7 +199,7 @@ insert into Food values
 (N'Nước chanh',N'Thức uống','149','','Chanh',N'Nước trái cây','12','\Assets\Food\F405.jpg',N'1 ly','0.1','0','0','0','0'),
 (N'Nước ép trái cây đóng hộp',N'Thức uống','74','','',N'Đồ uống sẵn','12','\Assets\Food\F406.jpg',N'1 ly','0','0','0','0','0'),
 (N'Nước mía',N'Thức uống','106','','',N'Nước giải khát','9','\Assets\Food\F407.jpg',N'1 ly','0','0','0','0','0'),
-(N'Nước ngọt có gas',N'Thức uống','146','','',N'Nước giải khát','9','\Assets\Food\F408.jpg',N'1 ly','0','0','0','0','0'),
+(N'Nước ngọt có gas',N'Thức uống','146','','',N'Nước giải khát','9','\Assets\Food\F408.jpg',N'1 lon','0','0','0','0','0'),
 (N'Nước sâm',N'Thức uống','74','','',N'Nước giải khát','9','\Assets\Food\F409.jpg',N'1 ly','0','0','0','0','0'),
 (N'Sinh tố',N'Thức uống','277','','',N'Trái cây xay','12','\Assets\Food\F410.jpg',N'1 ly','3.2','3.2','0','0','0');		
 ---Com----
