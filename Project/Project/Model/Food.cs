@@ -17,6 +17,7 @@ namespace Project.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Food()
         {
+            this.UserHistory = new HashSet<UserHistory>();
             this.UserFood = new HashSet<UserFood>();
         }
     
@@ -29,7 +30,15 @@ namespace Project.Model
         public string Descript { get; set; }
         public Nullable<int> MealTime { get; set; }
         public string Imgsrc { get; set; }
+        public string DonVi { get; set; }
+        public Nullable<int> Fat { get; set; }
+        public Nullable<int> Carbs { get; set; }
+        public Nullable<int> Protein { get; set; }
+        public Nullable<int> Sat_Fat { get; set; }
+        public Nullable<int> Other_Fat { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserHistory> UserHistory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserFood> UserFood { get; set; }
     }

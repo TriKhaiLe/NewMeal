@@ -93,36 +93,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\FoodDays.cs" />
-    <Compile Include="Pages\SubCalorieBurnPage\CongratsWindow.xaml.cs">
-      <DependentUpon>CongratsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SubCalorieBurnPage\InsertExerciseWindow.xaml.cs">
-      <DependentUpon>InsertExerciseWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterPage\ForgetPassPage.xaml.cs">
-      <DependentUpon>ForgetPassPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterPage\Log_MainPage.xaml.cs">
-      <DependentUpon>Log_MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterPage\Re_Info.xaml.cs">
-      <DependentUpon>Re_Info.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterPage\Re_Account.xaml.cs">
-      <DependentUpon>Re_Account.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainResources\NotEmptyValidationRule.cs" />
-    <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\Exercise.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Food.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\FoodDays.cs" />
     <Compile Include="Model\FUser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -150,6 +127,32 @@
     <Compile Include="Model\UserFood.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\UserHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SubCalorieBurnPage\CongratsWindow.xaml.cs">
+      <DependentUpon>CongratsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SubCalorieBurnPage\InsertExerciseWindow.xaml.cs">
+      <DependentUpon>InsertExerciseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPage\ForgetPassPage.xaml.cs">
+      <DependentUpon>ForgetPassPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPage\Log_MainPage.xaml.cs">
+      <DependentUpon>Log_MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPage\Re_Info.xaml.cs">
+      <DependentUpon>Re_Info.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPage\Re_Account.xaml.cs">
+      <DependentUpon>Re_Account.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainResources\NotEmptyValidationRule.cs" />
+    <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Pages\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
@@ -412,6 +415,16 @@
     <Resource Include="Assets\Exercises\tennis.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Model\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Resource Include="Assets\Food\F210.png" />
     <Resource Include="Assets\Food\F209.png" />
     <Resource Include="Assets\Food\F208.jpg" />
@@ -447,16 +460,6 @@
     <Resource Include="Assets\background.png" />
     <Resource Include="Assets\Exercises\complete.gif" />
     <Content Include="Assets\Exercises\complete_sound.wav" />
-    <Content Include="Model\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

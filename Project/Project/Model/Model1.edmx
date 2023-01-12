@@ -12,7 +12,7 @@
           <Property Name="ExID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ExName" Type="nvarchar" MaxLength="100" />
           <Property Name="ImgLink" Type="nvarchar" MaxLength="100" />
-          <Property Name="Kps" Type="numeric" Precision="7" Scale="3" />
+          <Property Name="Kph" Type="int" />
         </EntityType>
         <EntityType Name="Food">
           <Key>
@@ -27,6 +27,12 @@
           <Property Name="Descript" Type="nvarchar" MaxLength="500" />
           <Property Name="MealTime" Type="int" />
           <Property Name="Imgsrc" Type="varchar" MaxLength="100" />
+          <Property Name="DonVi" Type="varchar" MaxLength="50" />
+          <Property Name="Fat" Type="int" />
+          <Property Name="Carbs" Type="int" />
+          <Property Name="Protein" Type="int" />
+          <Property Name="Sat_Fat" Type="int" />
+          <Property Name="Other_Fat" Type="int" />
         </EntityType>
         <EntityType Name="FUser">
           <Key>
@@ -41,6 +47,8 @@
           <Property Name="UStatus" Type="int" />
           <Property Name="Passwrd" Type="varchar" MaxLength="20" />
           <Property Name="Username" Type="varchar" MaxLength="20" />
+          <Property Name="Avatar" Type="varchar" MaxLength="50" />
+          <Property Name="ComsumedCalo" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -71,6 +79,40 @@
           <Property Name="Favorite" Type="int" />
           <Property Name="Last_eat" Type="smalldatetime" />
         </EntityType>
+        <EntityType Name="UserHistory">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="Meal" Type="int" />
+          <Property Name="eatDate" Type="smalldatetime" />
+        </EntityType>
+        <Association Name="fk_H_Food">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="UserHistory" Type="Self.UserHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="UserHistory">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_H_User">
+          <End Role="FUser" Type="Self.FUser" Multiplicity="1" />
+          <End Role="UserHistory" Type="Self.UserHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserHistory">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_UE_Exe">
           <End Role="Exercise" Type="Self.Exercise" Multiplicity="1" />
           <End Role="UserExercise" Type="Self.UserExercise" Multiplicity="*" />
@@ -126,6 +168,15 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserExercise" EntityType="Self.UserExercise" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserFood" EntityType="Self.UserFood" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserHistory" EntityType="Self.UserHistory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_H_Food" Association="Self.fk_H_Food">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="UserHistory" EntitySet="UserHistory" />
+          </AssociationSet>
+          <AssociationSet Name="fk_H_User" Association="Self.fk_H_User">
+            <End Role="FUser" EntitySet="FUser" />
+            <End Role="UserHistory" EntitySet="UserHistory" />
+          </AssociationSet>
           <AssociationSet Name="fk_UE_Exe" Association="Self.fk_UE_Exe">
             <End Role="Exercise" EntitySet="Exercise" />
             <End Role="UserExercise" EntitySet="UserExercise" />
@@ -155,7 +206,7 @@
           <Property Name="ExID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ExName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ImgLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Kps" Type="Int32" />
+          <Property Name="Kph" Type="Int32" />
           <NavigationProperty Name="UserExercise" Relationship="Self.fk_UE_Exe" FromRole="Exercise" ToRole="UserExercise" />
         </EntityType>
         <EntityType Name="Food">
@@ -171,6 +222,13 @@
           <Property Name="Descript" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="MealTime" Type="Int32" />
           <Property Name="Imgsrc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fat" Type="Int32" />
+          <Property Name="Carbs" Type="Int32" />
+          <Property Name="Protein" Type="Int32" />
+          <Property Name="Sat_Fat" Type="Int32" />
+          <Property Name="Other_Fat" Type="Int32" />
+          <NavigationProperty Name="UserHistory" Relationship="Self.fk_H_Food" FromRole="Food" ToRole="UserHistory" />
           <NavigationProperty Name="UserFood" Relationship="Self.fk_UF_Food" FromRole="Food" ToRole="UserFood" />
         </EntityType>
         <EntityType Name="FUser">
@@ -186,6 +244,9 @@
           <Property Name="UStatus" Type="Int32" />
           <Property Name="Passwrd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ComsumedCalo" Type="Int32" />
+          <NavigationProperty Name="UserHistory" Relationship="Self.fk_H_User" FromRole="FUser" ToRole="UserHistory" />
           <NavigationProperty Name="UserExercise" Relationship="Self.fk_UE_User" FromRole="FUser" ToRole="UserExercise" />
           <NavigationProperty Name="UserFood" Relationship="Self.fk_UF_User" FromRole="FUser" ToRole="UserFood" />
         </EntityType>
@@ -222,6 +283,18 @@
           <NavigationProperty Name="Food" Relationship="Self.fk_UF_Food" FromRole="UserFood" ToRole="Food" />
           <NavigationProperty Name="FUser" Relationship="Self.fk_UF_User" FromRole="UserFood" ToRole="FUser" />
         </EntityType>
+        <EntityType Name="UserHistory">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="Meal" Type="Int32" />
+          <Property Name="eatDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Food" Relationship="Self.fk_H_Food" FromRole="UserHistory" ToRole="Food" />
+          <NavigationProperty Name="FUser" Relationship="Self.fk_H_User" FromRole="UserHistory" ToRole="FUser" />
+        </EntityType>
         <Association Name="fk_UE_Exe">
           <End Role="Exercise" Type="Self.Exercise" Multiplicity="1" />
           <End Role="UserExercise" Type="Self.UserExercise" Multiplicity="*" />
@@ -234,6 +307,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_H_Food">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="UserHistory" Type="Self.UserHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="UserHistory">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_UF_Food">
           <End Role="Food" Type="Self.Food" Multiplicity="1" />
           <End Role="UserFood" Type="Self.UserFood" Multiplicity="*" />
@@ -243,6 +328,18 @@
             </Principal>
             <Dependent Role="UserFood">
               <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_H_User">
+          <End Role="FUser" Type="Self.FUser" Multiplicity="1" />
+          <End Role="UserHistory" Type="Self.UserHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserHistory">
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -277,13 +374,22 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="UserExercise" EntityType="Self.UserExercise" />
           <EntitySet Name="UserFood" EntityType="Self.UserFood" />
+          <EntitySet Name="UserHistory" EntityType="Self.UserHistory" />
           <AssociationSet Name="fk_UE_Exe" Association="Self.fk_UE_Exe">
             <End Role="Exercise" EntitySet="Exercise" />
             <End Role="UserExercise" EntitySet="UserExercise" />
           </AssociationSet>
+          <AssociationSet Name="fk_H_Food" Association="Self.fk_H_Food">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="UserHistory" EntitySet="UserHistory" />
+          </AssociationSet>
           <AssociationSet Name="fk_UF_Food" Association="Self.fk_UF_Food">
             <End Role="Food" EntitySet="Food" />
             <End Role="UserFood" EntitySet="UserFood" />
+          </AssociationSet>
+          <AssociationSet Name="fk_H_User" Association="Self.fk_H_User">
+            <End Role="FUser" EntitySet="FUser" />
+            <End Role="UserHistory" EntitySet="UserHistory" />
           </AssociationSet>
           <AssociationSet Name="fk_UE_User" Association="Self.fk_UE_User">
             <End Role="FUser" EntitySet="FUser" />
@@ -306,7 +412,7 @@
                 <ScalarProperty Name="ExID" ColumnName="ExID" />
                 <ScalarProperty Name="ExName" ColumnName="ExName" />
                 <ScalarProperty Name="ImgLink" ColumnName="ImgLink" />
-                <ScalarProperty Name="Kps" ColumnName="Kps" />
+                <ScalarProperty Name="Kph" ColumnName="Kph" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -322,6 +428,12 @@
                 <ScalarProperty Name="Descript" ColumnName="Descript" />
                 <ScalarProperty Name="MealTime" ColumnName="MealTime" />
                 <ScalarProperty Name="Imgsrc" ColumnName="Imgsrc" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="Fat" ColumnName="Fat" />
+                <ScalarProperty Name="Carbs" ColumnName="Carbs" />
+                <ScalarProperty Name="Protein" ColumnName="Protein" />
+                <ScalarProperty Name="Sat_Fat" ColumnName="Sat_Fat" />
+                <ScalarProperty Name="Other_Fat" ColumnName="Other_Fat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -337,6 +449,8 @@
                 <ScalarProperty Name="UStatus" ColumnName="UStatus" />
                 <ScalarProperty Name="Passwrd" ColumnName="Passwrd" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="ComsumedCalo" ColumnName="ComsumedCalo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -367,6 +481,16 @@
                 <ScalarProperty Name="FoodID" ColumnName="FoodID" />
                 <ScalarProperty Name="Favorite" ColumnName="Favorite" />
                 <ScalarProperty Name="Last_eat" ColumnName="Last_eat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserHistory">
+            <EntityTypeMapping TypeName="QLMAModel.UserHistory">
+              <MappingFragment StoreEntitySet="UserHistory">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="Meal" ColumnName="Meal" />
+                <ScalarProperty Name="eatDate" ColumnName="eatDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

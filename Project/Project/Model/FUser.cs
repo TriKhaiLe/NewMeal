@@ -17,6 +17,7 @@ namespace Project.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FUser()
         {
+            this.UserHistory = new HashSet<UserHistory>();
             this.UserExercise = new HashSet<UserExercise>();
             this.UserFood = new HashSet<UserFood>();
         }
@@ -30,7 +31,11 @@ namespace Project.Model
         public Nullable<int> UStatus { get; set; }
         public string Passwrd { get; set; }
         public string Username { get; set; }
+        public string Avatar { get; set; }
+        public Nullable<int> ComsumedCalo { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserHistory> UserHistory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserExercise> UserExercise { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

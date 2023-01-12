@@ -261,8 +261,8 @@ namespace Project.Pages
                 Exercise exercise = (Exercise)lvCaloriesBurned.SelectedItem;
 
                 // tinh tong thoi gian va calo dot moi giay
-                _remainingTime = (int)_totalCalo * 3600 / (int)exercise.Kps;
-                _caloBurnedPerSec = (double)exercise.Kps / 3600;
+                _remainingTime = (int)_totalCalo * 3600 / (int)exercise.Kph;
+                _caloBurnedPerSec = (double)exercise.Kph / 3600;
 
                 // hien thi thoi gian
                 Clock_block.Text = TimeSpan.FromSeconds(_remainingTime).ToString();

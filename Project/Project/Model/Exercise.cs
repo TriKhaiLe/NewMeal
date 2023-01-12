@@ -23,7 +23,7 @@ namespace Project.Model
         public int ExID { get; set; }
         public string ExName { get; set; }
         public string ImgLink { get; set; }
-        public Nullable<int> Kps { get; set; }
+        public Nullable<int> Kph { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserExercise> UserExercise { get; set; }

@@ -31,5 +31,6 @@ namespace Project.Model
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UserExercise> UserExercise { get; set; }
         public virtual DbSet<UserFood> UserFood { get; set; }
+        public virtual DbSet<UserHistory> UserHistory { get; set; }
     }
 }
