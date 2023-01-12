@@ -65,6 +65,14 @@ constraint pk_UserEx primary key(UserID , ExID)
 )
 
 
+create table UserHistory
+(
+UserID int,
+FoodID int,
+Meal int,
+eatDate smalldatetime,
+constraint pk_UserHis primary key(UserID , FoodID)
+)
 
 --------Foreign Key----------
 
@@ -74,7 +82,9 @@ alter table UserFood add constraint fk_UF_User foreign key (UserID) references F
 -------------UserExercise---------------
 alter table UserExercise add constraint fk_UE_User foreign key (UserID) references FUser(UserID)
 alter table UserExercise add constraint fk_UE_Exe foreign key (ExID) references Exercise(ExID)
-
+-------------UserHistory---------------
+alter table UserHistory add constraint fk_H_Food foreign key (FoodID) references Food(FoodID)
+alter table UserHistory add constraint fk_H_User foreign key (UserID) references FUser(UserID)
 -------------------------------------------------
 alter table FUser nocheck constraint all
 alter table Food nocheck constraint all
