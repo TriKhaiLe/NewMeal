@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Project.Pages"
+      xmlns:usercontrol="clr-namespace:Project.UserControlXAML"
       Title="RecommendPage"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
@@ -69,20 +70,6 @@
                        Text="Đề Xuất Cho Bạn"
                        Foreground="Black"
                        Style="{StaticResource MaterialDesignHeadline4TextBlock}"/>
-                <StackPanel>
-                    <TextBlock Text="Tổng Calo trong bữa ăn:"
-                           Foreground="Black" 
-                           FontSize="18" 
-                           FontWeight="Bold" 
-                           DockPanel.Dock="Right" 
-                           VerticalAlignment="Top" 
-                           HorizontalAlignment="Center"
-                           />
-                    <TextBlock Foreground="Black" 
-                               FontSize="18"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"/>
-                </StackPanel>
 
             </DockPanel>
             <DockPanel Grid.Row="1">
@@ -191,89 +178,7 @@
                         </ScrollViewer>
                     </StackPanel>
                     <DockPanel Grid.Column="1">
-                        <materialDesign:Card VerticalAlignment="Stretch"
-                                             HorizontalAlignment="Stretch">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="250" />
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <materialDesign:Card
-                                     materialDesign:ElevationAssist.Elevation="Dp2">
-                                    <materialDesign:Card.Background>
-                                        <RadialGradientBrush Opacity="0.67">
-                                            <GradientStop Color="#FFC100" Offset="1"/>
-                                            <GradientStop Color="#F4D576" Offset="0.573"/>
-                                            <GradientStop Color="#FFEBAB" Offset="0"/>
-                                        </RadialGradientBrush>
-                                    </materialDesign:Card.Background>
-                                    <Image x:Name="food_image" Height="auto"
-                                       Stretch="Uniform"
-                                       />
-                                </materialDesign:Card>
-                                <ToggleButton 
-                                    x:Name="favorite_button"
-                                    Grid.Row="0"
-                                    Margin="0,0,16,-20"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Bottom"
-                                    materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=Heart}"
-                                    Content="{materialDesign:PackIcon Kind=CardsHeartOutline}"
-                                    Style="{StaticResource MaterialDesignActionToggleButton}"
-                                    ToolTip="MaterialDesignActionLightToggleButton" Click="favorite_button_Click"/>
-                                <Grid Grid.Row="1"
-                                            Margin="8,24,8,4">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock x:Name="food_review" VerticalAlignment="Center"
-                                               Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                               TextWrapping="Wrap"
-                                               Foreground="Black"/>
-                                    <GroupBox 
-                                        Grid.Row="1"
-                                        materialDesign:ColorZoneAssist.Mode="SecondaryMid"
-                                        Header="Calo"
-                                        Style="{StaticResource MaterialDesignGroupBox}">
-                                        <TextBlock
-                                               x:Name="tb_calo"
-                                               VerticalAlignment="Center"
-                                               Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                               TextWrapping="Wrap"
-                                               Foreground="Black"/>
-                                    </GroupBox>
-                                    <GroupBox
-                                        Grid.Row="2"
-                                        Margin="0"
-                                        materialDesign:ColorZoneAssist.Mode="SecondaryMid"
-                                        Header="Lần cuối ăn: "
-                                        Style="{StaticResource MaterialDesignGroupBox}">
-                                        <TextBlock
-                                               x:Name="tb_last_eat"
-                                               VerticalAlignment="Center"
-                                               Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                               TextWrapping="Wrap"
-                                               Foreground="Black"/>
-                                    </GroupBox>
-                                </Grid>
-                                <Separator Grid.Row="2"
-                                           Margin="8,0,8,0"
-                                           Style="{StaticResource MaterialDesignDarkSeparator}" />
-                                <DockPanel Grid.Row="5"
-                                           HorizontalAlignment="Right">
-                                    <Button x:Name="btn_them" Margin="8,4,8,8"
-                                            HorizontalAlignment="Left"
-                                            Content="THÊM"
-                                            Style="{StaticResource MaterialDesignFlatButton}" Click="btn_them_Click" />
-                                </DockPanel>
-                            </Grid>
-                        </materialDesign:Card>
+                        <usercontrol:PieChart Width="200" ></usercontrol:PieChart>
                     </DockPanel>
                 </Grid>
             </DockPanel>

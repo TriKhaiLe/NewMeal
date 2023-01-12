@@ -203,14 +203,7 @@ namespace Project.Pages
             }
         }
 
-        private void favorite_button_Click(object sender, RoutedEventArgs e)
-        {
-            FoodDays food = new FoodDays();
-            food = lvRecommendation.SelectedItem as FoodDays;
-            UserFood userFood = DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID && p.FoodID == food.Food.FoodID);
-            userFood.Favorite = Convert.ToInt16(favorite_button.IsChecked);
-            DataProvider.Ins.DB.SaveChanges();
-        }
+        
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -259,7 +252,8 @@ namespace Project.Pages
 
         private void lvRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            FoodDays food = new FoodDays();
+            
+            /*FoodDays food = new FoodDays();
             try
             {
                 food = ((ListView)sender).SelectedItem as FoodDays;
@@ -310,7 +304,7 @@ namespace Project.Pages
                 {
                     tb_last_eat.Text = uf.Last_eat.Value.ToShortDateString();
                 }
-            }
+            }*/
         }
 
         
