@@ -99,6 +99,20 @@
                                     Content="Yêu thích"/>
                             </ComboBox>
                         </DockPanel>
+                        <DockPanel>
+                            <Label Content="Lọc theo : " Margin="0 0 5 0" VerticalAlignment="Center"></Label>
+                            <TextBox
+                                Foreground="Black"
+                                TextChanged="txtFilter_TextChanged"
+                                x:Name="txtFilter"
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                AcceptsReturn="True"
+                                TextWrapping="Wrap"
+                                MaxWidth="400"
+                                Width="200"
+                            />
+                        </DockPanel>
                         <materialDesign:Card VerticalAlignment="Stretch">
                             <materialDesign:Card.RenderTransform>
                                 <TransformGroup>
@@ -156,7 +170,7 @@
                                         <materialDesign:Card
                                                         materialDesign:ElevationAssist.Elevation="Dp2">
                                             <Border CornerRadius="12" Background="White"  >
-                                                <Grid Width="270">
+                                                <Grid Width="{Binding Width, ElementName=lvRecommendation}">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -177,7 +191,7 @@
                             </ListView>
                         </ScrollViewer>
                     </StackPanel>
-                    
+
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>

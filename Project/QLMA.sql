@@ -341,3 +341,4 @@ insert into FUser
 values('Admin' , 60,160,19,1,0,'admin','admin')
 select * from UserFood
 select * from Food
+drop database QLMA

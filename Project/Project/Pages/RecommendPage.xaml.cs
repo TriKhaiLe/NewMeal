@@ -73,53 +73,56 @@ namespace Project.Pages
             FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
             Food food = new Food();
             List<Food> foods = DataProvider.Ins.DB.Food.ToList();
-            foreach (UserFood user in FoodUser)
+            if (Breakfast_food.Count() == 0)
             {
-                food = DataProvider.Ins.DB.Food.SingleOrDefault(p => p.FoodID == user.FoodID);
-                switch (food.MealTime)
-                {
-                    case 3:
-                        {
-                            Breakfast_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        }
-                        break;
-                    case 4:
-                        {
-                            Lunch_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        }
-                        break;
-                    case 5:
-                        {
-                            Dinner_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        }
-                        break;
-                    case 7:
-                        {
-                            Breakfast_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                            Lunch_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        }
-                        break;
-                    case 8:
-                        {
-                            Breakfast_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                            Dinner_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        }
-                        break;
-                    case 9:
-                        {
-                            Lunch_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                            Dinner_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        }
-                        break;
-                    case 12:
-                        {
-                            Breakfast_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                            Lunch_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                            Dinner_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        }
-                        break;
-                }
 
+                foreach (UserFood user in FoodUser)
+                {
+                    food = DataProvider.Ins.DB.Food.SingleOrDefault(p => p.FoodID == user.FoodID);
+                    switch (food.MealTime)
+                    {
+                        case 3:
+                            {
+                                Breakfast_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                            }
+                            break;
+                        case 4:
+                            {
+                                Lunch_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                            }
+                            break;
+                        case 5:
+                            {
+                                Dinner_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                            }
+                            break;
+                        case 7:
+                            {
+                                Breakfast_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                                Lunch_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                            }
+                            break;
+                        case 8:
+                            {
+                                Breakfast_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                                Dinner_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                            }
+                            break;
+                        case 9:
+                            {
+                                Lunch_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                                Dinner_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                            }
+                            break;
+                        case 12:
+                            {
+                                Breakfast_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                                Lunch_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                                Dinner_food.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+                            }
+                            break;
+                    }
+                }
             }
             if (IsLoadFood-- == 1)
             {
@@ -146,7 +149,7 @@ namespace Project.Pages
                 uc_MealChart.breakfast += (int)item.Food.Kcal;
             }
             uc_MealChart.Loaded();
-            
+
             FUser user1 = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID);
             int Fat = (int)(user1.UWeight * 1.5);
             int Protein = (int)(user1.UWeight * 1.5);
@@ -156,48 +159,6 @@ namespace Project.Pages
             uc_NutriChart.seriCarbs.Values = new ChartValues<ObservableValue> { new ObservableValue(Carbs) };
         }
 
-
-        private void btn_them_Click(object sender, RoutedEventArgs e)
-        {
-            TabItem selected_tab = (TabItem)tab_control.SelectedItem;
-            FoodDays food = new FoodDays();
-            food = (FoodDays)lvRecommendation.SelectedItem;
-            if (food == null)
-            {
-                MessageBox.Show("Vui lòng chọn món ăn bạn nhé!");
-            }
-            if (food != null)
-            {
-                if (Bf_re_tbtn.IsChecked == false && Lun_re_tbtn.IsChecked == false && Din_re_tbtn.IsChecked == false)
-                {
-                    MessageBox.Show("Vui lòng tick vào ô bữa ăn bạn muốn thêm vào nhé!");
-                    return;
-                }
-                else if (Bf_re_tbtn.IsChecked == true)
-                {
-                    Breakfast_RecommendFood_lv.Items.Add(food);
-                    Gauge_Kcal.Value += (double)food.Food.Kcal;
-
-                }
-                else if (Lun_re_tbtn.IsChecked == true)
-                {
-                    Lunch_RecommendFood_lv.Items.Add(food);
-                    Gauge_Kcal.Value += (double)food.Food.Kcal;
-
-
-                }
-                else if (Din_re_tbtn.IsChecked == true)
-                {
-                    Dinner_RecommendFood_lv.Items.Add(food);
-                    Gauge_Kcal.Value += (double)food.Food.Kcal;
-
-                }
-                if (Gauge_Kcal.Value > Gauge_Kcal.To)
-                {
-                    kcal_txt.Visibility = Visibility.Visible;
-                }
-            }
-        }
         private void Bf_DelSelected_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
@@ -238,7 +199,7 @@ namespace Project.Pages
             }
         }
 
-        
+
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -287,62 +248,36 @@ namespace Project.Pages
 
         private void lvRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            /*FoodDays food = new FoodDays();
-            try
+            FoodDays food = (FoodDays)lvRecommendation.SelectedItem;
+            if (food != null)
             {
-                food = ((ListView)sender).SelectedItem as FoodDays;
-            }
-            catch
-            {
-                food = ((ListBox)sender).SelectedItem as FoodDays;
-            }
-            if (food == null)
-            {
-                food = foodList.First<FoodDays>();
-            }
-            BitmapImage bitimg = new BitmapImage();
-            bitimg.BeginInit();
-            bitimg.UriSource = new Uri(food.Food.Imgsrc, UriKind.Relative);
-            bitimg.EndInit();
-            food_image.Source = bitimg;
-            food_review.Text = food.Food.Descript;
-            UserFood uf = DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID && p.FoodID == food.Food.FoodID);
-            tb_calo.Text = food.Food.Kcal.Value.ToString();
-            if (uf == null)
-            {
-                favorite_button.IsChecked = false;
-                tb_last_eat.Text = "Bạn chưa bao giờ thử món này!";
-            }
-            else
-            {
-                if (uf.Favorite == null)
+                Gauge_Kcal.Value += (double)food.Food.Kcal;
+                switch (tab_control.SelectedIndex)
                 {
-                    favorite_button.IsChecked = false;
+                    case 0:
+                        {
+                            Breakfast_RecommendFood_lv.Items.Add(food);
+                        }
+                        break;
+                    case 1:
+                        {
+                            Lunch_RecommendFood_lv.Items.Add(food);
+                        }
+                        break;
+                    case 2:
+                        {
+                            Dinner_RecommendFood_lv.Items.Add(food);
+                        }
+                        break;
                 }
-                else
+                if (Gauge_Kcal.Value > Gauge_Kcal.To)
                 {
-                    if (uf.Favorite == 1)
-                    {
-                        favorite_button.IsChecked = true;
-                    }
-                    else
-                    {
-                        favorite_button.IsChecked = false;
-                    }
+                    kcal_txt.Visibility = Visibility.Visible;
                 }
-                if (uf.Last_eat == null)
-                {
-                    tb_last_eat.Text = "Bạn chưa bao giờ thử món này!";
-                }
-                else
-                {
-                    tb_last_eat.Text = uf.Last_eat.Value.ToShortDateString();
-                }
-            }*/
+            }
         }
 
-        
+
         private void RecommendAlgorithm()
         {
             Random rd = new Random();
@@ -406,7 +341,7 @@ namespace Project.Pages
                 Lunch_RecommendFood_lv.Items.Add(adding_food);
                 gaugeRevaluate(adding_food);
             }
-            
+
             //Dinner recommend
             havent_eaten_food = Dinner_food.FindAll(p => p.Date == new DateTime()).ToList();
             rdom = rd.Next(4);
@@ -651,12 +586,22 @@ namespace Project.Pages
                     meal.Add(fd);
                 }
             }
-            foreach(FoodDays f in meal)
+            foreach (FoodDays f in meal)
             {
                 foodPage1.SelectedFood_lv.Items.Add(f);
-            }    
+            }
             MessageBox.Show("Xong rùi! Bạn vào trang món ăn để xem công thức nhé!!!");
         }
-
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lvRecommendation.Items.Filter = UserFilter;
+        }
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(txtFilter.Text))
+                return true;
+            else
+                return ((item as FoodDays).Food.FoodName.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
     }
 }
