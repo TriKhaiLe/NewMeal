@@ -32,128 +32,40 @@ namespace Project.Pages
         {
             InitializeComponent();
 
-            LastHourSeries = new SeriesCollection
+            SeriesCollection = new SeriesCollection
             {
-                new LineSeries
+                new StackedColumnSeries
                 {
-                    AreaLimit = -10,
-                    Values = new ChartValues<ObservableValue>
-                    {
-                        new ObservableValue(3),
-                        new ObservableValue(5),
-                        new ObservableValue(6),
-                        new ObservableValue(7),
-                        new ObservableValue(3),
-                        new ObservableValue(4),
-                        new ObservableValue(2),
-                        new ObservableValue(5),
-                        new ObservableValue(8),
-                        new ObservableValue(3),
-                        new ObservableValue(5),
-                        new ObservableValue(6),
-                        new ObservableValue(7),
-                        new ObservableValue(3),
-                        new ObservableValue(4),
-                        new ObservableValue(2),
-                        new ObservableValue(5),
-                        new ObservableValue(8)
-                    }
+                    Values = new ChartValues<double> {4, 5, 6, 8},
+                    StackMode = StackMode.Values, // this is not necessary, values is the default stack mode
+                    DataLabels = true
+                },
+                new StackedColumnSeries
+                {
+                    Values = new ChartValues<double> {2, 5, 6, 7},
+                    StackMode = StackMode.Values,
+                    DataLabels = true
                 }
             };
-            _trend = 8;
 
-#if NET40
-            Task.Factory.StartNew(() =>
+            //adding series updates and animates the chart
+            SeriesCollection.Add(new StackedColumnSeries
             {
-                var r = new Random();
- 
-                Action action = delegate
-                {
-                    LastHourSeries[0].Values.Add(new ObservableValue(_trend));
-                    LastHourSeries[0].Values.RemoveAt(0);
-                    SetLecture();
-                };
- 
-                while (true)
-                {
-                    Thread.Sleep(500);
-                    _trend += (r.NextDouble() > 0.3 ? 1 : -1) * r.Next(0, 5);
-                    Application.Current.Dispatcher.Invoke(DispatcherPriority.Normal, action);
-                }
+                Values = new ChartValues<double> { 6, 2, 7 },
+                StackMode = StackMode.Values
             });
-#endif
-#if NET45
-            Task.Run(() =>
-            {
-                var r = new Random();
-                while (true)
-                {
-                    Thread.Sleep(500);
-                    _trend += (r.NextDouble() > 0.3 ? 1 : -1)*r.Next(0, 5);
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        LastHourSeries[0].Values.Add(new ObservableValue(_trend));
-                        LastHourSeries[0].Values.RemoveAt(0);
-                        SetLecture();
-                    });
-                }
-            });
-#endif
+
+            //adding values also updates and animates
+            SeriesCollection[2].Values.Add(4d);
+
+            Labels = new[] { "Chrome", "Mozilla", "Opera", "IE" };
+            Formatter = value => value + " Mill";
 
             DataContext = this;
         }
 
-        public SeriesCollection LastHourSeries { get; set; }
-
-        public double LastLecture
-        {
-            get { return _lastLecture; }
-            set
-            {
-                _lastLecture = value;
-                OnPropertyChanged("LastLecture");
-            }
-        }
-
-        private void SetLecture()
-        {
-            var target = ((ChartValues<ObservableValue>)LastHourSeries[0].Values).Last().Value;
-            var step = (target - _lastLecture) / 4;
-#if NET40
-            Task.Factory.StartNew(() =>
-            {
-                for (var i = 0; i < 4; i++)
-                {
-                    Thread.Sleep(100);
-                    LastLecture += step;
-                }
-                LastLecture = target;
-            });
-#endif
-#if NET45
-            Task.Run(() =>
-            {
-                for (var i = 0; i < 4; i++)
-                {
-                    Thread.Sleep(100);
-                    LastLecture += step;
-                }
-                LastLecture = target;
-            });
-#endif
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private void UpdateOnclick(object sender, RoutedEventArgs e)
-        {
-            TimePowerChart.Update(true);
-        }
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
     }
 }
