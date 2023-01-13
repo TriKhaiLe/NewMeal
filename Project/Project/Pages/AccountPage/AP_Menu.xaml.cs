@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Project.Pages;
 
-namespace Project.UserControlXAML.AcountPage
+namespace Project.UserControlXAML.AccountPage
 {
     /// <summary>
     /// Interaction logic for AP_Menu.xaml
@@ -25,21 +25,24 @@ namespace Project.UserControlXAML.AcountPage
         {
             get
             {
-                if (AccountPage.CurrentUser == null)
+                if (Project.Pages.AccountPage.CurrentUser == null)
                 {
                     return "User";
                 }
                 else
                 {
-                    return AccountPage.CurrentUser.UName;
+                    return Project.Pages.AccountPage.CurrentUser.UName;
                 }
             }
         }
 
-        public AP_Menu()
+        ContentControl MainParent = null;
+
+        public AP_Menu(ContentControl mainParent)
         {
             InitializeComponent();
             DataContext = this;
+            MainParent = mainParent;
         }
 
         private void profile_MouseEnter(object sender, MouseEventArgs e)
@@ -74,17 +77,17 @@ namespace Project.UserControlXAML.AcountPage
 
         private void password_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            (this.Parent as ContentControl).Content = new AP_Password();
+            MainParent.Content = new AP_Password(MainParent);
         }
 
         private void profile_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            (this.Parent as ContentControl).Content = new AP_Profile();
+            MainParent.Content = new AP_Profile(MainParent);
         }
 
         private void response_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            (this.Parent as ContentControl).Content = new AP_Response();
+            MainParent.Content = new AP_Response(MainParent);
         }
     }
 }

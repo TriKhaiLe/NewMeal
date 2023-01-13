@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Project.UserControlXAML.AcountPage.AP_Response"
+﻿<UserControl x:Class="Project.UserControlXAML.AccountPage.AP_Response"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -54,6 +54,7 @@
 
             <StackPanel>
                 <TextBox
+                x:Name="Response"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
                 Margin="0 10 0 0"
@@ -65,8 +66,22 @@
                 materialDesign:HintAssist.Hint="Nhập phản hồi của bạn vào đây" />
             </StackPanel>
 
-            <Grid Grid.Column="1">
-            
+            <Grid Grid.Column="1" VerticalAlignment="Top">
+                <StackPanel>
+                    <TextBlock Text="Đính kèm ảnh" HorizontalAlignment="Center" FontSize="18"/>
+                    <Rectangle Margin="10 10 10 10" Width="200" Height="200" StrokeThickness="1" Stroke="Black" RadiusX="10" RadiusY="10" MouseLeftButtonDown="imageBox_MouseLeftButtonDown">
+                        <Rectangle.Fill>
+                            <ImageBrush x:Name="ResponseImage" ImageSource="/Assets/Account/clip.png"></ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Button
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Content="Xóa ảnh"
+                    VerticalAlignment="Top" Click="deleteImage_Click"
+                    />
+                </StackPanel>
             </Grid>
         </Grid>
 

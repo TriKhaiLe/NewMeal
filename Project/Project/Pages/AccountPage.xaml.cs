@@ -1,5 +1,5 @@
 ﻿using Project.Model;
-using Project.UserControlXAML.AcountPage;
+using Project.UserControlXAML.AccountPage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,7 +51,7 @@ namespace Project.Pages
 
         private void page_Load(object sender, RoutedEventArgs e)
         {
-            Screen.Content = new AP_Menu();
+            Screen.Content = new AP_Menu(Screen);
         }
     }
 }

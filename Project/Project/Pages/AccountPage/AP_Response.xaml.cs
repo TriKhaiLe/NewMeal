@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +15,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Project.Pages;
-using Project.Model;
 using System.Net.Mail;
 using System.Net;
+using System.Net.Mime;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
-namespace Project.UserControlXAML.AcountPage
+namespace Project.UserControlXAML.AccountPage
 {
     /// <summary>
     /// Interaction logic for AP_Password.xaml
@@ -28,34 +31,43 @@ namespace Project.UserControlXAML.AcountPage
         {
             get
             {
-                if (AccountPage.CurrentUser == null)
+                if (Project.Pages.AccountPage.CurrentUser == null)
                 {
                     return "User";
                 }
                 else
                 {
-                    return AccountPage.CurrentUser.UName;
+                    return Project.Pages.AccountPage.CurrentUser.UName;
                 }
             }
         }
 
-        public AP_Response()
+        string imagePath = "";
+
+        ContentControl MainParent = null;
+
+        public AP_Response(ContentControl mainParent)
         {
             InitializeComponent();
             DataContext = this;
+            MainParent = mainParent;
         }
 
         #region Checking
 
         private bool test_empty()
         {
-
+            if (Response.Text == "")
+            {
+                MessageBox.Show("Vui lòng không để trống textbox!", "Thông báo");
+                return false;
+            }
             return true;
         }
 
         private void close_tag()
         {
-            (this.Parent as ContentControl).Content = new AP_Menu();
+            MainParent.Content = new AP_Menu(MainParent);
         }
 
         #endregion
@@ -81,62 +93,75 @@ namespace Project.UserControlXAML.AcountPage
             close_tag();
         }
 
+        private void imageBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog image = new OpenFileDialog();
+            image.Title = "Hãy chọn 1 tấm ảnh";
+            image.Filter = "Image (*.jpeg;*.png;*.jpg;*.gif)|*.jpeg;*.png;*.jpg;*.gif";
+            if (image.ShowDialog() == true)
+            {
+                ResponseImage.ImageSource = new BitmapImage(new Uri(image.FileName));
+                imagePath = image.FileName;
+            }
+        }
+
         private void send_Click(object sender, RoutedEventArgs e)
         {
+            if (test_empty())
+            {
+                SendResponse();
+            }
+        }
 
+        private void deleteImage_Click(object sender, RoutedEventArgs e)
+        {
+            ResponseImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Assets/Account/clip.png"));
+            imagePath = "";
         }
         #endregion
 
         #region Other
         // send response
-        //private void GetPass_Click(object sender, RoutedEventArgs e)
-        //{
-        //    string from, pass, messageBody, NewPass;
-        //    bool UserExist = true, UserMailExist = true;
-        //    Random rand = new Random();
-        //    randomCode = (rand.Next(999999)).ToString();
-        //    NewPass = "pa$$" + randomCode.ToString();
-        //    MailMessage message = new MailMessage();
-        //    to = (Mail_txt.Text).ToString();
-        //    from = "todaywhateat008@gmail.com";
-        //    pass = "fvpxzbucxtmohsgi";
-        //    messageBody = "Mật khẩu mới của bạn là : " + NewPass;
-        //    message.To.Add(to);
-        //    message.From = new MailAddress(from);
-        //    message.Body = messageBody;
-        //    message.Subject = "Mật khẩu mới";
-        //    SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-        //    smtp.EnableSsl = true;
-        //    smtp.Port = 587;
-        //    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-        //    smtp.Credentials = new NetworkCredential(from, pass);
-        //    try
-        //    {
-        //        smtp.Send(message);
-        //        if (MessageBox.Show("Mật khẩu mới đã được gửi đến mail của bạn !", "Thông báo") == MessageBoxResult.OK)
-        //        {
-        //            Main.turn_back();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString());
-        //    }
-
-        //    user = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.Username == Acc_txt.Text);
-        //    if (user != null)
-        //    {
-        //        user.Passwrd = NewPass;
-        //        DataProvider.Ins.DB.SaveChanges();
-        //    }
-        //    else UserExist = false;
-
-        //    if (!UserExist || !UserMailExist)
-        //    {
-        //        MessageBox.Show("Tài khoản của bạn không tồn tại hoặc mail của bạn không đúng !", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
-        //    }
-
-        //}
+        private void SendResponse()
+        {
+            string from, to, pass, messageBody;
+            MailMessage message = new MailMessage();
+            to = "quangptnk@gmail.com";
+            from = "todaywhateat008@gmail.com";
+            pass = "fvpxzbucxtmohsgi";
+            FUser user = Project.Pages.AccountPage.CurrentUser;
+            
+            messageBody =   "Account: " + user.Username + "\n" +
+                            "ID: " + user.UserID + "\n" +
+                            "Username: " + user.UName + "\n" +
+                            "===============================================" + "\n" +
+                            "Response: " + "\n" + Response.Text;
+            message.To.Add(to);
+            message.From = new MailAddress(from);
+            message.Subject = "User " + user.Username + " response";
+            message.Body = messageBody;
+            if (imagePath != "")
+            {
+                message.Attachments.Add(new Attachment(imagePath));
+            }
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            smtp.EnableSsl = true;
+            smtp.Port = 587;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.Credentials = new NetworkCredential(from, pass);
+            try
+            {
+                smtp.Send(message);
+                if (MessageBox.Show("Gửi phản hồi thành công !", "Thông báo") == MessageBoxResult.OK)
+                {
+                    close_tag();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
         #endregion
 

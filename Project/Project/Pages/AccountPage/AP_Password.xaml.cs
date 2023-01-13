@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using Project.Pages;
 using Project.Model;
 
-namespace Project.UserControlXAML.AcountPage
+namespace Project.UserControlXAML.AccountPage
 {
     /// <summary>
     /// Interaction logic for AP_Password.xaml
@@ -26,21 +26,24 @@ namespace Project.UserControlXAML.AcountPage
         {
             get
             {
-                if (AccountPage.CurrentUser == null)
+                if (Pages.AccountPage.CurrentUser == null)
                 {
                     return "User";
                 }
                 else
                 {
-                    return AccountPage.CurrentUser.UName;
+                    return Pages.AccountPage.CurrentUser.UName;
                 }
             }
         }
 
-        public AP_Password()
+        ContentControl MainParent = null;
+
+        public AP_Password(ContentControl mainParent)
         {
             InitializeComponent();
             DataContext = this;
+            MainParent = mainParent;
         }
 
         #region Checking
@@ -57,7 +60,7 @@ namespace Project.UserControlXAML.AcountPage
 
         private bool test_old_password()
         {
-            if (old_password.Password != AccountPage.CurrentUser.Passwrd)
+            if (old_password.Password != Pages.AccountPage.CurrentUser.Passwrd)
             {
                 MessageBox.Show("Mật khẩu cũ không đúng", "Thông báo");
                 return false;
@@ -97,12 +100,12 @@ namespace Project.UserControlXAML.AcountPage
 
         private void close_tag()
         {
-            (this.Parent as ContentControl).Content = new AP_Menu();
+            MainParent.Content = new AP_Menu(MainParent);
         }
 
         private void change_password()
         {
-            AccountPage.CurrentUser.Passwrd = new_password1.Password;
+            Pages.AccountPage.CurrentUser.Passwrd = new_password1.Password;
             DataProvider.Ins.DB.SaveChanges();
             MessageBox.Show("Bạn đã đổi mật khẩu thành công!", "Thông báo");
             close_tag();

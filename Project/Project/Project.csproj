@@ -436,6 +436,7 @@
     <Resource Include="Assets\Exercises\tennis.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Account\clip.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 using Project.Pages;
 using Project.Model;
 
-namespace Project.UserControlXAML.AcountPage
+namespace Project.UserControlXAML.AccountPage
 {
     /// <summary>
     /// Interaction logic for AP_Profile.xaml
@@ -35,12 +35,15 @@ namespace Project.UserControlXAML.AcountPage
             }
         }
 
-        public AP_Profile()
+        ContentControl MainParent = null;
+
+        public AP_Profile(ContentControl mainParent)
         {
             InitializeComponent();
             this.DataContext = this;
             Name_HelperText = "Nhập tên";
             Load_UserData();
+            MainParent = mainParent;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -70,7 +73,7 @@ namespace Project.UserControlXAML.AcountPage
 
         private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            (this.Parent as ContentControl).Content = new AP_Menu();
+            MainParent.Content = new AP_Menu(MainParent);
         }
 
         private void Name_TextChanged(object sender, TextChangedEventArgs e)
@@ -190,22 +193,22 @@ namespace Project.UserControlXAML.AcountPage
 
         void Load_UserData()
         {
-            Fullname.Text = AccountPage.CurrentUser.UName;
-            age.Text = AccountPage.CurrentUser.Age.ToString();
-            Gender.SelectedItem = Gender.Items[(int)AccountPage.CurrentUser.Sex];
-            weight.Text = AccountPage.CurrentUser.UWeight.ToString();
-            height.Text = AccountPage.CurrentUser.UHeight.ToString();
-            Mode.SelectedItem = Gender.Items[(int)AccountPage.CurrentUser.UStatus];
+            Fullname.Text = Project.Pages.AccountPage.CurrentUser.UName;
+            age.Text = Project.Pages.AccountPage.CurrentUser.Age.ToString();
+            Gender.SelectedItem = Gender.Items[(int)Project.Pages.AccountPage.CurrentUser.Sex];
+            weight.Text = Project.Pages.AccountPage.CurrentUser.UWeight.ToString();
+            height.Text = Project.Pages.AccountPage.CurrentUser.UHeight.ToString();
+            Mode.SelectedItem = Gender.Items[(int)Project.Pages.AccountPage.CurrentUser.UStatus];
         }
 
         void Edit_UserData()
         {
-            AccountPage.CurrentUser.UName = Fullname.Text;
-            AccountPage.CurrentUser.Age = Convert.ToInt32(age.Text);
-            AccountPage.CurrentUser.Sex = Gender.SelectedIndex;
-            AccountPage.CurrentUser.UWeight = Convert.ToInt32(weight.Text);
-            AccountPage.CurrentUser.UHeight = Convert.ToInt32(height.Text);
-            AccountPage.CurrentUser.UStatus = Mode.SelectedIndex;
+            Project.Pages.AccountPage.CurrentUser.UName = Fullname.Text;
+            Project.Pages.AccountPage.CurrentUser.Age = Convert.ToInt32(age.Text);
+            Project.Pages.AccountPage.CurrentUser.Sex = Gender.SelectedIndex;
+            Project.Pages.AccountPage.CurrentUser.UWeight = Convert.ToInt32(weight.Text);
+            Project.Pages.AccountPage.CurrentUser.UHeight = Convert.ToInt32(height.Text);
+            Project.Pages.AccountPage.CurrentUser.UStatus = Mode.SelectedIndex;
             DataProvider.Ins.DB.SaveChanges();
         }
         #endregion

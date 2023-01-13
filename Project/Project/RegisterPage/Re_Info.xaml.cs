@@ -1,6 +1,6 @@
 ﻿using Project.Model;
 using Project.Pages;
-using Project.UserControlXAML.AcountPage;
+using Project.UserControlXAML.AccountPage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
