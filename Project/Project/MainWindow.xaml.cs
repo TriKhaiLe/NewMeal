@@ -107,6 +107,7 @@ namespace Project
         {
             int id = DataProvider.Ins.Current_UserID;
             User = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == id);
+            if (User.Avatar != null) Avatar.ImageSource = new BitmapImage(new Uri(User.Avatar));
             Username_tb.Text = User.UName;
         }
         private void LogOutBtn_Click(object sender, RoutedEventArgs e)
