@@ -56,11 +56,13 @@ namespace Project.Pages
         }
 
         private int IsLoadFood;
+        public FUser User { get; set; }
         CollectionView view;
         public FoodPage()
         {
             InitializeComponent();
             this.DataContext = this;
+            User = new FUser();
             
             FoodUser = new List<UserFood>();
             textchangebytime();
@@ -117,7 +119,8 @@ namespace Project.Pages
         
         private void foodpage_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            User = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID);
+            if(SelectedFood_lv.Items.Count == 0) Gauge_Kcal.Value =(double) User.ComsumedCalo;
             Food food = new Food();
             FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
             //MessageBox.Show(FoodUser.Count().ToString());
@@ -340,9 +343,11 @@ namespace Project.Pages
                         history.Meal = 3;   
                     }
                     DataProvider.Ins.DB.UserHistory.Add(history);
+                    DataProvider.Ins.DB.SaveChanges();
                     user.Last_eat = DateTime.Now;
                     
                 }
+                User.ComsumedCalo =(int) Gauge_Kcal.Value;
                 lvDataBinding.Items.Refresh();
                 DataProvider.Ins.DB.SaveChanges();
                 recipeWindow.Owner = Window.GetWindow(this);
@@ -372,7 +377,7 @@ namespace Project.Pages
         {
             Button button = sender as Button;
             FoodDays food = button.DataContext as FoodDays;
-            Gauge_Kcal.Value -= (double) food.Food.Kcal;
+            Gauge_Kcal.Value -= (double)food.Food.Kcal;
             SelectedFood_lv.Items.Remove(food);
             if (Gauge_Kcal.Value <= Gauge_Kcal.To)
             {
@@ -390,6 +395,17 @@ namespace Project.Pages
             DataProvider.Ins.DB.SaveChanges();
         }
 
-        
+        private void ResetKcalButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Bạn có chắc chắn muốn tạo lại thanh kcal hằng ngày ?" , "Thông báo" , MessageBoxButton.OKCancel , MessageBoxImage.Question) == MessageBoxResult.OK)
+            {
+                if (SelectedFood_lv.Items.Count == 0)
+                {
+                    Gauge_Kcal.Value = 0;
+                    User.ComsumedCalo = 0;
+                    DataProvider.Ins.DB.SaveChanges();
+                }
+            }    
+        }
     }
 }

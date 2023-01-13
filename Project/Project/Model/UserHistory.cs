@@ -14,8 +14,9 @@ namespace Project.Model
     
     public partial class UserHistory
     {
-        public int UserID { get; set; }
-        public int FoodID { get; set; }
+        public int HistoryID { get; set; }
+        public Nullable<int> UserID { get; set; }
+        public Nullable<int> FoodID { get; set; }
         public Nullable<int> Meal { get; set; }
         public Nullable<System.DateTime> eatDate { get; set; }
     

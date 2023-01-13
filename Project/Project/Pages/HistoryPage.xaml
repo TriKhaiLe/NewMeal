@@ -122,22 +122,7 @@
                         </Border>
                     </WrapPanel>
                 </Grid>
-
-
             </Grid>
-
-
-
-
-            <!--3 list-->
-            <!--<DockPanel Width="900" Height="auto" Margin="15,10,30,10" VerticalAlignment="Bottom">
-                
-                
-                
-                -->
-            <!---->
-            <!--
-            </DockPanel>-->
         </DockPanel>
 
         <!--page duoi-->
