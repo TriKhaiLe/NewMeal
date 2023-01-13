@@ -183,7 +183,7 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <usercontrol:PieChart Grid.Row="0" Margin="0 0 0 10"></usercontrol:PieChart>
+                        <usercontrol:PieChart x:Name="uc_NutriChart" Grid.Row="0" Margin="0 0 0 10"></usercontrol:PieChart>
                         <usercontrol:PieChartMeal x:Name="uc_MealChart" Grid.Row="1"></usercontrol:PieChartMeal>
                     </Grid>
                 </Grid>

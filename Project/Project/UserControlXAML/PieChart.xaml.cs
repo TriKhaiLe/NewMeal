@@ -59,13 +59,7 @@ namespace Project.UserControlXAML
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            user = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID);
-            Fat = (int)(user.UWeight * 1.5);
-            Protein = (int)(user.UWeight * 1.5);
-            Carbs = (int)(user.UWeight * 6.5);
-            seriProtein.Values = new ChartValues<ObservableValue> { new ObservableValue(Protein) };
-            seriFat.Values = new ChartValues<ObservableValue> { new ObservableValue(Fat) };
-            seriCarbs.Values = new ChartValues<ObservableValue> { new ObservableValue(Carbs) };
+            
         }
     }
 }

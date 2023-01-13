@@ -391,6 +391,15 @@ namespace Project.Pages
             DataProvider.Ins.DB.SaveChanges();
         }
 
-        
+        private void ResetKcalButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Bạn có chắc chắn muốn tạo lại thanh kcal hằng ngày ?" , "Thông báo" , MessageBoxButton.OKCancel , MessageBoxImage.Question) == MessageBoxResult.OK)
+            {
+                if (SelectedFood_lv.Items.Count == 0)
+                {
+                    Gauge_Kcal.Value = 0;
+                }
+            }    
+        }
     }
 }

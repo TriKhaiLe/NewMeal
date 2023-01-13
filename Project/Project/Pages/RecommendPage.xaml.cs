@@ -1,4 +1,6 @@
-﻿using Project.Model;
+﻿using LiveCharts.Defaults;
+using LiveCharts;
+using Project.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Security.RightsManagement;
 
 namespace Project.Pages
 {
@@ -52,8 +55,8 @@ namespace Project.Pages
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         CollectionView view;
-
-        public RecommendPage()
+        public FoodPage foodPage1;
+        public RecommendPage(FoodPage foodPage)
         {
             this.DataContext = this;
             Breakfast_food = new List<FoodDays>();
@@ -61,7 +64,7 @@ namespace Project.Pages
             Dinner_food = new List<FoodDays>();
             meal = new List<FoodDays>();
             IsLoadFood = 1;
-
+            foodPage1 = foodPage;
             InitializeComponent();
         }
         private void recommend_page_Loaded(object sender, RoutedEventArgs e)
@@ -142,6 +145,15 @@ namespace Project.Pages
             {
                 uc_MealChart.breakfast += (int)item.Food.Kcal;
             }
+            uc_MealChart.Loaded();
+            
+            FUser user1 = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID);
+            int Fat = (int)(user1.UWeight * 1.5);
+            int Protein = (int)(user1.UWeight * 1.5);
+            int Carbs = (int)(user1.UWeight * 6.5);
+            uc_NutriChart.seriProtein.Values = new ChartValues<ObservableValue> { new ObservableValue(Protein) };
+            uc_NutriChart.seriFat.Values = new ChartValues<ObservableValue> { new ObservableValue(Fat) };
+            uc_NutriChart.seriCarbs.Values = new ChartValues<ObservableValue> { new ObservableValue(Carbs) };
         }
 
 
@@ -192,6 +204,8 @@ namespace Project.Pages
             FoodDays food = button.DataContext as FoodDays;
             Gauge_Kcal.Value -= (double)food.Food.Kcal;
             Breakfast_RecommendFood_lv.Items.Remove(food);
+            uc_MealChart.breakfast -= (int)food.Food.Kcal;
+            uc_MealChart.Loaded();
             if (Gauge_Kcal.Value <= Gauge_Kcal.To)
             {
                 kcal_txt.Visibility = Visibility.Hidden;
@@ -203,6 +217,8 @@ namespace Project.Pages
             FoodDays food = button.DataContext as FoodDays;
             Gauge_Kcal.Value -= (double)food.Food.Kcal;
             Lunch_RecommendFood_lv.Items.Remove(food);
+            uc_MealChart.lunch -= (int)food.Food.Kcal;
+            uc_MealChart.Loaded();
             if (Gauge_Kcal.Value <= Gauge_Kcal.To)
             {
                 kcal_txt.Visibility = Visibility.Hidden;
@@ -214,6 +230,8 @@ namespace Project.Pages
             FoodDays food = button.DataContext as FoodDays;
             Gauge_Kcal.Value -= (double)food.Food.Kcal;
             Dinner_RecommendFood_lv.Items.Remove(food);
+            uc_MealChart.dinner -= (int)food.Food.Kcal;
+            uc_MealChart.Loaded();
             if (Gauge_Kcal.Value <= Gauge_Kcal.To)
             {
                 kcal_txt.Visibility = Visibility.Hidden;
@@ -633,7 +651,12 @@ namespace Project.Pages
                     meal.Add(fd);
                 }
             }
+            foreach(FoodDays f in meal)
+            {
+                foodPage1.SelectedFood_lv.Items.Add(f);
+            }    
             MessageBox.Show("Xong rùi! Bạn vào trang món ăn để xem công thức nhé!!!");
         }
+
     }
 }

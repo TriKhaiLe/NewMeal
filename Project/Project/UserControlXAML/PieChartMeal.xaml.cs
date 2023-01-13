@@ -35,7 +35,6 @@ namespace Project.UserControlXAML
         public PieChartMeal()
         {
             InitializeComponent();
-
             this.DataContext = this;
             PointLabel = chartPoint =>
                 string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
@@ -54,7 +53,14 @@ namespace Project.UserControlXAML
             selectedSeries.PushOut = 8;
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        //private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    seriBreakfast.Values = new ChartValues<ObservableValue> { new ObservableValue(breakfast) };
+        //    seriLunch.Values = new ChartValues<ObservableValue> { new ObservableValue(lunch) };
+        //    seriDinner.Values = new ChartValues<ObservableValue> { new ObservableValue(dinner) };
+        //}
+
+        internal new void Loaded()
         {
             seriBreakfast.Values = new ChartValues<ObservableValue> { new ObservableValue(breakfast) };
             seriLunch.Values = new ChartValues<ObservableValue> { new ObservableValue(lunch) };

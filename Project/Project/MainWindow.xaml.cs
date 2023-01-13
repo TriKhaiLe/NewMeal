@@ -24,9 +24,9 @@ namespace Project
     public partial class MainWindow : Window
     {
         int ok = 0;
-        private FoodPage FoodPage = new FoodPage();
+        private static FoodPage FoodPage = new FoodPage();
         private AccountPage AccountPage = new AccountPage();
-        private RecommendPage RecommendPage = new RecommendPage();
+        private RecommendPage RecommendPage = new RecommendPage(FoodPage);
         private CalorieBurnPage CalorieBurnPage = new CalorieBurnPage();
         private HistoryPage HistoryPage = new HistoryPage();
         public FUser User { get; set; }
@@ -119,7 +119,7 @@ namespace Project
                 LoadUser();
                 FoodPage = new FoodPage();
                 AccountPage = new AccountPage();
-                RecommendPage = new RecommendPage();
+                RecommendPage = new RecommendPage(FoodPage);
                 CalorieBurnPage = new CalorieBurnPage();
                 Main.Content = FoodPage;
                 Food_rdbtn.IsChecked = true;
