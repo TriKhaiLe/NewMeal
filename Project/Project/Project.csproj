@@ -436,9 +436,6 @@
     <Resource Include="Assets\Exercises\tennis.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Account\response.png" />
-    <Resource Include="Assets\History\bar-chart.png" />
-    <Resource Include="Assets\History\history.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -449,6 +446,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Assets\Account\response.png" />
+    <Resource Include="Assets\History\bar-chart.png" />
+    <Resource Include="Assets\History\history.png" />
     <Resource Include="Assets\Food\F210.png" />
     <Resource Include="Assets\Food\F209.png" />
     <Resource Include="Assets\Food\F208.jpg" />

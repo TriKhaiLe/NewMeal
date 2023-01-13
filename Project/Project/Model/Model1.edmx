@@ -27,7 +27,7 @@
           <Property Name="Descript" Type="nvarchar" MaxLength="500" />
           <Property Name="MealTime" Type="int" />
           <Property Name="Imgsrc" Type="varchar" MaxLength="100" />
-          <Property Name="DonVi" Type="varchar" MaxLength="50" />
+          <Property Name="DonVi" Type="nvarchar" MaxLength="50" />
           <Property Name="Fat" Type="int" />
           <Property Name="Carbs" Type="int" />
           <Property Name="Protein" Type="int" />
@@ -81,16 +81,16 @@
         </EntityType>
         <EntityType Name="UserHistory">
           <Key>
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="FoodID" />
+            <PropertyRef Name="HistoryID" />
           </Key>
-          <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="HistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="FoodID" Type="int" />
           <Property Name="Meal" Type="int" />
           <Property Name="eatDate" Type="smalldatetime" />
         </EntityType>
         <Association Name="fk_H_Food">
-          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
           <End Role="UserHistory" Type="Self.UserHistory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Food">
@@ -102,7 +102,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_H_User">
-          <End Role="FUser" Type="Self.FUser" Multiplicity="1" />
+          <End Role="FUser" Type="Self.FUser" Multiplicity="0..1" />
           <End Role="UserHistory" Type="Self.UserHistory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FUser">
@@ -222,7 +222,7 @@
           <Property Name="Descript" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="MealTime" Type="Int32" />
           <Property Name="Imgsrc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Fat" Type="Int32" />
           <Property Name="Carbs" Type="Int32" />
           <Property Name="Protein" Type="Int32" />
@@ -285,11 +285,11 @@
         </EntityType>
         <EntityType Name="UserHistory">
           <Key>
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="FoodID" />
+            <PropertyRef Name="HistoryID" />
           </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="HistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="FoodID" Type="Int32" />
           <Property Name="Meal" Type="Int32" />
           <Property Name="eatDate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Food" Relationship="Self.fk_H_Food" FromRole="UserHistory" ToRole="Food" />
@@ -308,7 +308,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_H_Food">
-          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
           <End Role="UserHistory" Type="Self.UserHistory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Food">
@@ -332,7 +332,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_H_User">
-          <End Role="FUser" Type="Self.FUser" Multiplicity="1" />
+          <End Role="FUser" Type="Self.FUser" Multiplicity="0..1" />
           <End Role="UserHistory" Type="Self.UserHistory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FUser">
@@ -487,6 +487,7 @@
           <EntitySetMapping Name="UserHistory">
             <EntityTypeMapping TypeName="QLMAModel.UserHistory">
               <MappingFragment StoreEntitySet="UserHistory">
+                <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="FoodID" ColumnName="FoodID" />
                 <ScalarProperty Name="Meal" ColumnName="Meal" />

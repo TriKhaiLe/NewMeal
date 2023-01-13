@@ -340,6 +340,7 @@ namespace Project.Pages
                         history.Meal = 3;   
                     }
                     DataProvider.Ins.DB.UserHistory.Add(history);
+                    DataProvider.Ins.DB.SaveChanges();
                     user.Last_eat = DateTime.Now;
                     
                 }

@@ -67,11 +67,11 @@ constraint pk_UserEx primary key(UserID , ExID)
 
 create table UserHistory
 (
+HistoryID int identity(1,1) primary key,
 UserID int,
 FoodID int,
 Meal int,
-eatDate smalldatetime,
-constraint pk_UserHis primary key(UserID , FoodID)
+eatDate smalldatetime
 )
 
 --------Foreign Key----------
