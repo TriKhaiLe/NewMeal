@@ -7,8 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.ComponentModel;
-using System.Data;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -16,32 +14,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Project.Model;
+using System.Windows.Media.TextFormatting;
+using System.Security.RightsManagement;
 using LiveCharts.Defaults;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Project.UserControlXAML
 {
     /// <summary>
-    /// Interaction logic for PieChart.xaml
+    /// Interaction logic for PieChartMeal.xaml
     /// </summary>
-    public partial class PieChart : UserControl
+    public partial class PieChartMeal : UserControl 
     {
-        
-        private FUser user;
-        public int Fat { get; set; }
-        public int Carbs { get; set; }
-        public int Protein { get; set; }
-        public PieChart()
+
+        public int breakfast { get; set; }
+
+        public int lunch { get; set; }
+        public int dinner { get; set; }
+        public PieChartMeal()
         {
             InitializeComponent();
-            Fat = new int();
-            Protein = new int();
-            Carbs = new int();
-            
+
+            this.DataContext = this;
             PointLabel = chartPoint =>
                 string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
-
-            DataContext = this;
         }
         public Func<ChartPoint, string> PointLabel { get; set; }
 
@@ -59,13 +56,9 @@ namespace Project.UserControlXAML
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            user = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID);
-            Fat = (int)(user.UWeight * 1.5);
-            Protein = (int)(user.UWeight * 1.5);
-            Carbs = (int)(user.UWeight * 6.5);
-            seriProtein.Values = new ChartValues<ObservableValue> { new ObservableValue(Protein) };
-            seriFat.Values = new ChartValues<ObservableValue> { new ObservableValue(Fat) };
-            seriCarbs.Values = new ChartValues<ObservableValue> { new ObservableValue(Carbs) };
+            seriBreakfast.Values = new ChartValues<ObservableValue> { new ObservableValue(breakfast) };
+            seriLunch.Values = new ChartValues<ObservableValue> { new ObservableValue(lunch) };
+            seriDinner.Values = new ChartValues<ObservableValue> { new ObservableValue(dinner) };
         }
     }
 }

@@ -189,6 +189,9 @@
     <Compile Include="UserControlXAML\PieChart.xaml.cs">
       <DependentUpon>PieChart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlXAML\PieChartMeal.xaml.cs">
+      <DependentUpon>PieChartMeal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CalorieBurnViewModel.cs" />
@@ -288,6 +291,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlXAML\PieChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlXAML\PieChartMeal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

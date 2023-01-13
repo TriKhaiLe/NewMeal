@@ -93,15 +93,15 @@ namespace Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //this.Hide();
+            this.Hide();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.ShowDialog();
             Food_rdbtn.IsChecked = true;
-            /*if (loginWindow.IsLogin)
+            if (loginWindow.IsLogin)
             {
                 LoadUser();
                 this.Show();
-            }*/
+            }
         }
         public void LoadUser()
         {
@@ -122,6 +122,7 @@ namespace Project
                 RecommendPage = new RecommendPage();
                 CalorieBurnPage = new CalorieBurnPage();
                 Main.Content = FoodPage;
+                Food_rdbtn.IsChecked = true;
                 this.Show();
             }
         }

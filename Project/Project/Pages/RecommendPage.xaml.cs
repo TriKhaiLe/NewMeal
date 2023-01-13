@@ -52,6 +52,7 @@ namespace Project.Pages
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         CollectionView view;
+
         public RecommendPage()
         {
             this.DataContext = this;
@@ -60,11 +61,12 @@ namespace Project.Pages
             Dinner_food = new List<FoodDays>();
             meal = new List<FoodDays>();
             IsLoadFood = 1;
+
             InitializeComponent();
         }
-
         private void recommend_page_Loaded(object sender, RoutedEventArgs e)
         {
+
             FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
             Food food = new Food();
             List<Food> foods = DataProvider.Ins.DB.Food.ToList();
@@ -124,6 +126,21 @@ namespace Project.Pages
             if (Breakfast_RecommendFood_lv.Items.IsEmpty == true)
             {
                 RecommendAlgorithm();
+            }
+            uc_MealChart.breakfast = 0;
+            uc_MealChart.lunch = 0;
+            uc_MealChart.dinner = 0;
+            foreach (FoodDays item in Lunch_RecommendFood_lv.Items)
+            {
+                uc_MealChart.lunch += (int)item.Food.Kcal;
+            }
+            foreach (FoodDays item in Dinner_RecommendFood_lv.Items)
+            {
+                uc_MealChart.dinner += (int)item.Food.Kcal;
+            }
+            foreach (FoodDays item in Breakfast_RecommendFood_lv.Items)
+            {
+                uc_MealChart.breakfast += (int)item.Food.Kcal;
             }
         }
 
@@ -371,6 +388,7 @@ namespace Project.Pages
                 Lunch_RecommendFood_lv.Items.Add(adding_food);
                 gaugeRevaluate(adding_food);
             }
+            
             //Dinner recommend
             havent_eaten_food = Dinner_food.FindAll(p => p.Date == new DateTime()).ToList();
             rdom = rd.Next(4);
