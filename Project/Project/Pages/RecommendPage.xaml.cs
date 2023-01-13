@@ -35,6 +35,7 @@ namespace Project.Pages
         public List<FoodDays> Dinner_food { get; set; }
         private List<FoodDays> _foodList;
         private int IsLoadFood;
+        private bool tab_selected;
         public List<FoodDays> foodList
         {
             get
@@ -69,7 +70,7 @@ namespace Project.Pages
         }
         private void recommend_page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            tab_selected = false;
             FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
             Food food = new Food();
             List<Food> foods = DataProvider.Ins.DB.Food.ToList();
@@ -231,6 +232,7 @@ namespace Project.Pages
 
         private void tab_control_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            tab_selected = true;
             if (tab_control.SelectedIndex == 0)
             {
                 foodList = Breakfast_food;
@@ -244,10 +246,15 @@ namespace Project.Pages
                 foodList = Dinner_food;
             }
             ComboBox_sort.Text = null;
+            tab_selected = false;
         }
 
         private void lvRecommendation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (tab_selected == true)
+            {
+                return;
+            }
             FoodDays food = (FoodDays)lvRecommendation.SelectedItem;
             if (food != null)
             {
