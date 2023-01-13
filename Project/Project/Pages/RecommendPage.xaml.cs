@@ -257,19 +257,23 @@ namespace Project.Pages
                     case 0:
                         {
                             Breakfast_RecommendFood_lv.Items.Add(food);
+                            uc_MealChart.breakfast +=(int) food.Food.Kcal;
                         }
                         break;
                     case 1:
                         {
                             Lunch_RecommendFood_lv.Items.Add(food);
+                            uc_MealChart.lunch += (int)food.Food.Kcal;
                         }
                         break;
                     case 2:
                         {
                             Dinner_RecommendFood_lv.Items.Add(food);
+                            uc_MealChart.dinner += (int)food.Food.Kcal;
                         }
                         break;
                 }
+                uc_MealChart.Loaded();
                 if (Gauge_Kcal.Value > Gauge_Kcal.To)
                 {
                     kcal_txt.Visibility = Visibility.Visible;
