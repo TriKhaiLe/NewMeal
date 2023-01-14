@@ -52,6 +52,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--<local:WidthMinusFive x:Name="WidthMinusFive"></local:WidthMinusFive>-->
     </Page.Resources>
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -78,7 +79,8 @@
                         <ColumnDefinition Width="280"/>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
+                    <StackPanel Grid.Column="0"
+                                x:Name="lv_stackpan">
                         <DockPanel>
                             <Label Content="Đề xuất theo :" VerticalAlignment="Center"></Label>
                             <ComboBox
@@ -170,7 +172,9 @@
                                         <materialDesign:Card
                                                         materialDesign:ElevationAssist.Elevation="Dp2">
                                             <Border CornerRadius="12" Background="White"  >
-                                                <Grid Width="{Binding Width, ElementName=lvRecommendation}">
+                                                <Grid 
+                                                    Margin="0 0 -30 0"
+                                                    Width="{Binding ElementName=lvRecommendation , Path=ActualWidth}">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -264,7 +268,9 @@
                                             <materialDesign:Card
                                             materialDesign:ElevationAssist.Elevation="Dp2">
                                                 <Border CornerRadius="12" Background="White"  >
-                                                    <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
+                                                    <Grid
+                                                        Margin="0 0 -30 0"
+                                                        Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="auto"></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -275,7 +281,7 @@
                                                                     <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
                                                                 </Rectangle.Fill>
                                                             </Rectangle>
-                                                            <TextBlock VerticalAlignment="Center" Width="135" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
+                                                            <TextBlock VerticalAlignment="Center" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
                                                         </StackPanel>
                                                         <Button Grid.Column="1"
                                                     Margin="-20 0 0 0"
@@ -325,7 +331,9 @@
                                             <materialDesign:Card
                                 materialDesign:ElevationAssist.Elevation="Dp2">
                                                 <Border CornerRadius="12" Background="White"  >
-                                                    <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
+                                                    <Grid 
+                                                        Margin="0 0 -30 0"
+                                                        Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="auto"></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -336,7 +344,7 @@
                                                                     <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
                                                                 </Rectangle.Fill>
                                                             </Rectangle>
-                                                            <TextBlock VerticalAlignment="Center" Width="135" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
+                                                            <TextBlock VerticalAlignment="Center" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
                                                         </StackPanel>
                                                         <Button Grid.Column="1"
                                                     Margin="-20 0 0 0"
@@ -386,7 +394,9 @@
                                             <materialDesign:Card
                                 materialDesign:ElevationAssist.Elevation="Dp2">
                                                 <Border CornerRadius="12" Background="White"  >
-                                                    <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
+                                                    <Grid
+                                                        Margin="0 0 -30 0"
+                                                        Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="auto"></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -397,7 +407,7 @@
                                                                     <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
                                                                 </Rectangle.Fill>
                                                             </Rectangle>
-                                                            <TextBlock VerticalAlignment="Center" Width="135" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
+                                                            <TextBlock VerticalAlignment="Center" Text="{Binding Food.FoodName}" TextWrapping="Wrap" FontWeight="Bold" />
                                                         </StackPanel>
                                                         <Button Grid.Column="1"
                                                     Margin="-20 0 0 0"
