@@ -16,7 +16,7 @@
       
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HistoryPage">
+      Title="HistoryPage" Loaded="Page_Loaded">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
