@@ -31,7 +31,7 @@
             <!--combobox-->
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock Margin="30,0,0,0" Width="223"></TextBlock>
-                <ComboBox Width="200" Margin="0,5,40,0"/>
+                <ComboBox x:Name="combobox" Width="200" Margin="0,5,40,0" SelectionChanged="combobox_SelectionChanged"/>
             </DockPanel>
 
             <!--title-->

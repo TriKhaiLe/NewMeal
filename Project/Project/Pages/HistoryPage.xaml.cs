@@ -30,39 +30,39 @@ namespace Project.Pages
     {
         private double _lastLecture;
         private double _trend;
-        private List<HistoryInDay> _userhistory;
+        private HistoryInDay[] _userhistory;
         public HistoryPage()
         {
             InitializeComponent();
 
-            SeriesCollection = new SeriesCollection
-            {
-                new StackedColumnSeries
-                {
-                    Values = new ChartValues<double> {4, 5, 6, 8},
-                    StackMode = StackMode.Values, // this is not necessary, values is the default stack mode
-                    DataLabels = true
-                },
-                new StackedColumnSeries
-                {
-                    Values = new ChartValues<double> {2, 5, 6, 7},
-                    StackMode = StackMode.Values,
-                    DataLabels = true
-                }
-            };
+            //SeriesCollection = new SeriesCollection
+            //{
+            //    new StackedColumnSeries
+            //    {
+            //        Values = new ChartValues<double> {4, 5, 6, 8},
+            //        StackMode = StackMode.Values, // this is not necessary, values is the default stack mode
+            //        DataLabels = true
+            //    },
+            //    new StackedColumnSeries
+            //    {
+            //        Values = new ChartValues<double> {2, 5, 6, 7},
+            //        StackMode = StackMode.Values,
+            //        DataLabels = true
+            //    }
+            //};
 
-            //adding series updates and animates the chart
-            SeriesCollection.Add(new StackedColumnSeries
-            {
-                Values = new ChartValues<double> { 6, 2, 7 },
-                StackMode = StackMode.Values
-            });
+            ////adding series updates and animates the chart
+            //SeriesCollection.Add(new StackedColumnSeries
+            //{
+            //    Values = new ChartValues<double> { 6, 2, 7 },
+            //    StackMode = StackMode.Values
+            //});
 
-            //adding values also updates and animates
-            SeriesCollection[2].Values.Add(4d);
+            ////adding values also updates and animates
+            //SeriesCollection[2].Values.Add(4d);
 
-            Labels = new[] { "Chrome", "Mozilla", "Opera", "IE" };
-            Formatter = value => value + " Mill";
+            //Labels = new[] { "Chrome", "Mozilla", "Opera", "IE" };
+            //Formatter = value => value + " Mill";
 
             DataContext = this;
         }
@@ -83,10 +83,7 @@ namespace Project.Pages
         {
             get
             {
-                if (refresh_History())
-                {
-                    refresh_UserHistory();
-                }
+                refresh_History();
                 return _HistoryData;
             }
         }
@@ -153,17 +150,38 @@ namespace Project.Pages
 
             public int MorningKcal
             {
-                get { return (int)(_Morning.Sum(x => x.Kcal)); }
+                get 
+                {
+                    if (_Morning.Count == 0)
+                    {
+                        return 0;
+                    }
+                    return (int)(_Morning.Sum(x => x.Kcal));
+                }
             }
 
             public int LunchKcal
             {
-                get { return (int)(_Lunch.Sum(x => x.Kcal)); }
+                get 
+                {
+                    if (_Lunch.Count == 0)
+                    {
+                        return 0;
+                    }
+                    return (int)(_Lunch.Sum(x => x.Kcal));
+                }
             }
 
             public int DinnerKcal
             {
-                get { return (int)(_Dinner.Sum(x => x.Kcal)); }
+                get 
+                {
+                    if (_Dinner.Count == 0)
+                    {
+                        return 0;
+                    }
+                    return (int)(_Dinner.Sum(x => x.Kcal));
+                }
             }
 
             public DateTime Date
@@ -193,37 +211,38 @@ namespace Project.Pages
             return 0;
         }
 
-        private List<HistoryInDay> GetHistory()
+        private HistoryInDay[] GetHistory()
         {
-            List<HistoryInDay> history = new List<HistoryInDay>();
+            HistoryInDay[] history = new HistoryInDay[7];
+            DateTime date = DateTime.Now;
+            TimeSpan sub = new TimeSpan(1, 0, 0, 0);
+            for (int i = 6; i>=0; i--)
+            {
+                history[i] = new HistoryInDay(date, new List<Food>(), new List<Food>(), new List<Food>());
+                date -= sub;
+            }
+
             if (UserHistory.Count() == 0)
             {
                 return history;
             }
-            DateTime date = (DateTime)(UserHistory[UserHistory.Count()-1].eatDate);
-            date.AddDays(1);
-            int count = 7;
-            for(int i = UserHistory.Count; i>=0; i--)
+            date = DateTime.Now;
+            int count = 6;
+            for(int i = UserHistory.Count-1; i>=0; i--)
             {
                 UserHistory his = UserHistory[i];
-                int gap = 0;
                 while (CompareDate(date,(DateTime)(his.eatDate)) == 1)
                 {
-                    date.AddDays(-1);
+                    date -= sub;
                     count--;
-                    gap++;
                 }
                 if (count < 0)
                 {
                     break;
                 }
-                while (gap > 0)
-                {
-                    history.Add(new HistoryInDay(date,new List<Food>(), new List<Food>(), new List<Food>()));
-                    gap--;
-                }
+
                 // Add to History in date
-                HistoryInDay historyInDay = history[history.Count() - 1];
+                HistoryInDay historyInDay = history[count];
                 switch(his.Meal)
                 {
                     case 3:
@@ -246,9 +265,29 @@ namespace Project.Pages
             }
             return history;
         }
-        
+
 
         //---------------------------------------------------------------------------------
+        #endregion
+
+        #region front-end
+        private void Get_FoodList(int index)
+        {
+            HistoryInDay db = _userhistory[index];
+            foreach(Food f in db.Morning)
+            {
+                lvHistory1.Items.Add(f.FoodName);
+            }
+            foreach (Food f in db.Lunch)
+            {
+                lvHistory2.Items.Add(f.FoodName);
+            }
+            foreach (Food f in db.Dinner)
+            {
+                lvHistory3.Items.Add(f.FoodName);
+            }
+        }
+
         #endregion
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -265,9 +304,15 @@ namespace Project.Pages
                     StackMode = StackMode.Values
                 });
                 labelList.Add(his.Date.ToString());
+                combobox.Items.Add(his.Date.ToString("dd/MM/yyyy"));
             }
             Labels = labelList.ToArray();
-            Formatter = value => value + " Mill";
+            Formatter = value => value + " Kcal";
+        }
+
+        private void combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Get_FoodList(combobox.SelectedIndex);
         }
     }
 }
