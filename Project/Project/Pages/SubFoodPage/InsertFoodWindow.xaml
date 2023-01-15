@@ -151,7 +151,8 @@
                                      VerticalAlignment="Top"
                                      Width="120"
                                      materialDesign:HintAssist.Hint="VD:1 tô, 500g, ...."
-                                     materialDesign:HintAssist.HelperText="Đơn vị tính">
+                                     materialDesign:HintAssist.HelperText="Đơn vị tính"
+                                     >
                                 <TextBox.Text>
                                     <Binding
                                         Path="Text1"

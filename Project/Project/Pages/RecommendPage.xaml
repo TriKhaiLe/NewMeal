@@ -69,8 +69,9 @@
             <DockPanel Grid.Row="0">
                 <TextBlock Grid.Row="0" 
                        Text="Đề Xuất Cho Bạn"
+                        FontSize="40"
                        Foreground="Black"
-                       Style="{StaticResource MaterialDesignHeadline4TextBlock}"/>
+                       Style="{StaticResource MaterialDesignHeadline4TextBlock}" FontFamily="SVN-Shintia Script"/>
 
             </DockPanel>
             <DockPanel Grid.Row="1">

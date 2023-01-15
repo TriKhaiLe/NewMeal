@@ -18,7 +18,7 @@
      TextOptions.TextRenderingMode="Auto"
       Name="foodpage"
      Background="{DynamicResource MaterialDesignPaper}"
-     FontFamily="{DynamicResource MaterialDesignFont}" Loaded="foodpage_Loaded"  >
+     FontFamily="Segoe UI" Loaded="foodpage_Loaded"  >
     <Page.Resources>
         <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
             <Setter Property="OverridesDefaultStyle" Value="true"/>
@@ -109,8 +109,9 @@
             </Grid.RowDefinitions>
             <DockPanel Grid.Row="0" Margin="0 0 0 20">
                 <TextBlock
+                    FontSize="50"
                     Style="{StaticResource MaterialDesignHeadline4TextBlock}"
-                    Text="Hôm nay ăn gì ?" />
+                    Text="Hôm  nay  ăn  gì  ?" FontFamily="SVN-Shintia Script" />
             </DockPanel>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -391,7 +392,7 @@
                         Click="ReviewRecipeBtn_Click"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         Margin="5"
-                        Height="21"
+                        Height="30"
                         Width="100"
                         materialDesign:ButtonAssist.CornerRadius="12"
                         >
