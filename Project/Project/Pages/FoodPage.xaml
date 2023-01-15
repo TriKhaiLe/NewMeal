@@ -296,13 +296,12 @@
                                                         <Run Text="{Binding _Date}"></Run>
                                                     </TextBlock>
                                                     <Button
-                                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                                    Margin="5"
-                                                    Height="50"
-                                                    Width="50"
-                                                    materialDesign:ButtonAssist.CornerRadius="50"
-                                                        Click="DelButton_Click"
-                                                    >
+                                                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                        Margin="3"
+                                                        Height="50"
+                                                        Width="50"
+                                                        materialDesign:ButtonAssist.CornerRadius="50"
+                                                        Click="DelButton_Click">
                                                         <materialDesign:PackIcon Kind="Delete" />
                                                     </Button>
                                                 </StackPanel>

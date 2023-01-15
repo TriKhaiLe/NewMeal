@@ -71,59 +71,68 @@ namespace Project.Pages.SubFoodPage
 
         private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
-            int ok = 0;
-            if (FoodName_txt.Text != null && Kcal_txt.Text != null && Type_cb.Text != null && Mealtime_lv.SelectedItems.Count > 0)
+            if (DonVi_txt.Text != null && FoodName_txt.Text != null && Kcal_txt.Text != null && Type_cb.Text != null && Mealtime_lv.SelectedItems.Count > 0)
             {
                 int kcal = 0;
+                int fat = 0, protein = 0, carbs = 0;
                 try
                 {
                     kcal = Convert.ToInt32(Kcal_txt.Text);
-                    if (kcal < 0)
+                    if(Fat_txt.Text != null)
                     {
-                        MessageBox.Show("Xin vui lòng điền lượng kcal là số nguyên không âm!");
+                        fat = Convert.ToInt32(Fat_txt.Text);
                     }
-                    else { ok = 1; }
+                    if(Protein_txt.Text != null) { protein = Convert.ToInt32(Protein_txt.Text); }
+                    if(Carbs_txt.Text != null) carbs = Convert.ToInt32(Carbs_txt.Text);
+                    if (kcal < 0 || fat < 0 || protein < 0 || carbs < 0)
+                    {
+                        MessageBox.Show("Nhập sai ! Vui lòng nhập lại");
+                        return;
+                    }
                 }
                 catch
                 {
-                    MessageBox.Show("Xin vui lòng điền lượng kcal là số nguyên không âm!");
+                    MessageBox.Show("Nhập sai! Vui lòng nhập lại");
+                    return;
                 }
 
-                if (ok == 1)
+                Food food = new Food();
+                food.FoodName = FoodName_txt.Text;
+                food.Kcal = kcal;
+                food.Imgsrc = FoodImage.ImageSource.ToString();
+                int mealtime = 0;
+                foreach (ListBoxItem item in Mealtime_lv.SelectedItems)
                 {
-                    Food food = new Food();
-                    food.FoodName = FoodName_txt.Text;
-                    food.Kcal = kcal;
-                    food.Imgsrc = FoodImage.ImageSource.ToString();
-                    int mealtime = 0;
-                    foreach (ListBoxItem item in Mealtime_lv.SelectedItems)
-                    {
-                        string period = item.Content.ToString();
-                        if (period == "Sáng") mealtime += 3;
-                        if (period == "Trưa") mealtime += 4;
-                        if (period == "Tối") mealtime += 5;
-                    }
-                    food.MealTime = mealtime;
-                    food.Ingredients = Ingredients_txt.Text;
-                    food.Recipe = Recipe_txt.Text;
-                    food.Descript = Descript_txt.Text;
-                    food.Type = Type_cb.Text;
-                    DataProvider.Ins.DB.Food.Add(food);
-                    DataProvider.Ins.DB.SaveChanges();
-                    UserFood userFood = new UserFood();
-                    userFood.UserID = DataProvider.Ins.Current_UserID;
-                    userFood.FoodID = food.FoodID;
-                    userFood.Favorite =(int) 0;
-                    DataProvider.Ins.DB.UserFood.Add(userFood);
-                    DataProvider.Ins.DB.SaveChanges();
-                    MainWindow mainWindow = this.Owner as MainWindow;
-                    FoodPage foodPage = mainWindow.Main.Content as FoodPage;
-                    foodPage.foodList.Add(new FoodDays(food, userFood.Last_eat,0));
-                    foodPage.lvDataBinding.Items.Refresh();
-                    //FoodPage foodPage = this.Parent as FoodPage;
-                    MessageBox.Show("Món ăn của bạn đã được thêm vào !");
-
+                    string period = item.Content.ToString();
+                    if (period == "Sáng") mealtime += 3;
+                    if (period == "Trưa") mealtime += 4;
+                    if (period == "Tối") mealtime += 5;
                 }
+                food.MealTime = mealtime;
+                food.Ingredients = Ingredients_txt.Text;
+                food.Recipe = Recipe_txt.Text;
+                food.Descript = Descript_txt.Text;
+                food.DonVi = DonVi_txt.Text;
+                food.Type = Type_cb.Text;
+                food.Fat = fat;
+                food.Protein = protein;
+                food.Carbs = carbs;
+                food.Other_Fat = 0;
+                DataProvider.Ins.DB.Food.Add(food);
+                DataProvider.Ins.DB.SaveChanges();
+                UserFood userFood = new UserFood();
+                userFood.UserID = DataProvider.Ins.Current_UserID;
+                userFood.FoodID = food.FoodID;
+                userFood.Favorite =(int) 0;
+                DataProvider.Ins.DB.UserFood.Add(userFood);
+                DataProvider.Ins.DB.SaveChanges();
+                MainWindow mainWindow = this.Owner as MainWindow;
+                FoodPage foodPage = mainWindow.Main.Content as FoodPage;
+                foodPage.foodList.Add(new FoodDays(food, userFood.Last_eat,0));
+                foodPage.lvDataBinding.Items.Refresh();
+                //FoodPage foodPage = this.Parent as FoodPage;
+                MessageBox.Show("Món ăn của bạn đã được thêm vào !");
+
                 
             }
             else

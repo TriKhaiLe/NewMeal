@@ -65,7 +65,7 @@
             </Border>
             <Grid Grid.Column="1" >
                 <Grid.Background>
-                    <ImageBrush ImageSource="/Assets/background.png"  Stretch="Fill" TileMode="None"></ImageBrush>
+                    <ImageBrush Opacity="0.65" ImageSource="/Assets/background.png"  Stretch="Fill" TileMode="None"></ImageBrush>
                 </Grid.Background>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"></RowDefinition>
@@ -99,7 +99,7 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Margin="0 50 0 0">
+                    <StackPanel Grid.Column="0" Margin="0 30 0 0">
                         <StackPanel Orientation="Horizontal" Margin="0 30 0 30">
                             <TextBlock Text="Tên món ăn" VerticalAlignment="Center" Margin="10 0 10 -10"></TextBlock>
                             <TextBox
@@ -107,7 +107,7 @@
                                 x:Name="FoodName_txt"
                             Style="{StaticResource MaterialDesignFilledTextBox}"
                             VerticalAlignment="Top"
-                            Width="200"
+                            Width="225"
                             materialDesign:HintAssist.Hint="Tên món ăn" Background="#FFFFFDC0">
                                 <TextBox.Text>
                                     <Binding
@@ -126,25 +126,83 @@
                             <TextBlock Text="Lượng Kcal" VerticalAlignment="Center" Margin="10 0 10 -10"></TextBlock>
                             <TextBox Background="#FFFFFDC0"
                                      materialDesign:ValidationAssist.Background="Transparent"
-                                x:Name="Kcal_txt"
-                    Style="{StaticResource MaterialDesignFilledTextBox}"
-                    VerticalAlignment="Top"
-                        Width="200"
-                    materialDesign:HintAssist.Hint="Lượng Kcal" >
+                                     x:Name="Kcal_txt"
+                                     Style="{StaticResource MaterialDesignFilledTextBox}"
+                                     VerticalAlignment="Top"
+                                     Width="100"
+                                     materialDesign:HintAssist.Hint="Lượng Kcal" >
                                 <TextBox.Text>
                                     <Binding
-                            Path="Text1"
-                            UpdateSourceTrigger="PropertyChanged">
+                                        Path="Text1"
+                                        UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
                                             <mainrsc:NotEmptyValidationRule
                                     ValidatesOnTargetUpdated="True" />
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </TextBox.Text>
-
+                            </TextBox>
+                            <TextBlock Margin="0" Text="/" FontSize="30" VerticalAlignment="Center"></TextBlock>
+                            <TextBox Background="#FFFFFDC0"
+                                     materialDesign:ValidationAssist.Background="Transparent"
+                                     materialDesign:ValidationAssist.OnlyShowOnFocus="True"
+                                     x:Name="DonVi_txt"
+                                     Padding="13"
+                                     VerticalAlignment="Top"
+                                     Width="120"
+                                     materialDesign:HintAssist.Hint="VD:1 tô, 500g, ...."
+                                     materialDesign:HintAssist.HelperText="Đơn vị tính">
+                                <TextBox.Text>
+                                    <Binding
+                                        Path="Text1"
+                                        UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <mainrsc:NotEmptyValidationRule
+                                    ValidatesOnTargetUpdated="True" />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
                             </TextBox>
                         </StackPanel>
-
+                        <Expander Margin="8 30 35 30" BorderThickness="1" BorderBrush="Yellow">
+                            <Expander.Header>
+                                <TextBlock Margin="-20 0 0 0" Text="Các thành phần"></TextBlock>
+                            </Expander.Header>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Margin="15 8 0 0" VerticalAlignment="Center"  FontSize="15" Text="Chất béo"></TextBlock>
+                                    <TextBlock Grid.Row="1" Margin="15 8 0 0" VerticalAlignment="Center"  FontSize="15" Text="Chất đạm"></TextBlock>
+                                    <TextBlock Grid.Row="2" Margin="15 8 0 0" VerticalAlignment="Center"  FontSize="15" Text="Tinh bột" ></TextBlock>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Grid.Resources>
+                                        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFilledTextBox}">
+                                            <Setter Property="Width" Value="200"></Setter>
+                                            <Setter Property="Padding" Value="10 0 0 10"></Setter>
+                                            <Setter Property="materialDesign:HintAssist.Hint" Value="Gram"></Setter>
+                                            <Setter Property="Margin" Value="0 5 0 5"></Setter>
+                                        </Style>
+                                    </Grid.Resources>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBox Grid.Row="0" x:Name="Fat_txt" Background="#FFFFFDC0"></TextBox>
+                                    <TextBox Grid.Row="1" x:Name="Protein_txt" Background="#FFFFFDC0"></TextBox>
+                                    <TextBox Grid.Row="2" x:Name="Carbs_txt" Background="#FFFFFDC0"></TextBox>
+                                </Grid>
+                            </Grid>
+                        </Expander>
                         <StackPanel Orientation="Horizontal" Margin="0 30 0 30">
                             <TextBlock Text="Nguyên liệu" VerticalAlignment="Top" Margin="10"></TextBlock>
                             <TextBox
@@ -152,13 +210,13 @@
                                 x:Name="Ingredients_txt"
                     Style="{StaticResource MaterialDesignFilledTextBox}"
                     VerticalAlignment="Top"
-                        Width="202"
+                        Width="225"
                     materialDesign:HintAssist.Hint="Nguyên liệu" Height="95">
 
                             </TextBox>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Margin="0 50 0 0">
+                    <StackPanel Grid.Column="1" Margin="0 30 0 0">
 
                         <DockPanel Margin="0 30 0 30">
                             <TextBlock Text="Loại" VerticalAlignment="Center" Margin="10 0 10 -10"></TextBlock>
