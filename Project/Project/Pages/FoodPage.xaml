@@ -17,6 +17,7 @@
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
       Name="foodpage"
+      Style="{StaticResource Page_Style}"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="Segoe UI" Loaded="foodpage_Loaded"  >
     <Page.Resources>

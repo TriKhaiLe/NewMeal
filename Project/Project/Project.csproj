@@ -198,6 +198,10 @@
     <Compile Include="ViewModel\FoodViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RecommendViewModel.cs" />
+    <Page Include="MainResources\NavigatePageStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AccountPage\AP_Response.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

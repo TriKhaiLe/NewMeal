@@ -16,7 +16,7 @@
       Name="ap_menu"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-            
+
              d:DesignHeight="684" d:DesignWidth="940">
     <UserControl.Resources>
         <BitmapSource x:Key="avatar">/Assets/Account/user.png</BitmapSource>

@@ -10,6 +10,7 @@
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
+      Style="{StaticResource Page_Style}"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              d:DesignHeight="450" d:DesignWidth="801.915" Foreground="White" Loaded="recommend_page_Loaded">
     <Page.Resources>
