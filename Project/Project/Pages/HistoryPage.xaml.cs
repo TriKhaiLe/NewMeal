@@ -273,6 +273,11 @@ namespace Project.Pages
         #region front-end
         private void Get_FoodList(int index)
         {
+            Clear_FoodList();
+            if (index < 0 || index > 6)
+            {
+                return;
+            }
             HistoryInDay db = _userhistory[index];
             foreach(Food f in db.Morning)
             {
@@ -288,11 +293,19 @@ namespace Project.Pages
             }
         }
 
+        private void Clear_FoodList()
+        {
+            lvHistory1.Items.Clear();
+            lvHistory2.Items.Clear();
+            lvHistory3.Items.Clear();
+        }
         #endregion
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _userhistory = GetHistory();
+            combobox.Items.Clear();
+            Clear_FoodList();
             SeriesCollection = new SeriesCollection();
             List<string> labelList = new List<string>();
 
@@ -303,7 +316,7 @@ namespace Project.Pages
                     Values = new ChartValues<double> { his.MorningKcal, his.LunchKcal, his.DinnerKcal},
                     StackMode = StackMode.Values
                 });
-                labelList.Add(his.Date.ToString());
+                labelList.Add(his.Date.ToString("dd/MM/yyyy"));
                 combobox.Items.Add(his.Date.ToString("dd/MM/yyyy"));
             }
             Labels = labelList.ToArray();

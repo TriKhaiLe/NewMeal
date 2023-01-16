@@ -148,11 +148,11 @@
                 </TextBlock>
             </DockPanel>
 
-            <Border BorderBrush="#FFFF984B" Width="900" BorderThickness="2" Margin="15,10,30,10">
-                <Grid>
-                    <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Bottom">
+            <Border BorderBrush="#FFFF984B" BorderThickness="2" Margin="15,10,30,10">
+                <Grid >
+                    <lvc:CartesianChart  Series="{Binding SeriesCollection}" LegendLocation="Bottom" Margin="0,0,0,0">
                         <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Browser" 
+                            <lvc:Axis Title="Ngày" 
                           Labels="{Binding Labels}" 
                           Separator="{x:Static lvc:DefaultAxes.CleanSeparator}" />
                         </lvc:CartesianChart.AxisX>
