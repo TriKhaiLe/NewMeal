@@ -35,6 +35,29 @@ namespace Project.Pages
         {
             InitializeComponent();
 
+            SeriesCollection = new SeriesCollection();
+            SeriesCollection.Add(new StackedColumnSeries
+            {
+                Title = "Sáng",
+                Values = new ChartValues<int>(),
+                StackMode = StackMode.Values,
+                DataLabels = true
+            });
+            SeriesCollection.Add(new StackedColumnSeries
+            {
+                Title = "Trưa",
+                Values = new ChartValues<int>(),
+                StackMode = StackMode.Values,
+                DataLabels = true
+            });
+            SeriesCollection.Add(new StackedColumnSeries
+            {
+                Title = "Tối",
+                Values = new ChartValues<int>(),
+                StackMode = StackMode.Values,
+                DataLabels = true
+            });
+            Formatter = value => value + " Kcal";
             //SeriesCollection = new SeriesCollection
             //{
             //    new StackedColumnSeries
@@ -306,21 +329,24 @@ namespace Project.Pages
             _userhistory = GetHistory();
             combobox.Items.Clear();
             Clear_FoodList();
-            SeriesCollection = new SeriesCollection();
             List<string> labelList = new List<string>();
 
-            foreach(HistoryInDay his in _userhistory)
+            List<int> morningvalue = new List<int>();
+            List<int> lunchvalue = new List<int>();
+            List<int> dinnervalue = new List<int>();
+            foreach (HistoryInDay his in _userhistory)
             {
-                SeriesCollection.Add(new StackedColumnSeries
-                {
-                    Values = new ChartValues<double> { his.MorningKcal, his.LunchKcal, his.DinnerKcal},
-                    StackMode = StackMode.Values
-                });
-                labelList.Add(his.Date.ToString("dd/MM/yyyy"));
-                combobox.Items.Add(his.Date.ToString("dd/MM/yyyy"));
+                morningvalue.Add(his.MorningKcal);
+                lunchvalue.Add(his.LunchKcal);
+                dinnervalue.Add(his.DinnerKcal);
+                labelList.Add(his.Date.ToString("dd/MM"));
+                combobox.Items.Add(his.Date.ToString("dd/MM"));
             }
+            SeriesCollection[0].Values = new ChartValues<int>(morningvalue);
+            SeriesCollection[1].Values = new ChartValues<int>(lunchvalue);
+            SeriesCollection[2].Values = new ChartValues<int>(dinnervalue);
             Labels = labelList.ToArray();
-            Formatter = value => value + " Kcal";
+
         }
 
         private void combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
