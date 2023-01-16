@@ -11,6 +11,7 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
+      Style="{StaticResource Page_Style}"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
       
@@ -61,11 +62,10 @@
 
                         <Border BorderBrush="#FF4CDF1E" BorderThickness="2" Width="270" Height="200" Margin="0,0,0,0" VerticalAlignment="Bottom">
                             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                <ListView  Name="lvHistory1" BorderThickness="2" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                                <ListView  Name="lvHistory1" BorderThickness="2" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" >
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <materialDesign:Card
-                                materialDesign:ElevationAssist.Elevation="Dp2">
+                                            <materialDesign:Card materialDesign:ElevationAssist.Elevation="Dp2">
                                                 <Border CornerRadius="12" Background="White">
                                                     <Grid Width="850" Margin="15 0 15 0">
                                                         <Grid.ColumnDefinitions>
@@ -75,11 +75,11 @@
                                                         <StackPanel Grid.Column="0" Orientation="Horizontal">
                                                             <Rectangle Margin="0 0 10 10" Width="50" Height="50" >
                                                                 <Rectangle.Fill>
-                                                                    <ImageBrush ImageSource="{Binding Food.Imgsrc}"></ImageBrush>
+                                                                    <ImageBrush ImageSource="{Binding Imgsrc}"></ImageBrush>
                                                                 </Rectangle.Fill>
                                                             </Rectangle>
                                                             <TextBlock VerticalAlignment="Center">
-                                                                <Run Text="{Binding Food.FoodName}" FontSize="15" FontWeight="Bold"></Run>
+                                                                <Run Text="{Binding FoodName}" FontSize="15" FontWeight="Bold"></Run>
                                                             </TextBlock>
                                                         </StackPanel>
                                                         <StackPanel Margin="0 0 20 0" Grid.Column="1" Orientation="Horizontal">

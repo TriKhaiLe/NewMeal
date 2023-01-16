@@ -304,15 +304,15 @@ namespace Project.Pages
             HistoryInDay db = _userhistory[index];
             foreach(Food f in db.Morning)
             {
-                lvHistory1.Items.Add(f.FoodName);
+                lvHistory1.Items.Add(f);
             }
             foreach (Food f in db.Lunch)
             {
-                lvHistory2.Items.Add(f.FoodName);
+                lvHistory2.Items.Add(f);
             }
             foreach (Food f in db.Dinner)
             {
-                lvHistory3.Items.Add(f.FoodName);
+                lvHistory3.Items.Add(f);
             }
         }
 
@@ -353,5 +353,7 @@ namespace Project.Pages
         {
             Get_FoodList(combobox.SelectedIndex);
         }
+
+        
     }
 }
