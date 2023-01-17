@@ -332,15 +332,15 @@ namespace Project.Pages
                     int time = Convert.ToInt32(DateTime.Now.Hour.ToString());
                     if (time >= 4 && time < 11) // Sang
                     {
-                        history.Meal = 1;
+                        history.Meal = 3;
                     }
                     else if (time >= 11 && time <= 12) // trua
                     {
-                        history.Meal = 2;
+                        history.Meal = 4;
                     }
                     else // chieu - Toi
                     {
-                        history.Meal = 3;   
+                        history.Meal = 5;   
                     }
                     DataProvider.Ins.DB.UserHistory.Add(history);
                     DataProvider.Ins.DB.SaveChanges();
