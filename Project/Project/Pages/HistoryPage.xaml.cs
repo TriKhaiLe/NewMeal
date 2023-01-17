@@ -346,7 +346,8 @@ namespace Project.Pages
             SeriesCollection[1].Values = new ChartValues<int>(lunchvalue);
             SeriesCollection[2].Values = new ChartValues<int>(dinnervalue);
             Labels = labelList.ToArray();
-
+            combobox.SelectedIndex = 6;
+            Get_FoodList(combobox.SelectedIndex);
         }
 
         private void combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
