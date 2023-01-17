@@ -67,7 +67,7 @@
                                         <DataTemplate>
                                             <materialDesign:Card materialDesign:ElevationAssist.Elevation="Dp2">
                                                 <Border CornerRadius="12" Background="White">
-                                                    <Grid Width="850" Margin="15 0 15 0">
+                                                    <Grid Width="auto" Margin="15 0 15 0">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
                                                             <ColumnDefinition Width="auto"></ColumnDefinition>

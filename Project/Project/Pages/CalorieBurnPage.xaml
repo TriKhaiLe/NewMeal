@@ -50,7 +50,7 @@
                     Height="50"
                     MaxWidth="400"
                     MaxLength="5"
-                    materialDesign:HintAssist.Hint="Calo cần đốt"
+                    materialDesign:HintAssist.Hint="Lượng kcal cần đốt"
                     materialDesign:HintAssist.HelperText="Nhập số"
                     HorizontalAlignment="Left"
                     BorderThickness="1"
@@ -105,7 +105,7 @@
                                                         <TextBlock VerticalAlignment="Center">
                                                         <Run Text="{Binding ExName}" FontSize="15" FontWeight="Bold"></Run>
                                                         <LineBreak></LineBreak>
-                                                        <Run Text="Calo đốt/giờ: "></Run>
+                                                        <Run Text="kcal đốt/giờ: "></Run>
                                                         <Run Text="{Binding Kph}" FontWeight="Bold" FontSize="13"></Run>
                                                         </TextBlock>
                                                     </StackPanel>
