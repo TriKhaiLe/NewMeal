@@ -178,25 +178,12 @@ namespace Project.Pages
             foodList = Com;
             
 
-            /*foreach(Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-
-            //lvDataBinding.ItemsSource = foodList;
-
         }
         private void MNButton_Checked(object sender, RoutedEventArgs e)
         {
             ComboBox_sort.Text = null;
             foodList = MonNuoc;
             
-            
-            /*foreach (Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-            //lvDataBinding.ItemsSource = foodList;
             
         }
 
@@ -206,15 +193,6 @@ namespace Project.Pages
             ComboBox_sort.Text = null;
             foodList = DoBien;
             
-            
-            
-            /*foreach (Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-            //lvDataBinding.ItemsSource = foodList;
-           /* view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
-            view.Filter = UserFilter;*/
         }
 
         private void CanhButton_Checked(object sender, RoutedEventArgs e)
@@ -223,15 +201,6 @@ namespace Project.Pages
             ComboBox_sort.Text = null;
             foodList = Canh;
             
-            
-            
-            /*foreach (Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-            //lvDataBinding.ItemsSource = foodList;
-            /*view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
-            view.Filter = UserFilter;*/
         }
 
         private void TUButton_Checked(object sender, RoutedEventArgs e)
@@ -240,14 +209,6 @@ namespace Project.Pages
             ComboBox_sort.Text = null;
             foodList = ThucUong;
             
-            
-           /* foreach (Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-            //lvDataBinding.ItemsSource = foodList;
-            /*view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
-            view.Filter = UserFilter;*/
         }
 
         private void AVButton_Checked(object sender, RoutedEventArgs e)
@@ -336,11 +297,11 @@ namespace Project.Pages
                     {
                         history.Meal = 3;
                     }
-                    else if (time >= 11 && time <= 12) // trua
+                    else if (time >= 11 && time < 18) // trua - Chieu
                     {
                         history.Meal = 4;
                     }
-                    else // chieu - Toi
+                    else // Toi
                     {
                         history.Meal = 5;   
                     }
