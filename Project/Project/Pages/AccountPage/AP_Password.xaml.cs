@@ -37,6 +37,18 @@ namespace Project.UserControlXAML.AccountPage
             }
         }
 
+        public string ShowAvatar
+        {
+            get
+            {
+                if (!AP_Profile.test_avatar_path(Project.Pages.AccountPage.AvatarLink))
+                {
+                    return Project.Pages.AccountPage.defaultAvatar;
+                }
+                return Project.Pages.AccountPage.AvatarLink;
+            }
+        }
+
         ContentControl MainParent = null;
 
         public AP_Password(ContentControl mainParent)

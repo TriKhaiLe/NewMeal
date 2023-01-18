@@ -80,6 +80,7 @@ namespace Project.RegisterPage
                 user.UHeight = Convert.ToInt32(height.Text);
                 user.UStatus = Mode.SelectedIndex;
                 user.ComsumedCalo = 0;
+                user.Avatar = AccountPage.defaultAvatar;
                 IsRegister = true;
                 MainWindow.finish_register(user);
             }

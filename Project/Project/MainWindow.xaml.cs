@@ -1,5 +1,6 @@
 ﻿using Project.Model;
 using Project.Pages;
+using Project.UserControlXAML.AccountPage;
 using Project.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace Project
     {
         int ok = 0;
         private static FoodPage FoodPage = new FoodPage();
-        private AccountPage AccountPage = new AccountPage();
+        private AccountPage AccountPage;
         private RecommendPage RecommendPage = new RecommendPage(FoodPage);
         private CalorieBurnPage CalorieBurnPage = new CalorieBurnPage();
         private HistoryPage HistoryPage = new HistoryPage();
@@ -34,6 +35,7 @@ namespace Project
         {
             InitializeComponent();
             User = new FUser();
+            AccountPage = new AccountPage(this);
             Main.Content = FoodPage;
             ok = 1;
             
@@ -107,7 +109,7 @@ namespace Project
         {
             int id = DataProvider.Ins.Current_UserID;
             User = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == id);
-            if (User.Avatar != null) Avatar.ImageSource = new BitmapImage(new Uri(User.Avatar));
+            UpdateAvatar();
             Username_tb.Text = User.UName;
         }
         private void LogOutBtn_Click(object sender, RoutedEventArgs e)
@@ -119,7 +121,7 @@ namespace Project
             {
                 LoadUser();
                 FoodPage = new FoodPage();
-                AccountPage = new AccountPage();
+                AccountPage = new AccountPage(this);
                 RecommendPage = new RecommendPage(FoodPage);
                 CalorieBurnPage = new CalorieBurnPage();
                 Main.Content = FoodPage;
@@ -128,6 +130,9 @@ namespace Project
             }
         }
 
-        
+        public void UpdateAvatar()
+        {
+            if (User.Avatar != null) Avatar.ImageSource = new BitmapImage(new Uri(AccountPage.AvatarLink));
+        }
     }
 }

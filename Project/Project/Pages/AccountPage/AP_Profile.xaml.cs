@@ -16,6 +16,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Project.Pages;
 using Project.Model;
+using Microsoft.Win32;
+using System.IO;
+using System.Threading;
 
 namespace Project.UserControlXAML.AccountPage
 {
@@ -32,6 +35,31 @@ namespace Project.UserControlXAML.AccountPage
             {
                 _Name_HelperText = value;
                 OnPropertyChanged("Name_HelperText");
+            }
+        }
+
+        private string _avatarstring;
+        public string AvatarString
+        {
+            get 
+            {
+                return _avatarstring;
+            }
+            set
+            {
+                _avatarstring = value;
+                OnPropertyChanged("ShowAvatar");
+            }
+        }
+        public string ShowAvatar
+        {
+            get
+            {
+                if (!test_avatar_path(_avatarstring))
+                {
+                    return Pages.AccountPage.defaultAvatar;
+                }
+                return new System.IO.FileInfo(_avatarstring).FullName;
             }
         }
 
@@ -142,6 +170,33 @@ namespace Project.UserControlXAML.AccountPage
             Load_UserData();
         }
 
+        private void avatar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if ((bool)edit.IsChecked)
+            {
+                OpenFileDialog image = new OpenFileDialog();
+                image.Title = "Hãy chọn 1 tấm ảnh";
+                image.Filter = "Image (*.jpeg;*.png;*.jpg)|*.jpeg;*.png;*.jpg";
+                if (image.ShowDialog() == true)
+                {
+                    AvatarString = image.FileName;
+                }
+            }
+
+        }
+
+        private void avatar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if ((bool)edit.IsChecked)
+            {
+                Cursor = Cursors.Hand;
+            }
+        }
+
+        private void avatar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Arrow;
+        }
         #endregion
 
 
@@ -199,6 +254,15 @@ namespace Project.UserControlXAML.AccountPage
             weight.Text = Project.Pages.AccountPage.CurrentUser.UWeight.ToString();
             height.Text = Project.Pages.AccountPage.CurrentUser.UHeight.ToString();
             Mode.SelectedItem = Gender.Items[(int)Project.Pages.AccountPage.CurrentUser.UStatus];
+            if (Project.Pages.AccountPage.CurrentUser.Avatar != null)
+            {
+                AvatarString = Project.Pages.AccountPage.CurrentUser.Avatar.ToString();
+            }
+            else
+            {
+                AvatarString = Pages.AccountPage.defaultAvatar;
+            }
+
         }
 
         void Edit_UserData()
@@ -209,10 +273,21 @@ namespace Project.UserControlXAML.AccountPage
             Project.Pages.AccountPage.CurrentUser.UWeight = Convert.ToInt32(weight.Text);
             Project.Pages.AccountPage.CurrentUser.UHeight = Convert.ToInt32(height.Text);
             Project.Pages.AccountPage.CurrentUser.UStatus = Mode.SelectedIndex;
+            Project.Pages.AccountPage.CurrentUser.Avatar = AvatarString;
             DataProvider.Ins.DB.SaveChanges();
+            Pages.AccountPage.mainWindow.UpdateAvatar();
         }
-        #endregion
 
+        static public bool test_avatar_path(string path)
+        {
+            if (!System.IO.File.Exists(path))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        #endregion
 
     }
 }

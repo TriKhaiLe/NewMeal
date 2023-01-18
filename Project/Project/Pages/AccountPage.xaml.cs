@@ -37,10 +37,31 @@ namespace Project.Pages
             }
         }
 
-        public AccountPage()
+        static public string TempAvatarLink = "";
+
+        static public string AvatarLink
+        {
+            get 
+            {
+                if (TempAvatarLink != "")
+                {
+                    return new System.IO.FileInfo(TempAvatarLink).FullName;
+                }
+                return new System.IO.FileInfo(CurrentUser.Avatar).FullName;
+            }
+        }
+
+        static public string defaultAvatar
+        {
+            get { return @"/Assets/Account/user.png"; }
+        }
+
+        static public MainWindow mainWindow;
+
+        public AccountPage(MainWindow mainwindow)
         {
             InitializeComponent();
-
+            mainWindow = mainwindow;
         }
 
         public void SetContent()

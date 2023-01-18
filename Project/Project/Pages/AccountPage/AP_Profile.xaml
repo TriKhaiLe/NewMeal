@@ -22,6 +22,8 @@
     </UserControl.Resources>
 
 
+    
+    
     <Grid Margin="20 10 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"></RowDefinition>
@@ -37,17 +39,19 @@
                 <ColumnDefinition Width="1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="button_back" ToolTip="Quay lại" Margin="10 10 0 0" Height="48" Width="48" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Assets/Account/cancel.png" MouseEnter="Back_MouseEnter" MouseLeave="Back_MouseLeave" MouseLeftButtonDown="Back_MouseLeftButtonDown" />
+            <Image x:Name="button_back" Cursor="Hand" ToolTip="Quay lại" Margin="10 10 0 0" Height="48" Width="48" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Assets/Account/cancel.png" MouseEnter="Back_MouseEnter" MouseLeave="Back_MouseLeave" MouseLeftButtonDown="Back_MouseLeftButtonDown" />
 
             <Grid Grid.Column="1">
                 <Label Content="HỒ SƠ" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <Ellipse x:Name="avatar"  Width="150" Height="150">
+                <Ellipse  Width="150" Height="150" StrokeThickness="3" Stroke="#FFB2FF59" ToolTip="Ảnh đại diện" MouseLeftButtonDown="avatar_MouseLeftButtonDown" MouseEnter="avatar_MouseEnter" MouseLeave="avatar_MouseLeave">
                     <Ellipse.Fill>
                         <ImageBrush
-                        ImageSource="{StaticResource avatar}"
+                        x:Name="avatar"
+                        ImageSource="{Binding ShowAvatar}"
                         Stretch="Fill" TileMode="None" ViewboxUnits="RelativeToBoundingBox"
                         AlignmentX="Left"/>
-                        </Ellipse.Fill>
+                    </Ellipse.Fill>
+                    
                 </Ellipse>
             </Grid>
 
