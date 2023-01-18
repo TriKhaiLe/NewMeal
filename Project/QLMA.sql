@@ -15,7 +15,7 @@ Sex int,
 UStatus int,
 Passwrd varchar(20),
 Username varchar(20) unique,
-Avatar varchar(50),
+Avatar varchar(300),
 ComsumedCalo int
 )
 
