@@ -600,7 +600,13 @@ namespace Project.Pages
             foreach (FoodDays f in meal)
             {
                 foodPage1.SelectedFood_lv.Items.Add(f);
+                foodPage1.Gauge_Kcal.Value += (double)f.Food.Kcal;
             }
+            if(foodPage1.Gauge_Kcal.Value > foodPage1.Gauge_Kcal.To)
+            {
+                foodPage1.kcal_txt.Visibility = Visibility.Visible;
+            }
+            meal.Clear();
             MessageBox.Show("Xong rùi! Bạn vào trang món ăn để xem công thức nhé!!!");
         }
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)

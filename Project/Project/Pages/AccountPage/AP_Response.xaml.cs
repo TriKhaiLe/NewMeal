@@ -138,12 +138,13 @@ namespace Project.UserControlXAML.AccountPage
         {
             string from, to, pass, messageBody;
             MailMessage message = new MailMessage();
-            to = "quangptnk@gmail.com";
+            to = "mealfeedback@gmail.com";
             from = "todaywhateat008@gmail.com";
             pass = "fvpxzbucxtmohsgi";
             FUser user = Project.Pages.AccountPage.CurrentUser;
             
             messageBody =   "Account: " + user.Username + "\n" +
+                            "Mail: " + Mail_txt.Text + "\n" +
                             "ID: " + user.UserID + "\n" +
                             "Username: " + user.UName + "\n" +
                             "===============================================" + "\n" +

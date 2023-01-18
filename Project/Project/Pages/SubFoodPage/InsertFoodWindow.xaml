@@ -51,14 +51,14 @@
                         <TextBlock Text="Mô tả món ăn :" FontWeight="Bold" FontSize="20" Margin="10 0 0 10"></TextBlock>
                         <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                  x:Name="Descript_txt"
-                         BorderThickness="3"
-                         VerticalAlignment="Top"
-                         Height="100"
-                         AcceptsReturn="True"
-                         Width="200"
-                         TextWrapping="Wrap"
-                         VerticalScrollBarVisibility="Auto"
-                         materialDesign:HintAssist.Hint="Hãy mô tả món ăn của bạn !" BorderBrush="Black" Background="#FFFFFDC0" >
+                                 BorderThickness="3"
+                                 VerticalAlignment="Top"
+                                 Height="100"
+                                 AcceptsReturn="True"
+                                 Width="200"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto"
+                                 materialDesign:HintAssist.Hint="Hãy mô tả món ăn của bạn !" BorderBrush="Black" Background="#FFFFFDC0" >
                         </TextBox>
                     </StackPanel>
                 </StackPanel>

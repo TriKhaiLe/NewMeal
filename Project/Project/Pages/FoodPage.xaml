@@ -406,7 +406,7 @@
                 <lvc:Gauge Grid.Row="0" Grid.Column="0" Margin="5"
                            x:Name="Gauge_Kcal"
                            From="0" Value="0"
-                           Height="100" GaugeActiveFill="#FFFFC200">
+                           Height="100" GaugeActiveFill="#FFFFC200" >
 
                 </lvc:Gauge>
                 <TextBlock Visibility="Hidden" x:Name="kcal_txt" Text="Lượng kcal vượt quá mức quy định !" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Red"></TextBlock>

@@ -116,58 +116,60 @@ namespace Project.Pages
             
         }
 
-        
+
         private void foodpage_Loaded(object sender, RoutedEventArgs e)
         {
             User = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.UserID == DataProvider.Ins.Current_UserID);
-            if(SelectedFood_lv.Items.Count == 0) Gauge_Kcal.Value =(double) User.ComsumedCalo;
-            Food food = new Food();
-            FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
-            //MessageBox.Show(FoodUser.Count().ToString());
-            Com = new List<FoodDays>();
-            MonNuoc = new List<FoodDays>();
-            Canh = new List<FoodDays>();
-            DoBien = new List<FoodDays>();
-            ThucUong = new List<FoodDays>();
-            AnVat = new List<FoodDays>();
-            foreach (UserFood user in FoodUser)
+            if(User != null)
             {
-                food = DataProvider.Ins.DB.Food.SingleOrDefault(p => p.FoodID == user.FoodID);
-                switch (food.Type)
+                if (SelectedFood_lv.Items.Count == 0) Gauge_Kcal.Value = (double)User.ComsumedCalo;
+                Food food = new Food();
+                FoodUser = DataProvider.Ins.DB.UserFood.Where(p => p.UserID == DataProvider.Ins.Current_UserID).ToList();
+                //MessageBox.Show(FoodUser.Count().ToString());
+                Com = new List<FoodDays>();
+                MonNuoc = new List<FoodDays>();
+                Canh = new List<FoodDays>();
+                DoBien = new List<FoodDays>();
+                ThucUong = new List<FoodDays>();
+                AnVat = new List<FoodDays>();
+                foreach (UserFood user in FoodUser)
                 {
-                    case "Cơm":
-                        Com.Add(new FoodDays(food , user.Last_eat , user.Favorite));
-                        
-                        break;
-                    case "Món nước":
-                        MonNuoc.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        
-                        break;
-                    case "Canh":
-                        Canh.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        
-                        break;
-                    case "Thức uống":
-                        ThucUong.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        
-                        break;
-                    case "Đồ biển":
-                        DoBien.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        
-                        break;
-                    default:
-                        AnVat.Add(new FoodDays(food, user.Last_eat, user.Favorite));
-                        
-                        break;
-                }
+                    food = DataProvider.Ins.DB.Food.SingleOrDefault(p => p.FoodID == user.FoodID);
+                    switch (food.Type)
+                    {
+                        case "Cơm":
+                            Com.Add(new FoodDays(food, user.Last_eat, user.Favorite));
 
+                            break;
+                        case "Món nước":
+                            MonNuoc.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+
+                            break;
+                        case "Canh":
+                            Canh.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+
+                            break;
+                        case "Thức uống":
+                            ThucUong.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+
+                            break;
+                        case "Đồ biển":
+                            DoBien.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+
+                            break;
+                        default:
+                            AnVat.Add(new FoodDays(food, user.Last_eat, user.Favorite));
+
+                            break;
+                    }
+
+                }
+                if (IsLoadFood-- == 1)
+                {
+                    ComRadioBtn.IsChecked = true;
+                }
+                Gauge_Kcal.To = DataProvider.Ins.Kcal_UserID;
             }
-            if(IsLoadFood-- == 1)
-            {
-                ComRadioBtn.IsChecked = true;
-            }
-            Gauge_Kcal.To = DataProvider.Ins.Kcal_UserID;
-            
 
         }
         private void ComButton_Checked(object sender, RoutedEventArgs e)
@@ -176,25 +178,12 @@ namespace Project.Pages
             foodList = Com;
             
 
-            /*foreach(Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-
-            //lvDataBinding.ItemsSource = foodList;
-
         }
         private void MNButton_Checked(object sender, RoutedEventArgs e)
         {
             ComboBox_sort.Text = null;
             foodList = MonNuoc;
             
-            
-            /*foreach (Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-            //lvDataBinding.ItemsSource = foodList;
             
         }
 
@@ -204,15 +193,6 @@ namespace Project.Pages
             ComboBox_sort.Text = null;
             foodList = DoBien;
             
-            
-            
-            /*foreach (Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-            //lvDataBinding.ItemsSource = foodList;
-           /* view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
-            view.Filter = UserFilter;*/
         }
 
         private void CanhButton_Checked(object sender, RoutedEventArgs e)
@@ -221,15 +201,6 @@ namespace Project.Pages
             ComboBox_sort.Text = null;
             foodList = Canh;
             
-            
-            
-            /*foreach (Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-            //lvDataBinding.ItemsSource = foodList;
-            /*view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
-            view.Filter = UserFilter;*/
         }
 
         private void TUButton_Checked(object sender, RoutedEventArgs e)
@@ -238,14 +209,6 @@ namespace Project.Pages
             ComboBox_sort.Text = null;
             foodList = ThucUong;
             
-            
-           /* foreach (Food fo in foodList)
-            {
-                lvDataBinding.Items.Add(fo);
-            }*/
-            //lvDataBinding.ItemsSource = foodList;
-            /*view = (CollectionView)CollectionViewSource.GetDefaultView(lvDataBinding.Items);
-            view.Filter = UserFilter;*/
         }
 
         private void AVButton_Checked(object sender, RoutedEventArgs e)
@@ -334,11 +297,11 @@ namespace Project.Pages
                     {
                         history.Meal = 3;
                     }
-                    else if (time >= 11 && time <= 12) // trua
+                    else if (time >= 11 && time < 18) // trua - Chieu
                     {
                         history.Meal = 4;
                     }
-                    else // chieu - Toi
+                    else // Toi
                     {
                         history.Meal = 5;   
                     }
@@ -399,12 +362,14 @@ namespace Project.Pages
         {
             if(MessageBox.Show("Bạn có chắc chắn muốn tạo lại thanh kcal hằng ngày ?" , "Thông báo" , MessageBoxButton.OKCancel , MessageBoxImage.Question) == MessageBoxResult.OK)
             {
-                if (SelectedFood_lv.Items.Count == 0)
+                Gauge_Kcal.Value = 0;
+                foreach(FoodDays f in SelectedFood_lv.Items)
                 {
-                    Gauge_Kcal.Value = 0;
-                    User.ComsumedCalo = 0;
-                    DataProvider.Ins.DB.SaveChanges();
+                    Gauge_Kcal.Value +=(double) f.Food.Kcal;
+                    User.ComsumedCalo =(int) Gauge_Kcal.Value;
                 }
+                DataProvider.Ins.DB.SaveChanges();
+                
             }    
         }
     }
