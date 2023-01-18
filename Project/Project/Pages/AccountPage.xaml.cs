@@ -47,7 +47,11 @@ namespace Project.Pages
                 {
                     return new System.IO.FileInfo(TempAvatarLink).FullName;
                 }
-                return new System.IO.FileInfo(CurrentUser.Avatar).FullName;
+                if(CurrentUser.Avatar != null)
+                {
+                    return new System.IO.FileInfo(CurrentUser.Avatar).FullName;
+                }
+                return null;
             }
         }
 

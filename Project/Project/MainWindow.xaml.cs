@@ -133,13 +133,9 @@ namespace Project
         public void UpdateAvatar()
         {
             if (User.Avatar != null) Avatar.ImageSource = new BitmapImage(new Uri(AccountPage.AvatarLink));
-        }
-
-        private void ReloadButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (User.Avatar != null) Avatar.ImageSource = new BitmapImage(new Uri(User.Avatar));
             Username_tb.Text = User.UName;
         }
+
 
     }
 }
