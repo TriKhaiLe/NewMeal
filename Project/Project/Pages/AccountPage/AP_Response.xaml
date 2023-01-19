@@ -67,7 +67,7 @@
                 x:Name="Response"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
-                Margin="0 10 0 0"
+                Margin="40 10 0 0"
                 Height="225"
                 TextWrapping="Wrap"
                 MaxLength="1000"
