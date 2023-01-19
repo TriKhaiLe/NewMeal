@@ -47,7 +47,7 @@ namespace Project.RegisterPage
             MailMessage message = new MailMessage();
             to = (Mail_txt.Text).ToString();
             from = "todaywhateat008@gmail.com";
-            pass = "fvpxzbucxtmohsgi";
+            pass = "plgyxsgchkhpbtqb";
             messageBody = "Mật khẩu mới của bạn là : " + NewPass;
             message.To.Add(to);
             message.From = new MailAddress(from);

@@ -140,7 +140,7 @@ namespace Project.UserControlXAML.AccountPage
             MailMessage message = new MailMessage();
             to = "mealfeedback@gmail.com";
             from = "todaywhateat008@gmail.com";
-            pass = "fvpxzbucxtmohsgi";
+            pass = "plgyxsgchkhpbtqb";
             FUser user = Project.Pages.AccountPage.CurrentUser;
 
             messageBody = "Account: " + user.Username + "\n" +
