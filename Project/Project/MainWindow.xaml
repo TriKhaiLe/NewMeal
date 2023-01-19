@@ -18,7 +18,7 @@
       WindowStartupLocation="CenterScreen"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-        
+        Icon="./Assets/logo_icon.ico"
         Title="MainWindow" Height="750" Width="1400"
         WindowStyle="None"
         ResizeMode="NoResize"

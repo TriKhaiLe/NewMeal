@@ -442,6 +442,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Account\clip.png" />
+    <Resource Include="Assets\logo_icon.ico" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

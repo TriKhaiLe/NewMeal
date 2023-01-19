@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-  
+        Icon="./Assets/logo_icon.ico"
         Title="LoginWindow" Height="550" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"

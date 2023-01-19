@@ -142,8 +142,8 @@ namespace Project.UserControlXAML.AccountPage
             from = "todaywhateat008@gmail.com";
             pass = "fvpxzbucxtmohsgi";
             FUser user = Project.Pages.AccountPage.CurrentUser;
-            
-            messageBody =   "Account: " + user.Username + "\n" +
+
+            messageBody = "Account: " + user.Username + "\n" +
                             "Mail: " + Mail_txt.Text + "\n" +
                             "ID: " + user.UserID + "\n" +
                             "Username: " + user.UName + "\n" +
