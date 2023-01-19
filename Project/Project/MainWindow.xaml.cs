@@ -132,7 +132,8 @@ namespace Project
 
         public void UpdateAvatar()
         {
-            if (User.Avatar != null) Avatar.ImageSource = new BitmapImage(new Uri(AccountPage.AvatarLink));
+            if(User.Avatar != AccountPage.defaultAvatar) Avatar.ImageSource = new BitmapImage(new Uri(User.Avatar));
+            //MessageBox.Show(User.Avatar);
             Username_tb.Text = User.UName;
         }
 

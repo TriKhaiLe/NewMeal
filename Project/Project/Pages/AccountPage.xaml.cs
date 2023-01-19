@@ -57,7 +57,7 @@ namespace Project.Pages
 
         static public string defaultAvatar
         {
-            get { return @"/Assets/Account/user.png"; }
+            get { return "./Assets/Account/user.png"; }
         }
 
         static public MainWindow mainWindow;
