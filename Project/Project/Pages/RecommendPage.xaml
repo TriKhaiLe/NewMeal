@@ -168,7 +168,8 @@
                                 Name="lvRecommendation" 
                                 SelectionChanged="lvRecommendation_SelectionChanged" 
                                 IsSynchronizedWithCurrentItem="True"
-                                ItemsSource="{Binding foodList}" Width="280">
+                                ItemsSource="{Binding foodList}" Width="280"
+                                Margin="0,0,0,10">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <materialDesign:Card
@@ -203,8 +204,8 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <usercontrol:PieChart x:Name="uc_NutriChart" Grid.Row="0" Margin="0 0 0 10"></usercontrol:PieChart>
-                        <usercontrol:PieChartMeal x:Name="uc_MealChart" Grid.Row="1"></usercontrol:PieChartMeal>
+                        <usercontrol:PieChart x:Name="uc_NutriChart" Grid.Row="0" Margin="0 0 0 30"></usercontrol:PieChart>
+                        <usercontrol:PieChartMeal x:Name="uc_MealChart" Grid.Row="1" Margin="0 0 0 10"></usercontrol:PieChartMeal>
                     </Grid>
                 </Grid>
             </DockPanel>
@@ -450,7 +451,7 @@
                            Height="100" GaugeActiveFill="#FFFFC200">
 
                 </lvc:Gauge>
-                <TextBlock Visibility="Hidden" x:Name="kcal_txt" Text="Lượng kcal vượt quá mức quy định !" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Red"></TextBlock>
+                <TextBlock Visibility="Hidden" x:Name="kcal_txt" Text="Lượng kcal vượt quá mức quy định !" FontSize="12" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Red"></TextBlock>
             </StackPanel>
         </Grid>
     </Grid>

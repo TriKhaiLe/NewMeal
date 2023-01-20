@@ -12,8 +12,8 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="Black" FontSize="20" Text="Lượng Kcal 1 ngày theo đề xuất" ></TextBlock>
-        <lvc:PieChart x:Name="MealChart" Grid.Row="1" Foreground="Black" FontSize="20" LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}">
+        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="Black" FontSize="24" FontWeight="Bold" Text="Lượng Kcal 1 ngày theo đề xuất" ></TextBlock>
+        <lvc:PieChart x:Name="MealChart" Grid.Row="1" Foreground="Black" FontSize="18" LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}">
             <lvc:PieChart.Series>
                 <lvc:PieSeries Title="Sáng" x:Name="seriBreakfast" Values="5"
                                LabelPoint="{Binding PointLabel}" DataLabels="True" />
