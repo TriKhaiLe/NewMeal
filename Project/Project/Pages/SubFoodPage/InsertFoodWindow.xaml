@@ -146,9 +146,10 @@
                             <TextBox Background="#FFFFFDC0"
                                      materialDesign:ValidationAssist.Background="Transparent"
                                      materialDesign:ValidationAssist.OnlyShowOnFocus="True"
+                                     materialDesign:ValidationAssist.HorizontalAlignment="Right"
                                      x:Name="DonVi_txt"
-                                     Padding="13"
-                                     VerticalAlignment="Top"
+                                     Padding="13 18 0 9"
+                                     VerticalAlignment="Center"
                                      Width="120"
                                      materialDesign:HintAssist.Hint="VD:1 tô, 500g, ...."
                                      materialDesign:HintAssist.HelperText="Đơn vị tính"
@@ -285,7 +286,7 @@
                     materialDesign:HintAssist.Hint="Công thức" Height="95">
                             </TextBox>
                         </DockPanel>
-                        <Button Click="InsertButton_Click" Width="100" Content="Thêm" HorizontalAlignment="Right" Margin="0 30 60 30"></Button>
+                        <Button x:Name="Insert_btn" Click="InsertButton_Click" Width="100" Content="Thêm" HorizontalAlignment="Right" Margin="0 30 60 30"></Button>
                     </StackPanel>
                 </Grid>
 

@@ -271,7 +271,7 @@
                                             <materialDesign:Card
                                             materialDesign:ElevationAssist.Elevation="Dp2">
                                                 <Border CornerRadius="12" Background="White"  >
-                                                    <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
+                                                    <Grid>
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="auto"></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -332,7 +332,7 @@
                                             <materialDesign:Card
                                 materialDesign:ElevationAssist.Elevation="Dp2">
                                                 <Border CornerRadius="12" Background="White"  >
-                                                    <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
+                                                    <Grid >
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="auto"></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -393,7 +393,7 @@
                                             <materialDesign:Card
                                 materialDesign:ElevationAssist.Elevation="Dp2">
                                                 <Border CornerRadius="12" Background="White"  >
-                                                    <Grid Width="{Binding ElementName=Grid_lb , Path=ActualWidth}">
+                                                    <Grid>
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="auto"></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>

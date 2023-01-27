@@ -32,7 +32,7 @@ namespace Project.Pages.SubFoodPage
             InitializeComponent();
             this.DataContext = this;
             Text1 = null;
-            
+
             Types = new List<string>() { "Cơm", "Món nước", "Đồ biển", "Canh", "Thức uống", "Đồ ăn vặt" };
         }
 
@@ -71,28 +71,29 @@ namespace Project.Pages.SubFoodPage
 
         private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DonVi_txt.Text != null && FoodName_txt.Text != null && Kcal_txt.Text != null && Type_cb.Text != null && Mealtime_lv.SelectedItems.Count > 0)
+            if (DonVi_txt.Text != "" && FoodName_txt.Text != "" && Kcal_txt.Text != "" && Type_cb.Text != "" && Mealtime_lv.SelectedItems.Count > 0)
             {
                 int kcal = 0;
                 int fat = 0, protein = 0, carbs = 0;
                 try
                 {
                     kcal = Convert.ToInt32(Kcal_txt.Text);
-                    if(Fat_txt.Text != null)
+                    if (Fat_txt.Text != "")
                     {
                         fat = Convert.ToInt32(Fat_txt.Text);
                     }
-                    if(Protein_txt.Text != null) { protein = Convert.ToInt32(Protein_txt.Text); }
-                    if(Carbs_txt.Text != null) carbs = Convert.ToInt32(Carbs_txt.Text);
+                    if (Protein_txt.Text != "") { protein = Convert.ToInt32(Protein_txt.Text); }
+                    if (Carbs_txt.Text != "") carbs = Convert.ToInt32(Carbs_txt.Text);
                     if (kcal < 0 || fat < 0 || protein < 0 || carbs < 0)
                     {
-                        MessageBox.Show("Nhập sai ! Vui lòng nhập lại");
+                        MessageBox.Show("Nhập sai ! Vui lòng nhập lại 1");
                         return;
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Nhập sai! Vui lòng nhập lại");
+
+                    MessageBox.Show("Nhập sai! Vui lòng nhập lại 2");
                     return;
                 }
 
