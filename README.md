@@ -30,14 +30,8 @@ Hôm nay ăn gì là 1 ứng dụng quản lý các món ăn , giúp cho ngườ
 ![image](https://user-images.githubusercontent.com/113105084/212603271-6394d6a9-0ac1-4238-a5bb-1eceae415db1.png)
 
 ## Hướng dẫn sử dụng : 
-<ol>
-  <li>
-    Đăng kí tài khoản : 
-  </li>
-  <li>
-    Quên mật khẩu :
-  </li>
-</ol>
+- Đăng kí tài khoản :
+    <img src="https://user-images.githubusercontent.com/113105084/215429892-c81d014f-ca3f-4eeb-a9b5-ea73986fa78d.gif">
 
 ## Thành viên trong nhóm :
 <a href="https://github.com/TriKhaiLe/NewMeal_Project/graphs/contributors">
