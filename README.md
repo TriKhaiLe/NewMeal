@@ -11,8 +11,12 @@ Hôm nay ăn gì là 1 ứng dụng quản lý các món ăn , giúp cho ngườ
 - [Enity Framework](https://vi.wikipedia.org/wiki/Entity_Framework)
 
 ## Các tính năng :
-
-
+- Đề xuất món ăn theo ngày , bữa kèm theo cách chế biến và nguyên liệu cần có
+- Đề xuất lượng chất dinh dưỡng cần có mỗi ngày
+- Tính toán lượng kcal cần thiết cho mỗi người dựa trên cách chỉ số như : cân nặng , chiều cao , giới tính ,...
+- Thống kê lại lịch sử ăn uống của 7 ngày gần nhất
+- Tính toán lượng thời gian của từng bài tập để đáp ứng lượng kcal cần đốt cháy thông qua các bài tập thể dục 
+- Đăng kí tài khoản , Quên mật khẩu
 ## Hướng dẫn cài đật
 - Bước 1 : Click Download *.ZIP* để tài project 
 ![image](https://user-images.githubusercontent.com/113105084/212600106-85eef02b-055a-4ceb-bb53-11eaa09548a9.png)
@@ -26,6 +30,14 @@ Hôm nay ăn gì là 1 ứng dụng quản lý các món ăn , giúp cho ngườ
 ![image](https://user-images.githubusercontent.com/113105084/212603271-6394d6a9-0ac1-4238-a5bb-1eceae415db1.png)
 
 ## Hướng dẫn sử dụng : 
+<ol>
+  <li>
+    Đăng kí tài khoản : 
+  </li>
+  <li>
+    Quên mật khẩu :
+  </li>
+</ol>
 
 ## Thành viên trong nhóm :
 <a href="https://github.com/TriKhaiLe/NewMeal_Project/graphs/contributors">
