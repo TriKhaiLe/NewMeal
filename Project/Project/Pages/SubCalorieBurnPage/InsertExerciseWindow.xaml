@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project.Pages.SubCalorieBurnPage"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:MainResources="clr-namespace:Project.MainResources" x:Class="Project.Pages.SubCalorieBurnPage.InsertExerciseWindow"
         mc:Ignorable="d"
-        Title="Thêm bài tập" Height="204.8" Width="370.71" WindowStartupLocation="CenterOwner">
+        Title="Thêm bài tập" Height="204.8" Width="370.71" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

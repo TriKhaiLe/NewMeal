@@ -49,7 +49,7 @@
                     Width="250"
                     Height="50"
                     MaxWidth="400"
-                    MaxLength="5"
+                    MaxLength="3"
                     materialDesign:HintAssist.Hint="Lượng kcal cần đốt"
                     materialDesign:HintAssist.HelperText="Nhập số"
                     HorizontalAlignment="Left"

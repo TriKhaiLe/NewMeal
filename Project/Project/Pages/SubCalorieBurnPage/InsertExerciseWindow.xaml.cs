@@ -39,17 +39,17 @@ namespace Project.Pages.SubCalorieBurnPage
 
         private void AddExercise_btn_Click(object sender, RoutedEventArgs e)
         {
-            // check empty textbox
-            if (ExName_tb.Text == null || CaloPerH_tb.Text == null)
+            // check empty textbox & calo box
+            if (string.IsNullOrEmpty(ExName_tb.Text) || string.IsNullOrEmpty(CaloPerH_tb.Text))
             {
                 MessageBox.Show("Nhập thiếu thông tin bắt buộc !");
                 return;
             }
 
             // check calo textbox validation
-            if (!int.TryParse(CaloPerH_tb.Text, out int calo))
+            if (!int.TryParse(CaloPerH_tb.Text, out int calo) || calo <= 0)
             {
-                MessageBox.Show("Lượng calo chỉ được nhập số");
+                MessageBox.Show("Lượng calo chỉ được nhập số nguyên dương");
                 return;
             }
 

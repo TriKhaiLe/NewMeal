@@ -123,6 +123,7 @@ namespace Project.Pages
                 congratsWindow.Owner = Window.GetWindow(this);
                 congratsWindow.ShowDialog();
 
+                Gauge_Kcal.Value = 0;
                 return;
             }
 
@@ -186,19 +187,23 @@ namespace Project.Pages
         private void Calculate_btn_Click(object sender, RoutedEventArgs e)
         {
             // nhan so calo moi, kiem tra hop le
-            if (!double.TryParse(CaloBox.Text, out _totalCalo))
+            if (!int.TryParse(CaloBox.Text, out int totalCalo) || totalCalo <= 0)
             {
-                MessageBox.Show("Số calo nhập vào chưa hợp lệ!");
+                MessageBox.Show("Số calo nhập vào phải nguyên dương");
                 return;
             }
+
+            _totalCalo = totalCalo;
+
             // reset calo da dot, item da chon, tat nhap nhay caloBox
             _burnedCalo = 0;
             lvCaloriesBurned.SelectedIndex = -1;
             _borderFlag = 2;
 
             // reset dong ho
-            MessageBox.Show("Đã tính xong, mời bạn chọn bài tập");
             _countdownTimer.Stop();
+
+            MessageBox.Show("Đã tính xong, mời bạn chọn bài tập");
             _countdownTimer.Tick -= Count_Tick;
             Clock_block.Text = TimeSpan.FromSeconds(0).ToString();
 
@@ -224,7 +229,7 @@ namespace Project.Pages
                 MessageBoxButton.YesNoCancel, 
                 MessageBoxImage.Question, 
                 MessageBoxResult.Cancel) 
-                == MessageBoxResult.OK)
+                == MessageBoxResult.Yes)
             {
                 Button button = (Button)sender;
                 Exercise exercise = button.DataContext as Exercise;
@@ -257,6 +262,7 @@ namespace Project.Pages
 
                 // kich hoat nut play
                 Play_btn.IsEnabled = true;
+                Pause_btn.IsEnabled = false;
 
                 Exercise exercise = (Exercise)lvCaloriesBurned.SelectedItem;
 
