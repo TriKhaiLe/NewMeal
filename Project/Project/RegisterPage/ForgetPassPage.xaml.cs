@@ -39,6 +39,7 @@ namespace Project.RegisterPage
 
         private void GetPass_Click(object sender, RoutedEventArgs e)
         {
+            if (Text == null) return;
             string from, pass, messageBody , NewPass;
             bool UserExist = true, UserMailExist = true;
             Random rand = new Random();
@@ -49,7 +50,14 @@ namespace Project.RegisterPage
             from = "todaywhateat008@gmail.com";
             pass = "plgyxsgchkhpbtqb";
             messageBody = "Mật khẩu mới của bạn là : " + NewPass;
-            message.To.Add(to);
+            try
+            {
+                message.To.Add(to);
+            }
+            catch
+            {
+                UserMailExist = false;
+            }
             message.From = new MailAddress(from);
             message.Body = messageBody;
             message.Subject = "Mật khẩu mới";
@@ -58,19 +66,6 @@ namespace Project.RegisterPage
             smtp.Port = 587;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Credentials = new NetworkCredential(from, pass);
-            try
-            {
-                smtp.Send(message);
-                if(MessageBox.Show("Mật khẩu mới đã được gửi đến mail của bạn !" , "Thông báo") == MessageBoxResult.OK)
-                {
-                    Main.turn_back();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
             user = DataProvider.Ins.DB.FUser.SingleOrDefault(p => p.Username == Acc_txt.Text);
             if (user != null)
             {
@@ -82,8 +77,20 @@ namespace Project.RegisterPage
             if(!UserExist || !UserMailExist)
             {
                 MessageBox.Show("Tài khoản của bạn không tồn tại hoặc mail của bạn không đúng !", "Thông báo" , MessageBoxButton.OK , MessageBoxImage.Error);
+                return;
             }
-
+            try
+            {
+                smtp.Send(message);
+                if (MessageBox.Show("Mật khẩu mới đã được gửi đến mail của bạn !", "Thông báo") == MessageBoxResult.OK)
+                {
+                    Main.turn_back();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)

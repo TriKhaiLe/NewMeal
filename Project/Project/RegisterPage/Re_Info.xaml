@@ -119,7 +119,6 @@
                 Width="250">
                         <ComboBoxItem Content="Nữ" />
                         <ComboBoxItem Content="Nam" />
-                        <ComboBoxItem IsSelected="True" Content="Khác" />
                     </ComboBox>
 
                 </StackPanel>
