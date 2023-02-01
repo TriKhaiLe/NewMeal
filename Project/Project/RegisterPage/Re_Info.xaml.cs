@@ -71,6 +71,14 @@ namespace Project.RegisterPage
             {
                 MessageBox.Show("Vui lòng nhập tên người dùng","Thông báo");
             }
+            else if (!number_int_checking(weight.Text))
+            {
+                MessageBox.Show("Vui lòng nhập cân nặng", "Thông báo");
+            }
+            else if (!number_int_checking(height.Text))
+            {
+                MessageBox.Show("Vui lòng nhập chiều cao", "Thông báo");
+            }
             else
             {
                 user.UName = Fullname.Text;
