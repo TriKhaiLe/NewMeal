@@ -45,7 +45,7 @@
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <materialDesign:PackIcon Kind="AccountCircle" Margin="0 20 10 0" Foreground="Black"/>
                     <TextBox
                     x:Name="Fullname"
@@ -71,7 +71,7 @@
                 </StackPanel>
 
                 <Grid Grid.Column="2">
-                    <StackPanel Orientation="Horizontal" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <materialDesign:PackIcon Kind="HumanMaleHeight" Margin="10 20 10 0" Foreground="Black"/>
                         <TextBox
                     x:Name="height"
@@ -103,7 +103,7 @@
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <materialDesign:PackIcon Kind="GenderMaleFemale" Margin="0 20 10 0" Foreground="Black"/>
                     <ComboBox
                 x:Name="Gender"
@@ -124,7 +124,7 @@
                 </StackPanel>
 
                 <Grid Grid.Column="2">
-                    <StackPanel Orientation="Horizontal" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <materialDesign:PackIcon Kind="Weight" Margin="10 20 10 0" Foreground="Black"/>
                         <TextBox
                     x:Name="weight"
@@ -156,7 +156,7 @@
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <materialDesign:PackIcon Kind="Numeric0BoxMultipleOutline" Margin="10 20 10 0" Foreground="Black"/>
                     <TextBox
                     x:Name="age"
@@ -180,7 +180,7 @@
                 </StackPanel>
 
                 <Grid Grid.Column="2">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <materialDesign:PackIcon Kind="WeightLifter" Margin="10 20 10 0" Foreground="Black"/>
                         <ComboBox
                         x:Name="Mode"
