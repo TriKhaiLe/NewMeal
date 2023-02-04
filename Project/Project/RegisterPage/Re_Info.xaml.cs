@@ -71,6 +71,10 @@ namespace Project.RegisterPage
             {
                 MessageBox.Show("Vui lòng nhập tên người dùng","Thông báo");
             }
+            else if (!gender_checking())
+            {
+                MessageBox.Show("Vui lòng chọn giới tính", "Thông báo");
+            }
             else if (!number_int_checking(weight.Text))
             {
                 MessageBox.Show("Vui lòng nhập cân nặng", "Thông báo");
@@ -194,6 +198,15 @@ namespace Project.RegisterPage
             {
                 return false;
             }
+        }
+
+        private bool gender_checking()
+        {
+            if (Gender.SelectedIndex == -1)
+            {
+                return false;
+            }
+            return true;
         }
         #endregion
     }
