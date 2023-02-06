@@ -18,7 +18,7 @@
      FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Title="InsertFoodWindow" Height="550" Width="1000" MouseDown="Window_MouseDown">
+        Title="Thêm món ăn" Height="550" Width="1000" MouseDown="Window_MouseDown">
     <Border BorderThickness="4">
         <Border.BorderBrush>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.75">
