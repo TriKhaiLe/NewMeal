@@ -75,6 +75,10 @@ namespace Project.RegisterPage
             {
                 MessageBox.Show("Vui lòng chọn giới tính", "Thông báo");
             }
+            else if (!number_int_checking(age.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tuổi", "Thông báo");
+            }
             else if (!number_int_checking(weight.Text))
             {
                 MessageBox.Show("Vui lòng nhập cân nặng", "Thông báo");
