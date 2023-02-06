@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Project.RegisterPage"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="800"
-      Title="Log_MainPage">
+      Title="Log_MainPage" KeyDown="btnLogin_KeyDown">
 
     <Grid>
         <StackPanel Width="250"
@@ -88,7 +88,7 @@
                             Cursor="Hand"
                             Margin="0, 40, 0, 0"
                             Grid.Row="1"
-                            Click="btnLogin_Click"
+                            Click="btnLogin_Click" 
 >
                 <Button.Style>
                     <Style TargetType="Button">

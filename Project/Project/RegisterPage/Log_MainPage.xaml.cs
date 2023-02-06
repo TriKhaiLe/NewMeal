@@ -75,5 +75,16 @@ namespace Project.RegisterPage
         {
             MainWindow.enter_Forget();
         }
+
+        private void btnLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                btnLogin.Focus();
+                btnLogin.Click += btnLogin_Click;
+                btnLogin.Click -= btnLogin_Click;
+            }
+        }
+
     }
 }
