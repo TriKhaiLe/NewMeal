@@ -17,7 +17,7 @@ Hôm nay ăn gì là 1 ứng dụng quản lý các món ăn , giúp cho ngườ
 - Thống kê lại lịch sử ăn uống của 7 ngày gần nhất
 - Tính toán lượng thời gian của từng bài tập để đáp ứng lượng kcal cần đốt cháy thông qua các bài tập thể dục 
 - Đăng kí tài khoản , Quên mật khẩu
-## Hướng dẫn cài đật
+## Hướng dẫn cài đặt
 - Bước 1 : Click Download *.ZIP* để tài project 
 ![image](https://user-images.githubusercontent.com/113105084/212600106-85eef02b-055a-4ceb-bb53-11eaa09548a9.png)
 - Bước 2 : Giải nén file *.ZIP* và tìm kiếm trong Folder file *QLMA.sql*
