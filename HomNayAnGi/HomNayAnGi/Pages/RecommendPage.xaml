@@ -72,7 +72,7 @@
                        Text="Đề Xuất Cho Bạn"
                         FontSize="40"
                        Foreground="Black"
-                       Style="{StaticResource MaterialDesignHeadline4TextBlock}" FontFamily="SVN-Shintia Script"/>
+                       Style="{StaticResource MaterialDesignHeadline4TextBlock}" FontFamily="/Assets/FontFamily/#SVN-Shintia Script"/>
 
             </DockPanel>
             <DockPanel Grid.Row="1">

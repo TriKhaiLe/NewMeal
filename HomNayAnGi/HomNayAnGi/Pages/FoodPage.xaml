@@ -112,7 +112,7 @@
                 <TextBlock
                     FontSize="50"
                     Style="{StaticResource MaterialDesignHeadline4TextBlock}"
-                    Text="Hôm  nay  ăn  gì  ?" FontFamily="SVN-Shintia Script" />
+                    Text="Hôm  nay  ăn  gì  ?" FontFamily="/Assets/FontFamily/#SVN-Shintia Script" />
             </DockPanel>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
