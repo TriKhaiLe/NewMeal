@@ -21,7 +21,7 @@
                            Width="150"
                            Height="150"/>
         <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap">
-            <Run Text="Thay đổi mật khẩu" Foreground="DarkSlateGray"    
+            <Run Text="Quên mật khẩu" Foreground="DarkSlateGray"    
                    FontSize="25"          
                    FontWeight="Medium"          
                    FontFamily="Montserrat"></Run>
