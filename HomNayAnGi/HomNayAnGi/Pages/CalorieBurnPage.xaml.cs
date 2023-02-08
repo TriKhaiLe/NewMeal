@@ -108,7 +108,7 @@ namespace Project.Pages
                 // phat nhac
                 string workingDirectory = Environment.CurrentDirectory;
                 string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-                string path = projectDirectory + "\\Project\\Assets\\Exercises\\complete_sound.wav";
+                string path = projectDirectory + "\\HomNayAnGi\\Assets\\Exercises\\complete_sound.wav";
 
                 MediaPlayer mediaPlayer = new MediaPlayer();
                 mediaPlayer.Open(new Uri(path));

@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <Image gif:ImageBehavior.AnimatedSource="/Project;component/Assets/Exercises/complete.gif" HorizontalAlignment="Left" Height="129" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Source="/Project;component/Assets/Exercises/complete.gif"/>
+            <Image gif:ImageBehavior.AnimatedSource="/HomNayAnGi;component/Assets/Exercises/complete.gif" HorizontalAlignment="Left" Height="129" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Source="/HomNayAnGi;component/Assets/Exercises/complete.gif"/>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

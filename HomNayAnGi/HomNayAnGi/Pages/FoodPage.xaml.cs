@@ -327,10 +327,15 @@ namespace Project.Pages
             {
                 Button button = (Button)sender;
                 FoodDays food = button.DataContext as FoodDays;
+                if(food.Food.FoodID > 60)
+                {
+                    DataProvider.Ins.DB.Food.Remove(DataProvider.Ins.DB.Food.SingleOrDefault(p=>p.FoodID == food.Food.FoodID));
+                }
                 DataProvider.Ins.DB.UserFood.Remove(DataProvider.Ins.DB.UserFood.SingleOrDefault(p => p.FoodID == food.Food.FoodID && p.UserID == DataProvider.Ins.Current_UserID));
                 DataProvider.Ins.DB.SaveChanges();
                 foodList.Remove(food);
                 lvDataBinding.Items.Refresh();
+                lvDataBinding.Items.Filter = UserFilter;
             }
             
         }
